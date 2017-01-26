@@ -8,4 +8,11 @@
         <string name="drawer_item_help">Help</string>
         <string name="drawer_item_open_source">Open Source</string>
         <string name="drawer_item_contact">Contact</string>
+
+        <string name="piz_catalog">Pizza catalog</string>
+        <string name="sales">Sales</string>
+        <string name="my_order">My order</string>
+        <string name="about_delevery">About Delevery</string>
+        <string name="profile">Profile</string>
+        <string name="sing_out">Sing out</string>
 </resources>
