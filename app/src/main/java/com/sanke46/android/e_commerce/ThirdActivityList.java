@@ -13,6 +13,6 @@ public class ThirdActivityList extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
-        setContentView(R.layout.third_list_item);
+        setContentView(R.layout.third_list);
     }
 }
