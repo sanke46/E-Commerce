@@ -1,9 +1,12 @@
 package com.sanke46.android.e_commerce;
 
+import android.app.TabActivity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.widget.TabHost;
 
 import com.mikepenz.iconics.typeface.FontAwesome;
 import com.mikepenz.materialdrawer.Drawer;
@@ -36,5 +39,28 @@ public class MainActivity extends ActionBarActivity {
                         new PrimaryDrawerItem().withName(R.string.sing_out).withIcon(FontAwesome.Icon.faw_sign_out)
                 )
                 .build();
+    }
+
+    public class mainActivityTwo extends TabActivity {
+
+        MainActivity mainActivityTwo = new MainActivity();
+        private static final String FIRST_TAB = "One";
+        private static final String SECOND_TAB = "Two";
+        private static final String THIRD_TAB = "Tree";
+
+
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+
+            TabHost tabHost = getTabHost();
+            TabHost.TabSpec oneSpace = tabHost.newTabSpec(FIRST_TAB);
+
+            oneSpace.setIndicator(FIRST_TAB,getResources().getDrawable(R.drawable.ic_launcher));
+            Intent firtsIntent = new Intent(this,FirstActivityList.class);
+
+            oneSpace.setContent(firtsIntent);
+        }
+
     }
 }
