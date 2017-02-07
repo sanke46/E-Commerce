@@ -12,10 +12,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 /**
  * Created by ilafedoseev on 05.02.17.
  */
 public class Fragment1 extends Fragment {
+
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -28,9 +33,13 @@ public class Fragment1 extends Fragment {
         ListView listView = (ListView) view.findViewById(R.id.list);
         String[] dummyStrings = getResources().getStringArray(R.array.my_items);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, dummyStrings);
-        listView.setAdapter(adapter);
+        ArrayList<Item> arrayList = new ArrayList<Item>();
+        arrayList.add(new Item(1,"Title1","Comment1",19,"Button1","Button2"));
+        arrayList.add(new Item(2,"Title2","Comment2",20,"Button1-2","Button2-2"));
+        arrayList.add(new Item(3,"Title3","Comment3",21,"Button1-3","Button2-3"));
 
+        ListAdapter listAdapter = new ListAdapter(getActivity().getApplicationContext(),arrayList);
+        listView.setAdapter(listAdapter);
 
     }
 }
