@@ -19,8 +19,6 @@ import java.util.ArrayList;
  */
 public class Fragment1 extends Fragment {
 
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -33,12 +31,12 @@ public class Fragment1 extends Fragment {
         ListView listView = (ListView) view.findViewById(R.id.list);
         String[] dummyStrings = getResources().getStringArray(R.array.my_items);
 
-        ArrayList<Item> arrayList = new ArrayList<Item>();
-        arrayList.add(new Item(1,"Title1","Comment1",19,"Button1","Button2"));
-        arrayList.add(new Item(2,"Title2","Comment2",20,"Button1-2","Button2-2"));
-        arrayList.add(new Item(3,"Title3","Comment3",21,"Button1-3","Button2-3"));
+        ArrayList<Item> pizzaList = new ArrayList<Item>();
+        pizzaList.add(new Item(1,"Title1","Comment1",19,"Button1","Button2"));
+        pizzaList.add(new Item(2,"Title2","Comment2",20,"Button1-2","Button2-2"));
+        pizzaList.add(new Item(3,"Title3","Comment3",21,"Button1-3","Button2-3"));
 
-        ListAdapter listAdapter = new ListAdapter(getActivity().getApplicationContext(),arrayList);
+        ListAdapter listAdapter = new ListAdapter(getActivity().getApplicationContext(),pizzaList);
         listView.setAdapter(listAdapter);
 
     }

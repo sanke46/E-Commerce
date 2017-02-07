@@ -15,7 +15,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="190dp"
+            android:layout_height="195dp"
             android:src="@drawable/pizza"
             android:layout_marginBottom="10dp"/>
 
@@ -32,6 +32,7 @@
             android:id="@+id/comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#8c8c8c"
             android:layout_marginLeft="10dp"
             android:text="some text about"/>
 
@@ -55,7 +56,7 @@
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
                 android:background="@color/colorBlue"
-                android:text="Button"
+                android:text="More info"
                 android:textColor="@android:color/white"/>
 
             <Button
@@ -64,7 +65,7 @@
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
                 android:background="@color/colorBlue"
-                android:text="Button"
+                android:text="Add to Basket"
                 android:textColor="@android:color/white"/>
         </LinearLayout>
 
