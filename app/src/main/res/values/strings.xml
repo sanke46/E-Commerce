@@ -35,4 +35,6 @@
                 <item>Dummy Item 13</item>
                 <item>Dummy Item 14</item>
         </string-array>
+    <string name="title_activity_basket">Basket</string>
+    <string name="title_activity_about_delevery">AboutDelevery</string>
 </resources>

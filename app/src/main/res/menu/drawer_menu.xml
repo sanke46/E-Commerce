@@ -2,31 +2,31 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/catalog"
-        android:icon="@android:drawable/ic_menu_camera"
+        android:icon="@drawable/ic_local_pizza_black_24px"
         android:title="Catalog" />
 
     <item
         android:id="@+id/sales"
-        android:icon="@android:drawable/ic_menu_gallery"
+        android:icon="@drawable/ic_local_offer_black_24px"
         android:title="Sales" />
 
     <item
         android:id="@+id/order"
-        android:icon="@android:drawable/ic_menu_set_as"
+        android:icon="@drawable/ic_shopping_basket_black_24px"
         android:title="My order" />
 
     <item
         android:id="@+id/about"
-        android:icon="@android:drawable/ic_menu_call"
+        android:icon="@drawable/ic_info_black_24px"
         android:title="About Delevery" />
 
     <item
         android:id="@+id/profile"
-        android:icon="@android:drawable/ic_menu_info_details"
+        android:icon="@drawable/ic_account_circle_black_24px"
         android:title="Profile" />
 
     <item
         android:id="@+id/sing_out"
-        android:icon="@android:drawable/ic_menu_info_details"
+        android:icon="@drawable/ic_backspace_black_24px"
         android:title="Sing out" />
 </menu>

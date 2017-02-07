@@ -40,4 +40,3 @@ public class DesActivity extends AppCompatActivity {
         finish();
     }
 }
-

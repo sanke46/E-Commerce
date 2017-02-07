@@ -1,21 +1,17 @@
 package com.sanke46.android.e_commerce;
 
-import android.app.TabActivity;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -52,8 +48,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //handling navigation view item event
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        assert navigationView != null;
+//        assert navigationView != null;
         navigationView.setNavigationItemSelectedListener(this);
+
+        View hView =  navigationView.getHeaderView(0);
+//        TextView nav_user = (TextView)hView.findViewById(R.id.nav_name);
+//        nav_user.setText(user);
 
         //set viewpager adapter
         ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
@@ -90,10 +90,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.sales) {
             viewPager.setCurrentItem(1);
         } else if (id == R.id.order) {
-            viewPager.setCurrentItem(2);
-        } else if (id == R.id.profile) {
-            Intent intent = new Intent(this, DesActivity.class);
-            intent.putExtra("string", "Go to other Activity by NavigationView item cliked!");
+            Intent intent = new Intent(this, MyOrder.class);
+            startActivity(intent);
+        } else if (id == R.id.about) {
+            Intent intent = new Intent(this, AboutDelevery.class);
             startActivity(intent);
         } else if (id == R.id.sing_out) {
             finish();

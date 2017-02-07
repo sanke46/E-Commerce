@@ -6,7 +6,14 @@
         <item name="colorPrimary">@color/colorRed</item>
         <item name="colorPrimaryDark">@color/coloBlackRed</item>
         <item name="colorAccent">@color/colorBlue</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@color/BlackGrey</item>
+        <item name="actionMenuTextColor">@color/BlackGrey</item>
 
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>
