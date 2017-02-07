@@ -32,9 +32,9 @@ public class Fragment1 extends Fragment {
         String[] dummyStrings = getResources().getStringArray(R.array.my_items);
 
         ArrayList<Item> pizzaList = new ArrayList<Item>();
-        pizzaList.add(new Item(1,"Title1","Comment1",19,"Button1","Button2"));
-        pizzaList.add(new Item(2,"Title2","Comment2",20,"Button1-2","Button2-2"));
-        pizzaList.add(new Item(3,"Title3","Comment3",21,"Button1-3","Button2-3"));
+        pizzaList.add(new Item(R.drawable.pizza,"Pizza1","tomatoes, onions, olives, cheese, chicken",19,"Button1","Button2"));
+        pizzaList.add(new Item(R.drawable.pizza2,"Pizza2","tomatoes, onions, olives, cheese, chicken",20,"Button1-2","Button2-2"));
+        pizzaList.add(new Item(R.drawable.pizza3,"Pizza3","tomatoes, onions, olives, cheese, chicken",21,"Button1-3","Button2-3"));
 
         ListAdapter listAdapter = new ListAdapter(getActivity().getApplicationContext(),pizzaList);
         listView.setAdapter(listAdapter);

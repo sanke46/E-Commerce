@@ -32,9 +32,9 @@ public class Fragment3 extends Fragment {
         String[] dummyStrings = getResources().getStringArray(R.array.my_items);
 
         ArrayList<Item> drinkList = new ArrayList<Item>();
-        drinkList.add(new Item(1,"Title1","Comment1",19,"Button1","Button2"));
-        drinkList.add(new Item(2,"Title2","Comment2",20,"Button1-2","Button2-2"));
-        drinkList.add(new Item(3,"Title3","Comment3",21,"Button1-3","Button2-3"));
+        drinkList.add(new Item(R.drawable.drinks,"Drink1","Comment1",4,"Button1","Button2"));
+        drinkList.add(new Item(R.drawable.drinks2,"Drink2","Comment2",5,"Button1-2","Button2-2"));
+        drinkList.add(new Item(R.drawable.drinks3,"Drink3","Comment3",6,"Button1-3","Button2-3"));
 
         ListAdapter listAdapter = new ListAdapter(getActivity().getApplicationContext(),drinkList);
         listView.setAdapter(listAdapter);

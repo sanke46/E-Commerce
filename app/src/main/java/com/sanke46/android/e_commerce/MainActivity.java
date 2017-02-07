@@ -85,17 +85,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.fr1) {
+        if (id == R.id.catalog) {
             viewPager.setCurrentItem(0);
-        } else if (id == R.id.fr2) {
+        } else if (id == R.id.sales) {
             viewPager.setCurrentItem(1);
-        } else if (id == R.id.fr3) {
+        } else if (id == R.id.order) {
             viewPager.setCurrentItem(2);
-        } else if (id == R.id.go) {
+        } else if (id == R.id.profile) {
             Intent intent = new Intent(this, DesActivity.class);
             intent.putExtra("string", "Go to other Activity by NavigationView item cliked!");
             startActivity(intent);
-        } else if (id == R.id.close) {
+        } else if (id == R.id.sing_out) {
             finish();
         }
 

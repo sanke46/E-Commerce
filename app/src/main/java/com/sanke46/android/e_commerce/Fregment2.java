@@ -32,9 +32,9 @@ public class Fregment2 extends Fragment {
         String[] dummyStrings = getResources().getStringArray(R.array.my_items);
 
         ArrayList<Item> sushiList = new ArrayList<Item>();
-        sushiList.add(new Item(1,"Title1","Comment1",19,"Button1","Button2"));
-        sushiList.add(new Item(2,"Title2","Comment2",20,"Button1-2","Button2-2"));
-        sushiList.add(new Item(3,"Title3","Comment3",21,"Button1-3","Button2-3"));
+        sushiList.add(new Item(R.drawable.sushi,"Sushi1","rice, cucumber, fish, soy",10,"Button1","Button2"));
+        sushiList.add(new Item(R.drawable.sushi2,"Sushi2","rice, cucumber, fish, soy",11,"Button1-2","Button2-2"));
+        sushiList.add(new Item(R.drawable.sushi3,"Sushi3","rice, cucumber, fish, soy",12,"Button1-3","Button2-3"));
 
         ListAdapter listAdapter = new ListAdapter(getActivity().getApplicationContext(),sushiList);
         listView.setAdapter(listAdapter);
