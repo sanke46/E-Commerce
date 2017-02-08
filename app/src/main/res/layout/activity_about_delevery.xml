@@ -32,23 +32,35 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="225sp"
+            android:layout_height="215sp"
             android:src="@drawable/place"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorBlue">
+            android:background="@color/colorBlue"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
+                android:paddingLeft="20dp"
                 android:textSize="24sp"
                 android:text="Pizza ресторан"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:paddingLeft="20dp"
+                android:text="3.8  * * * * *"/>
+
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></LinearLayout>
     </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
