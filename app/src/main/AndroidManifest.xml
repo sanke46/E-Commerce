@@ -22,7 +22,10 @@
         <activity
             android:name=".AboutDelevery"
             android:label="@string/title_activity_about_delevery"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".InfoItems" />
+        <activity android:name=".Profile" />
+        <activity android:name=".Sales"></activity>
     </application>
 
 </manifest>
