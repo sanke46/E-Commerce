@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MyOrder"
+            android:name=".Basket"
             android:label="@string/title_activity_basket"
             android:theme="@style/AppTheme" />
         <activity

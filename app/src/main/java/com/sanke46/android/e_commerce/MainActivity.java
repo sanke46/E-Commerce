@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.sales) {
             viewPager.setCurrentItem(1);
         } else if (id == R.id.order) {
-            Intent intent = new Intent(this, MyOrder.class);
+            Intent intent = new Intent(this, Basket.class);
             startActivity(intent);
         } else if (id == R.id.about) {
             Intent intent = new Intent(this, AboutDelevery.class);

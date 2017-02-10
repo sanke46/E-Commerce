@@ -15,6 +15,9 @@
         <string name="about_delevery">About Delevery</string>
         <string name="profile">Profile</string>
         <string name="sing_out">Sing out</string>
+        
+        <string name="marginTopAbout">12dp</string>
+        <string name="marginTopAboutTwo">12dp</string>
 
         <string name="navigation_drawer_open">Open</string>
         <string name="navigation_drawer_close">Close</string>
