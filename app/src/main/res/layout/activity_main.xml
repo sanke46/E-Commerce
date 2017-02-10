@@ -15,7 +15,10 @@
         android:background="@color/coloBlackRed"
         android:elevation="4dp"
         android:minHeight="?attr/actionBarSize"
-        android:transitionName="actionBar"/>
+        android:transitionName="actionBar">
+
+
+    </android.support.v7.widget.Toolbar>
 
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawerLayout"
