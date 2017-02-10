@@ -88,14 +88,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.catalog) {
             viewPager.setCurrentItem(0);
         } else if (id == R.id.sales) {
-            viewPager.setCurrentItem(1);
+            Intent intent = new Intent(this, SalesActivity.class);
+            startActivity(intent);
         } else if (id == R.id.order) {
-            Intent intent = new Intent(this, Basket.class);
+            Intent intent = new Intent(this, BasketActivity.class);
             startActivity(intent);
         } else if (id == R.id.about) {
             Intent intent = new Intent(this, AboutDelevery.class);
             startActivity(intent);
-        } else if (id == R.id.sing_out) {
+        } else if (id == R.id.profile) {
+            Intent intent = new Intent(this, ProfileActivity.class);
+            startActivity(intent);
+        }else if (id == R.id.sing_out) {
             finish();
         }
 

@@ -1,6 +1,7 @@
 package com.sanke46.android.e_commerce;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,8 +11,9 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
-public class Basket extends AppCompatActivity {
+public class BasketActivity extends AppCompatActivity {
 
     private DrawerLayout drawer;
 
@@ -32,6 +34,7 @@ public class Basket extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
     }
 
