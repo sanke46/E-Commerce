@@ -15,6 +15,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".BasketActivity"
+            android:label="@string/title_activity_basket"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".AboutDelevery"
+            android:label="@string/title_activity_about_delevery"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".InfoItemsActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".SalesActivity"></activity>
     </application>
 
 </manifest>

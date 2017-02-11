@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/catalog"
+        android:icon="@drawable/ic_local_pizza_black_24px"
+        android:title="Catalog" />
+
+    <item
+        android:id="@+id/sales"
+        android:icon="@drawable/ic_local_offer_black_24px"
+        android:title="Sales" />
+
+    <item
+        android:id="@+id/order"
+        android:icon="@drawable/ic_shopping_basket_black_24px"
+        android:title="My order" />
+
+    <item
+        android:id="@+id/about"
+        android:icon="@drawable/ic_info_black_24px"
+        android:title="About Delevery" />
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_account_circle_black_24px"
+        android:title="Profile" />
+
+    <item
+        android:id="@+id/sing_out"
+        android:icon="@drawable/ic_backspace_black_24px"
+        android:title="Sing out" />
+</menu>
