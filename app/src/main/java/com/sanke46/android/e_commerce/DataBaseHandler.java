@@ -16,8 +16,8 @@ import java.util.List;
 public class DataBaseHandler extends SQLiteOpenHelper implements DBHandlerInterface   {
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "Item manager";
-    private static final String TABLE_CONTACTS = "item";
+    private static final String DATABASE_NAME = "ItemFood";
+    private static final String TABLE_CONTACTS = "Food";
 
     private static final String KEY_ID = "id";
     private static final String KEY_IMAGE = "imageId";
@@ -27,22 +27,20 @@ public class DataBaseHandler extends SQLiteOpenHelper implements DBHandlerInterf
     private static final String KEY_BUT_1 = "button1";
     private static final String KEY_BUT_2 = "button2";
 
-
     public DataBaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_ITEM_TABLE = "CREATE TABLE" + TABLE_CONTACTS + "("
-                + KEY_ID + "INTEGER PRIMARY KEY, "
-                + KEY_IMAGE + "TEXT,"
-                + KEY_NAME + "TEXT,"
-                + KEY_COMM + "TEXT,"
-                + KEY_PRICE + "TEXT,"
-                + KEY_BUT_1 + "TEXT,"
-                + KEY_BUT_2 + "TEXT" + ")";
+        String CREATE_ITEM_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "("
+                + KEY_ID + " INTEGER PRIMARY KEY,"
+                + KEY_IMAGE + " TEXT,"
+                + KEY_NAME + " TEXT,"
+                + KEY_COMM + " TEXT,"
+                + KEY_PRICE + " TEXT,"
+                + KEY_BUT_1 + " TEXT,"
+                + KEY_BUT_2 + " TEXT" + ")";
         db.execSQL(CREATE_ITEM_TABLE);
     }
 
@@ -79,6 +77,7 @@ public class DataBaseHandler extends SQLiteOpenHelper implements DBHandlerInterf
             cursor.moveToFirst();
         }
 
+        assert cursor != null;
         Item item = new Item(Integer.parseInt(cursor.getString(0)), Integer.parseInt(cursor.getString(1)), cursor.getString(2),
                 cursor.getString(3), Integer.parseInt(cursor.getString(4)), cursor.getString(5),cursor.getString(6));
 
@@ -87,7 +86,7 @@ public class DataBaseHandler extends SQLiteOpenHelper implements DBHandlerInterf
 
     @Override
     public List<Item> getAllItem() {
-        List<Item> contactList = new ArrayList<Item>();
+        List<Item> itemList = new ArrayList<Item>();
         String selectQuery = "SELECT  * FROM " + TABLE_CONTACTS;
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -95,20 +94,20 @@ public class DataBaseHandler extends SQLiteOpenHelper implements DBHandlerInterf
 
         if (cursor.moveToFirst()) {
             do {
-                Item contact = new Item();
-                contact.setId(Integer.parseInt(cursor.getString(0)));
-                contact.setImageId(Integer.parseInt(cursor.getString(1)));
-                contact.setName(cursor.getString(2));
-                contact.setComment(cursor.getString(3));
-                contact.setPrice(Integer.parseInt(cursor.getString(4)));
-                contact.setButtonOne(cursor.getString(5));
-                contact.setButtonTwo(cursor.getString(6));
+                Item item = new Item();
+                item.setId(Integer.parseInt(cursor.getString(0)));
+                item.setImageId(Integer.parseInt(cursor.getString(1)));
+                item.setName(cursor.getString(2));
+                item.setComment(cursor.getString(3));
+                item.setPrice(Integer.parseInt(cursor.getString(4)));
+                item.setButtonOne(cursor.getString(5));
+                item.setButtonTwo(cursor.getString(6));
 
-                contactList.add(contact);
+                itemList.add(item);
             } while (cursor.moveToNext());
         }
 
-        return contactList;
+        return itemList;
     }
 
     @Override

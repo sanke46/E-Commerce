@@ -5,6 +5,7 @@ package com.sanke46.android.e_commerce;
  */
 
 public class Item {
+
     private int id;
     private int imageId;
     private String name;
@@ -35,8 +36,8 @@ public class Item {
     public Item() {
 
     }
-    // GET methods
 
+    // GET methods
 
     public int getId() {
         return id;
@@ -66,9 +67,7 @@ public class Item {
         return buttonTwo;
     }
 
-
     // SET methods
-
 
     public void setId(int id) {
         this.id = id;

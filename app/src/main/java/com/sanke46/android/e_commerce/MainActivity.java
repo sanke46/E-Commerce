@@ -38,22 +38,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         DataBaseHandler db = new DataBaseHandler(this);
 
-        /**
-         * CRUD Operations
-         * */
         // Inserting Contacts
         Log.d("Insert: ", "Inserting ..");
-        db.addItem(new Item(R.drawable.pizza,"Pizza1","tomatoes",19,"Button1","Button2"));
-
-        // Reading all contacts
-        Log.d("Reading: ", "Reading all contacts..");
-        List<Item> item = db.getAllContacts();
-
-        for (Item it : item) {
-            String log = "Id: "+it.getId()+" ,Name: " + it.getName() + " ,Phone: " + it.getComment();
-            // Writing Contacts to log
-            Log.d("Name: ", log);
-        }
+        db.addItem(new Item(R.drawable.sushi,"Sushi1","rice, cucumber, fish, soy",10,"Button1","Button2"));
+        db.addItem(new Item(R.drawable.pizza,"Pizza1","tomatoes, onions, olives, cheese, chicken",19,"Button1","Button2"));
+        db.addItem(new Item(R.drawable.pizza2,"Pizza2","tomatoes, onions, olives, cheese, chicken",20,"Button1-2","Button2-2"));
+        db.addItem(new Item(R.drawable.pizza3,"Pizza3","tomatoes, onions, olives, cheese, chicken",21,"Button1-3","Button2-3"));
 
         //create default navigation drawer toggle
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
