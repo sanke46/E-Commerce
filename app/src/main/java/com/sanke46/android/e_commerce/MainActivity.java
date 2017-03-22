@@ -10,9 +10,12 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -32,6 +35,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         setSupportActionBar(toolbar);
 
+
+        DataBaseHandler db = new DataBaseHandler(this);
+
+        /**
+         * CRUD Operations
+         * */
+        // Inserting Contacts
+        Log.d("Insert: ", "Inserting ..");
+        db.addItem(new Item(R.drawable.pizza,"Pizza1","tomatoes",19,"Button1","Button2"));
+
+        // Reading all contacts
+        Log.d("Reading: ", "Reading all contacts..");
+        List<Item> item = db.getAllContacts();
+
+        for (Item it : item) {
+            String log = "Id: "+it.getId()+" ,Name: " + it.getName() + " ,Phone: " + it.getComment();
+            // Writing Contacts to log
+            Log.d("Name: ", log);
+        }
 
         //create default navigation drawer toggle
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,

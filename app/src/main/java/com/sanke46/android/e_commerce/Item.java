@@ -5,12 +5,23 @@ package com.sanke46.android.e_commerce;
  */
 
 public class Item {
+    private int id;
     private int imageId;
     private String name;
     private String comment;
     private int price;
     private String buttonOne;
     private String buttonTwo;
+
+    public Item(int id, int imageId, String name, String comment,int price,String buttonOne,String buttonTwo){
+        this.id = id;
+        this.imageId = imageId;
+        this.name = name;
+        this.comment = comment;
+        this.price = price;
+        this.buttonOne = buttonOne;
+        this.buttonTwo = buttonTwo;
+    }
 
     public Item(int imageId, String name, String comment,int price,String buttonOne,String buttonTwo){
         this.imageId = imageId;
@@ -21,7 +32,15 @@ public class Item {
         this.buttonTwo = buttonTwo;
     }
 
+    public Item() {
+
+    }
     // GET methods
+
+
+    public int getId() {
+        return id;
+    }
 
     public int getImageId() {
         return imageId;
@@ -49,6 +68,12 @@ public class Item {
 
 
     // SET methods
+
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setImageId(int imageId) {
         this.imageId = imageId;
     }
