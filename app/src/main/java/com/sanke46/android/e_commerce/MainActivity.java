@@ -40,10 +40,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         // Inserting Contacts
         Log.d("Insert: ", "Inserting ..");
-        db.addItem(new Item(R.drawable.sushi,"Sushi1","rice, cucumber, fish, soy",10,"Button1","Button2"));
-        db.addItem(new Item(R.drawable.pizza,"Pizza1","tomatoes, onions, olives, cheese, chicken",19,"Button1","Button2"));
-        db.addItem(new Item(R.drawable.pizza2,"Pizza2","tomatoes, onions, olives, cheese, chicken",20,"Button1-2","Button2-2"));
-        db.addItem(new Item(R.drawable.pizza3,"Pizza3","tomatoes, onions, olives, cheese, chicken",21,"Button1-3","Button2-3"));
+        db.addItem("Su",new Item(R.drawable.sushi,"Sushi1","rice, cucumber, fish, soy",10,"Button1","Button2"));
+        db.addItem("Su",new Item(R.drawable.sushi,"Sushi1","rice, cucumber, fish, soy",10,"Button1","Button2"));
+        db.addItem("Su",new Item(R.drawable.sushi,"Sushi1","rice, cucumber, fish, soy",10,"Button1","Button2"));
+        db.addItem("Pi", new Item(R.drawable.pizza,"Pizza1","tomatoes, onions, olives, cheese, chicken",19,"Button1","Button2"));
+        db.addItem("Pi", new Item(R.drawable.pizza,"Pizza1","tomatoes, onions, olives, cheese, chicken",19,"Button1","Button2"));
+        db.addItem("Pi", new Item(R.drawable.pizza,"Pizza1","tomatoes, onions, olives, cheese, chicken",19,"Button1","Button2"));
+        db.addItem("Dr", new Item(R.drawable.pizza,"Coca-cola","tomatoes, onions, olives, cheese, chicken",19,"Button1","Button2"));
+        db.addItem("Dr", new Item(R.drawable.pizza,"Pepsi","Pepsi is a carbonated soft drink produced and manufactured by PepsiCo",19,"Button1","Button2"));
+        db.addItem("Dr", new Item(R.drawable.pizza,"Sprite","tomatoes, onions, olives, cheese, chicken",19,"Button1","Button2"));
+
+        List<Item> list = db.getAllItem("Su");
+        List<Item> list2 = db.getAllItem("Pi");
+        List<Item> list3 = db.getAllItem("Dr");
+
+        for (int i = 0; i < 3; i++) {
+            System.out.println(list.get(i));
+            System.out.println(list2.get(i));
+            System.out.println(list3.get(i));
+        }
+
+        db.deleteAll("Su");
+        db.deleteAll("Pi");
+        db.deleteAll("Dr");
+        System.out.println("DONE");
+
 
         //create default navigation drawer toggle
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,

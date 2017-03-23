@@ -13,10 +13,10 @@ import java.util.List;
  * Created by ilafedoseev on 11.02.17.
  */
 
-public class DataBaseHandler extends SQLiteOpenHelper implements DBHandlerInterface   {
+public class DataBaseHandler extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "ItemFood";
+    private static final int DATABASE_VERSION = 2;
+    private static final String DATABASE_NAME = "Food";
     private static final String TABLE_CONTACTS = "Food";
 
     private static final String KEY_ID = "id";
@@ -33,7 +33,13 @@ public class DataBaseHandler extends SQLiteOpenHelper implements DBHandlerInterf
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_ITEM_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "("
+        db.execSQL(CreateTableSql("Pi"));
+        db.execSQL(CreateTableSql("Su"));
+        db.execSQL(CreateTableSql("Dr"));
+    }
+
+    public String CreateTableSql(String name){
+        String table = "CREATE TABLE " + name + "("
                 + KEY_ID + " INTEGER PRIMARY KEY,"
                 + KEY_IMAGE + " TEXT,"
                 + KEY_NAME + " TEXT,"
@@ -41,8 +47,10 @@ public class DataBaseHandler extends SQLiteOpenHelper implements DBHandlerInterf
                 + KEY_PRICE + " TEXT,"
                 + KEY_BUT_1 + " TEXT,"
                 + KEY_BUT_2 + " TEXT" + ")";
-        db.execSQL(CREATE_ITEM_TABLE);
+        return table;
     }
+
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -50,8 +58,7 @@ public class DataBaseHandler extends SQLiteOpenHelper implements DBHandlerInterf
         onCreate(db);
     }
 
-    @Override
-    public void addItem(Item item) {
+    public void addItem(String name,Item item) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_IMAGE, item.getImageId());
@@ -61,11 +68,10 @@ public class DataBaseHandler extends SQLiteOpenHelper implements DBHandlerInterf
         values.put(KEY_BUT_1, item.getButtonOne());
         values.put(KEY_BUT_2, item.getButtonTwo());
 
-        db.insert(TABLE_CONTACTS, null, values);
+        db.insert(name, null, values);
         db.close();
     }
 
-    @Override
     public Item getItem(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -84,10 +90,9 @@ public class DataBaseHandler extends SQLiteOpenHelper implements DBHandlerInterf
         return item;
     }
 
-    @Override
-    public List<Item> getAllItem() {
+    public List<Item> getAllItem(String name) {
         List<Item> itemList = new ArrayList<Item>();
-        String selectQuery = "SELECT  * FROM " + TABLE_CONTACTS;
+        String selectQuery = "SELECT  * FROM " + name;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -110,7 +115,6 @@ public class DataBaseHandler extends SQLiteOpenHelper implements DBHandlerInterf
         return itemList;
     }
 
-    @Override
     public int getItemCounter() {
         String countQuery = "SELECT  * FROM " + TABLE_CONTACTS;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -120,8 +124,7 @@ public class DataBaseHandler extends SQLiteOpenHelper implements DBHandlerInterf
         return cursor.getCount();
     }
 
-    @Override
-    public int updateItem(Item item) {
+    public int updateItem(String name, Item item) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -132,21 +135,19 @@ public class DataBaseHandler extends SQLiteOpenHelper implements DBHandlerInterf
         values.put(KEY_BUT_1, item.getButtonOne());
         values.put(KEY_BUT_2, item.getButtonTwo());
 
-        return db.update(TABLE_CONTACTS, values, KEY_ID + " = ?",
+        return db.update(name, values, KEY_ID + " = ?",
                 new String[] { String.valueOf(item.getId()) });
     }
 
-    @Override
-    public void deleteItem(Item item) {
+    public void deleteItem(String name, Item item) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_CONTACTS, KEY_ID + " = ?", new String[] { String.valueOf(item.getId()) });
+        db.delete(name, KEY_ID + " = ?", new String[] { String.valueOf(item.getId()) });
         db.close();
     }
 
-    @Override
-    public void deleteAll() {
+    public void deleteAll(String name) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_CONTACTS, null, null);
+        db.delete(name, null, null);
         db.close();
     }
 }
