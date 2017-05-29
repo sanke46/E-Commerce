@@ -19,7 +19,7 @@ import java.util.List;
 public class ListAdapter extends ArrayAdapter<Item>{
 
     BasketActivity basketActivity = new BasketActivity();
-    public List<Integer> itemList = basketActivity.getBasketItem();
+    private List<Item> itemList = basketActivity.getBasketItem();
     public ListAdapter(Context context, List<Item> arrayList) {
         super(context, 0 ,arrayList);
     }
@@ -50,7 +50,7 @@ public class ListAdapter extends ArrayAdapter<Item>{
 
                 System.out.println("add");
                 System.out.println(getItemId(position));
-                itemList.add((int) getItemId(position));
+                itemList.add(getItem(position));
                 basketActivity.setBasketItem(itemList);
             }
         });
