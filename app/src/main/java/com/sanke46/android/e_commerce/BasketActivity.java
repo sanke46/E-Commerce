@@ -12,10 +12,15 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BasketActivity extends AppCompatActivity {
 
     private DrawerLayout drawer;
+    public static List<Integer> cart = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +42,24 @@ public class BasketActivity extends AppCompatActivity {
             }
         });
 
+        DataBaseHandler db = new DataBaseHandler(this);
+        List<Item> itemList = new ArrayList<>();
+        for (int i = 0; i < cart.size(); i++) {
+            itemList.add(db.getItem(cart.get(i),"Pi"));
+        }
+
+        ListView listView = (ListView) findViewById(R.id.listViewCart);
+        ListAdapter listA = new ListAdapter(this,itemList);
+
     }
 
 
+
+    public static List<Integer> getCart() {
+        return cart;
+    }
+
+    public static void setCart(List<Integer> cart) {
+        BasketActivity.cart = cart;
+    }
 }

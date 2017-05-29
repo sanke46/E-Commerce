@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -35,35 +36,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         setSupportActionBar(toolbar);
 
-
         DataBaseHandler db = new DataBaseHandler(this);
 
         // Inserting Contacts
-        Log.d("Insert: ", "Inserting ..");
-        db.addItem("Su",new Item(R.drawable.sushi,"Sushi1","rice, cucumber, fish, soy",10,"Button1","Button2"));
-        db.addItem("Su",new Item(R.drawable.sushi,"Sushi1","rice, cucumber, fish, soy",10,"Button1","Button2"));
-        db.addItem("Su",new Item(R.drawable.sushi,"Sushi1","rice, cucumber, fish, soy",10,"Button1","Button2"));
-        db.addItem("Pi", new Item(R.drawable.pizza,"Pizza1","tomatoes, onions, olives, cheese, chicken",19,"Button1","Button2"));
-        db.addItem("Pi", new Item(R.drawable.pizza,"Pizza1","tomatoes, onions, olives, cheese, chicken",19,"Button1","Button2"));
-        db.addItem("Pi", new Item(R.drawable.pizza,"Pizza1","tomatoes, onions, olives, cheese, chicken",19,"Button1","Button2"));
-        db.addItem("Dr", new Item(R.drawable.pizza,"Coca-cola","tomatoes, onions, olives, cheese, chicken",19,"Button1","Button2"));
-        db.addItem("Dr", new Item(R.drawable.pizza,"Pepsi","Pepsi is a carbonated soft drink produced and manufactured by PepsiCo",19,"Button1","Button2"));
-        db.addItem("Dr", new Item(R.drawable.pizza,"Sprite","tomatoes, onions, olives, cheese, chicken",19,"Button1","Button2"));
+//        Log.d("Insert: ", "Inserting ..");
+//        db.addItem("Su",new Item(R.drawable.sushi,"Sushi1","rice, cucumber, fish, soy",10,"Button1","id1"));
+//        db.addItem("Su",new Item(R.drawable.sushi2,"Sushi1","rice, cucumber, fish, soy",10,"Button1","id2"));
+//        db.addItem("Su",new Item(R.drawable.sushi3,"Sushi1","rice, cucumber, fish, soy",10,"Button1","id3"));
+//        db.addItem("Pi", new Item(R.drawable.pizza,"Pizza1","tomatoes, onions, olives, cheese, chicken",19,"Button1","id4"));
+//        db.addItem("Pi", new Item(R.drawable.pizza2,"Pizza1","tomatoes, onions, olives, cheese, chicken",19,"Button1","id5"));
+//        db.addItem("Pi", new Item(R.drawable.pizza3,"Pizza1","tomatoes, onions, olives, cheese, chicken",19,"Button1","id6"));
+//        db.addItem("Dr", new Item(R.drawable.drinks,"Coca-cola","tomatoes, onions, olives, cheese, chicken",19,"Button1","id7"));
+//        db.addItem("Dr", new Item(R.drawable.drinks2,"Pepsi","Pepsi is a carbonated soft drink produced and manufactured by PepsiCo",19,"Button1","id8"));
+//        db.addItem("Dr", new Item(R.drawable.drinks3,"Sprite","tomatoes, onions, olives, cheese, chicken",19,"Button1","id9"));
 
-        List<Item> list = db.getAllItem("Su");
-        List<Item> list2 = db.getAllItem("Pi");
-        List<Item> list3 = db.getAllItem("Dr");
+//        List<Item> list = db.getAllItem("Su");
+//        List<Item> list2 = db.getAllItem("Pi");
+//        List<Item> list3 = db.getAllItem("Dr");
 
-        for (int i = 0; i < 3; i++) {
-            System.out.println(list.get(i));
-            System.out.println(list2.get(i));
-            System.out.println(list3.get(i));
-        }
+//        for (int i = 0; i < 3; i++) {
+//            System.out.println(list.get(i));
+//            System.out.println(list2.get(i));
+//            System.out.println(list3.get(i));
+//        }
 
-        db.deleteAll("Su");
-        db.deleteAll("Pi");
-        db.deleteAll("Dr");
-        System.out.println("DONE");
+//        db.deleteAll("Su");
+//        db.deleteAll("Pi");
+//        db.deleteAll("Dr");
+//        System.out.println("DONE");
 
 
         //create default navigation drawer toggle

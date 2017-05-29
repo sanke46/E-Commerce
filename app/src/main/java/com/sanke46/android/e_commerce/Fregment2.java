@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by ilafedoseev on 05.02.17.
@@ -31,10 +32,8 @@ public class Fregment2 extends Fragment {
         ListView listView = (ListView) view.findViewById(R.id.list_2);
         String[] dummyStrings = getResources().getStringArray(R.array.my_items);
 
-        ArrayList<Item> sushiList = new ArrayList<Item>();
-        sushiList.add(new Item(R.drawable.sushi,"Sushi1","rice, cucumber, fish, soy",10,"Button1","Button2"));
-        sushiList.add(new Item(R.drawable.sushi2,"Sushi2","rice, cucumber, fish, soy",11,"Button1-2","Button2-2"));
-        sushiList.add(new Item(R.drawable.sushi3,"Sushi3","rice, cucumber, fish, soy",12,"Button1-3","Button2-3"));
+        DataBaseHandler db = new DataBaseHandler(getActivity());
+        List<Item> sushiList = db.getAllItem("Su");
 
         ListAdapter listAdapter = new ListAdapter(getActivity().getApplicationContext(),sushiList);
         listView.setAdapter(listAdapter);

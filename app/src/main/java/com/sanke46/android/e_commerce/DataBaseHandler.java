@@ -72,10 +72,10 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public Item getItem(int id) {
+    public Item getItem(int id,String name) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.query(TABLE_CONTACTS, new String[] { KEY_ID,
+        Cursor cursor = db.query(name, new String[] { KEY_ID,
                         KEY_IMAGE, KEY_NAME, KEY_COMM, KEY_PRICE, KEY_BUT_1, KEY_BUT_2 }, KEY_ID + "=?",
                 new String[] { String.valueOf(id) }, null, null, null, null);
 
