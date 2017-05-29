@@ -10,9 +10,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,7 +18,8 @@ import java.util.List;
 
 public class ListAdapter extends ArrayAdapter<Item>{
 
-
+    BasketActivity basketActivity = new BasketActivity();
+    public List<Integer> itemList = basketActivity.getBasketItem();
     public ListAdapter(Context context, List<Item> arrayList) {
         super(context, 0 ,arrayList);
     }
@@ -29,8 +27,8 @@ public class ListAdapter extends ArrayAdapter<Item>{
 
     @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        Item item = getItem(position);
+    public View getView(final int position, View convertView, ViewGroup parent) {
+        final Item item = getItem(position);
         if(convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list,parent,false);
         }
@@ -46,7 +44,18 @@ public class ListAdapter extends ArrayAdapter<Item>{
         name.setText(item.getName());
         comment.setText(item.getComment());
         price.setText(item.getPrice() + " $");
+        buttonOne.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                System.out.println("add");
+                System.out.println(getItemId(position));
+                itemList.add((int) getItemId(position));
+                basketActivity.setBasketItem(itemList);
+            }
+        });
 
         return convertView;
     }
+
 }

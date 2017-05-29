@@ -1,20 +1,18 @@
 package com.sanke46.android.e_commerce;
 
 import android.content.Intent;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BasketActivity extends AppCompatActivity {
 
+    public static List<Integer> basketItem = new ArrayList<Integer>();
     private DrawerLayout drawer;
 
     @Override
@@ -39,5 +37,11 @@ public class BasketActivity extends AppCompatActivity {
 
     }
 
+    public List<Integer> getBasketItem() {
+        return basketItem;
+    }
 
+    public void setBasketItem(List<Integer> basketItem) {
+        this.basketItem = basketItem;
+    }
 }
