@@ -26,6 +26,7 @@
         android:layout_height="match_parent">
 
         <ListView
+            android:layout_marginTop="55dp"
             android:id="@+id/basketView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"></ListView>
@@ -63,6 +64,7 @@
             android:layout_alignParentBottom="true">
 
             <Button
+                android:id="@+id/priceButton"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

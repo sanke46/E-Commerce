@@ -6,6 +6,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -14,6 +15,9 @@ import java.util.List;
 public class BasketActivity extends AppCompatActivity {
 
     public static List<Item> basketItem = new ArrayList<Item>();
+    private int sum;
+    private ListView listView;
+    private Button button;
     private DrawerLayout drawer;
 
     @Override
@@ -35,9 +39,16 @@ public class BasketActivity extends AppCompatActivity {
 
             }
         });
-        
+
+        for (int i = 0; i < basketItem.size(); i++) {
+            sum += basketItem.get(i).getPrice();
+        }
+
+        button = (Button) findViewById(R.id.priceButton);
+        button.setText(sum + " $");
+
         String[] dummyStrings = getResources().getStringArray(R.array.my_items);
-        ListView listView = (ListView) findViewById(R.id.basketView);
+        listView = (ListView) findViewById(R.id.basketView);
         ListAdapter basketAdapter = new ListAdapter(this,basketItem);
         listView.setAdapter(basketAdapter);
     }
