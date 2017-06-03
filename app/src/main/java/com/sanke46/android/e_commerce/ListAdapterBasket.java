@@ -16,11 +16,11 @@ import java.util.List;
  * Created by ilafedoseev on 07.02.17.
  */
 
-public class ListAdapter extends ArrayAdapter<Item>{
+public class ListAdapterBasket extends ArrayAdapter<Item>{
 
     BasketActivity basketActivity = new BasketActivity();
     private List<Item> itemList = basketActivity.getBasketItem();
-    public ListAdapter(Context context, List<Item> arrayList) {
+    public ListAdapterBasket(Context context, List<Item> arrayList) {
         super(context, 0 ,arrayList);
     }
 
@@ -30,27 +30,24 @@ public class ListAdapter extends ArrayAdapter<Item>{
     public View getView(final int position, View convertView, ViewGroup parent) {
         final Item item = getItem(position);
         if(convertView == null){
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list,parent,false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_basket,parent,false);
         }
 
         ImageView image = (ImageView) convertView.findViewById(R.id.image);
         TextView name = (TextView) convertView.findViewById(R.id.name);
-        TextView comment = (TextView) convertView.findViewById(R.id.comment);
         TextView price = (TextView) convertView.findViewById(R.id.price);
-        Button buttonOne = (Button) convertView.findViewById(R.id.buttonOne);
-        Button buttonTwo = (Button) convertView.findViewById(R.id.buttonTwo);
+        Button delete = (Button) convertView.findViewById(R.id.delete);
 
         image.setImageResource(item.getImageId());
         name.setText(item.getName());
-        comment.setText(item.getComment());
         price.setText(item.getPrice() + " $");
-        buttonTwo.setOnClickListener(new View.OnClickListener() {
+        delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                System.out.println(getItemId(position));
-                itemList.add(getItem(position));
+                itemList.remove(position);
                 basketActivity.setBasketItem(itemList);
+                basketActivity.;
+
             }
         });
 

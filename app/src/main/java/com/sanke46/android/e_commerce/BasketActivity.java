@@ -15,6 +15,7 @@ import java.util.List;
 public class BasketActivity extends AppCompatActivity {
 
     public static List<Item> basketItem = new ArrayList<Item>();
+    public ListAdapterBasket basketAdapter;
     private int sum;
     private ListView listView;
     private Button button;
@@ -49,8 +50,15 @@ public class BasketActivity extends AppCompatActivity {
 
         String[] dummyStrings = getResources().getStringArray(R.array.my_items);
         listView = (ListView) findViewById(R.id.basketView);
-        ListAdapter basketAdapter = new ListAdapter(this,basketItem);
+        basketAdapter = new ListAdapterBasket(this,basketItem);
         listView.setAdapter(basketAdapter);
+
+
+    }
+
+    public void refresh(){
+        basketAdapter.notifyDataSetChanged();
+        basketAdapter.notifyDataSetInvalidated();
     }
 
     public List<Item> getBasketItem() {

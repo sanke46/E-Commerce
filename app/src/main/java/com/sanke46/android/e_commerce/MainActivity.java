@@ -37,16 +37,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         // Inserting Contacts
 //        Log.d("Insert: ", "Inserting ..");
-//        db.addItem("Su",new Item(0,R.drawable.sushi,"Sushi1","rice, cucumber, fish, soy",10,"Button1","Button2"));
-//        db.addItem("Su",new Item(1,R.drawable.sushi,"Sushi1","rice, cucumber, fish, soy",10,"Button1","Button2"));
-//        db.addItem("Su",new Item(2,R.drawable.sushi,"Sushi1","rice, cucumber, fish, soy",10,"Button1","Button2"));
-//        db.addItem("Pi", new Item(3,R.drawable.pizza,"Pizza1","tomatoes, onions, olives, cheese, chicken",19,"Button1","Button2"));
-//        db.addItem("Pi", new Item(4,R.drawable.pizza,"Pizza1","tomatoes, onions, olives, cheese, chicken",19,"Button1","Button2"));
-//        db.addItem("Pi", new Item(5,R.drawable.pizza,"Pizza1","tomatoes, onions, olives, cheese, chicken",19,"Button1","Button2"));
-//        db.addItem("Dr", new Item(6,R.drawable.pizza,"Coca-cola","tomatoes, onions, olives, cheese, chicken",19,"Button1","Button2"));
-//        db.addItem("Dr", new Item(7,R.drawable.pizza,"Pepsi","Pepsi is a carbonated soft drink produced and manufactured by PepsiCo",19,"Button1","Button2"));
-//        db.addItem("Dr", new Item(8,R.drawable.pizza,"Sprite","tomatoes, onions, olives, cheese, chicken",19,"Button1","Button2"));
-
+//        db.addItem("Su",new Item(R.drawable.sushi,"Sushi1","rice, cucumber, fish, soy",11,"Button1","Button2"));
+//        db.addItem("Su",new Item(R.drawable.sushi,"Sushi2","rice, cucumber, fish, soy",12,"Button1","Button2"));
+//        db.addItem("Su",new Item(R.drawable.sushi,"Sushi3","rice, cucumber, fish, soy",13,"Button1","Button2"));
+//        db.addItem("Pi", new Item(R.drawable.pizza,"Pizza1","tomatoes, onions, olives, cheese, chicken",19,"Button1","Button2"));
+//        db.addItem("Pi", new Item(R.drawable.pizza,"Pizza2","tomatoes, onions, olives, cheese, chicken",20,"Button1","Button2"));
+//        db.addItem("Pi", new Item(R.drawable.pizza,"Pizza3","tomatoes, onions, olives, cheese, chicken",21,"Button1","Button2"));
+//        db.addItem("Dr", new Item(R.drawable.pizza,"Coca-cola","tomatoes, onions, olives, cheese, chicken",22,"Button1","Button2"));
+//        db.addItem("Dr", new Item(R.drawable.pizza,"Pepsi","Pepsi is a carbonated soft drink produced and manufactured by PepsiCo",23,"Button1","Button2"));
+//        db.addItem("Dr", new Item(R.drawable.pizza,"Sprite","tomatoes, onions, olives, cheese, chicken",24,"Button1","Button2"));
 //        List<Item> list = db.getAllItem("Su");
 //        List<Item> list2 = db.getAllItem("Pi");
 //        List<Item> list3 = db.getAllItem("Dr");
