@@ -18,7 +18,7 @@ public class BasketActivity extends AppCompatActivity {
     public ListAdapterBasket basketAdapter;
     private int sum;
     private ListView listView;
-    private Button button;
+    private Button buttonOrder;
     private DrawerLayout drawer;
 
     @Override
@@ -45,16 +45,25 @@ public class BasketActivity extends AppCompatActivity {
             sum += basketItem.get(i).getPrice();
         }
 
-        button = (Button) findViewById(R.id.priceButton);
-        button.setText(sum + " $");
+        buttonOrder = (Button) findViewById(R.id.priceButton);
+        buttonOrder.setText("ORDER - " + sum + " $");
 
         String[] dummyStrings = getResources().getStringArray(R.array.my_items);
         listView = (ListView) findViewById(R.id.basketView);
         basketAdapter = new ListAdapterBasket(this,basketItem);
         listView.setAdapter(basketAdapter);
 
+        buttonOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            Intent intent = new Intent(getApplicationContext(), Order.class);
+                startActivity(intent);
+            }
+        });
 
     }
+
+
 
     public void refresh(){
         basketAdapter.notifyDataSetChanged();

@@ -33,7 +33,10 @@
         <activity android:name=".SalesActivity" />
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:label="@string/title_activity_login" />
+        <activity android:name=".SingUpActivity" />
+        <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".Order"></activity>
     </application>
 
 </manifest>

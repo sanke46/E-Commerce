@@ -46,7 +46,7 @@ public class ListAdapterBasket extends ArrayAdapter<Item>{
             public void onClick(View v) {
                 itemList.remove(position);
                 basketActivity.setBasketItem(itemList);
-                basketActivity.;
+//                basketActivity.;
 
             }
         });
