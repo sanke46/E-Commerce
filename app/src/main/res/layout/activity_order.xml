@@ -42,59 +42,63 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/orderInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="10dp"
-        android:layout_marginTop="105dp"
-        >
-
-
+        android:layout_marginTop="105dp">
 
         <EditText
+            android:id="@+id/editDN"
             android:textColor="#333"
             android:hint="Your name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <EditText
+            android:id="@+id/editDC"
             android:textColor="#333"
             android:hint="City"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <EditText
+            android:id="@+id/editDS"
             android:textColor="#333"
             android:hint="Street"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <EditText
+            android:id="@+id/editDH"
             android:textColor="#333"
             android:hint="House number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <EditText
+            android:id="@+id/editDF"
             android:textColor="#333"
             android:hint="Flat number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <EditText
+            android:id="@+id/editDP"
             android:textColor="#333"
             android:hint="Your phone Number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <Button
+            android:id="@+id/buttonNext"
             android:text="Next step"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/coloBlackRed"/>
-
 
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>
