@@ -7,11 +7,11 @@ import java.util.List;
  */
 
 public interface DBHandlerInterface {
-    public void addItem(Item item);
-    public Item getItem(int id);
+    public void addItem();
+    public Item getItem();
     public List<Item> getAllItem();
     public int getItemCounter();
-    public int updateItem(Item item);
-    public void deleteItem(Item item);
+    public int updateItem();
+    public void deleteItem();
     public void deleteAll();
 }
