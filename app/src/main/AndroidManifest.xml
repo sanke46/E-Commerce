@@ -23,10 +23,7 @@
         <activity
             android:name=".ui.navigation.BasketActivity"
             android:label="@string/title_activity_basket"
-            android:theme="@style/AppTheme" >
-
-
-        </activity>
+            android:theme="@style/AppTheme"></activity>
         <activity
             android:name=".ui.navigation.AboutDelevery"
             android:label="@string/title_activity_about_delevery"
@@ -39,7 +36,8 @@
             android:label="@string/title_activity_login" />
         <activity android:name=".ui.navigation.SingUpActivity" />
         <activity android:name=".ui.navigation.ForgotPasswordActivity" />
-        <activity android:name=".ui.navigation.OrderActivity"/>
+        <activity android:name=".ui.navigation.OrderActivity" />
+        <activity android:name=".ui.navigation.Payment"/>
     </application>
 
 </manifest>

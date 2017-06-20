@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.sanke46.android.e_commerce.R;
@@ -31,6 +32,7 @@ public class OrderActivity extends AppCompatActivity {
     private EditText editFlat;
     private EditText editPhoneNumber;
     private Button buttonNext;
+    private LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,7 @@ public class OrderActivity extends AppCompatActivity {
         editFlat = (EditText) findViewById(R.id.editDF);
         editPhoneNumber = (EditText) findViewById(R.id.editDP);
         buttonNext = (Button) findViewById(R.id.buttonNext);
+        linearLayout = (LinearLayout) findViewById(R.id.orderInfo);
 
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,12 +94,8 @@ public class OrderActivity extends AppCompatActivity {
                     order.setEtfS(editFlat.getText().toString());
                     order.setEtpnS(editPhoneNumber.getText().toString());
                     db.addOrder(order);
-
-                    List<Order> listOrder = db.getAllOrder();
-
-                    for (int i = 0; i < listOrder.size(); i++) {
-                        System.out.println(listOrder.get(i));
-                    }
+                    Intent intent = new Intent(getApplicationContext(), Payment.class);
+                    startActivity(intent);
                 }
 
 
