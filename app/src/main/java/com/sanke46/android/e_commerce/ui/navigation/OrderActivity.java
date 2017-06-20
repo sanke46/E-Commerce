@@ -1,4 +1,4 @@
-package com.sanke46.android.e_commerce;
+package com.sanke46.android.e_commerce.ui.navigation;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -8,6 +8,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.sanke46.android.e_commerce.R;
+import com.sanke46.android.e_commerce.database.DataOrderBaseHandler;
+import com.sanke46.android.e_commerce.model.Order;
 
 /**
  * Created by ilafedoseev on 13.06.17.
@@ -93,6 +98,7 @@ public class OrderActivity extends AppCompatActivity {
                     order.setEtfS(editFlat.getText().toString());
                     order.setEtpnS(editPhoneNumber.getText().toString());
                     System.out.println(order.getId() + " " + order.getEtnS() + " " + order.getEtpnS() );
+                    Toast.makeText(OrderActivity.this, "Thanks for your order", Toast.LENGTH_LONG).show();
                 }
 
 

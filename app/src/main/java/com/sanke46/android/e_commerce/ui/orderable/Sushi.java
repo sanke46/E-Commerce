@@ -1,4 +1,4 @@
-package com.sanke46.android.e_commerce;
+package com.sanke46.android.e_commerce.ui.orderable;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,12 +8,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.sanke46.android.e_commerce.database.DataBaseHandler;
+import com.sanke46.android.e_commerce.adapter.ListAdapter;
+import com.sanke46.android.e_commerce.R;
+import com.sanke46.android.e_commerce.model.Item;
+
 import java.util.List;
 
 /**
  * Created by ilafedoseev on 05.02.17.
  */
-public class Fregment2 extends Fragment {
+public class Sushi extends Fragment {
 
     @Nullable
     @Override

@@ -14,6 +14,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.sanke46.android.e_commerce.adapter.ViewPagerAdapter;
+import com.sanke46.android.e_commerce.database.DataBaseHandler;
+import com.sanke46.android.e_commerce.ui.navigation.AboutDelevery;
+import com.sanke46.android.e_commerce.ui.navigation.BasketActivity;
+import com.sanke46.android.e_commerce.ui.navigation.LoginActivity;
+import com.sanke46.android.e_commerce.ui.navigation.ProfileActivity;
+import com.sanke46.android.e_commerce.ui.navigation.SalesActivity;
+
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 

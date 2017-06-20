@@ -1,8 +1,12 @@
-package com.sanke46.android.e_commerce;
+package com.sanke46.android.e_commerce.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.sanke46.android.e_commerce.ui.orderable.Drinks;
+import com.sanke46.android.e_commerce.ui.orderable.Pizza;
+import com.sanke46.android.e_commerce.ui.orderable.Sushi;
 
 /**
  * Created by ilafedoseev on 05.02.17.
@@ -17,11 +21,11 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if(position == 0 ){
-            return new Fragment1();
+            return new Pizza();
         } else if(position == 1) {
-            return new Fregment2();
+            return new Sushi();
         } else {
-            return  new Fragment3();
+            return  new Drinks();
         }
     }
 

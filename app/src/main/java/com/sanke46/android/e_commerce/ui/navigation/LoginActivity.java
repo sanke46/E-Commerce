@@ -1,4 +1,4 @@
-package com.sanke46.android.e_commerce;
+package com.sanke46.android.e_commerce.ui.navigation;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -28,6 +28,8 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.sanke46.android.e_commerce.R;
 
 import java.util.ArrayList;
 import java.util.List;

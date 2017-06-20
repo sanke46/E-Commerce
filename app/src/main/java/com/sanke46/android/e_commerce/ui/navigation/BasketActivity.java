@@ -1,4 +1,4 @@
-package com.sanke46.android.e_commerce;
+package com.sanke46.android.e_commerce.ui.navigation;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.sanke46.android.e_commerce.adapter.ListAdapterBasket;
+import com.sanke46.android.e_commerce.MainActivity;
+import com.sanke46.android.e_commerce.R;
+import com.sanke46.android.e_commerce.model.Item;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,16 +47,12 @@ public class BasketActivity extends AppCompatActivity {
             }
         });
 
-        for (int i = 0; i < basketItem.size(); i++) {
-            sum += basketItem.get(i).getPrice();
-        }
-
         buttonOrder = (Button) findViewById(R.id.priceButton);
-        buttonOrder.setText("ORDER - " + sum + " $");
+        refreshTotalPrice();
 
         String[] dummyStrings = getResources().getStringArray(R.array.my_items);
         listView = (ListView) findViewById(R.id.basketView);
-        basketAdapter = new ListAdapterBasket(this,basketItem);
+        basketAdapter = new ListAdapterBasket(this, basketItem);
         listView.setAdapter(basketAdapter);
 
         buttonOrder.setOnClickListener(new View.OnClickListener() {
@@ -68,18 +69,24 @@ public class BasketActivity extends AppCompatActivity {
 
     }
 
-
-
-    public void refresh(){
-        basketAdapter.notifyDataSetChanged();
-        basketAdapter.notifyDataSetInvalidated();
-    }
-
     public List<Item> getBasketItem() {
         return basketItem;
     }
 
     public void setBasketItem(List<Item> basketItem) {
         this.basketItem = basketItem;
+    }
+
+    public void refreshUi() {
+        refreshTotalPrice();
+    }
+
+    private void refreshTotalPrice() {
+        sum = 0;
+        for (int i = 0; i < basketItem.size(); i++) {
+            sum += basketItem.get(i).getPrice();
+        }
+
+        buttonOrder.setText("ORDER - " + sum + " $");
     }
 }

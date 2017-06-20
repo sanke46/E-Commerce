@@ -1,7 +1,9 @@
-package com.sanke46.android.e_commerce;
+package com.sanke46.android.e_commerce.ui.navigation;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.sanke46.android.e_commerce.R;
 
 public class SingUpActivity extends AppCompatActivity {
 

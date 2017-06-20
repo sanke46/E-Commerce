@@ -1,4 +1,4 @@
-package com.sanke46.android.e_commerce;
+package com.sanke46.android.e_commerce.model;
 
 /**
  * Created by ilafedoseev on 07.02.17.
