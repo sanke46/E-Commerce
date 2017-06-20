@@ -18,7 +18,7 @@ import java.util.List;
 public class DataOrderBaseHandler extends SQLiteOpenHelper{
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "Order";
+    private static final String DATABASE_NAME = "Zakaz";
     private static final String TABLE_CONTACTS = "Order";
 
     private static final String KEY_ID = "id";
@@ -38,15 +38,15 @@ public class DataOrderBaseHandler extends SQLiteOpenHelper{
         db.execSQL(CreateTableSql(DATABASE_NAME));
     }
 
-    private String CreateTableSql(String order) {
-        String table = "CREATE TABLE" + DATABASE_NAME + "("
-                + KEY_ID + "INTEGER PRIMARY KEY,"
-                + KEY_NAME + "TEXT"
-                + KEY_CITY + "TEXT"
-                + KEY_STREET + "TEXT"
-                + KEY_HOUSE_NUMBER + "TEXT"
-                + KEY_FLAT + "TEXT"
-                + KEY_PHONE_NUMBER + "TEXT";
+    private String CreateTableSql(String databaseName) {
+        String table = "CREATE TABLE " + databaseName + "("
+                + KEY_ID + " INTEGER PRIMARY KEY,"
+                + KEY_NAME + " TEXT,"
+                + KEY_CITY + " TEXT,"
+                + KEY_STREET + " TEXT,"
+                + KEY_HOUSE_NUMBER + " TEXT,"
+                + KEY_FLAT + " TEXT,"
+                + KEY_PHONE_NUMBER + " TEXT" + ")";
         return table;
     }
 

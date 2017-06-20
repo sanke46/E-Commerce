@@ -41,7 +41,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
     }
 
     public String CreateTableSql(String name){
-        String table = "CREATE TABLE " + name + "("
+        String table = "CREATE TABLE " + name + " ("
                 + KEY_ID + " INTEGER PRIMARY KEY,"
                 + KEY_IMAGE + " TEXT,"
                 + KEY_NAME + " TEXT,"

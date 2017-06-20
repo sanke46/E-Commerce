@@ -14,6 +14,8 @@ import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.database.DataOrderBaseHandler;
 import com.sanke46.android.e_commerce.model.Order;
 
+import java.util.List;
+
 /**
  * Created by ilafedoseev on 13.06.17.
  */
@@ -29,8 +31,6 @@ public class OrderActivity extends AppCompatActivity {
     private EditText editFlat;
     private EditText editPhoneNumber;
     private Button buttonNext;
-
-    private int etn,etc,ets,ethn,etf,etpn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +51,7 @@ public class OrderActivity extends AppCompatActivity {
             }
         });
 
-        DataOrderBaseHandler db = new DataOrderBaseHandler(this);
-//        List<Order> list = db.getAllOrder();
+        final DataOrderBaseHandler db = new DataOrderBaseHandler(this);
 
         editName = (EditText) findViewById(R.id.editDN);
         editCity = (EditText) findViewById(R.id.editDC);
@@ -66,39 +65,38 @@ public class OrderActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(editName.getText().length() == 0){
-                    etn = 0;
                     editName.setHintTextColor(Color.RED);
                 }
                 if(editCity.getText().length() == 0){
-                    etc = 0;
                     editCity.setHintTextColor(Color.RED);
                 }
                 if(editStreet.getText().length() == 0){
-                    ets = 0;
                     editStreet.setHintTextColor(Color.RED);
                 }
                 if(editHouseNumber.getText().length() == 0) {
-                    ethn = 0;
                     editHouseNumber.setHintTextColor(Color.RED);
                 }
                 if(editFlat.getText().length() == 0) {
-                    etf = 0;
                     editFlat.setHintTextColor(Color.RED);
                 }
                 if(editPhoneNumber.getText().length() == 0) {
-                    etpn = 0;
                     editPhoneNumber.setHintTextColor(Color.RED);
                 }
 
-                if(etn != 0 || etc != 0 || ets != 0 || ethn != 0 || etf != 0 || etpn != 0){
+                if(editName.length() != 0 || editCity.length() != 0 || editStreet.length() != 0 || editHouseNumber.length() != 0 || editFlat.length() != 0 || editPhoneNumber.length() != 0){
                     order.setEtnS(editName.getText().toString());
                     order.setEtcS(editCity.getText().toString());
                     order.setEtsS(editStreet.getText().toString());
                     order.setEthnS(editHouseNumber.getText().toString());
                     order.setEtfS(editFlat.getText().toString());
                     order.setEtpnS(editPhoneNumber.getText().toString());
-                    System.out.println(order.getId() + " " + order.getEtnS() + " " + order.getEtpnS() );
-                    Toast.makeText(OrderActivity.this, "Thanks for your order", Toast.LENGTH_LONG).show();
+                    db.addOrder(order);
+
+                    List<Order> listOrder = db.getAllOrder();
+
+                    for (int i = 0; i < listOrder.size(); i++) {
+                        System.out.println(listOrder.get(i));
+                    }
                 }
 
 
