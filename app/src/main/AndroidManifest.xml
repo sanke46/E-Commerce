@@ -40,7 +40,7 @@
         <activity android:name=".ui.navigation.Payment" />
 
         <service
-            android:name=".MyService"
+            android:name=".service.OrderService"
             android:enabled="true"
             android:exported="true"></service>
     </application>

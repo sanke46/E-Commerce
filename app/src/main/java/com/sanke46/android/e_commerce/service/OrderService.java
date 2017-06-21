@@ -1,7 +1,8 @@
-package com.sanke46.android.e_commerce;
+package com.sanke46.android.e_commerce.service;
 
 import android.app.Service;
 import android.content.Intent;
+import android.os.Binder;
 import android.os.CountDownTimer;
 import android.os.IBinder;
 import android.support.annotation.IntDef;
@@ -12,12 +13,10 @@ import java.util.Date;
 import io.github.krtkush.lineartimer.LinearTimer;
 import io.github.krtkush.lineartimer.LinearTimerView;
 
-public class MyService extends Service {
+public class OrderService extends Service {
 
-    private Date date;
-
-    public MyService() {
-    }
+    private long date = 0l;
+    private OrderServiceBinder binder = new OrderServiceBinder();
 
     @Override
     public void onCreate() {
@@ -28,12 +27,12 @@ public class MyService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         // TODO: Return the communication channel to the service.
-        throw new UnsupportedOperationException("Not yet implemented");
+        return binder;
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        getTimeOrder();
+        updateOrderDate();
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -42,8 +41,23 @@ public class MyService extends Service {
         super.onDestroy();
     }
 
-    public Date getTimeOrder(){
-        return date = new Date();
+    ///
+    /// Public interfaces
 
+    public Long getTimeOrder(){
+        return date;
+    }
+
+    public void updateOrderDate() {
+        date = System.currentTimeMillis();
+    }
+
+    ///
+    /// Binder returning current service
+
+    public class OrderServiceBinder extends Binder {
+        public OrderService getService() {
+            return OrderService.this;
+        }
     }
 }
