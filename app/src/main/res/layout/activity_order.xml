@@ -51,53 +51,64 @@
 
         <EditText
             android:id="@+id/editDN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:textColor="#333"
             android:hint="Your name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:inputType="textCapSentences|textAutoCorrect"/>
 
         <EditText
             android:id="@+id/editDC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:textColor="#333"
             android:hint="City"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:inputType="textCapSentences|textAutoCorrect"
+             />
 
         <EditText
             android:id="@+id/editDS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:textColor="#333"
             android:hint="Street"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:inputType="textCapSentences|textAutoCorrect"
+             />
 
         <EditText
             android:id="@+id/editDH"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:textColor="#333"
             android:hint="House number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:inputType="textCapSentences|textAutoCorrect"
+             />
 
         <EditText
             android:id="@+id/editDF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:textColor="#333"
             android:hint="Flat number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:inputType="textCapSentences|textAutoCorrect"
+             />
 
         <EditText
             android:id="@+id/editDP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:textColor="#333"
             android:hint="Your phone Number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:inputType="textCapSentences|textAutoCorrect"
+             />
 
         <Button
             android:id="@+id/buttonNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Next step"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:background="@color/coloBlackRed"/>
 
     </LinearLayout>

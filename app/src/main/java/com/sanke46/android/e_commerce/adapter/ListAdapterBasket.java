@@ -36,7 +36,7 @@ public class ListAdapterBasket extends ArrayAdapter<Item>{
     public View getView(final int position, View convertView, ViewGroup parent) {
         final Item item = getItem(position);
         if(convertView == null){
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_basket,parent,false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_basket,parent,false);
         }
 
         ImageView image = (ImageView) convertView.findViewById(R.id.image);

@@ -16,11 +16,14 @@ import android.view.View;
 
 import com.sanke46.android.e_commerce.adapter.ViewPagerAdapter;
 import com.sanke46.android.e_commerce.database.DataBaseHandler;
+import com.sanke46.android.e_commerce.model.Item;
 import com.sanke46.android.e_commerce.ui.navigation.AboutDelevery;
 import com.sanke46.android.e_commerce.ui.navigation.BasketActivity;
 import com.sanke46.android.e_commerce.ui.navigation.LoginActivity;
 import com.sanke46.android.e_commerce.ui.navigation.ProfileActivity;
 import com.sanke46.android.e_commerce.ui.navigation.SalesActivity;
+
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -57,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        List<Item> list = db.getAllItem("Su");
 //        List<Item> list2 = db.getAllItem("Pi");
 //        List<Item> list3 = db.getAllItem("Dr");
-//
+
 //        for (int i = 0; i < 3; i++) {
 //            System.out.println(list.get(i));
 //            System.out.println(list2.get(i));
