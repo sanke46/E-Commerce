@@ -22,9 +22,11 @@
         android:layout_height="wrap_content"
         android:text="@string/sing_in"
         android:textColor="#fff"
-        android:textSize="40dp"
+        android:textSize="30dp"
+        android:textStyle="bold"
         android:gravity="center"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="100sp"
         />
     <!-- Login progress -->
     <ProgressBar
@@ -102,16 +104,20 @@
                 android:layout_marginTop="20dp">
 
                 <TextView
+                    android:id="@+id/fogot_pass"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="#fff"
                     android:gravity="center"
                     android:text="@string/forgot_password"/>
 
                 <TextView
+                    android:id="@+id/needAccaunt"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:textColor="#fff"
                     android:gravity="center"
                     android:text="@string/need_an_accaunt"/>
 
