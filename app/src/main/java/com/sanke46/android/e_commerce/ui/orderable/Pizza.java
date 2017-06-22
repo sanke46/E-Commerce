@@ -30,7 +30,7 @@ public class Pizza extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
         ListView listView = (ListView) view.findViewById(R.id.list);
-        String[] dummyStrings = getResources().getStringArray(R.array.my_items);
+//        String[] dummyStrings = getResources().getStringArray(R.array.my_items);
 
         DataBaseHandler db = new DataBaseHandler(getActivity());
         List<Item> pizzaList = db.getAllItem("Pi");

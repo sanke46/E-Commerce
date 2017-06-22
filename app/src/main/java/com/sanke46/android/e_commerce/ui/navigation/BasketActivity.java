@@ -50,7 +50,7 @@ public class BasketActivity extends AppCompatActivity {
         buttonOrder = (Button) findViewById(R.id.priceButton);
         refreshTotalPrice();
 
-        String[] dummyStrings = getResources().getStringArray(R.array.my_items);
+//        String[] dummyStrings = getResources().getStringArray(R.array.my_items);
         listView = (ListView) findViewById(R.id.basketView);
         basketAdapter = new ListAdapterBasket(this, basketItem);
         listView.setAdapter(basketAdapter);

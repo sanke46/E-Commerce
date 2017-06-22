@@ -30,7 +30,7 @@ public class Drinks extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
         ListView listView = (ListView) view.findViewById(R.id.list_3);
-        String[] dummyStrings = getResources().getStringArray(R.array.my_items);
+//        String[] dummyStrings = getResources().getStringArray(R.array.my_items);
 
         DataBaseHandler db = new DataBaseHandler(getActivity());
         List<Item> drinkList = db.getAllItem("Dr");

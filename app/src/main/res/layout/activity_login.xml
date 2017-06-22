@@ -14,7 +14,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="185sp"
+        android:layout_height="155sp"
         android:src="@drawable/logotwo"/>
 
     <TextView
@@ -35,13 +35,14 @@
         android:layout_marginBottom="8dp"
         android:visibility="gone" />
 
-    <ScrollView
-        android:id="@+id/login_form"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <!--<ScrollView-->
+        <!---->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+        <!--</ScrollView>-->
 
         <LinearLayout
-            android:id="@+id/email_login_form"
+            android:id="@+id/login_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -57,8 +58,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_email"
+                    android:textColor="#333"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
+                    android:imeOptions="actionNext"
                     android:singleLine="true" />
 
             </android.support.design.widget.TextInputLayout>
@@ -67,17 +70,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#fff"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:inputType="textCapSentences|textAutoCorrect">
 
                 <EditText
                     android:id="@+id/password"
+                    android:textColor="@color/BlackGrey"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_password"
                     android:imeActionId="@+id/login"
                     android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionUnspecified"
-                    android:inputType="textPassword"
                     android:maxLines="1"
                     android:singleLine="true" />
 
@@ -92,24 +96,28 @@
                 android:text="@string/action_sign_in"
                 android:textStyle="bold" />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/forgot_password"/>
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/forgot_password"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/need_an_accaunt"/>
+
+            </LinearLayout>
 
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true">
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/need_an_accaunt"/>
-
-        </LinearLayout>
-    </ScrollView>
 </LinearLayout>

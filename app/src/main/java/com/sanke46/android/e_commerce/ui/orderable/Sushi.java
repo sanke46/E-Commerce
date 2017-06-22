@@ -30,7 +30,7 @@ public class Sushi extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
         ListView listView = (ListView) view.findViewById(R.id.list_2);
-        String[] dummyStrings = getResources().getStringArray(R.array.my_items);
+//        String[] dummyStrings = getResources().getStringArray(R.array.my_items);
 
         DataBaseHandler db = new DataBaseHandler(getActivity());
         List<Item> sushiList = db.getAllItem("Su");
