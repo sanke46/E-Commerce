@@ -30,7 +30,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Information about devilery"
+            android:text="@string/information_about_devilery"
             android:background="@color/colorRed"
             android:textColor="#fff"
             android:textSize="18dp"
@@ -54,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#333"
-            android:hint="Your name"
+            android:hint="@string/your_name"
             android:inputType="textCapSentences|textAutoCorrect"/>
 
         <EditText
@@ -62,7 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#333"
-            android:hint="City"
+            android:hint="@string/city"
             android:inputType="textCapSentences|textAutoCorrect"
              />
 
@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#333"
-            android:hint="Street"
+            android:hint="@string/street"
             android:inputType="textCapSentences|textAutoCorrect"
              />
 
@@ -80,7 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#333"
-            android:hint="House number"
+            android:hint="@string/house_number"
             android:inputType="textCapSentences|textAutoCorrect"
              />
 
@@ -89,7 +89,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#333"
-            android:hint="Flat number"
+            android:hint="@string/flat_number"
             android:inputType="textCapSentences|textAutoCorrect"
              />
 
@@ -98,7 +98,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#333"
-            android:hint="Your phone Number"
+            android:hint="@string/your_phone_number"
             android:inputType="textCapSentences|textAutoCorrect"
              />
 
@@ -106,7 +106,7 @@
             android:id="@+id/buttonNext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Next step"
+            android:text="@string/next_step"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
             android:background="@color/coloBlackRed"/>

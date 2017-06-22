@@ -49,14 +49,14 @@
                 android:textColor="@android:color/white"
                 android:paddingLeft="20dp"
                 android:textSize="24sp"
-                android:text="Pizza ресторан"/>
+                android:text="@string/pizza"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
                 android:paddingLeft="20dp"
-                android:text="10:00 - 22:00  пн-вс"/>
+                android:text="@string/time_work"/>
 
         </LinearLayout>
 
@@ -84,7 +84,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="17sp"
-                    android:text="Call"/>
+                    android:text="@string/call"/>
 
             </LinearLayout>
 
@@ -106,7 +106,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="17sp"
-                    android:text="Website"/>
+                    android:text="@string/website"/>
 
             </LinearLayout>
 
@@ -128,7 +128,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="17sp"
-                    android:text="Map"/>
+                    android:text="@string/map"/>
 
             </LinearLayout>
 
@@ -159,7 +159,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="13dp"
                 android:paddingLeft="10dp"
-                android:text="112 Plaza Dr, West Covina, CA 91790"/>
+                android:text="@string/Place"/>
 
         </LinearLayout>
 
@@ -180,7 +180,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="13dp"
                 android:paddingLeft="10dp"
-                android:text="shoppingplazawestcovina.com"/>
+                android:text="@string/website_link"/>
 
         </LinearLayout>
 
@@ -201,7 +201,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="13dp"
                 android:paddingLeft="10dp"
-                android:text="+1 626-960-8032"/>
+                android:text="@string/phone"/>
 
         </LinearLayout>
 

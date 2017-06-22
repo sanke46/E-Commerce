@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
-            android:text="Title"
+            android:text=""
             android:textColor="#333"
             android:textSize="23sp"/>
 
@@ -64,7 +64,7 @@
                 android:id="@+id/gramm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="500 g."
+                android:text=""
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="10dp"
                 android:background="#c4c4c4"
@@ -83,7 +83,7 @@
                 android:textSize="16sp"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="10dp"
-                android:text="20 $"/>
+                android:text=""/>
 
         </LinearLayout>
         </LinearLayout>

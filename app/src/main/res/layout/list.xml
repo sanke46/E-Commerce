@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="Title"
+            android:text=""
             android:textColor="#333"
             android:textSize="23sp"/>
 
@@ -36,7 +36,7 @@
             android:textStyle="bold"
             android:textColor="#8c8c8c"
             android:layout_marginLeft="10dp"
-            android:text="some text about"/>
+            android:text=""/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,7 +47,7 @@
                 android:id="@+id/gramm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="500 g."
+                android:text=""
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="10dp"
                 android:background="#c4c4c4"
@@ -66,7 +66,7 @@
                 android:textSize="16sp"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="10dp"
-                android:text="20 $"/>
+                android:text=""/>
 
         </LinearLayout>
 
@@ -82,7 +82,7 @@
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
                 android:background="@color/colorBlue"
-                android:text="More info"
+                android:text="@string/more_info_button"
                 android:textColor="@android:color/white"/>
 
             <Button
@@ -92,7 +92,7 @@
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
                 android:background="@color/colorBlue"
-                android:text="Add to Basket"
+                android:text="@string/add_to_basket_button"
                 android:textColor="@android:color/white"/>
         </LinearLayout>
 
