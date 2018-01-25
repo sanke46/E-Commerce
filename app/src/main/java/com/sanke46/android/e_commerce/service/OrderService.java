@@ -3,15 +3,7 @@ package com.sanke46.android.e_commerce.service;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
-import android.os.CountDownTimer;
 import android.os.IBinder;
-import android.support.annotation.IntDef;
-import android.widget.TextView;
-
-import java.util.Date;
-
-import io.github.krtkush.lineartimer.LinearTimer;
-import io.github.krtkush.lineartimer.LinearTimerView;
 
 public class OrderService extends Service {
 
@@ -60,4 +52,5 @@ public class OrderService extends Service {
             return OrderService.this;
         }
     }
+
 }

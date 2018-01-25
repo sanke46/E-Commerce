@@ -107,4 +107,10 @@ public class Payment extends AppCompatActivity {
         long timeWhenStopTimer = Math.max(0, orderDeliveryTimeMillis - timeElapsedSinceOrder);
         return timeWhenStopTimer;
     }
+
+    public boolean isServiceBound() {
+        return isServiceBound;
+    }
+
+
 }

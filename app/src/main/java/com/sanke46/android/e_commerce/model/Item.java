@@ -96,4 +96,11 @@ public class Item {
     public void setButtonTwo(String buttonTwo) {
         this.buttonTwo = buttonTwo;
     }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "price=" + price +
+                '}';
+    }
 }

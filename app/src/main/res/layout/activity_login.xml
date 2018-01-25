@@ -14,7 +14,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="155sp"
+        android:layout_height="100sp"
         android:src="@drawable/logotwo"/>
 
     <TextView
@@ -22,11 +22,11 @@
         android:layout_height="wrap_content"
         android:text="@string/sing_in"
         android:textColor="#fff"
-        android:textSize="30dp"
+        android:textSize="23dp"
         android:textStyle="bold"
         android:gravity="center"
         android:layout_marginBottom="10dp"
-        android:layout_marginTop="100sp"
+        android:layout_marginTop="@dimen/_30sdp"
         />
     <!-- Login progress -->
     <ProgressBar
@@ -81,7 +81,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_password"
-                    android:imeActionId="@+id/login"
                     android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionUnspecified"
                     android:maxLines="1"
@@ -90,11 +89,13 @@
             </android.support.design.widget.TextInputLayout>
 
             <Button
-                android:id="@+id/email_sign_in_button"
+                android:id="@+id/sign_in_button"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:background="#b72027"
+                android:textColor="#fff"
                 android:text="@string/action_sign_in"
                 android:textStyle="bold" />
 

@@ -9,24 +9,28 @@
     <EditText
         android:id="@+id/newName"
         android:hint="Name"
+        android:textColor="#333"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/newEmail"
         android:hint="Email"
+        android:textColor="#333"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/newPassword"
         android:hint="Password"
+        android:textColor="#333"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/confirm_pass"
         android:hint="confirm password"
+        android:textColor="#333"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
