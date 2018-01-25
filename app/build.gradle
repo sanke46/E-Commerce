@@ -28,9 +28,9 @@ android {
 }
 
 dependencies {
+    compile 'com.android.support:design:25.1.0'
+    compile 'com.android.support:appcompat-v7:25.1.0'
     implementation 'com.google.firebase:firebase-auth:11.0.4'
-    implementation 'com.android.support:design:26.0.2'
-    compile 'com.android.support:appcompat-v7:26.0.2'
     compile 'com.github.krtkush:LinearTimer:v2.1.1'
     compile 'com.intuit.sdp:sdp-android:1.0.4'
     testCompile 'junit:junit:4.12'

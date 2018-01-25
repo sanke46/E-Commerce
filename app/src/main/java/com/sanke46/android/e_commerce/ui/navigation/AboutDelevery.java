@@ -48,9 +48,9 @@ public class AboutDelevery extends AppCompatActivity {
             }
         });
 
-        callButton = findViewById(R.id.call);
-        websiteButton = findViewById(R.id.website);
-        mapButton = findViewById(R.id.location);
+        callButton = (LinearLayout) findViewById(R.id.call);
+        websiteButton = (LinearLayout) findViewById(R.id.website);
+        mapButton = (LinearLayout) findViewById(R.id.location);
 
         callButton.setOnClickListener(new View.OnClickListener() {
             @Override

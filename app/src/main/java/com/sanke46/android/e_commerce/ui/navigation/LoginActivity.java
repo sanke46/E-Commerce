@@ -49,8 +49,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         // Set up the login form.
-        mEmailView = findViewById(R.id.email);
-        mPasswordView = findViewById(R.id.password);
+        mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+        mPasswordView = (EditText) findViewById(R.id.password);
 //        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 //            @Override
 //            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
@@ -60,14 +60,14 @@ public class LoginActivity extends AppCompatActivity {
 //                return false;
 //            }
 //        });
-        singInButton = findViewById(R.id.sign_in_button);
+        singInButton = (Button) findViewById(R.id.sign_in_button);
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
 
         //
         //Click links
 
-        needAcc = findViewById(R.id.needAccaunt);
+        needAcc = (TextView) findViewById(R.id.needAccaunt);
         needAcc.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        fogotPass = findViewById(R.id.fogot_pass);
+        fogotPass = (TextView) findViewById(R.id.fogot_pass);
         fogotPass.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {

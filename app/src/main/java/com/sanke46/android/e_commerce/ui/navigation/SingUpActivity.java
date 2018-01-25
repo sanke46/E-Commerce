@@ -52,11 +52,11 @@ public class SingUpActivity extends AppCompatActivity {
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         myRef = mFirebaseDatabase.getReference();
 
-        newName = findViewById(R.id.newName);
-        newEmail = findViewById(R.id.newEmail);
-        newPass = findViewById(R.id.newPassword);
-        newConfirmPass = findViewById(R.id.confirm_pass);
-        buttonCreateAc = findViewById(R.id.sibmit);
+        newName = (EditText) findViewById(R.id.newName);
+        newEmail = (EditText) findViewById(R.id.newEmail);
+        newPass = (EditText) findViewById(R.id.newPassword);
+        newConfirmPass = (EditText) findViewById(R.id.confirm_pass);
+        buttonCreateAc = (Button) findViewById(R.id.sibmit);
 
 
         buttonCreateAc.setOnClickListener(new View.OnClickListener() {

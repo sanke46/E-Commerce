@@ -23,6 +23,7 @@ import com.sanke46.android.e_commerce.R;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    private static final String TAG = ProfileActivity.class.getSimpleName();
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();;
 
@@ -39,15 +40,15 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Profile");
 
-        editTextNumber = findViewById(R.id.editNumber);
-        editTextMail = findViewById(R.id.editMail);
-        editTextPassword = findViewById(R.id.editPassword);
-        buttonToSave = findViewById(R.id.saveButton);
-        seePassButton = findViewById(R.id.seePassButton);
+        editTextNumber = (EditText) findViewById(R.id.editNumber);
+        editTextMail = (EditText) findViewById(R.id.editMail);
+        editTextPassword = (EditText) findViewById(R.id.editPassword);
+        buttonToSave = (Button) findViewById(R.id.saveButton);
+        seePassButton = (ImageView) findViewById(R.id.seePassButton);
 
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_arrow_back_black_36px));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -70,18 +71,21 @@ public class ProfileActivity extends AppCompatActivity {
         unicDataBase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String email = dataSnapshot.child(userId).child("email").getValue().toString();
-                editTextMail.setText(email);
                 try {
+                    String email = dataSnapshot.child(userId).child("email").getValue().toString();
+                    editTextMail.setText(email);
+                    Log.d(TAG, email);
+
                     String number = dataSnapshot.child(userId).child("phone").getValue().toString();
                     editTextNumber.setText(number);
+                    Log.d(TAG, number);
+
+                    password = dataSnapshot.child(userId).child("password").getValue().toString();
+                    visibleAndInvisiblePassword(password);
+                    Log.d(TAG, password);
                 } catch (NullPointerException e ) {
                     System.out.println(e);
                 }
-
-                password = dataSnapshot.child(userId).child("password").getValue().toString();
-                visibleAndInvisiblePassword(password);
-
                 }
 
             @Override
