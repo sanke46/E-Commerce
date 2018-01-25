@@ -11,4 +11,5 @@
     <color name="bgLiner">#fff</color>
     <color name="iconColor">#d7d7d7</color>
     <color name="editTextColor">#333</color>
+    <color name="colorUnderEditText">#bebdbd</color>
 </resources>

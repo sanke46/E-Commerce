@@ -41,12 +41,71 @@
             android:weightSum="1">
 
             <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/iconMLeft"
+                android:layout_marginRight="@dimen/iconMRight"
+                android:tint="@color/iconColor"
+                android:src="@drawable/ic_person_black_24dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Valera Chevtaev"
+                    android:focusableInTouchMode="true"
+                    android:textColor="@color/editTextColor"
+                    android:textSize="@dimen/editTextSize"
+                    android:inputType="textEmailAddress"
+                    android:background="@android:color/transparent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/paddindUnderEditText"
+                    android:textSize="@dimen/underEditViewTextSize"
+                    android:textColor="@color/colorUnderEditText"
+                    android:text="Your name"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <!--<ImageView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="44dp"-->
+                <!--android:src="@drawable/ic_edit_black_24dp"-->
+                <!--android:layout_alignParentRight="true" />-->
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginLiner"
+            android:layout_marginBottom="@dimen/marginLiner"
+            android:padding="@dimen/paddingLiner"
+            android:background="@color/bgLiner"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageView
                 android:layout_marginLeft="@dimen/iconMLeft"
                 android:layout_marginRight="@dimen/iconMRight"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:tint="@color/iconColor"
-                android:src="@drawable/ic_contact_phone_black_24dp"/>
+                android:src="@drawable/ic_smartphone_black_24dp"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -69,6 +128,7 @@
                     android:layout_height="wrap_content"
                     android:paddingTop="@dimen/paddindUnderEditText"
                     android:textSize="@dimen/underEditViewTextSize"
+                    android:textColor="@color/colorUnderEditText"
                     android:text="@string/title_phone_accaunt"/>
 
             </LinearLayout>
@@ -88,6 +148,7 @@
 
         </LinearLayout>
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -104,7 +165,7 @@
                 android:layout_marginLeft="@dimen/iconMLeft"
                 android:layout_marginRight="@dimen/iconMRight"
                 android:tint="@color/iconColor"
-                android:src="@drawable/ic_contact_mail_black_24dp"/>
+                android:src="@drawable/ic_email_black_24dp"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -127,6 +188,7 @@
                     android:layout_height="wrap_content"
                     android:paddingTop="@dimen/paddindUnderEditText"
                     android:textSize="@dimen/underEditViewTextSize"
+                    android:textColor="@color/colorUnderEditText"
                     android:text="@string/title_mail_accaunt"/>
 
             </LinearLayout>
@@ -205,6 +267,68 @@
             <!--</RelativeLayout>-->
 
         <!--</LinearLayout>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginLiner"
+            android:layout_marginBottom="@dimen/marginLiner"
+            android:padding="@dimen/paddingLiner"
+            android:background="@color/bgLiner"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/iconMLeft"
+                android:layout_marginRight="@dimen/iconMRight"
+                android:tint="@color/iconColor"
+                android:src="@drawable/ic_place_black_24dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/adress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="415 E Toluca Ave, Orange, CA, 92866"
+                    android:focusableInTouchMode="true"
+                    android:textColor="@color/editTextColor"
+                    android:textSize="@dimen/editTextSize"
+                    android:inputType="textEmailAddress"
+                    android:background="@android:color/transparent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/paddindUnderEditText"
+                    android:textSize="@dimen/underEditViewTextSize"
+                    android:textColor="@color/colorUnderEditText"
+                    android:text="Your full adress [street, house, flat]"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <!--<ImageView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="44dp"-->
+                <!--android:src="@drawable/ic_edit_black_24dp"-->
+                <!--android:layout_alignParentRight="true" />-->
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+
 
     </LinearLayout>
         <LinearLayout

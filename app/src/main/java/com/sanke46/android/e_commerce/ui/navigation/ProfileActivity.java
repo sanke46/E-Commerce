@@ -59,7 +59,7 @@ public class ProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
-        
+
         // FireBase Inctance
         mDatabase = FirebaseDatabase.getInstance().getReference();
         final DatabaseReference unicDataBase = mDatabase.child("users");
