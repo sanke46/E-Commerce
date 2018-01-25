@@ -60,7 +60,9 @@
                     android:text="@string/Phone_accaunt"
                     android:textColor="@color/editTextColor"
                     android:background="@android:color/transparent"
-                    android:textSize="@dimen/editTextSize"/>
+                    android:textSize="@dimen/editTextSize"
+                    android:focusableInTouchMode="true"
+                    android:inputType="phone"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -114,8 +116,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/email_accaunt"
+                    android:focusableInTouchMode="true"
                     android:textColor="@color/editTextColor"
                     android:textSize="@dimen/editTextSize"
+                    android:inputType="textEmailAddress"
                     android:background="@android:color/transparent"/>
 
                 <TextView

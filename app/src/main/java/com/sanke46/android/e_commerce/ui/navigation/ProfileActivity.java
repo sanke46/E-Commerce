@@ -46,9 +46,9 @@ public class ProfileActivity extends AppCompatActivity {
 
         editTextNumber = (EditText) findViewById(R.id.editNumber);
         editTextMail = (EditText) findViewById(R.id.editMail);
-        editTextPassword = (EditText) findViewById(R.id.editPassword);
+//        editTextPassword = (EditText) findViewById(R.id.editPassword);
         buttonToSave = (Button) findViewById(R.id.saveButton);
-        seePassButton = (ImageView) findViewById(R.id.seePassButton);
+//        seePassButton = (ImageView) findViewById(R.id.seePassButton);
 
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_arrow_back_black_36px));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -59,9 +59,7 @@ public class ProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-        editTextNumber.setFocusable(false);
-
+        
         // FireBase Inctance
         mDatabase = FirebaseDatabase.getInstance().getReference();
         final DatabaseReference unicDataBase = mDatabase.child("users");
@@ -106,12 +104,12 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        seePassButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                visibleAndInvisiblePassword(password);
-            }
-        });
+//        seePassButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                visibleAndInvisiblePassword(password);
+//            }
+//        });
     }
 
     /**  Save new Inctance to FireBase **/
