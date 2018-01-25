@@ -60,6 +60,8 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+        editTextNumber.setFocusable(false);
+
         // FireBase Inctance
         mDatabase = FirebaseDatabase.getInstance().getReference();
         final DatabaseReference unicDataBase = mDatabase.child("users");
@@ -76,13 +78,14 @@ public class ProfileActivity extends AppCompatActivity {
                     editTextMail.setText(email);
                     Log.d(TAG, email);
 
-                    String number = dataSnapshot.child(userId).child("phone").getValue().toString();
-                    editTextNumber.setText(number);
-                    Log.d(TAG, number);
+//                    String number = dataSnapshot.child(userId).child("phone").getValue().toString();
+//                    editTextNumber.setText(number);
+//                    Log.d(TAG, number);
 
-                    password = dataSnapshot.child(userId).child("password").getValue().toString();
+                    password = (dataSnapshot.child(userId).child("password").getValue()).toString();
                     visibleAndInvisiblePassword(password);
                     Log.d(TAG, password);
+//                    Log.d(TAG, (String) dataSnapshot.child(userId).getValue());
                 } catch (NullPointerException e ) {
                     System.out.println(e);
                 }
@@ -98,7 +101,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.v("ProfileActivity", "CLICKED to save information");
-                saveAllNewInformation(getTextEditText(editTextNumber),getTextEditText(editTextMail),getTextEditText(editTextPassword), userId);
+                saveAllNewInformation(getTextEditText(editTextNumber),getTextEditText(editTextMail), getTextEditText(editTextPassword), userId);
                 Toast.makeText(getApplicationContext(), "Thanks,Information saved", Toast.LENGTH_LONG).show();
             }
         });
