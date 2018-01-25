@@ -78,13 +78,13 @@ public class ProfileActivity extends AppCompatActivity {
                     editTextMail.setText(email);
                     Log.d(TAG, email);
 
-//                    String number = dataSnapshot.child(userId).child("phone").getValue().toString();
-//                    editTextNumber.setText(number);
-//                    Log.d(TAG, number);
+                    String number = dataSnapshot.child(userId).child("phone").getValue().toString();
+                    editTextNumber.setText(number);
+                    Log.d(TAG, number);
 
-                    password = (dataSnapshot.child(userId).child("password").getValue()).toString();
-                    visibleAndInvisiblePassword(password);
-                    Log.d(TAG, password);
+//                    password = (dataSnapshot.child(userId).child("password").getValue()).toString();
+//                    visibleAndInvisiblePassword(password);
+//                    Log.d(TAG, password);
 //                    Log.d(TAG, (String) dataSnapshot.child(userId).getValue());
                 } catch (NullPointerException e ) {
                     System.out.println(e);
@@ -118,7 +118,7 @@ public class ProfileActivity extends AppCompatActivity {
     public void saveAllNewInformation(String phoneNumber, String email, String password, String userId) {
         mDatabase.child("users").child(userId).child("phone").setValue(phoneNumber);
         mDatabase.child("users").child(userId).child("email").setValue(email);
-        mDatabase.child("users").child(userId).child("password").setValue(password);
+//        mDatabase.child("users").child(userId).child("password").setValue(password);
     }
 
     /** Get String inside EditText **/

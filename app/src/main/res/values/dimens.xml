@@ -3,4 +3,14 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+    <!-- Profile info -->
+    <dimen name="paddingLiner">10dp</dimen>
+    <dimen name="marginLiner">1dp</dimen>
+    <dimen name="iconMLeft">7dp</dimen>
+    <dimen name="iconMRight">30dp</dimen>
+    <dimen name="editTextSize">14sp</dimen>
+    <dimen name="underEditViewTextSize">11sp</dimen>
+    <dimen name="paddindUnderEditText">3dp</dimen>
+
 </resources>

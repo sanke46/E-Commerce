@@ -34,18 +34,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="1dp"
-            android:padding="10dp"
-            android:background="#fff"
+            android:layout_marginBottom="@dimen/marginLiner"
+            android:padding="@dimen/paddingLiner"
+            android:background="@color/bgLiner"
             android:orientation="horizontal"
             android:weightSum="1">
 
             <ImageView
-                android:layout_marginLeft="7dp"
-                android:layout_marginRight="14dp"
+                android:layout_marginLeft="@dimen/iconMLeft"
+                android:layout_marginRight="@dimen/iconMRight"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:tint="#d7d7d7"
+                android:tint="@color/iconColor"
                 android:src="@drawable/ic_contact_phone_black_24dp"/>
 
             <LinearLayout
@@ -58,17 +58,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/Phone_accaunt"
-                    android:textColor="#333"
+                    android:textColor="@color/editTextColor"
                     android:background="@android:color/transparent"
-                    android:paddingLeft="15dp"
-                    android:textSize="14dp"/>
+                    android:textSize="@dimen/editTextSize"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="15dp"
-                    android:paddingTop="3dp"
-                    android:textSize="11dp"
+                    android:paddingTop="@dimen/paddindUnderEditText"
+                    android:textSize="@dimen/underEditViewTextSize"
                     android:text="@string/title_phone_accaunt"/>
 
             </LinearLayout>
@@ -91,19 +89,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="1dp"
-            android:padding="10dp"
-            android:background="#fff"
+            android:layout_marginTop="@dimen/marginLiner"
+            android:layout_marginBottom="@dimen/marginLiner"
+            android:padding="@dimen/paddingLiner"
+            android:background="@color/bgLiner"
             android:orientation="horizontal"
             android:weightSum="1">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="7dp"
-                android:layout_marginRight="14dp"
-                android:tint="#d7d7d7"
+                android:layout_marginLeft="@dimen/iconMLeft"
+                android:layout_marginRight="@dimen/iconMRight"
+                android:tint="@color/iconColor"
                 android:src="@drawable/ic_contact_mail_black_24dp"/>
 
             <LinearLayout
@@ -116,17 +114,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/email_accaunt"
-                    android:paddingLeft="15dp"
-                    android:textColor="#333"
-                    android:background="@android:color/transparent"
-                    android:textSize="14dp"/>
+                    android:textColor="@color/editTextColor"
+                    android:textSize="@dimen/editTextSize"
+                    android:background="@android:color/transparent"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="15dp"
-                    android:paddingTop="3dp"
-                    android:textSize="11dp"
+                    android:paddingTop="@dimen/paddindUnderEditText"
+                    android:textSize="@dimen/underEditViewTextSize"
                     android:text="@string/title_mail_accaunt"/>
 
             </LinearLayout>
@@ -146,65 +142,65 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="1dp"
-            android:padding="10dp"
-            android:background="#fff"
-            android:orientation="horizontal"
-            android:weightSum="1">
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="1dp"-->
+            <!--android:layout_marginBottom="1dp"-->
+            <!--android:padding="10dp"-->
+            <!--android:background="#fff"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:weightSum="1">-->
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="7dp"
-                android:layout_marginRight="14dp"
-                android:tint="#d7d7d7"
-                android:src="@drawable/ic_lock_outline_black_24dp"/>
+            <!--<ImageView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginLeft="7dp"-->
+                <!--android:layout_marginRight="14dp"-->
+                <!--android:tint="#d7d7d7"-->
+                <!--android:src="@drawable/ic_lock_outline_black_24dp"/>-->
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+            <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical">-->
 
-                <EditText
-                    android:id="@+id/editPassword"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:textColor="#333"
-                    android:text=""
-                    android:paddingLeft="15dp"
-                    android:textSize="14dp"/>
+                <!--<EditText-->
+                    <!--android:id="@+id/editPassword"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@android:color/transparent"-->
+                    <!--android:textColor="#333"-->
+                    <!--android:text=""-->
+                    <!--android:paddingLeft="15dp"-->
+                    <!--android:textSize="14dp"/>-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="15dp"
-                    android:paddingTop="3dp"
-                    android:textSize="11dp"
-                    android:text="@string/title_password_accaunt"/>
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:paddingLeft="15dp"-->
+                    <!--android:paddingTop="3dp"-->
+                    <!--android:textSize="11dp"-->
+                    <!--android:text="@string/title_password_accaunt"/>-->
 
-            </LinearLayout>
+            <!--</LinearLayout>-->
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--&gt;-->
 
-                <ImageView
-                    android:id="@+id/seePassButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="44dp"
-                    android:tint="#8ea8e7"
-                    android:src="@drawable/ic_remove_red_eye_black_24dp"
-                    android:layout_alignParentRight="true" />
+                <!--<ImageView-->
+                    <!--android:id="@+id/seePassButton"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="44dp"-->
+                    <!--android:tint="#8ea8e7"-->
+                    <!--android:src="@drawable/ic_remove_red_eye_black_24dp"-->
+                    <!--android:layout_alignParentRight="true" />-->
 
-            </RelativeLayout>
+            <!--</RelativeLayout>-->
 
-        </LinearLayout>
+        <!--</LinearLayout>-->
 
     </LinearLayout>
         <LinearLayout
