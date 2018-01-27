@@ -17,15 +17,17 @@ import java.util.ArrayList;
 
 public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecyclerViewAdapter.ViewHolder> {
 
-    private ArrayList arr = new ArrayList<ImageSales>();
+    private ArrayList<ImageSales> arr = new ArrayList<ImageSales>();
+    private int itemLayout;
 
-    public SalesRecyclerViewAdapter(ArrayList arr) {
+    public SalesRecyclerViewAdapter(ArrayList<ImageSales> arr, int itemLayout) {
         this.arr = arr;
+        this.itemLayout = itemLayout;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_sale, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(itemLayout, parent, false);
         return new ViewHolder(v);
     }
 

@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         DataBaseHandler db = new DataBaseHandler(this);
 
-        // Inserting Contacts
+//        // Inserting Contacts
         db.addItem("Su",new Item(R.drawable.sushi,"Sushi1","rice, cucumber, fish, soy",11,"Button1","+"));
         db.addItem("Su",new Item(R.drawable.sushi2,"Sushi2","rice, cucumber, fish, soy",12,"Button1","+"));
         db.addItem("Su",new Item(R.drawable.sushi3,"Sushi3","rice, cucumber, fish, soy",13,"Button1","+"));

@@ -3,7 +3,6 @@ package com.sanke46.android.e_commerce.ui.orderable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -26,10 +25,15 @@ import java.util.ArrayList;
 public class Pizza extends Fragment {
 
     private RecyclerView.LayoutManager mLayoutManager;
-    private RecyclerView.LayoutManager mSaleLayoutManager;
     private RecyclerView mRecyclerView;
+
+    private RecyclerView.LayoutManager mSaleLayoutManager;
     private RecyclerView mSalerecycleView;
     private SalesRecyclerViewAdapter salesImageAdapter;
+
+    private RecyclerView.LayoutManager mSaleLayoutManager2;
+    private RecyclerView mSalerecycleView2;
+    private SalesRecyclerViewAdapter salesImageAdapter2;
 
     @Nullable
     @Override
@@ -60,12 +64,21 @@ public class Pizza extends Fragment {
         mSalerecycleView = view.findViewById(R.id.list_sale);
         mSaleLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
         mSalerecycleView.setLayoutManager(mSaleLayoutManager);
-        salesImageAdapter = new SalesRecyclerViewAdapter(imageSalesArray);
+        salesImageAdapter = new SalesRecyclerViewAdapter(imageSalesArray, R.layout.item_sale);
         mSalerecycleView.setAdapter(salesImageAdapter);
         mSalerecycleView.setNestedScrollingEnabled(false);
 
-        NestedScrollView nestedScrollView = view.findViewById(R.id.n);
+        ArrayList<ImageSales> imageSalesArray2 = new ArrayList<>();
+        imageSalesArray2.add(new ImageSales(R.drawable.image));
+        imageSalesArray2.add(new ImageSales(R.drawable.image2));
+        imageSalesArray2.add(new ImageSales(R.drawable.image3));
 
+        mSalerecycleView2 = view.findViewById(R.id.list_info);
+        mSaleLayoutManager2 = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
+        mSalerecycleView2.setLayoutManager(mSaleLayoutManager2);
+        salesImageAdapter2 = new SalesRecyclerViewAdapter(imageSalesArray2, R.layout.list3);
+        mSalerecycleView2.setAdapter(salesImageAdapter2);
+        mSalerecycleView2.setNestedScrollingEnabled(false);
 
 
     }
