@@ -3,7 +3,9 @@ package com.sanke46.android.e_commerce.ui.orderable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +13,9 @@ import android.view.ViewGroup;
 
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.adapter.RecyclerViewAdapter;
+import com.sanke46.android.e_commerce.adapter.SalesRecyclerViewAdapter;
 import com.sanke46.android.e_commerce.database.DataBaseHandler;
+import com.sanke46.android.e_commerce.model.ImageSales;
 import com.sanke46.android.e_commerce.model.Item;
 
 import java.util.ArrayList;
@@ -22,7 +26,10 @@ import java.util.ArrayList;
 public class Pizza extends Fragment {
 
     private RecyclerView.LayoutManager mLayoutManager;
+    private RecyclerView.LayoutManager mSaleLayoutManager;
     private RecyclerView mRecyclerView;
+    private RecyclerView mSalerecycleView;
+    private SalesRecyclerViewAdapter salesImageAdapter;
 
     @Nullable
     @Override
@@ -33,25 +40,33 @@ public class Pizza extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-//        ListView listView = (ListView) view.findViewById(R.id.list);
-//        String[] dummyStrings = getResources().getStringArray(R.array.my_items);
         mRecyclerView = view.findViewById(R.id.list_1);
+        mRecyclerView.setNestedScrollingEnabled(false);
 
         DataBaseHandler db = new DataBaseHandler(getActivity());
         ArrayList<Item> pizzaList = (ArrayList<Item>) db.getAllItem("Pi");
 
-        //        ArrayList<Item> pizzaList = new ArrayList<Item>();
-//        pizzaList.add(new Item(R.drawable.pizza,"Pizza1","tomatoes, onions, olives, cheese, chicken",19,"Button1","Button2"));
-//        pizzaList.add(new Item(R.drawable.pizza2,"Pizza2","tomatoes, onions, olives, cheese, chicken",20,"Button1-2","Button2-2"));
-//        pizzaList.add(new Item(R.drawable.pizza3,"Pizza3","tomatoes, onions, olives, cheese, chicken",21,"Button1-3","Button2-3"));
-
-
-//        ListAdapter listAdapter = new ListAdapter(getActivity().getApplicationContext(),pizzaList);
-//        listView.setAdapter(listAdapter);
         mLayoutManager = new GridLayoutManager(getContext(),2);
         mRecyclerView.setLayoutManager(mLayoutManager);
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(pizzaList);
         mRecyclerView.setAdapter(recyclerViewAdapter);
+
+
+        ArrayList<ImageSales> imageSalesArray = new ArrayList<>();
+        imageSalesArray.add(new ImageSales(R.drawable.pizza));
+        imageSalesArray.add(new ImageSales(R.drawable.pizza2));
+        imageSalesArray.add(new ImageSales(R.drawable.pizza3));
+
+        mSalerecycleView = view.findViewById(R.id.list_sale);
+        mSaleLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
+        mSalerecycleView.setLayoutManager(mSaleLayoutManager);
+        salesImageAdapter = new SalesRecyclerViewAdapter(imageSalesArray);
+        mSalerecycleView.setAdapter(salesImageAdapter);
+        mSalerecycleView.setNestedScrollingEnabled(false);
+
+        NestedScrollView nestedScrollView = view.findViewById(R.id.n);
+
+
 
     }
 }
