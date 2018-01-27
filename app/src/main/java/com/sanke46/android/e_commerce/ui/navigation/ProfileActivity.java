@@ -60,6 +60,12 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+        editTextNumber.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+            }
+        });
+
         // FireBase Inctance
         mDatabase = FirebaseDatabase.getInstance().getReference();
         final DatabaseReference unicDataBase = mDatabase.child("users");

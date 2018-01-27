@@ -27,7 +27,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list2, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list3, parent, false);
         return new ViewHolder(v);
     }
 
@@ -37,7 +37,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.image.setImageResource(item.getImageId());
         holder.name.setText(item.getName());
 //        holder.comment.setText(item.getComment());
-        holder.price.setText((item.getPrice()) + "");
+        holder.price.setText((item.getPrice()) + " $");
 //        holder.buttonOne.setText(item.getButtonOne());
         holder.buttonTwo.setText(item.getButtonTwo());
     }
