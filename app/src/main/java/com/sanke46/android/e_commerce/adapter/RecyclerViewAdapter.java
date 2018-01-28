@@ -10,8 +10,10 @@ import android.widget.TextView;
 
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.model.Item;
+import com.sanke46.android.e_commerce.ui.navigation.BasketActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by ilafedoseev on 24/07/2017.
@@ -19,6 +21,8 @@ import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
 
+    BasketActivity basketActivity = new BasketActivity();
+    private List<Item> itemList = basketActivity.getBasketItem();
     private ArrayList arr = new ArrayList<Item>();
 
     public RecyclerViewAdapter(ArrayList<Item> data) {
@@ -32,14 +36,21 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        Item item = (Item) arr.get(position);
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
+        final Item item = (Item) arr.get(position);
         holder.image.setImageResource(item.getImageId());
         holder.name.setText(item.getName());
 //        holder.comment.setText(item.getComment());
         holder.price.setText((item.getPrice()) + " $");
 //        holder.buttonOne.setText(item.getButtonOne());
         holder.buttonTwo.setText(item.getButtonTwo());
+        holder.buttonTwo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                itemList.add((Item) arr.get(position));
+                basketActivity.setBasketItem(itemList);
+            }
+        });
     }
 
     @Override
@@ -65,5 +76,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 //            buttonOne = (Button) itemView.findViewById(R.id.buttonOne);
             buttonTwo = (Button) itemView.findViewById(R.id.buttonTwo);
         }
+
+
     }
 }
