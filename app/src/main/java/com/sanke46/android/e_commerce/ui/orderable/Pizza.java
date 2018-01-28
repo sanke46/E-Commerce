@@ -76,7 +76,7 @@ public class Pizza extends Fragment {
         mSalerecycleView2 = view.findViewById(R.id.list_info);
         mSaleLayoutManager2 = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
         mSalerecycleView2.setLayoutManager(mSaleLayoutManager2);
-        salesImageAdapter2 = new SalesRecyclerViewAdapter(imageSalesArray2, R.layout.list3);
+        salesImageAdapter2 = new SalesRecyclerViewAdapter(imageSalesArray2, R.layout.list4);
         mSalerecycleView2.setAdapter(salesImageAdapter2);
         mSalerecycleView2.setNestedScrollingEnabled(false);
 

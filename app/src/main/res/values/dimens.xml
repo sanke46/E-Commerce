@@ -13,4 +13,24 @@
     <dimen name="underEditViewTextSize">11sp</dimen>
     <dimen name="paddindUnderEditText">3dp</dimen>
 
+    <!-- Fragment one info -->
+    <dimen name="marginTitle">10dp</dimen>
+    <dimen name="sizeIcon">20dp</dimen>
+    <dimen name="marginIconTop">22dp</dimen>
+    <dimen name="marginIconRight">7dp</dimen>
+    <dimen name="titlesSize">18sp</dimen>
+    <dimen name="seconTitleMarginTop">20dp</dimen>
+
+
+    <dimen name="salesSizeText">12sp</dimen>
+    <dimen name="padTextLR">10dp</dimen>
+    <dimen name="padTextTB">4dp</dimen>
+    <dimen name="marginText">5dp</dimen>
+    <dimen name="titleTextSize">15sp</dimen>
+    <dimen name="heightBox">25dp</dimen>
+    <dimen name="iconSizeOffer">18dp</dimen>
+    <dimen name="underTitleSize">12sp</dimen>
+    <dimen name="paddingLinerSales">7dp</dimen>
+    <dimen name="textSizeunderTitlelittleBox">10sp</dimen>
+
 </resources>

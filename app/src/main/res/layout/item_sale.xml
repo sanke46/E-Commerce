@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_weight="1"
     android:layout_width="@dimen/_240sdp"
     android:layout_height="match_parent"
-    >
+    android:orientation="vertical"
+    android:layout_weight="1">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="0dp"
-        >
+        android:layout_marginLeft="10dp">
 
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/imageSale"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_160sdp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginRight="0dp"
             android:scaleType="fitXY"
             android:src="@drawable/pizza"
             android:clickable="true"/>
@@ -35,8 +30,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingBottom="30dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:paddingLeft="@dimen/padTextLR"
+            android:paddingRight="@dimen/padTextLR"
             android:layout_alignBottom="@+id/imageSale">
 
             <TextView
@@ -44,16 +39,16 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/name"
                 android:layout_marginBottom="3dp"
-                android:textColor="#fff"
-                android:textSize="15sp"
+                android:textColor="@color/bgWhite"
+                android:textSize="@dimen/titleTextSize"
                 android:text="Pizza with mushrooms and prosciutto"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/imageSale"
-                android:textColor="#fff"
-                android:textSize="12sp"
+                android:textColor="@color/bgWhite"
+                android:textSize="@dimen/underTitleSize"
                 android:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis omnis distinctio"/>
 
         </LinearLayout>
@@ -61,7 +56,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="7dp"
+            android:padding="@dimen/paddingLinerSales"
             android:background="@drawable/border_only_left"
             android:layout_alignTop="@+id/imageSale"
             android:layout_alignRight="@+id/imageSale"
@@ -69,8 +64,8 @@
 
             <ImageView
                 android:tint="#e97f7f"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
+                android:layout_width="@dimen/iconSizeOffer"
+                android:layout_height="@dimen/iconSizeOffer"
                 android:layout_marginRight="7dp"
                 android:layout_marginTop="2dp"
                 android:src="@drawable/ic_local_offer_black_24px"/>
@@ -78,8 +73,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#fff"
-                android:textSize="16sp"
+                android:textColor="@color/bgWhite"
+                android:textSize="@dimen/titleTextSize"
                 android:text="200 $"/>
 
         </LinearLayout>
@@ -90,9 +85,7 @@
         android:id="@+id/box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="0dp"
         android:layout_marginTop="-15dp"
         android:background="@drawable/boreder_radius_only_bottom"
         android:orientation="vertical"
@@ -101,7 +94,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="7dp"
+        android:padding="@dimen/paddingLinerSales"
         android:orientation="horizontal">
 
         <TextView
@@ -109,66 +102,50 @@
             android:layout_weight="1.3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:layout_marginLeft="3dp"
+            android:layout_marginLeft="@dimen/marginText"
             android:text="$ 4400"
-            android:textColor="#333"
-            android:textSize="13sp" />
+            android:textColor="@color/BlackGrey"
+            android:textSize="@dimen/salesSizeText" />
 
         <TextView
             android:id="@+id/kal"
             android:layout_weight="1.2"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:background="#ececec"
-            android:paddingBottom="4dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="4dp"
+            android:layout_height="@dimen/heightBox"
+            android:background="@color/bgBoxInfo"
+            android:paddingBottom="@dimen/padTextTB"
+            android:paddingLeft="@dimen/padTextLR"
+            android:paddingRight="@dimen/padTextLR"
+            android:paddingTop="@dimen/padTextTB"
             android:text="14000 kal"
             android:gravity="center"
-            android:layout_marginRight="5dp"
-            android:textSize="12sp"
-            android:textColor="#9e9d9d" />
+            android:layout_marginRight="@dimen/marginText"
+            android:textSize="@dimen/salesSizeText"
+            android:textColor="@color/textColorBox" />
 
         <TextView
             android:id="@+id/gramm"
             android:layout_weight="1.2"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:background="#ececec"
-            android:paddingBottom="4dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="4dp"
+            android:layout_height="@dimen/heightBox"
+            android:background="@color/bgBoxInfo"
+            android:paddingBottom="@dimen/padTextTB"
+            android:paddingLeft="@dimen/padTextLR"
+            android:paddingRight="@dimen/padTextLR"
+            android:paddingTop="@dimen/padTextTB"
             android:text="2000 g"
             android:gravity="center"
-            android:layout_marginRight="5dp"
-            android:textSize="12sp"
-            android:textColor="#9e9d9d" />
-
-        <!--<TextView-->
-            <!--android:layout_weight="1.3"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="25dp"-->
-            <!--android:background="#ff9a00"-->
-            <!--android:paddingBottom="4dp"-->
-            <!--android:paddingLeft="10dp"-->
-            <!--android:paddingRight="10dp"-->
-            <!--android:paddingTop="4dp"-->
-            <!--android:text="fat"-->
-            <!--android:gravity="center"-->
-            <!--android:layout_marginRight="10dp"-->
-            <!--android:textSize="12sp"-->
-            <!--android:textColor="#fff" />-->
+            android:layout_marginRight="@dimen/marginText"
+            android:textSize="@dimen/salesSizeText"
+            android:textColor="@color/textColorBox" />
 
         <Button
             android:id="@+id/buttonTwo"
             android:layout_weight="1.4"
             android:layout_width="match_parent"
-            android:layout_height="26dp"
+            android:layout_height="@dimen/heightBox"
             android:layout_gravity="right"
-            android:textSize="16sp"
+            android:textSize="@dimen/titleTextSize"
             android:background="@drawable/border_button"
             android:text="+"
             android:textColor="@android:color/white" />
