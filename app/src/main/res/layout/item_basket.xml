@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
+        android:padding="7dp"
         android:layout_marginBottom="0dp"
-        android:paddingBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:background="#ddd"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/border"
         android:orientation="horizontal">
 
 
@@ -21,30 +23,52 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
+            <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/image"
                 android:src="@drawable/pizza"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_width="130dp"
-                android:layout_height="80dp" />
+                app:riv_corner_radius="5dp"
+                android:layout_width="@dimen/_80sdp"
+                android:scaleType="fitXY"
+                android:layout_height="65dp" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="150dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:text=""
-            android:textColor="#333"
-            android:textSize="23sp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="5dp"
+                android:text="Pizza ala muia"
+                android:textColor="#333"
+                android:textSize="18sp"/>
+
+                <LinearLayout
+                    android:gravity="right"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/delete"
+                        android:tint="@color/bgWhite"
+                        android:padding="4dp"
+                        android:layout_margin="0dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/border_button"
+                        android:src="@drawable/ic_close_black_24dp"/>
+                </LinearLayout>
+            </LinearLayout>
 
         <!--<TextView-->
             <!--android:id="@+id/comment"-->
@@ -60,49 +84,104 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/gramm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="10dp"
-                android:background="#c4c4c4"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:textColor="#8e8e8e"
-                />
+            <!--<TextView-->
+                <!--android:id="@+id/gramm"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="200 g"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:background="#c4c4c4"-->
+                <!--android:paddingTop="5dp"-->
+                <!--android:paddingBottom="5dp"-->
+                <!--android:paddingLeft="10dp"-->
+                <!--android:paddingRight="10dp"-->
+                <!--android:textColor="#8e8e8e"-->
+                <!--/>-->
 
-            <TextView
-                android:id="@+id/price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#333"
-                android:textSize="16sp"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="10dp"
-                android:text=""/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:tint="@color/textColorBox"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_plus_button"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="100"
+                    android:textColor="@color/textColorBox"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:textSize="16sp"/>
+
+                <ImageView
+                    android:padding="4dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:tint="@color/textColorBox"
+                    android:src="@drawable/ic_minus_symbol"/>
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:background="@color/bgBoxInfo"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textColor="@color/textColorBox"
+                        android:textSize="12sp"
+                        android:layout_marginLeft="8dp"
+                        android:text="2000 g"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:background="@color/bgBoxInfo"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textColor="@color/textColorBox"
+                        android:textSize="12sp"
+                        android:layout_marginLeft="8dp"
+                        android:text="4500 kal"/>
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:background="#c6c6c6"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="#646464"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="8dp"
+                    android:text="20 $"/>
+
+            </LinearLayout>
 
         </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/delete"
-                android:textSize="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="10dp"
-                android:background="@color/colorBlue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="delete"/>
-        </LinearLayout>
 
     </LinearLayout>
 </LinearLayout>

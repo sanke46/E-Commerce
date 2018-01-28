@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -42,11 +41,11 @@ public class ListAdapterBasket extends ArrayAdapter<Item>{
         ImageView image = (ImageView) convertView.findViewById(R.id.image);
         TextView name = (TextView) convertView.findViewById(R.id.name);
         TextView price = (TextView) convertView.findViewById(R.id.price);
-        Button delete = (Button) convertView.findViewById(R.id.delete);
+        ImageView delete = (ImageView ) convertView.findViewById(R.id.delete);
 
         image.setImageResource(item.getImageId());
         name.setText(item.getName());
-        price.setText(item.getPrice() + " $");
+        price.setText(item.getPrice() + "00 $");
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

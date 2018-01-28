@@ -48,7 +48,7 @@ public class ListAdapter extends ArrayAdapter<Item>{
         image.setImageResource(item.getImageId());
         name.setText(item.getName());
         comment.setText(item.getComment());
-        price.setText(item.getPrice() + " $");
+        price.setText("Price: " + item.getPrice() + " $");
         buttonTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
