@@ -11,10 +11,40 @@ public class Item {
     private String name;
     private String comment;
     private int price;
+    private int discontPrice;
+    private int gramms;
+    private int kalories;
+    private int protein;
+    private int carbohydrates; // Углеводы
+    private boolean vegetarian;
+    private boolean spice;
+    private boolean sales;
+    private String status;
+    private String comeFrom;
     private String buttonOne;
     private String buttonTwo;
 
-    public Item(int id, int imageId, String name, String comment,int price,String buttonOne,String buttonTwo){
+    public Item(int id, int imageId, String name, String comment, int price, int discontPrice, int gramms, int kalories, int protein, int carbohydrates, boolean vegetarian, boolean spice, boolean sales, String status, String comeFrom, String buttonOne, String buttonTwo) {
+        this.id = id;
+        this.imageId = imageId;
+        this.name = name;
+        this.comment = comment;
+        this.price = price;
+        this.discontPrice = discontPrice;
+        this.gramms = gramms;
+        this.kalories = kalories;
+        this.protein = protein;
+        this.carbohydrates = carbohydrates;
+        this.vegetarian = vegetarian;
+        this.spice = spice;
+        this.sales = sales;
+        this.status = status;
+        this.comeFrom = comeFrom;
+        this.buttonOne = buttonOne;
+        this.buttonTwo = buttonTwo;
+    }
+
+    public Item(int id, int imageId, String name, String comment, int price, String buttonOne, String buttonTwo){
         this.id = id;
         this.imageId = imageId;
         this.name = name;
@@ -33,9 +63,7 @@ public class Item {
         this.buttonTwo = buttonTwo;
     }
 
-    public Item() {
-
-    }
+    public Item() {}
 
     // GET methods
 
@@ -67,6 +95,46 @@ public class Item {
         return buttonTwo;
     }
 
+    public int getDiscontPrice() {
+        return discontPrice;
+    }
+
+    public int getGramms() {
+        return gramms;
+    }
+
+    public int getKalories() {
+        return kalories;
+    }
+
+    public int getProtein() {
+        return protein;
+    }
+
+    public int getCarbohydrates() {
+        return carbohydrates;
+    }
+
+    public boolean isVegetarian() {
+        return vegetarian;
+    }
+
+    public boolean isSpice() {
+        return spice;
+    }
+
+    public boolean isSales() {
+        return sales;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getComeFrom() {
+        return comeFrom;
+    }
+
     // SET methods
 
     public void setId(int id) {
@@ -95,6 +163,46 @@ public class Item {
 
     public void setButtonTwo(String buttonTwo) {
         this.buttonTwo = buttonTwo;
+    }
+
+    public void setDiscontPrice(int discontPrice) {
+        this.discontPrice = discontPrice;
+    }
+
+    public void setGramms(int gramms) {
+        this.gramms = gramms;
+    }
+
+    public void setKalories(int kalories) {
+        this.kalories = kalories;
+    }
+
+    public void setProtein(int protein) {
+        this.protein = protein;
+    }
+
+    public void setCarbohydrates(int carbohydrates) {
+        this.carbohydrates = carbohydrates;
+    }
+
+    public void setVegetarian(boolean vegetarian) {
+        this.vegetarian = vegetarian;
+    }
+
+    public void setSpice(boolean spice) {
+        this.spice = spice;
+    }
+
+    public void setSales(boolean sales) {
+        this.sales = sales;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setComeFrom(String comeFrom) {
+        this.comeFrom = comeFrom;
     }
 
     @Override

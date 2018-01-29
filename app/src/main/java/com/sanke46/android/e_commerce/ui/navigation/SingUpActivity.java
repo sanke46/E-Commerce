@@ -58,7 +58,6 @@ public class SingUpActivity extends AppCompatActivity {
         newConfirmPass = (EditText) findViewById(R.id.confirm_pass);
         buttonCreateAc = (Button) findViewById(R.id.sibmit);
 
-
         buttonCreateAc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,7 +123,7 @@ public class SingUpActivity extends AppCompatActivity {
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             String userId = user.getUid();
-                            myRef.child(userId).setValue(new User(0,null, finalEmail, finalPassword));
+                            myRef.child("users").child(userId).setValue(new User(0,null, finalEmail, finalPassword));
                             finish();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         } else {
