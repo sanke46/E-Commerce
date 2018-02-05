@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +12,9 @@ import android.view.ViewGroup;
 
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.adapter.RecyclerViewAdapter;
+import com.sanke46.android.e_commerce.adapter.SalesRecyclerViewAdapter;
 import com.sanke46.android.e_commerce.database.DataBaseHandler;
+import com.sanke46.android.e_commerce.model.ImageSales;
 import com.sanke46.android.e_commerce.model.Item;
 
 import java.util.ArrayList;
@@ -23,6 +26,10 @@ public class Sushi extends Fragment {
 
     private RecyclerView.LayoutManager mLayoutManager;
     private RecyclerView mRecyclerView;
+
+    private RecyclerView.LayoutManager mSaleLayoutManager;
+    private RecyclerView mSalerecycleView;
+    private SalesRecyclerViewAdapter salesImageAdapter;
 
     @Nullable
     @Override
@@ -39,17 +46,22 @@ public class Sushi extends Fragment {
         DataBaseHandler db = new DataBaseHandler(getActivity());
         ArrayList<Item> sushiList = (ArrayList<Item>) db.getAllItem("Su");
 
-//        ArrayList<Item> sushiList = new ArrayList<Item>();
-//        sushiList.add(new Item(R.drawable.sushi,"Sushi1","rice, cucumber, fish, soy",10,"Button1","Button2"));
-//        sushiList.add(new Item(R.drawable.sushi2,"Sushi2","rice, cucumber, fish, soy",11,"Button1-2","Button2-2"));
-//        sushiList.add(new Item(R.drawable.sushi3,"Sushi3","rice, cucumber, fish, soy",12,"Button1-3","Button2-3"));
-
-//        ListAdapter listAdapter = new ListAdapter(getActivity().getApplicationContext(),sushiList);
-//        listView.setAdapter(listAdapter);
         mLayoutManager = new GridLayoutManager(getContext(),2);
         mRecyclerView.setLayoutManager(mLayoutManager);
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(sushiList);
         mRecyclerView.setAdapter(recyclerViewAdapter);
+
+        ArrayList<ImageSales> imageSalesArray = new ArrayList<>();
+        imageSalesArray.add(new ImageSales(R.drawable.pizza));
+        imageSalesArray.add(new ImageSales(R.drawable.pizza2));
+        imageSalesArray.add(new ImageSales(R.drawable.pizza3));
+
+        mSalerecycleView = view.findViewById(R.id.list_sale_2);
+        mSaleLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
+        mSalerecycleView.setLayoutManager(mSaleLayoutManager);
+        salesImageAdapter = new SalesRecyclerViewAdapter(imageSalesArray, R.layout.item_sale);
+        mSalerecycleView.setAdapter(salesImageAdapter);
+        mSalerecycleView.setNestedScrollingEnabled(false);
 
     }
 

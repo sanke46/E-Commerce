@@ -55,7 +55,6 @@ public class Pizza extends Fragment {
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(pizzaList);
         mRecyclerView.setAdapter(recyclerViewAdapter);
 
-
         ArrayList<ImageSales> imageSalesArray = new ArrayList<>();
         imageSalesArray.add(new ImageSales(R.drawable.pizza));
         imageSalesArray.add(new ImageSales(R.drawable.pizza2));

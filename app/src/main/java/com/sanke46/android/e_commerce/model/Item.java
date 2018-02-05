@@ -63,7 +63,7 @@ public class Item {
         this.buttonTwo = buttonTwo;
     }
 
-    public Item() {}
+    public Item(){}
 
     // GET methods
 
