@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +13,6 @@ import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.adapter.RecyclerViewAdapter;
 import com.sanke46.android.e_commerce.adapter.SalesRecyclerViewAdapter;
 import com.sanke46.android.e_commerce.database.DataBaseHandler;
-import com.sanke46.android.e_commerce.model.ImageSales;
 import com.sanke46.android.e_commerce.model.Item;
 
 import java.util.ArrayList;
@@ -50,17 +48,17 @@ public class Drinks extends Fragment {
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(drinkList);
         mRecyclerView.setAdapter(recyclerViewAdapter);
 
-        ArrayList<ImageSales> imageSalesArray = new ArrayList<>();
-        imageSalesArray.add(new ImageSales(R.drawable.pizza));
-        imageSalesArray.add(new ImageSales(R.drawable.pizza2));
-        imageSalesArray.add(new ImageSales(R.drawable.pizza3));
-
-        mSalerecycleView = view.findViewById(R.id.list_sale_3);
-        mSaleLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
-        mSalerecycleView.setLayoutManager(mSaleLayoutManager);
-        salesImageAdapter = new SalesRecyclerViewAdapter(imageSalesArray, R.layout.item_sale);
-        mSalerecycleView.setAdapter(salesImageAdapter);
-        mSalerecycleView.setNestedScrollingEnabled(false);
+//        ArrayList<ImageSales> imageSalesArray = new ArrayList<>();
+//        imageSalesArray.add(new ImageSales(R.drawable.pizza));
+//        imageSalesArray.add(new ImageSales(R.drawable.pizza2));
+//        imageSalesArray.add(new ImageSales(R.drawable.pizza3));
+//
+//        mSalerecycleView = view.findViewById(R.id.list_sale_3);
+//        mSaleLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
+//        mSalerecycleView.setLayoutManager(mSaleLayoutManager);
+//        salesImageAdapter = new SalesRecyclerViewAdapter(imageSalesArray, R.layout.item_sale);
+//        mSalerecycleView.setAdapter(salesImageAdapter);
+//        mSalerecycleView.setNestedScrollingEnabled(false);
 
 
 

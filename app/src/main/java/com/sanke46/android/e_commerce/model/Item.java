@@ -8,6 +8,8 @@ public class Item {
 
     private int id;
     private int imageId;
+    private String imageName;
+    private String imageUrl;
     private String name;
     private String comment;
     private int price;
@@ -27,6 +29,27 @@ public class Item {
     public Item(int id, int imageId, String name, String comment, int price, int discontPrice, int gramms, int kalories, int protein, int carbohydrates, boolean vegetarian, boolean spice, boolean sales, String status, String comeFrom, String buttonOne, String buttonTwo) {
         this.id = id;
         this.imageId = imageId;
+        this.name = name;
+        this.comment = comment;
+        this.price = price;
+        this.discontPrice = discontPrice;
+        this.gramms = gramms;
+        this.kalories = kalories;
+        this.protein = protein;
+        this.carbohydrates = carbohydrates;
+        this.vegetarian = vegetarian;
+        this.spice = spice;
+        this.sales = sales;
+        this.status = status;
+        this.comeFrom = comeFrom;
+        this.buttonOne = buttonOne;
+        this.buttonTwo = buttonTwo;
+    }
+
+    public Item(int id, String imageName, String imageUrl, String name, String comment, int price, int discontPrice, int gramms, int kalories, int protein, int carbohydrates, boolean vegetarian, boolean spice, boolean sales, String status, String comeFrom, String buttonOne, String buttonTwo) {
+        this.id = id;
+        this.imageName = imageName;
+        this.imageUrl = imageUrl;
         this.name = name;
         this.comment = comment;
         this.price = price;

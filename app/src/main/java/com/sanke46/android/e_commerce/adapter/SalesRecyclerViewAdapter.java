@@ -5,9 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.sanke46.android.e_commerce.R;
-import com.sanke46.android.e_commerce.model.ImageSales;
+import com.sanke46.android.e_commerce.model.Item;
 
 import java.util.ArrayList;
 
@@ -17,10 +18,10 @@ import java.util.ArrayList;
 
 public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecyclerViewAdapter.ViewHolder> {
 
-    private ArrayList<ImageSales> arr = new ArrayList<ImageSales>();
+    private ArrayList<Item> arr = new ArrayList<>();
     private int itemLayout;
 
-    public SalesRecyclerViewAdapter(ArrayList<ImageSales> arr, int itemLayout) {
+    public SalesRecyclerViewAdapter(ArrayList<Item> arr, int itemLayout) {
         this.arr = arr;
         this.itemLayout = itemLayout;
     }
@@ -33,8 +34,13 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        ImageSales imageSales = (ImageSales) arr.get(position);
-        holder.imageView.setImageResource(imageSales.getImageSrc());
+        Item item = arr.get(position);
+        holder.price.setText(item.getPrice());
+        holder.fixPrice.setText(item.getDiscontPrice());
+        holder.name.setText(item.getName());
+        holder.comment.setText(item.getComment());
+        holder.gramm.setText(item.getGramms());
+        holder.kal.setText(item.getKalories());
     }
 
     @Override
@@ -45,10 +51,24 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
     class ViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView imageView;
+        private TextView price;
+        private TextView fixPrice;
+        private TextView name;
+        private TextView comment;
+        private TextView gramm;
+        private TextView kal;
+
 
         public ViewHolder(View itemView) {
             super(itemView);
+
             imageView = itemView.findViewById(R.id.imageSale);
+            price = itemView.findViewById(R.id.price);
+            kal = itemView.findViewById(R.id.kal);
+            gramm = itemView.findViewById(R.id.gramm);
+            name = itemView.findViewById(R.id.name);
+            comment = itemView.findViewById(R.id.comments);
+            fixPrice = itemView.findViewById(R.id.fixPrice);
         }
     }
 

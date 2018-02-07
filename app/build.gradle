@@ -32,6 +32,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'com.google.firebase:firebase-storage:11.0.4'
     compile 'com.android.support:design:25.1.0'
     compile 'com.android.support:appcompat-v7:25.1.0'
     implementation 'com.google.firebase:firebase-auth:11.0.4'
@@ -42,5 +43,6 @@ dependencies {
     compile 'com.makeramen:roundedimageview:2.3.0'
 
 }
+
 
 apply plugin: 'com.google.gms.google-services'
