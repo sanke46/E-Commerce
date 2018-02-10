@@ -35,12 +35,12 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Item item = arr.get(position);
-        holder.price.setText(item.getPrice());
-        holder.fixPrice.setText(item.getDiscontPrice());
+        holder.price.setText(item.getPrice() + " $");
+        holder.fixPrice.setText(item.getDiscontPrice() + " $");
         holder.name.setText(item.getName());
         holder.comment.setText(item.getComment());
-        holder.gramm.setText(item.getGramms());
-        holder.kal.setText(item.getKalories());
+        holder.gramm.setText(item.getGramms() + " g");
+        holder.kal.setText(item.getKalories() + " kal");
     }
 
     @Override

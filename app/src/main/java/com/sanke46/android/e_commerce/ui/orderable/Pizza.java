@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +14,7 @@ import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.adapter.RecyclerViewAdapter;
 import com.sanke46.android.e_commerce.adapter.SalesRecyclerViewAdapter;
 import com.sanke46.android.e_commerce.database.DataBaseHandler;
+import com.sanke46.android.e_commerce.fireBase.FirebaseHandler;
 import com.sanke46.android.e_commerce.model.Item;
 
 import java.util.ArrayList;
@@ -57,15 +57,18 @@ public class Pizza extends Fragment {
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(pizzaList);
         mRecyclerView.setAdapter(recyclerViewAdapter);
 
-        Log.v("Pizza" , "firebaseHandlerLoaded");
+        FirebaseHandler fb = new FirebaseHandler();
 
-        System.out.println(salesItem.size() + ": NUMBER - 2");
+
         mSalerecycleView = view.findViewById(R.id.list_sale);
         mSaleLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
         mSalerecycleView.setLayoutManager(mSaleLayoutManager);
         salesImageAdapter = new SalesRecyclerViewAdapter(salesItem, R.layout.item_sale);
         mSalerecycleView.setAdapter(salesImageAdapter);
         mSalerecycleView.setNestedScrollingEnabled(false);
+        fb.getAllSalesItem(salesItem,salesImageAdapter);
+
+
 
 //        ArrayList<ImageSales> imageSalesArray2 = new ArrayList<>();
 //        imageSalesArray2.add(new ImageSales(R.drawable.image));

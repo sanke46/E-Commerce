@@ -77,13 +77,26 @@ public class Item {
         this.buttonTwo = buttonTwo;
     }
 
-    public Item(int imageId, String name, String comment,int price,String buttonOne,String buttonTwo){
+    public Item(String name, String comment, int price, int discontPrice, int gramms, int kalories) {
+        this.name = name;
+        this.comment = comment;
+        this.price = price;
+        this.discontPrice = discontPrice;
+        this.gramms = gramms;
+        this.kalories = kalories;
+    }
+
+    public Item(int imageId, String name, String comment, int price, String buttonOne, String buttonTwo){
         this.imageId = imageId;
         this.name = name;
         this.comment = comment;
         this.price = price;
         this.buttonOne = buttonOne;
         this.buttonTwo = buttonTwo;
+    }
+
+    public Item(int id) {
+        this.id = id;
     }
 
     public Item(){}
