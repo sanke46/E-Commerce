@@ -81,6 +81,22 @@
                 android:textSize="@dimen/salesSizeText" />
 
             <TextView
+                android:id="@+id/kal"
+                android:layout_weight="1.2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/heightBox"
+                android:background="@color/bgBoxInfo"
+                android:paddingBottom="@dimen/padTextTB"
+                android:paddingLeft="@dimen/padTextLR"
+                android:paddingRight="@dimen/padTextLR"
+                android:paddingTop="@dimen/padTextTB"
+                android:text="200 g"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/marginText"
+                android:textSize="@dimen/salesSizeText"
+                android:textColor="@color/textColorBox" />
+
+            <TextView
                 android:id="@+id/gramm"
                 android:layout_weight="1.2"
                 android:layout_width="match_parent"

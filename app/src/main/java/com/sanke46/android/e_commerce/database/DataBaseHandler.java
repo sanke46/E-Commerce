@@ -103,7 +103,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
             do {
                 Item item = new Item();
                 item.setId(Integer.parseInt(cursor.getString(0)));
-                item.setImageId(Integer.parseInt(cursor.getString(1)));
+//                item.setImageId(Integer.parseInt(cursor.getString(1)));
                 item.setName(cursor.getString(2));
                 item.setComment(cursor.getString(3));
                 item.setPrice(Integer.parseInt(cursor.getString(4)));

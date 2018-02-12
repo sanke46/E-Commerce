@@ -1,6 +1,9 @@
 package com.sanke46.android.e_commerce.adapter;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +21,12 @@ import java.util.ArrayList;
 
 public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecyclerViewAdapter.ViewHolder> {
 
+    private Context context;
     private ArrayList<Item> arr = new ArrayList<>();
     private int itemLayout;
 
-    public SalesRecyclerViewAdapter(ArrayList<Item> arr, int itemLayout) {
+    public SalesRecyclerViewAdapter(Context context, ArrayList<Item> arr, int itemLayout) {
+        this.context = context;
         this.arr = arr;
         this.itemLayout = itemLayout;
     }
@@ -32,15 +37,20 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
         return new ViewHolder(v);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+
         Item item = arr.get(position);
+//        holder.imageView.setImageResource();
+//        Glide.with(context).load(item.getImageId()).into(holder.imageView);
         holder.price.setText(item.getPrice() + " $");
         holder.fixPrice.setText(item.getDiscontPrice() + " $");
         holder.name.setText(item.getName());
         holder.comment.setText(item.getComment());
         holder.gramm.setText(item.getGramms() + " g");
         holder.kal.setText(item.getKalories() + " kal");
+        Log.v("ADAPTER", item.getKalories() + " !!!!!");
     }
 
     @Override
@@ -49,7 +59,6 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-
         private ImageView imageView;
         private TextView price;
         private TextView fixPrice;
@@ -61,7 +70,6 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
 
         public ViewHolder(View itemView) {
             super(itemView);
-
             imageView = itemView.findViewById(R.id.imageSale);
             price = itemView.findViewById(R.id.price);
             kal = itemView.findViewById(R.id.kal);
@@ -71,6 +79,4 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
             fixPrice = itemView.findViewById(R.id.fixPrice);
         }
     }
-
-
 }

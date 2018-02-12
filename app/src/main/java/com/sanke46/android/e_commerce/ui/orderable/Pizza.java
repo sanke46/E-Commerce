@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.adapter.RecyclerViewAdapter;
 import com.sanke46.android.e_commerce.adapter.SalesRecyclerViewAdapter;
@@ -35,6 +37,7 @@ public class Pizza extends Fragment {
     private RecyclerView mSalerecycleView2;
     private SalesRecyclerViewAdapter salesImageAdapter2;
 
+    private StorageReference mStorageRef;
     private final ArrayList<Item> salesItem = new ArrayList<>();
 
     @Nullable
@@ -46,6 +49,7 @@ public class Pizza extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
+        mStorageRef = FirebaseStorage.getInstance().getReference();
         mRecyclerView = view.findViewById(R.id.list_1);
         mRecyclerView.setNestedScrollingEnabled(false);
 
@@ -63,7 +67,7 @@ public class Pizza extends Fragment {
         mSalerecycleView = view.findViewById(R.id.list_sale);
         mSaleLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
         mSalerecycleView.setLayoutManager(mSaleLayoutManager);
-        salesImageAdapter = new SalesRecyclerViewAdapter(salesItem, R.layout.item_sale);
+        salesImageAdapter = new SalesRecyclerViewAdapter(getContext(),salesItem, R.layout.item_sale);
         mSalerecycleView.setAdapter(salesImageAdapter);
         mSalerecycleView.setNestedScrollingEnabled(false);
         fb.getAllSalesItem(salesItem,salesImageAdapter);
