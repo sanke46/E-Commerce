@@ -1,14 +1,14 @@
 package com.sanke46.android.e_commerce.model;
 
-/**
- * Created by ilya on 22/06/2017.
- */
+import java.util.ArrayList;
 
 public class User {
     private int id;
     private String name;
     private String email;
     private String password;
+    private ArrayList<Item> buyHistory;
+    private ArrayList<Item> Favourite;
 
     public User(int id, String name, String email, String password) {
         this.id = id;
@@ -23,9 +23,7 @@ public class User {
         this.password = password;
     }
 
-
-    public User() {
-    }
+    public User() {}
 
     //getter
     public int getId() {

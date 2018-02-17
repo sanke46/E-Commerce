@@ -12,8 +12,11 @@ import android.widget.TextView;
 
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.model.Item;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+//import com.bumptech.glide.Glide;
 
 /**
  * Created by ilafedoseev on 27/01/2018.
@@ -43,7 +46,9 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
 
         Item item = arr.get(position);
 //        holder.imageView.setImageResource();
-//        Glide.with(context).load(item.getImageId()).into(holder.imageView);
+//        Glide.with(context).load(item.getImageUrl()).into(holder.imageView);
+//        GlideU.load(item.getImageUrl()).into(holder.imageView);
+        Picasso.with(context).load(item.getImageUrl()).into(holder.imageView);
         holder.price.setText(item.getPrice() + " $");
         holder.fixPrice.setText(item.getDiscontPrice() + " $");
         holder.name.setText(item.getName());
@@ -66,7 +71,6 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
         private TextView comment;
         private TextView gramm;
         private TextView kal;
-
 
         public ViewHolder(View itemView) {
             super(itemView);

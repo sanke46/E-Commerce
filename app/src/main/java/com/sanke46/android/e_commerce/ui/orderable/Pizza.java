@@ -63,7 +63,6 @@ public class Pizza extends Fragment {
 
         FirebaseHandler fb = new FirebaseHandler();
 
-
         mSalerecycleView = view.findViewById(R.id.list_sale);
         mSaleLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
         mSalerecycleView.setLayoutManager(mSaleLayoutManager);

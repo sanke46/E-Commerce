@@ -65,6 +65,7 @@
 
             <ImageView
                 android:tint="#e97f7f"
+                android:scaleType="fitXY"
                 android:layout_width="@dimen/iconSizeOffer"
                 android:layout_height="@dimen/iconSizeOffer"
                 android:layout_marginRight="7dp"

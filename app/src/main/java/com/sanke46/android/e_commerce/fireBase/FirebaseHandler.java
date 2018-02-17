@@ -22,6 +22,7 @@ public class FirebaseHandler {
 
     private static final String TAG = FirebaseHandler.class.getSimpleName();
     private Item item;
+    FirebaseStorage storage = FirebaseStorage.getInstance("gs://e-commerce-ddd1c.appspot.com");
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference("product");
     private StorageReference mStorageRef = FirebaseStorage.getInstance().getReference();
@@ -30,32 +31,38 @@ public class FirebaseHandler {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                for (final DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     System.out.println("!!!!!!!!" + snapshot);
                     // This method is called once with the initial value and again
                     // whenever data at this location is updated.
-//                    item = snapshot.getValue(Item.class);
+                    item = snapshot.getValue(Item.class);
+                    item.setImageUrl("http://takioki.ru/wp-content/uploads/2016/06/1-skolko-zharit-polufabrikaty.jpg");
+                    System.out.println("Url : " + item.getImageUrl());
 
 //                    System.out.println(item.getKalories() + " !!!!");
 //                    System.out.println(item.getDiscontPrice() + " !!!!");
 //                  ArrayList<Item> items = new ArrayList<>();
+//                    mStorageRef.child("image/pizza.jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+//                        @Override
+//                        public void onSuccess(Uri uri) {
+//                            item.setImageUrl(uri.toString());
+//                        }
+//                    });
 
-
-                    mStorageRef.child("game.jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+//                    Helper.showDialog(this);
+                    mStorageRef.child("image").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
-                            // Got the download URL for 'users/me/profile.png'
-                            System.out.println(uri + " ");
-//                            System.out.println(item.getImageId() + "!!!!!!");
+//                            Helper.dismissDialog();
+                            Log.d("FireBaseHandler", uri.toString());
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception exception) {
-                            // Handle any errors
                         }
                     });
-//                    arrayOfItemProduct.add(item);
-                    Log.d(TAG, "Value is: " + arrayOfItemProduct.size());
+
+                    arrayOfItemProduct.add(item);
                 }
                 adapter.notifyDataSetChanged();
             }

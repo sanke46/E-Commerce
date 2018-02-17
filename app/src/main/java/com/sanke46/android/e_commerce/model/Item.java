@@ -171,6 +171,14 @@ public class Item {
         return comeFrom;
     }
 
+    public String getImageName() {
+        return imageName;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
     // SET methods
 
     public void setId(int id) {
@@ -239,6 +247,14 @@ public class Item {
 
     public void setComeFrom(String comeFrom) {
         this.comeFrom = comeFrom;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     @Override
