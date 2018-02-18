@@ -13,6 +13,7 @@
 
 
     <ImageView
+        android:id="@+id/logoLogIn"
         android:layout_width="match_parent"
         android:layout_height="100sp"
         android:src="@drawable/logotwo"/>

@@ -7,9 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,12 +46,14 @@ public class LoginActivity extends AppCompatActivity {
     private TextView needAcc;
     private TextView fogotPass;
     private Button singInButton;
+    private ImageView logo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         // Set up the login form.
+        logo = (ImageView) findViewById(R.id.logoLogIn);
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         mPasswordView = (EditText) findViewById(R.id.password);
 //        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -64,7 +69,6 @@ public class LoginActivity extends AppCompatActivity {
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
 
-        //
         //Click links
 
         needAcc = (TextView) findViewById(R.id.needAccaunt);
@@ -83,6 +87,10 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         mAuth = FirebaseAuth.getInstance();
+
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.animate);
+        logo.startAnimation(animation);
+
 
         // Test of login user or not
         if (mAuth.getCurrentUser() != null) {
