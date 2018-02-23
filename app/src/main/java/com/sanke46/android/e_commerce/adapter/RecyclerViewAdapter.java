@@ -1,5 +1,6 @@
 package com.sanke46.android.e_commerce.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.model.Item;
 import com.sanke46.android.e_commerce.ui.navigation.BasketActivity;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,9 +26,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     BasketActivity basketActivity = new BasketActivity();
     private List<Item> itemList = basketActivity.getBasketItem();
     private ArrayList arr = new ArrayList<Item>();
+    private Context mContext;
 
-    public RecyclerViewAdapter(ArrayList<Item> data) {
+    public RecyclerViewAdapter(ArrayList<Item> data, Context context) {
         this.arr = data;
+        mContext = context;
     }
 
     @Override
@@ -38,12 +42,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         final Item item = (Item) arr.get(position);
-        holder.image.setImageResource(item.getImageId());
+//
+//        if(item.getImageName().length() != 0){
+//            holder.image.setImageResource(R.drawable.bg_items);
+//        } else {
+            Picasso.with(mContext).load(item.getImageUrl()).into(holder.image);
+
+//        }
         holder.name.setText(item.getName());
 //        holder.comment.setText(item.getComment());
         holder.price.setText((item.getPrice()) + " $");
 //        holder.buttonOne.setText(item.getButtonOne());
-        holder.buttonTwo.setText(item.getButtonTwo());
+//        holder.buttonTwo.setText(item.getButtonTwo());
         holder.buttonTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

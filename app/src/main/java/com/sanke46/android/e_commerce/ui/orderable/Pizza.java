@@ -30,18 +30,16 @@ import java.util.ArrayList;
 public class Pizza extends Fragment {
 
     private RecyclerView.LayoutManager mLayoutManager;
+    private RecyclerViewAdapter recyclerViewAdapter;
     private RecyclerView mRecyclerView;
 
     private RecyclerView.LayoutManager mSaleLayoutManager;
     private RecyclerView mSalerecycleView;
     private SalesRecyclerViewAdapter salesImageAdapter;
 
-    private RecyclerView.LayoutManager mSaleLayoutManager2;
-    private RecyclerView mSalerecycleView2;
-    private SalesRecyclerViewAdapter salesImageAdapter2;
-
     private StorageReference mStorageRef;
     private final ArrayList<Item> salesItem = new ArrayList<>();
+    private final ArrayList<Item> allItem = new ArrayList<>();
 
     @Nullable
     @Override
@@ -51,48 +49,34 @@ public class Pizza extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        FirebaseHandler fb = new FirebaseHandler();
+        DataBaseHandler db = new DataBaseHandler(getActivity());
 
         mStorageRef = FirebaseStorage.getInstance().getReference();
         mRecyclerView = view.findViewById(R.id.list_1);
         mRecyclerView.setNestedScrollingEnabled(false);
 
-        DataBaseHandler db = new DataBaseHandler(getActivity());
-        ArrayList<Item> pizzaList = (ArrayList<Item>) db.getAllItem("Pi");
-
         mLayoutManager = new GridLayoutManager(getContext(),2);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(pizzaList);
+        recyclerViewAdapter = new RecyclerViewAdapter(allItem, getContext());
         mRecyclerView.setAdapter(recyclerViewAdapter);
+        fb.getAllItem("pizza", allItem,recyclerViewAdapter);
 
-        FirebaseHandler fb = new FirebaseHandler();
-
+        // Sales block with adapter
         mSalerecycleView = view.findViewById(R.id.list_sale);
         mSaleLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
         mSalerecycleView.setLayoutManager(mSaleLayoutManager);
         salesImageAdapter = new SalesRecyclerViewAdapter(getContext(),salesItem, R.layout.item_sale);
         mSalerecycleView.setAdapter(salesImageAdapter);
         mSalerecycleView.setNestedScrollingEnabled(false);
-        fb.getAllSalesItem(salesItem,salesImageAdapter);
+        fb.getAllSalesItem("pizza", salesItem,salesImageAdapter);
+
+        // Animation
         LinearLayout ll = (LinearLayout) view.findViewById(R.id.recycler);
         LinearLayout ll2 = (LinearLayout) view.findViewById(R.id.recycler2);
         Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.fade_up);
         ll.startAnimation(animation);
         ll2.startAnimation(animation);
-
-
-
-//        ArrayList<ImageSales> imageSalesArray2 = new ArrayList<>();
-//        imageSalesArray2.add(new ImageSales(R.drawable.image));
-//        imageSalesArray2.add(new ImageSales(R.drawable.image2));
-//        imageSalesArray2.add(new ImageSales(R.drawable.image3));
-//
-//        mSalerecycleView2 = view.findViewById(R.id.list_info);
-//        mSaleLayoutManager2 = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
-//        mSalerecycleView2.setLayoutManager(mSaleLayoutManager2);
-//        salesImageAdapter2 = new SalesRecyclerViewAdapter(imageSalesArray2, R.layout.list4);
-//        mSalerecycleView2.setAdapter(salesImageAdapter2);
-//        mSalerecycleView2.setNestedScrollingEnabled(false);
-
 
     }
 }

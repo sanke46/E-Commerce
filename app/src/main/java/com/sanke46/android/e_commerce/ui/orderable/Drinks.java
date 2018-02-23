@@ -45,7 +45,7 @@ public class Drinks extends Fragment {
 
         mLayoutManager = new GridLayoutManager(getContext(),2);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(drinkList);
+        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(drinkList, getContext());
         mRecyclerView.setAdapter(recyclerViewAdapter);
 
 //        ArrayList<ImageSales> imageSalesArray = new ArrayList<>();

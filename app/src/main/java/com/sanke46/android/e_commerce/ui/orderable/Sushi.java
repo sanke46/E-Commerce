@@ -46,7 +46,7 @@ public class Sushi extends Fragment {
 
         mLayoutManager = new GridLayoutManager(getContext(),2);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(sushiList);
+        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(sushiList, getContext());
         mRecyclerView.setAdapter(recyclerViewAdapter);
 
 //        ArrayList<ImageSales> imageSalesArray = new ArrayList<>();
