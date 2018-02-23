@@ -13,33 +13,31 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.adapter.RecyclerViewAdapter;
 import com.sanke46.android.e_commerce.adapter.SalesRecyclerViewAdapter;
-import com.sanke46.android.e_commerce.database.DataBaseHandler;
 import com.sanke46.android.e_commerce.fireBase.FirebaseHandler;
 import com.sanke46.android.e_commerce.model.Item;
 
 import java.util.ArrayList;
 
-/**
- * Created by ilafedoseev on 05.02.17.
- */
 public class Pizza extends Fragment {
 
+    private static final String PRODUCT_CATEGORY_ID = "pizza";
+    private static final String TAG = Pizza.class.getSimpleName();
+
+    private final ArrayList<Item> allPizzaItem = new ArrayList<>();
+    private final ArrayList<Item> allDiscountPizzaItem = new ArrayList<>();
+
+    // First RecycleView
     private RecyclerView.LayoutManager mLayoutManager;
-    private RecyclerViewAdapter recyclerViewAdapter;
+    private RecyclerViewAdapter mRecyclerViewAdapter;
     private RecyclerView mRecyclerView;
 
+    // Second RecycleView
     private RecyclerView.LayoutManager mSaleLayoutManager;
-    private RecyclerView mSalerecycleView;
-    private SalesRecyclerViewAdapter salesImageAdapter;
-
-    private StorageReference mStorageRef;
-    private final ArrayList<Item> salesItem = new ArrayList<>();
-    private final ArrayList<Item> allItem = new ArrayList<>();
+    private RecyclerView mSaleRecycleView;
+    private SalesRecyclerViewAdapter mSalesRecycleViewAdapter;
 
     @Nullable
     @Override
@@ -49,34 +47,32 @@ public class Pizza extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+
         FirebaseHandler fb = new FirebaseHandler();
-        DataBaseHandler db = new DataBaseHandler(getActivity());
 
-        mStorageRef = FirebaseStorage.getInstance().getReference();
+        // All products [RecycleView + Adapter + LayoutManager + FB]
         mRecyclerView = view.findViewById(R.id.list_1);
-        mRecyclerView.setNestedScrollingEnabled(false);
-
         mLayoutManager = new GridLayoutManager(getContext(),2);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        recyclerViewAdapter = new RecyclerViewAdapter(allItem, getContext());
-        mRecyclerView.setAdapter(recyclerViewAdapter);
-        fb.getAllItem("pizza", allItem,recyclerViewAdapter);
+        mRecyclerViewAdapter = new RecyclerViewAdapter(allPizzaItem, getContext());
+        mRecyclerView.setAdapter(mRecyclerViewAdapter);
+        mRecyclerView.setNestedScrollingEnabled(false);
+        fb.getAllItem(PRODUCT_CATEGORY_ID, allPizzaItem, mRecyclerViewAdapter);
 
-        // Sales block with adapter
-        mSalerecycleView = view.findViewById(R.id.list_sale);
+        // Discount [RecycleView + Adapter + LayoutManager + FB]
+        mSaleRecycleView = view.findViewById(R.id.list_sale);
         mSaleLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
-        mSalerecycleView.setLayoutManager(mSaleLayoutManager);
-        salesImageAdapter = new SalesRecyclerViewAdapter(getContext(),salesItem, R.layout.item_sale);
-        mSalerecycleView.setAdapter(salesImageAdapter);
-        mSalerecycleView.setNestedScrollingEnabled(false);
-        fb.getAllSalesItem("pizza", salesItem,salesImageAdapter);
+        mSaleRecycleView.setLayoutManager(mSaleLayoutManager);
+        mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(getContext(), allDiscountPizzaItem, R.layout.item_sale);
+        mSaleRecycleView.setAdapter(mSalesRecycleViewAdapter);
+        mSaleRecycleView.setNestedScrollingEnabled(false);
+        fb.getAllSalesItem(PRODUCT_CATEGORY_ID, allDiscountPizzaItem, mSalesRecycleViewAdapter);
 
-        // Animation
-        LinearLayout ll = (LinearLayout) view.findViewById(R.id.recycler);
-        LinearLayout ll2 = (LinearLayout) view.findViewById(R.id.recycler2);
+        // Animation [TEST]
+        LinearLayout ll = view.findViewById(R.id.recycler);
+        LinearLayout ll2 = view.findViewById(R.id.recycler2);
         Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.fade_up);
         ll.startAnimation(animation);
         ll2.startAnimation(animation);
-
     }
 }

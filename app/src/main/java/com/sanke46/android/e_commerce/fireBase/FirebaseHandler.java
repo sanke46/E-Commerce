@@ -21,6 +21,7 @@ public class FirebaseHandler {
     private DatabaseReference myRef = database.getReference("product");
 
     public ArrayList<Item> getAllSalesItem(String titleProduct, final ArrayList<Item> arrayOfItemProduct, final SalesRecyclerViewAdapter adapter){
+        arrayOfItemProduct.clear();
         myRef.child(titleProduct).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -44,6 +45,7 @@ public class FirebaseHandler {
     }
 
     public ArrayList<Item> getAllItem(String titleProduct, final ArrayList<Item> arrayOfItemProduct, final RecyclerViewAdapter adapter){
+        arrayOfItemProduct.clear();
         myRef.child(titleProduct).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
