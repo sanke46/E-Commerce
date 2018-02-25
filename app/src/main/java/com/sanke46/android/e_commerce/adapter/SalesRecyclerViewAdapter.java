@@ -2,19 +2,22 @@ package com.sanke46.android.e_commerce.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.model.Item;
+import com.sanke46.android.e_commerce.ui.navigation.BasketActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 //import com.bumptech.glide.Glide;
 
@@ -24,9 +27,12 @@ import java.util.ArrayList;
 
 public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecyclerViewAdapter.ViewHolder> {
 
+    BasketActivity basketActivity = new BasketActivity();
     private Context context;
-    private ArrayList<Item> arr = new ArrayList<>();
     private int itemLayout;
+
+    private ArrayList<Item> arr = new ArrayList<>();
+    private List<Item> itemList = basketActivity.getBasketItem();
 
     public SalesRecyclerViewAdapter(Context context, ArrayList<Item> arr, int itemLayout) {
         this.context = context;
@@ -42,20 +48,23 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
 
     @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         Item item = arr.get(position);
-//        holder.imageView.setImageResource();
-//        Glide.with(context).load(item.getImageUrl()).into(holder.imageView);
-//        GlideU.load(item.getImageUrl()).into(holder.imageView);
         Picasso.with(context).load(item.getImageUrl()).into(holder.imageView);
         holder.price.setText(item.getPrice() + " $");
+        holder.price.setPaintFlags(holder.price.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
         holder.fixPrice.setText(item.getDiscontPrice() + " $");
         holder.name.setText(item.getName());
         holder.comment.setText(item.getComment());
         holder.gramm.setText(item.getGramms() + " g");
         holder.kal.setText(item.getKalories() + " kal");
-        Log.v("ADAPTER", item.getKalories() + " !!!!!");
+        holder.addToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                itemList.add(arr.get(position));
+                basketActivity.setBasketItem(itemList);
+            }
+        });
     }
 
     @Override
@@ -71,6 +80,7 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
         private TextView comment;
         private TextView gramm;
         private TextView kal;
+        private Button addToCart;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -81,6 +91,7 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
             name = itemView.findViewById(R.id.name);
             comment = itemView.findViewById(R.id.comments);
             fixPrice = itemView.findViewById(R.id.fixPrice);
+            addToCart = itemView.findViewById(R.id.buttonTwo);
         }
     }
 }

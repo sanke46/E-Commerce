@@ -23,8 +23,8 @@ public class Drinks extends Fragment {
     private static final String PRODUCT_CATEGORY_ID = "drinks";
     private static final String TAG = Drinks.class.getSimpleName();
 
-    private final ArrayList<Item> allDrinksItem = new ArrayList<>();
-    private final ArrayList<Item> allDiscountDrinksItem = new ArrayList<>();
+    private final ArrayList<Item> allDrinksItems = new ArrayList<>();
+    private final ArrayList<Item> allDiscountDrinksItems = new ArrayList<>();
 
     // First RecycleView
     private RecyclerView.LayoutManager mLayoutManager;
@@ -35,7 +35,7 @@ public class Drinks extends Fragment {
     private RecyclerView.LayoutManager mSaleLayoutManager;
     private RecyclerView mSalerecycleView;
     private SalesRecyclerViewAdapter mSalesRecycleViewAdapter;
-    
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -51,18 +51,18 @@ public class Drinks extends Fragment {
         mRecyclerView = view.findViewById(R.id.list_3);
         mLayoutManager = new GridLayoutManager(getContext(),2);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerViewAdapter = new RecyclerViewAdapter(allDrinksItem, getContext());
+        mRecyclerViewAdapter = new RecyclerViewAdapter(allDrinksItems, getContext());
         mRecyclerView.setAdapter(mRecyclerViewAdapter);
         mRecyclerView.setNestedScrollingEnabled(false);
-        fb.getAllItem(PRODUCT_CATEGORY_ID, allDrinksItem, mRecyclerViewAdapter);
+        fb.getAllItem(PRODUCT_CATEGORY_ID, allDrinksItems, mRecyclerViewAdapter);
 
         // Discount [RecycleView + Adapter + LayoutManager + FB]
         mSalerecycleView = view.findViewById(R.id.list_sale_3);
         mSaleLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
         mSalerecycleView.setLayoutManager(mSaleLayoutManager);
-        mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(getContext(), allDiscountDrinksItem, R.layout.item_sale);
+        mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(getContext(), allDiscountDrinksItems, R.layout.item_sale);
         mSalerecycleView.setAdapter(mSalesRecycleViewAdapter);
         mSalerecycleView.setNestedScrollingEnabled(false);
-        fb.getAllSalesItem(PRODUCT_CATEGORY_ID, allDiscountDrinksItem, mSalesRecycleViewAdapter);
+        fb.getAllSalesItem(PRODUCT_CATEGORY_ID, allDiscountDrinksItems, mSalesRecycleViewAdapter);
     }
 }

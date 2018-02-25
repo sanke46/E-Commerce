@@ -28,7 +28,6 @@ public class FirebaseHandler {
                 for (final DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     item = snapshot.getValue(Item.class);
                     if(item.isSales()) {
-                        item.setImageUrl("http://takioki.ru/wp-content/uploads/2016/06/1-skolko-zharit-polufabrikaty.jpg");
                         arrayOfItemProduct.add(item);
                     }
                 }

@@ -33,7 +33,6 @@ public class BasketActivity extends AppCompatActivity {
         setContentView(R.layout.activity_basket);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
-
         setSupportActionBar(toolbar);
 
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_arrow_back_black_36px));
@@ -84,9 +83,20 @@ public class BasketActivity extends AppCompatActivity {
     private void refreshTotalPrice() {
         sum = 0;
         for (int i = 0; i < basketItem.size(); i++) {
-            sum += basketItem.get(i).getPrice();
+            if (basketItem.get(i).isSales()) {
+                sum += basketItem.get(i).getDiscontPrice();
+            } else {
+                sum += basketItem.get(i).getPrice();
+            }
         }
 
         buttonOrder.setText("ORDER - " + sum + " $");
+    }
+
+    private List<Item> sortBasketToMap(List<Item> arrayOfItem) {
+        for (Item item : arrayOfItem) {
+
+        }
+        return null;
     }
 }

@@ -42,18 +42,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         final Item item = (Item) arr.get(position);
-//
-//        if(item.getImageName().length() != 0){
-//            holder.image.setImageResource(R.drawable.bg_items);
-//        } else {
-            Picasso.with(mContext).load(item.getImageUrl()).into(holder.image);
 
-//        }
+        Picasso.with(mContext).load(item.getImageUrl()).into(holder.image);
         holder.name.setText(item.getName());
-//        holder.comment.setText(item.getComment());
+        holder.comment.setText(item.getComment());
         holder.price.setText((item.getPrice()) + " $");
-//        holder.buttonOne.setText(item.getButtonOne());
-//        holder.buttonTwo.setText(item.getButtonTwo());
+        holder.gramms.setText(item.getGramms() + " g");
         holder.buttonTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,22 +65,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView image;
         private TextView name;
-//        private TextView comment;
+        private TextView comment;
+        private TextView gramms;
         private TextView price;
-//        private Button buttonOne;
         private Button buttonTwo;
 
         public ViewHolder(View itemView) {
             super(itemView);
-
             image = (ImageView) itemView.findViewById(R.id.image);
             name = (TextView) itemView.findViewById(R.id.name);
-//            comment = (TextView) itemView.findViewById(R.id.comment);
+            comment = (TextView) itemView.findViewById(R.id.commentProduct);
+            gramms = (TextView) itemView.findViewById(R.id.gramm);
             price = (TextView) itemView.findViewById(R.id.price);
-//            buttonOne = (Button) itemView.findViewById(R.id.buttonOne);
             buttonTwo = (Button) itemView.findViewById(R.id.buttonTwo);
         }
-
-
     }
 }

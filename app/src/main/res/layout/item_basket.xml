@@ -119,7 +119,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="100"
+                    android:text="1"
                     android:textColor="@color/textColorBox"
                     android:layout_marginLeft="4dp"
                     android:layout_marginRight="4dp"
@@ -132,9 +132,8 @@
                     android:tint="@color/textColorBox"
                     android:src="@drawable/ic_minus_symbol"/>
 
-
-
                     <TextView
+                        android:id="@+id/grammBasket"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
@@ -148,19 +147,19 @@
                         android:layout_marginLeft="8dp"
                         android:text="2000 g"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:background="@color/bgBoxInfo"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColor="@color/textColorBox"
-                        android:textSize="12sp"
-                        android:layout_marginLeft="8dp"
-                        android:text="4500 kal"/>
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="right"-->
+                        <!--android:background="@color/bgBoxInfo"-->
+                        <!--android:paddingTop="5dp"-->
+                        <!--android:paddingBottom="5dp"-->
+                        <!--android:paddingLeft="10dp"-->
+                        <!--android:paddingRight="10dp"-->
+                        <!--android:textColor="@color/textColorBox"-->
+                        <!--android:textSize="12sp"-->
+                        <!--android:layout_marginLeft="8dp"-->
+                        <!--android:text="4.5 Kkal"/>-->
 
                 <TextView
                     android:id="@+id/price"

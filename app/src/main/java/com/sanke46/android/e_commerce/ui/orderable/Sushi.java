@@ -23,8 +23,8 @@ public class Sushi extends Fragment {
     private static final String PRODUCT_CATEGORY_ID = "sushi";
     private static final String TAG = Sushi.class.getSimpleName();
 
-    private final ArrayList<Item> allSushiItem = new ArrayList<>();
-    private final ArrayList<Item> allDiscountSushiItem = new ArrayList<>();
+    private final ArrayList<Item> allSushiItems = new ArrayList<>();
+    private final ArrayList<Item> allDiscountSushiItems = new ArrayList<>();
 
     // First RecycleView
     private RecyclerView.LayoutManager mLayoutManager;
@@ -51,18 +51,18 @@ public class Sushi extends Fragment {
         mRecyclerView = view.findViewById(R.id.list_2);
         mLayoutManager = new GridLayoutManager(getContext(),2);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerViewAdapter = new RecyclerViewAdapter(allSushiItem, getContext());
+        mRecyclerViewAdapter = new RecyclerViewAdapter(allSushiItems, getContext());
         mRecyclerView.setAdapter(mRecyclerViewAdapter);
         mRecyclerView.setNestedScrollingEnabled(false);
-        fb.getAllItem(PRODUCT_CATEGORY_ID, allSushiItem, mRecyclerViewAdapter);
+        fb.getAllItem(PRODUCT_CATEGORY_ID, allSushiItems, mRecyclerViewAdapter);
 
         // Discount [RecycleView + Adapter + LayoutManager + FB]
         mSaleRecycleView = view.findViewById(R.id.list_sale_2);
         mSaleLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
         mSaleRecycleView.setLayoutManager(mSaleLayoutManager);
-        mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(getContext(), allDiscountSushiItem, R.layout.item_sale);
+        mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(getContext(), allDiscountSushiItems, R.layout.item_sale);
         mSaleRecycleView.setAdapter(mSalesRecycleViewAdapter);
         mSaleRecycleView.setNestedScrollingEnabled(false);
-        fb.getAllSalesItem(PRODUCT_CATEGORY_ID, allDiscountSushiItem, mSalesRecycleViewAdapter);
+        fb.getAllSalesItem(PRODUCT_CATEGORY_ID, allDiscountSushiItems, mSalesRecycleViewAdapter);
     }
 }

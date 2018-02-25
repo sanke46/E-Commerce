@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.model.Item;
 import com.sanke46.android.e_commerce.ui.navigation.BasketActivity;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -38,14 +39,23 @@ public class ListAdapterBasket extends ArrayAdapter<Item>{
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_basket,parent,false);
         }
 
+
         ImageView image = (ImageView) convertView.findViewById(R.id.image);
         TextView name = (TextView) convertView.findViewById(R.id.name);
+        TextView gramms = (TextView) convertView.findViewById(R.id.grammBasket);
         TextView price = (TextView) convertView.findViewById(R.id.price);
-        ImageView delete = (ImageView ) convertView.findViewById(R.id.delete);
+        ImageView delete = (ImageView) convertView.findViewById(R.id.delete);
 
-        image.setImageResource(item.getImageId());
+//        image.setImageResource(item.getImageId());
+        Picasso.with(getContext()).load(item.getImageUrl()).into(image);
         name.setText(item.getName());
-        price.setText(item.getPrice() + "00 $");
+        if(item.isSales()) {
+            price.setText(item.getDiscontPrice() + " $");
+        } else {
+            price.setText(item.getPrice() + " $");
+        }
+        gramms.setText(item.getGramms() + " g");
+
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

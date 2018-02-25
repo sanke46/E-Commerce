@@ -41,11 +41,13 @@
                 android:text="Pizza with mushrooms and prosciutto"/>
 
             <TextView
+                android:id="@+id/commentProduct"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/imageSale"
                 android:textColor="@color/bgWhite"
                 android:textSize="@dimen/textSizeunderTitlelittleBox"
+                android:singleLine="true"
                 android:text="Lorem ipsum dolor sit amet..."/>
 
         </LinearLayout>
@@ -81,7 +83,7 @@
                 android:textSize="@dimen/salesSizeText" />
 
             <TextView
-                android:id="@+id/kal"
+                android:id="@+id/gramm"
                 android:layout_weight="1.2"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/heightBox"

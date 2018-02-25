@@ -26,8 +26,8 @@ public class Pizza extends Fragment {
     private static final String PRODUCT_CATEGORY_ID = "pizza";
     private static final String TAG = Pizza.class.getSimpleName();
 
-    private final ArrayList<Item> allPizzaItem = new ArrayList<>();
-    private final ArrayList<Item> allDiscountPizzaItem = new ArrayList<>();
+    private final ArrayList<Item> allPizzaItems = new ArrayList<>();
+    private final ArrayList<Item> allDiscountPizzaItems = new ArrayList<>();
 
     // First RecycleView
     private RecyclerView.LayoutManager mLayoutManager;
@@ -54,19 +54,19 @@ public class Pizza extends Fragment {
         mRecyclerView = view.findViewById(R.id.list_1);
         mLayoutManager = new GridLayoutManager(getContext(),2);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerViewAdapter = new RecyclerViewAdapter(allPizzaItem, getContext());
+        mRecyclerViewAdapter = new RecyclerViewAdapter(allPizzaItems, getContext());
         mRecyclerView.setAdapter(mRecyclerViewAdapter);
         mRecyclerView.setNestedScrollingEnabled(false);
-        fb.getAllItem(PRODUCT_CATEGORY_ID, allPizzaItem, mRecyclerViewAdapter);
+        fb.getAllItem(PRODUCT_CATEGORY_ID, allPizzaItems, mRecyclerViewAdapter);
 
         // Discount [RecycleView + Adapter + LayoutManager + FB]
         mSaleRecycleView = view.findViewById(R.id.list_sale);
         mSaleLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
         mSaleRecycleView.setLayoutManager(mSaleLayoutManager);
-        mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(getContext(), allDiscountPizzaItem, R.layout.item_sale);
+        mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(getContext(), allDiscountPizzaItems, R.layout.item_sale);
         mSaleRecycleView.setAdapter(mSalesRecycleViewAdapter);
         mSaleRecycleView.setNestedScrollingEnabled(false);
-        fb.getAllSalesItem(PRODUCT_CATEGORY_ID, allDiscountPizzaItem, mSalesRecycleViewAdapter);
+        fb.getAllSalesItem(PRODUCT_CATEGORY_ID, allDiscountPizzaItems, mSalesRecycleViewAdapter);
 
         // Animation [TEST]
         LinearLayout ll = view.findViewById(R.id.recycler);
