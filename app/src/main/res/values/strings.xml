@@ -44,7 +44,7 @@
 
     <!-- Order activity -->
     <string name="your_name">Your name</string>
-    <string name="information_about_devilery">Information about devilery</string>
+    <string name="information_about_devilery">Information</string>
     <string name="city">City</string>
     <string name="street">Street</string>
     <string name="house_number">House number</string>
