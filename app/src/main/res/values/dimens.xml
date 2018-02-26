@@ -21,7 +21,7 @@
     <dimen name="titlesSize">18sp</dimen>
     <dimen name="seconTitleMarginTop">20dp</dimen>
 
-
+    <!--  -->
     <dimen name="salesSizeText">12sp</dimen>
     <dimen name="padTextLR">10dp</dimen>
     <dimen name="padTextTB">4dp</dimen>
@@ -32,5 +32,12 @@
     <dimen name="underTitleSize">12sp</dimen>
     <dimen name="paddingLinerSales">7dp</dimen>
     <dimen name="textSizeunderTitlelittleBox">10sp</dimen>
+
+    <!-- Order -->
+    <dimen name="mainPadding">10dp</dimen>
+    <dimen name="extraDP">15dp</dimen>
+    <dimen name="addDP">5dp</dimen>
+    <dimen name="editTextSize_order">15sp</dimen>
+    <dimen name="TitleSize_order">24sp</dimen>
 
 </resources>

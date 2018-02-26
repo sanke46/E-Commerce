@@ -27,26 +27,26 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="55dp"
         android:orientation="horizontal"
-        android:paddingBottom="5dp"
-        android:paddingLeft="10dp"
+        android:paddingBottom="@dimen/addDP"
+        android:paddingLeft="@dimen/mainPadding"
         android:paddingTop="20dp">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="5"
             android:layout_gravity=""
+            android:layout_marginRight="@dimen/mainPadding"
+            android:layout_marginTop="@dimen/addDP"
+            android:layout_weight="5"
             android:src="@drawable/ic_cashbox"
             android:tint="#767676" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/addDP"
             android:layout_marginTop="-2dp"
-            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
@@ -54,14 +54,14 @@
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:text="@string/information_about_devilery"
-                android:textColor="#333"
-                android:textSize="24dp" />
+                android:textColor="@color/BlackGrey"
+                android:textSize="@dimen/TitleSize_order" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="left"
-                android:text="about devilery" />
+                android:text="@string/under_title_of_order" />
         </LinearLayout>
 
     </LinearLayout>
@@ -76,16 +76,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="@dimen/mainPadding"
             android:background="@color/bgWhite"
             android:orientation="horizontal"
-            android:padding="7dp">
+            android:padding="@dimen/mainPadding">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:paddingRight="10dp"
+                android:layout_marginTop="@dimen/mainPadding"
+                android:paddingRight="@dimen/mainPadding"
                 android:src="@drawable/ic_person_black_24dp"
                 android:tint="@color/iconColor" />
 
@@ -93,12 +93,12 @@
                 android:id="@+id/editDN"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#eee"
+                android:backgroundTint="@color/grayLight"
                 android:hint="@string/your_name"
                 android:inputType="textCapSentences|textAutoCorrect"
-                android:paddingBottom="15dp"
-                android:textColor="#333"
-                android:textSize="15sp" />
+                android:paddingBottom="@dimen/extraDP"
+                android:textColor="@color/BlackGrey"
+                android:textSize="@dimen/editTextSize_order" />
 
         </LinearLayout>
 
@@ -107,7 +107,7 @@
             android:layout_height="wrap_content"
             android:background="@color/bgWhite"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="@dimen/mainPadding">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -122,9 +122,8 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:paddingLeft="-5dp"
-                        android:paddingRight="10dp"
+                        android:layout_marginTop="@dimen/mainPadding"
+                        android:paddingRight="@dimen/mainPadding"
 
                         android:src="@drawable/ic_place_black_24dp"
                         android:tint="@color/iconColor" />
@@ -139,12 +138,12 @@
                             android:id="@+id/editDC"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:backgroundTint="#eee"
+                            android:backgroundTint="@color/grayLight"
                             android:hint="@string/city"
                             android:inputType="textCapSentences|textAutoCorrect"
-                            android:paddingBottom="15dp"
-                            android:textColor="#333"
-                            android:textSize="15sp" />
+                            android:paddingBottom="@dimen/extraDP"
+                            android:textColor="@color/BlackGrey"
+                            android:textSize="@dimen/editTextSize_order" />
                     </LinearLayout>
 
 
@@ -158,12 +157,12 @@
                             android:id="@+id/editDS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:backgroundTint="#eee"
+                            android:backgroundTint="@color/grayLight"
                             android:hint="@string/street"
                             android:inputType="textCapSentences|textAutoCorrect"
-                            android:paddingBottom="15dp"
-                            android:textColor="#333"
-                            android:textSize="15sp" />
+                            android:paddingBottom="@dimen/extraDP"
+                            android:textColor="@color/BlackGrey"
+                            android:textSize="@dimen/editTextSize_order" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -179,41 +178,40 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:backgroundTint="#eee"
+                    android:backgroundTint="@color/grayLight"
                     android:hint="@string/house_number"
                     android:inputType="textCapSentences|textAutoCorrect"
-                    android:paddingBottom="15dp"
-                    android:textColor="#333"
-                    android:textSize="15sp" />
+                    android:paddingBottom="@dimen/extraDP"
+                    android:textColor="@color/BlackGrey"
+                    android:textSize="@dimen/editTextSize_order" />
 
                 <EditText
                     android:id="@+id/editDF"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:backgroundTint="#eee"
+                    android:backgroundTint="@color/grayLight"
                     android:hint="@string/flat_number"
                     android:inputType="textCapSentences|textAutoCorrect"
-                    android:paddingBottom="15dp"
-                    android:textColor="#333"
-                    android:textSize="15sp" />
+                    android:paddingBottom="@dimen/extraDP"
+                    android:textColor="@color/BlackGrey"
+                    android:textSize="@dimen/editTextSize_order" />
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/mainPadding"
             android:background="@color/bgWhite"
             android:orientation="horizontal"
-            android:padding="10dp">
+            android:padding="@dimen/mainPadding">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:paddingRight="10dp"
-                android:paddingLeft="-5dp"
+                android:layout_marginTop="@dimen/mainPadding"
+                android:paddingRight="@dimen/mainPadding"
                 android:src="@drawable/ic_smartphone_black_24dp"
                 android:tint="@color/iconColor" />
 
@@ -221,51 +219,51 @@
                 android:id="@+id/editDP"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#eee"
+                android:backgroundTint="@color/grayLight"
                 android:hint="@string/your_phone_number"
                 android:inputType="textCapSentences|textAutoCorrect"
-                android:paddingBottom="15dp"
-                android:textColor="#333"
-                android:textSize="15sp" />
+                android:paddingBottom="@dimen/extraDP"
+                android:textColor="@color/BlackGrey"
+                android:textSize="@dimen/editTextSize_order" />
 
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="10dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="@dimen/mainPadding"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/extraDP">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Payment : "/>
+                android:text="@string/title_of_pay" />
 
-        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="5dp"
-            android:gravity="left">
-            <RadioButton
-                android:id="@+id/radio_pirates"
-                android:layout_width="wrap_content"
+            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:checked="true"
-                android:text="Cash" />
+                android:layout_marginLeft="@dimen/addDP"
+                android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/radio_ninjas"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#767676"
-                android:text="Visa / MasterCard" />
-        </RadioGroup>
+                <RadioButton
+                    android:id="@+id/radio_pirates"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/mainPadding"
+                    android:checked="true"
+                    android:text="@string/cash_method" />
+
+                <RadioButton
+                    android:id="@+id/radio_ninjas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/payment_method"
+                    android:textColor="#767676" />
+            </RadioGroup>
         </LinearLayout>
-
     </LinearLayout>
 
     <LinearLayout

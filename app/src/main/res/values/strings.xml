@@ -81,4 +81,10 @@
     <string name="title_password_accaunt">Your password</string>
     <!-- Profile info -->
 
+    <!-- Order -->
+    <string name="payment_method">Visa / MasterCard</string>
+    <string name="cash_method">Cash</string>
+    <string name="title_of_pay">Payment :</string>
+    <string name="under_title_of_order">about devilery</string>
+
 </resources>
