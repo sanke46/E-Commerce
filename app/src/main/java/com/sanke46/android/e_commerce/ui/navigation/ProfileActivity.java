@@ -2,6 +2,7 @@ package com.sanke46.android.e_commerce.ui.navigation;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -11,6 +12,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -25,7 +28,11 @@ public class ProfileActivity extends AppCompatActivity {
 
     private static final String TAG = ProfileActivity.class.getSimpleName();
     private DatabaseReference mDatabase;
-    private FirebaseAuth mAuth = FirebaseAuth.getInstance();;
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private FirebaseUser user;
+
+    private boolean unvisiblePassword = false;
+    private String password;
 
     private EditText editTextName;
     private EditText editTextNumber;
@@ -35,19 +42,27 @@ public class ProfileActivity extends AppCompatActivity {
     private EditText editTextHouse;
     private EditText editTextFlat;
     private EditText editTextPassword;
-    private Button buttonToSave;
     private ImageView seePassButton;
-
-    private boolean unvisiblePassword = false;
-    private String password;
+    private Button buttonToSave;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Profile");
+
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_arrow_back_black_36px));
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         editTextName = (EditText) findViewById(R.id.name);
         editTextNumber = (EditText) findViewById(R.id.editNumber);
@@ -60,29 +75,11 @@ public class ProfileActivity extends AppCompatActivity {
         buttonToSave = (Button) findViewById(R.id.saveButton);
         seePassButton = (ImageView) findViewById(R.id.seePassButton);
 
-        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_arrow_back_black_36px));
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getBaseContext(), MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        editTextNumber.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean hasFocus) {
-            }
-        });
-
         // FireBase Inctance
         mDatabase = FirebaseDatabase.getInstance().getReference();
         final DatabaseReference unicDataBase = mDatabase.child("users");
-        FirebaseUser user = mAuth.getCurrentUser();
+        user = mAuth.getCurrentUser();
         final String userId = user.getUid();
-
-
 
         // Change information about user
         unicDataBase.addValueEventListener(new ValueEventListener() {
@@ -179,8 +176,18 @@ public class ProfileActivity extends AppCompatActivity {
         mDatabase.child("users").child(userId).child("name").setValue(name);
         mDatabase.child("users").child(userId).child("phone").setValue(phoneNumber);
         mDatabase.child("users").child(userId).child("email").setValue(email);
-        if (!unvisiblePassword || !getTextEditText(editTextPassword).contains("*")) {
+        if (!unvisiblePassword || !getTextEditText(editTextPassword).contains("*") && password.length() < 8) {
             mDatabase.child("users").child(userId).child("password").setValue(password);
+            user.updatePassword(password).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        Log.d(TAG, "Password updated");
+                    } else {
+                        Log.d(TAG, "Error password not updated");
+                    }
+                }
+            });
         }
         mDatabase.child("users").child(userId).child("adress").child("city").setValue(city);
         mDatabase.child("users").child(userId).child("adress").child("street").setValue(street);
@@ -197,11 +204,7 @@ public class ProfileActivity extends AppCompatActivity {
     /** invisible or visible password **/
     public void visibleAndInvisiblePassword(String password) {
 
-        if(!unvisiblePassword) {
-            unvisiblePassword = true;
-        } else {
-            unvisiblePassword = false;
-        }
+        unvisiblePassword = !unvisiblePassword ? true : false;
 
         if (unvisiblePassword) {
             String resultUnvisible = "";

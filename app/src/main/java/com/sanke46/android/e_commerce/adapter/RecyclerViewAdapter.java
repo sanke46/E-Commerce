@@ -47,7 +47,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.name.setText(item.getName());
         holder.comment.setText(item.getComment());
         holder.price.setText((item.getPrice()) + " $");
-        holder.gramms.setText(item.getGramms() + " g");
+        holder.gramms.setText(item.converGramms(String.valueOf(item.getGramms())));
         holder.buttonTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

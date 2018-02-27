@@ -56,7 +56,7 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
         holder.fixPrice.setText(item.getDiscontPrice() + " $");
         holder.name.setText(item.getName());
         holder.comment.setText(item.getComment());
-        holder.gramm.setText(item.getGramms() + " g");
+        holder.gramm.setText(item.converGramms(String.valueOf(item.getGramms())));
         holder.kal.setText(item.getKalories() + " kal");
         holder.addToCart.setOnClickListener(new View.OnClickListener() {
             @Override
