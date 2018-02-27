@@ -27,8 +27,13 @@ public class ProfileActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();;
 
+    private EditText editTextName;
     private EditText editTextNumber;
     private EditText editTextMail;
+    private EditText editTextCity;
+    private EditText editTextStreet;
+    private EditText editTextHouse;
+    private EditText editTextFlat;
     private EditText editTextPassword;
     private Button buttonToSave;
     private ImageView seePassButton;
@@ -44,11 +49,16 @@ public class ProfileActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Profile");
 
+        editTextName = (EditText) findViewById(R.id.name);
         editTextNumber = (EditText) findViewById(R.id.editNumber);
         editTextMail = (EditText) findViewById(R.id.editMail);
-//        editTextPassword = (EditText) findViewById(R.id.editPassword);
+        editTextCity = (EditText) findViewById(R.id.city_profile);
+        editTextStreet = (EditText) findViewById(R.id.street_profile);
+        editTextHouse = (EditText) findViewById(R.id.house_profile);
+        editTextFlat = (EditText) findViewById(R.id.flat_profile);
+        editTextPassword = (EditText) findViewById(R.id.editPassword);
         buttonToSave = (Button) findViewById(R.id.saveButton);
-//        seePassButton = (ImageView) findViewById(R.id.seePassButton);
+        seePassButton = (ImageView) findViewById(R.id.seePassButton);
 
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_arrow_back_black_36px));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -73,26 +83,56 @@ public class ProfileActivity extends AppCompatActivity {
         final String userId = user.getUid();
 
 
+
         // Change information about user
         unicDataBase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 try {
+                    String name = dataSnapshot.child(userId).child("name").getValue().toString();
+                    editTextName.setText(name);
+                    Log.d(TAG, name);
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "Name is not exist in user profile.");
+                }
+
+                try {
                     String email = dataSnapshot.child(userId).child("email").getValue().toString();
                     editTextMail.setText(email);
                     Log.d(TAG, email);
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "Email is not exist in user profile.");
+                }
 
+                try {
                     String number = dataSnapshot.child(userId).child("phone").getValue().toString();
                     editTextNumber.setText(number);
                     Log.d(TAG, number);
-
-//                    password = (dataSnapshot.child(userId).child("password").getValue()).toString();
-//                    visibleAndInvisiblePassword(password);
-//                    Log.d(TAG, password);
-//                    Log.d(TAG, (String) dataSnapshot.child(userId).getValue());
-                } catch (NullPointerException e ) {
-                    System.out.println(e);
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "Number phone is not exist in user profile.");
                 }
+
+                try {
+                    String city = dataSnapshot.child(userId).child("adress").child("city").getValue().toString();
+                    String street = dataSnapshot.child(userId).child("adress").child("street").getValue().toString();
+                    String house = dataSnapshot.child(userId).child("adress").child("house").getValue().toString();
+                    String flat = dataSnapshot.child(userId).child("adress").child("flat").getValue().toString();
+
+                    editTextCity.setText(city);
+                    editTextStreet.setText(street);
+                    editTextHouse.setText(house);
+                    editTextFlat.setText(flat);
+
+                    Log.d(TAG, "Correct adress: " + city + " " + street + " " + house + " " + flat + ".");
+                } catch (NullPointerException e) {
+                    Log.e(TAG, "Adress is not exist in user profile.");
+                }
+
+                    password = (dataSnapshot.child(userId).child("password").getValue()).toString();
+                    editTextPassword.setText(password);
+                    unvisiblePassword = false;
+                    visibleAndInvisiblePassword(password);
+                    Log.d(TAG, password);
                 }
 
             @Override
@@ -105,24 +145,48 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.v("ProfileActivity", "CLICKED to save information");
-                saveAllNewInformation(getTextEditText(editTextNumber),getTextEditText(editTextMail), getTextEditText(editTextPassword), userId);
+                saveAllNewInformation(getTextEditText(editTextName),
+                        getTextEditText(editTextNumber),
+                        getTextEditText(editTextMail),
+                        getTextEditText(editTextPassword),
+                        getTextEditText(editTextCity),
+                        getTextEditText(editTextStreet),
+                        getTextEditText(editTextHouse),
+                        getTextEditText(editTextFlat),
+                        userId);
                 Toast.makeText(getApplicationContext(), "Thanks,Information saved", Toast.LENGTH_LONG).show();
             }
         });
 
-//        seePassButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                visibleAndInvisiblePassword(password);
-//            }
-//        });
+        seePassButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                visibleAndInvisiblePassword(password);
+            }
+        });
     }
 
     /**  Save new Inctance to FireBase **/
-    public void saveAllNewInformation(String phoneNumber, String email, String password, String userId) {
+    public void saveAllNewInformation(String name,
+                                      String phoneNumber,
+                                      String email,
+                                      String password,
+                                      String city,
+                                      String street,
+                                      String house,
+                                      String flat,
+                                      String userId) {
+        mDatabase.child("users").child(userId).child("name").setValue(name);
         mDatabase.child("users").child(userId).child("phone").setValue(phoneNumber);
         mDatabase.child("users").child(userId).child("email").setValue(email);
-//        mDatabase.child("users").child(userId).child("password").setValue(password);
+        if (!unvisiblePassword || !getTextEditText(editTextPassword).contains("*")) {
+            mDatabase.child("users").child(userId).child("password").setValue(password);
+        }
+        mDatabase.child("users").child(userId).child("adress").child("city").setValue(city);
+        mDatabase.child("users").child(userId).child("adress").child("street").setValue(street);
+        mDatabase.child("users").child(userId).child("adress").child("house").setValue(house);
+        mDatabase.child("users").child(userId).child("adress").child("flat").setValue(flat);
+
     }
 
     /** Get String inside EditText **/

@@ -37,7 +37,7 @@
     <dimen name="mainPadding">10dp</dimen>
     <dimen name="extraDP">15dp</dimen>
     <dimen name="addDP">5dp</dimen>
-    <dimen name="editTextSize_order">15sp</dimen>
+    <dimen name="editTextSize_order">14sp</dimen>
     <dimen name="TitleSize_order">24sp</dimen>
 
 </resources>

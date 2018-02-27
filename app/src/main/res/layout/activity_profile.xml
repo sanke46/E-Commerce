@@ -57,8 +57,8 @@
                     android:id="@+id/name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Valera Chevtaev"
                     android:focusableInTouchMode="true"
+                    android:hint="Name"
                     android:textColor="@color/editTextColor"
                     android:textSize="@dimen/editTextSize"
                     android:inputType="textEmailAddress"
@@ -116,7 +116,7 @@
                     android:id="@+id/editNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Phone_accaunt"
+                    android:hint="@string/Phone_accaunt"
                     android:textColor="@color/editTextColor"
                     android:background="@android:color/transparent"
                     android:textSize="@dimen/editTextSize"
@@ -176,7 +176,7 @@
                     android:id="@+id/editMail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/email_accaunt"
+                    android:hint="@string/email_accaunt"
                     android:focusableInTouchMode="true"
                     android:textColor="@color/editTextColor"
                     android:textSize="@dimen/editTextSize"
@@ -208,23 +208,77 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:padding="10dp"
+            android:background="#fff"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="14dp"
+                android:tint="#d7d7d7"
+                android:src="@drawable/ic_lock_outline_black_24dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/editPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:textColor="#333"
+                    android:hint="Password"
+                    android:paddingLeft="15dp"
+                    android:textSize="14dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="3dp"
+                    android:textSize="11dp"
+                    android:text="@string/title_password_accaunt"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:id="@+id/seePassButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:tint="#8ea8e7"
+                    android:src="@drawable/ic_remove_red_eye_black_24dp"
+                    android:layout_alignParentRight="true" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
         <!--<LinearLayout-->
             <!--android:layout_width="match_parent"-->
             <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="1dp"-->
-            <!--android:layout_marginBottom="1dp"-->
-            <!--android:padding="10dp"-->
-            <!--android:background="#fff"-->
+            <!--android:layout_marginTop="@dimen/marginLiner"-->
+            <!--android:layout_marginBottom="@dimen/marginLiner"-->
+            <!--android:padding="@dimen/paddingLiner"-->
+            <!--android:background="@color/bgLiner"-->
             <!--android:orientation="horizontal"-->
             <!--android:weightSum="1">-->
 
-            <!--<ImageView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:layout_marginLeft="7dp"-->
-                <!--android:layout_marginRight="14dp"-->
-                <!--android:tint="#d7d7d7"-->
-                <!--android:src="@drawable/ic_lock_outline_black_24dp"/>-->
+
 
             <!--<LinearLayout-->
                 <!--android:layout_width="wrap_content"-->
@@ -232,22 +286,23 @@
                 <!--android:orientation="vertical">-->
 
                 <!--<EditText-->
-                    <!--android:id="@+id/editPassword"-->
+                    <!--android:id="@+id/adress"-->
                     <!--android:layout_width="wrap_content"-->
                     <!--android:layout_height="wrap_content"-->
-                    <!--android:background="@android:color/transparent"-->
-                    <!--android:textColor="#333"-->
-                    <!--android:text=""-->
-                    <!--android:paddingLeft="15dp"-->
-                    <!--android:textSize="14dp"/>-->
+                    <!--android:text="415 E Toluca Ave, Orange, CA, 92866"-->
+                    <!--android:focusableInTouchMode="true"-->
+                    <!--android:textColor="@color/editTextColor"-->
+                    <!--android:textSize="@dimen/editTextSize"-->
+                    <!--android:inputType="textEmailAddress"-->
+                    <!--android:background="@android:color/transparent"/>-->
 
                 <!--<TextView-->
                     <!--android:layout_width="wrap_content"-->
                     <!--android:layout_height="wrap_content"-->
-                    <!--android:paddingLeft="15dp"-->
-                    <!--android:paddingTop="3dp"-->
-                    <!--android:textSize="11dp"-->
-                    <!--android:text="@string/title_password_accaunt"/>-->
+                    <!--android:paddingTop="@dimen/paddindUnderEditText"-->
+                    <!--android:textSize="@dimen/underEditViewTextSize"-->
+                    <!--android:textColor="@color/colorUnderEditText"-->
+                    <!--android:text="Your full adress [street, house, flat]"/>-->
 
             <!--</LinearLayout>-->
 
@@ -256,13 +311,11 @@
                 <!--android:layout_height="wrap_content"-->
                 <!--&gt;-->
 
-                <!--<ImageView-->
-                    <!--android:id="@+id/seePassButton"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="44dp"-->
-                    <!--android:tint="#8ea8e7"-->
-                    <!--android:src="@drawable/ic_remove_red_eye_black_24dp"-->
-                    <!--android:layout_alignParentRight="true" />-->
+                <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="44dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:src="@drawable/ic_edit_black_24dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_alignParentRight="true" />&ndash;&gt;-->
 
             <!--</RelativeLayout>-->
 
@@ -275,41 +328,83 @@
             android:layout_marginBottom="@dimen/marginLiner"
             android:padding="@dimen/paddingLiner"
             android:background="@color/bgLiner"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:weightSum="1">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/iconMLeft"
-                android:layout_marginRight="@dimen/iconMRight"
-                android:tint="@color/iconColor"
-                android:src="@drawable/ic_place_black_24dp"/>
+
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/iconMLeft"
+                    android:layout_marginRight="@dimen/iconMRight"
+                    android:tint="@color/iconColor"
+                    android:src="@drawable/ic_place_black_24dp"/>
 
                 <EditText
-                    android:id="@+id/adress"
-                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/city_profile"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="415 E Toluca Ave, Orange, CA, 92866"
+                    android:hint="@string/city"
                     android:focusableInTouchMode="true"
                     android:textColor="@color/editTextColor"
                     android:textSize="@dimen/editTextSize"
+                    android:backgroundTint="@color/grayLight"
                     android:inputType="textEmailAddress"
-                    android:background="@android:color/transparent"/>
+                    />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:layout_weight="1"
+                    android:id="@+id/street_profile"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/paddindUnderEditText"
-                    android:textSize="@dimen/underEditViewTextSize"
-                    android:textColor="@color/colorUnderEditText"
-                    android:text="Your full adress [street, house, flat]"/>
+                    android:hint="@string/street"
+                    android:focusableInTouchMode="true"
+                    android:textColor="@color/editTextColor"
+                    android:textSize="@dimen/editTextSize"
+                    android:backgroundTint="@color/grayLight"
+                    android:inputType="textEmailAddress"
+                    />
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:orientation="horizontal">
+
+
+                <EditText
+                    android:layout_weight="1"
+                    android:id="@+id/house_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusableInTouchMode="true"
+                    android:hint="@string/house_number"
+                    android:textColor="@color/editTextColor"
+                    android:textSize="@dimen/editTextSize"
+                    android:backgroundTint="@color/grayLight"
+                    android:inputType="textEmailAddress"
+                    />
+
+                <EditText
+                    android:layout_weight="1"
+                    android:id="@+id/flat_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusableInTouchMode="true"
+                    android:hint="@string/flat_number"
+                    android:backgroundTint="@color/grayLight"
+                    android:textColor="@color/editTextColor"
+                    android:textSize="@dimen/editTextSize"
+                    android:inputType="textEmailAddress"
+                    />
             </LinearLayout>
 
             <RelativeLayout
@@ -330,7 +425,12 @@
 
 
 
+
+
     </LinearLayout>
+
+
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_alignParentBottom="true"
