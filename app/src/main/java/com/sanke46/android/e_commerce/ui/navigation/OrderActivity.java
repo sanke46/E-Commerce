@@ -19,14 +19,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sanke46.android.e_commerce.R;
+import com.sanke46.android.e_commerce.model.Item;
 import com.sanke46.android.e_commerce.model.Order;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class OrderActivity extends AppCompatActivity {
 
     private static final String TAG = OrderActivity.class.getSimpleName();
+    BasketActivity basketActivity = new BasketActivity();
+    private List<Item> itemList = basketActivity.getBasketItem();
     private Order order = new Order();
 
     private EditText editName;
@@ -39,6 +43,8 @@ public class OrderActivity extends AppCompatActivity {
     private LinearLayout linearLayout;
 
     private DatabaseReference dbRef;
+    DatabaseReference orderIdRef;
+    private String orderId;
     private FirebaseAuth userAuth;
     private String userId;
 
@@ -49,6 +55,7 @@ public class OrderActivity extends AppCompatActivity {
 
         // Firebase init var
         dbRef = FirebaseDatabase.getInstance().getReference().child("users");
+        orderIdRef = FirebaseDatabase.getInstance().getReference();
         userAuth = FirebaseAuth.getInstance();
         FirebaseUser user = userAuth.getCurrentUser();
         userId = user.getUid();
@@ -75,7 +82,6 @@ public class OrderActivity extends AppCompatActivity {
         editPhoneNumber = (EditText) findViewById(R.id.editDP);
         buttonNext = (Button) findViewById(R.id.buttonNext);
         linearLayout = (LinearLayout) findViewById(R.id.orderInfo);
-
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,35 +105,15 @@ public class OrderActivity extends AppCompatActivity {
                 }
 
                 if(editName.length() != 0 && editCity.length() != 0 && editStreet.length() != 0 && editHouseNumber.length() != 0 && editFlat.length() != 0 && editPhoneNumber.length() != 0){
-                    order.setEtnS(editName.getText().toString());
-                    order.setEtcS(editCity.getText().toString());
-                    order.setEtsS(editStreet.getText().toString());
-                    order.setEthnS(editHouseNumber.getText().toString());
-                    order.setEtfS(editFlat.getText().toString());
-                    order.setEtpnS(editPhoneNumber.getText().toString());
-
-
-//                    db.addOrder(order);
-//                    Intent intent = new Intent(getApplicationContext(), Payment.class);
-//                    startActivity(intent);
+                    addOrderUserFireBase();
                 }
             }
         });
 
         changeAutomaticInformationAboutUser();
-        addOrderUserFireBase();
 
     }
 
-    // add order to firebase
-    public void addOrderUserFireBase() {
-        long yourmilliseconds = System.currentTimeMillis();
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
-        Date resultdate = new Date(yourmilliseconds);
-        dbRef.child(userId).child("history").child(resultdate.toString()).child("1").child("name").setValue("Pizza");
-        dbRef.child(userId).child("history").child(resultdate.toString()).child("1").child("price").setValue("18");
-        dbRef.child(userId).child("history").child(resultdate.toString()).child("1").child("payment").setValue("Cash");
-    }
 
     // method to find information about user
     public void changeAutomaticInformationAboutUser() {
@@ -172,5 +158,52 @@ public class OrderActivity extends AppCompatActivity {
 
             }
         });
+
+        orderIdRef.child("currentOrder").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                orderId = dataSnapshot.getValue().toString();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    // add order to firebase
+    public void addOrderUserFireBase() {
+        long yourmilliseconds = System.currentTimeMillis();
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+        Date resultdate = new Date(yourmilliseconds);
+
+        order.setPayment("Cach");
+        order.setTime(resultdate.toString());
+        order.setPhone(editPhoneNumber.getText().toString());
+        order.setListOfBuyProducts(itemList);
+        order.setTotalPrice(getTotalPrice(itemList));
+        order.setAdress(editCity.getText().toString() + " " + editStreet.getText().toString() + " " + editHouseNumber.getText().toString() + " " + editFlat.getText().toString());
+
+        dbRef.child(userId).child("history").child(String.valueOf(orderId)).child("payment").setValue(order.getPayment());
+        dbRef.child(userId).child("history").child(String.valueOf(orderId)).child("totalPrice").setValue(order.getTotalPrice());
+        dbRef.child(userId).child("history").child(String.valueOf(orderId)).child("adress").setValue(order.getAdress());
+        dbRef.child(userId).child("history").child(String.valueOf(orderId)).child("phone").setValue(order.getPhone());
+        dbRef.child(userId).child("history").child(String.valueOf(orderId)).child("time").setValue(order.getTime());
+        dbRef.child(userId).child("history").child(String.valueOf(orderId)).child("items").setValue(order.getListOfBuyProducts());
+
+        int changeId = Integer.parseInt(orderId);
+        orderIdRef.child("currentOrder").setValue(changeId - 1);
+
+    }
+
+    public String getTotalPrice(List<Item> itemList) {
+        int resultPrice = 0;
+
+        for (Item item : itemList) {
+            resultPrice += item.getPrice();
+        }
+
+        return String.valueOf(resultPrice);
     }
 }
