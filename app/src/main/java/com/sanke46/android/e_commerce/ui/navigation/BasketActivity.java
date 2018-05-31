@@ -57,7 +57,7 @@ public class BasketActivity extends AppCompatActivity {
         buttonOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(sum  <= 0){
+                if (sum <= 0) {
                     Toast.makeText(BasketActivity.this, "You haven't got any eat", Toast.LENGTH_LONG).show();
                 } else {
                     Intent intent = new Intent(BasketActivity.this, OrderActivity.class);

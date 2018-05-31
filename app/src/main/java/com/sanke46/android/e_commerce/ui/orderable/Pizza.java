@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.adapter.RecyclerViewAdapter;
@@ -39,6 +40,9 @@ public class Pizza extends Fragment {
     private RecyclerView mSaleRecycleView;
     private SalesRecyclerViewAdapter mSalesRecycleViewAdapter;
 
+    private ProgressBar progressBar;
+    private LinearLayout mContentLayout;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -59,6 +63,10 @@ public class Pizza extends Fragment {
         mRecyclerView.setNestedScrollingEnabled(false);
         fb.getAllItem(PRODUCT_CATEGORY_ID, allPizzaItems, mRecyclerViewAdapter);
 
+        // Progress bar
+        progressBar = view.findViewById(R.id.progress_bar_one);
+        mContentLayout = view.findViewById(R.id.content_one);
+
         // Discount [RecycleView + Adapter + LayoutManager + FB]
         mSaleRecycleView = view.findViewById(R.id.list_sale);
         mSaleLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
@@ -66,8 +74,9 @@ public class Pizza extends Fragment {
         mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(getContext(), allDiscountPizzaItems, R.layout.item_sale);
         mSaleRecycleView.setAdapter(mSalesRecycleViewAdapter);
         mSaleRecycleView.setNestedScrollingEnabled(false);
-        fb.getAllSalesItem(PRODUCT_CATEGORY_ID, allDiscountPizzaItems, mSalesRecycleViewAdapter);
+        fb.getAllSalesItem(PRODUCT_CATEGORY_ID, allDiscountPizzaItems, mSalesRecycleViewAdapter, progressBar, mContentLayout);
 
+        // Animation [TEST]
         // Animation [TEST]
         LinearLayout ll = view.findViewById(R.id.recycler);
         LinearLayout ll2 = view.findViewById(R.id.recycler2);

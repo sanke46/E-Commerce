@@ -1,6 +1,9 @@
 package com.sanke46.android.e_commerce.fireBase;
 
 import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,11 +23,21 @@ public class FirebaseHandler {
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference("product");
 
-    public ArrayList<Item> getAllSalesItem(String titleProduct, final ArrayList<Item> arrayOfItemProduct, final SalesRecyclerViewAdapter adapter){
+
+    public ArrayList<Item> getAllSalesItem(String titleProduct,
+                                           final ArrayList<Item> arrayOfItemProduct,
+                                           final SalesRecyclerViewAdapter adapter,
+                                           final ProgressBar progressBar,
+                                           final LinearLayout mContentLayout){
         arrayOfItemProduct.clear();
         myRef.child(titleProduct).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                if (progressBar != null) {
+                    mContentLayout.setVisibility(LinearLayout.VISIBLE);
+                    progressBar.setVisibility(View.GONE);
+                }
+
                 for (final DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     item = snapshot.getValue(Item.class);
                     if(item.isSales()) {

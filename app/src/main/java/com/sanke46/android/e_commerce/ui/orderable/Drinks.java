@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.adapter.RecyclerViewAdapter;
@@ -36,6 +38,9 @@ public class Drinks extends Fragment {
     private RecyclerView mSalerecycleView;
     private SalesRecyclerViewAdapter mSalesRecycleViewAdapter;
 
+    private ProgressBar progressBar;
+    private LinearLayout mContentLayout;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -56,6 +61,10 @@ public class Drinks extends Fragment {
         mRecyclerView.setNestedScrollingEnabled(false);
         fb.getAllItem(PRODUCT_CATEGORY_ID, allDrinksItems, mRecyclerViewAdapter);
 
+        // Progress bar + LinerLayout content
+        progressBar = view.findViewById(R.id.progress_bar_three);
+        mContentLayout = view.findViewById(R.id.content_tree);
+
         // Discount [RecycleView + Adapter + LayoutManager + FB]
         mSalerecycleView = view.findViewById(R.id.list_sale_3);
         mSaleLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
@@ -63,6 +72,7 @@ public class Drinks extends Fragment {
         mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(getContext(), allDiscountDrinksItems, R.layout.item_sale);
         mSalerecycleView.setAdapter(mSalesRecycleViewAdapter);
         mSalerecycleView.setNestedScrollingEnabled(false);
-        fb.getAllSalesItem(PRODUCT_CATEGORY_ID, allDiscountDrinksItems, mSalesRecycleViewAdapter);
+        fb.getAllSalesItem(PRODUCT_CATEGORY_ID, allDiscountDrinksItems, mSalesRecycleViewAdapter, progressBar, mContentLayout);
+
     }
 }

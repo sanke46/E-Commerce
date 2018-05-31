@@ -13,6 +13,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextView fogotPass;
     private Button singInButton;
     private ImageView logo;
+    private ProgressBar login_progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +58,7 @@ public class LoginActivity extends AppCompatActivity {
         logo = (ImageView) findViewById(R.id.logoLogIn);
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         mPasswordView = (EditText) findViewById(R.id.password);
+        login_progress = (ProgressBar) findViewById(R.id.login_progress);
 //        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 //            @Override
 //            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
@@ -126,10 +129,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void singIn(String email, String password) {
+        logo.setVisibility(View.GONE);
+        login_progress.setVisibility(View.VISIBLE);
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("LogingActivity", "signInWithEmail:success");
@@ -137,6 +143,8 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         } else {
                             // If sign in fails, display a message to the user.
+                            logo.setVisibility(View.VISIBLE);
+                            login_progress.setVisibility(View.GONE);
                             Log.w("LogingActivity", "signInWithEmail:failure", task.getException());
                             Toast.makeText(getApplicationContext(), "Authentication failed.",  Toast.LENGTH_SHORT).show();
                         }

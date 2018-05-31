@@ -86,5 +86,6 @@
     <string name="cash_method">Cash</string>
     <string name="title_of_pay">Payment :</string>
     <string name="under_title_of_order">about devilery</string>
+    <string name="title_activity_detail">DetailActivity</string>
 
 </resources>

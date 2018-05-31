@@ -14,8 +14,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <meta-data android:name="package.name.for.flavor.GlideConfiguration" android:value="GlideModule" />
+        <meta-data
+            android:name="package.name.for.flavor.GlideConfiguration"
+            android:value="GlideModule" />
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -46,7 +47,12 @@
         <service
             android:name=".service.OrderService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+
+        <activity
+            android:name=".ui.navigation.DetailActivity"
+            android:label="Detail"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

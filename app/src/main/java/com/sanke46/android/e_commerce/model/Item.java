@@ -1,8 +1,9 @@
 package com.sanke46.android.e_commerce.model;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 
-public class Item {
+public class Item implements Serializable {
 
     private int id;
     private int imageId;

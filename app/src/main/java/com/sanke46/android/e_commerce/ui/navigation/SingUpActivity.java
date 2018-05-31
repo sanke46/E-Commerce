@@ -53,7 +53,7 @@ public class SingUpActivity extends AppCompatActivity {
         newName = (EditText) findViewById(R.id.newName);
         newEmail = (EditText) findViewById(R.id.newEmail);
         newPass = (EditText) findViewById(R.id.newPassword);
-        newConfirmPass = (EditText) findViewById(R.id.confirm_pass);
+        //newConfirmPass = (EditText) findViewById(R.id.confirm_pass);
         buttonCreateAc = (Button) findViewById(R.id.sibmit);
 
         buttonCreateAc.setOnClickListener(new View.OnClickListener() {
@@ -68,12 +68,12 @@ public class SingUpActivity extends AppCompatActivity {
                 if(newPass.getText().length() == 0){
                     newPass.setHintTextColor(Color.RED);
                 }
-                if(newConfirmPass.getText().length() == 0) {
-                    newConfirmPass.setHintTextColor(Color.RED);
-                    if(newPass.getText().toString().equals(newConfirmPass.getText().toString())){
-                        newPass.setHintTextColor(Color.RED);
-                    }
-                }
+//                if(newConfirmPass.getText().length() == 0) {
+//                    newConfirmPass.setHintTextColor(Color.RED);
+//                    if(newPass.getText().toString().equals(newConfirmPass.getText().toString())){
+//                        newPass.setHintTextColor(Color.RED);
+//                    }
+//                }
 
                 if(newName.length() != 0 && newEmail.length() != 0 && newPass.length() != 0 && newPass.getText().toString().equals(newConfirmPass.getText().toString()) ){
                     createNewAccaount(newEmail.getText().toString(), newPass.getText().toString(), newConfirmPass.getText().toString());

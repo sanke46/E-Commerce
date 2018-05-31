@@ -9,6 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.adapter.RecyclerViewAdapter;
@@ -36,6 +40,9 @@ public class Sushi extends Fragment {
     private RecyclerView mSaleRecycleView;
     private SalesRecyclerViewAdapter mSalesRecycleViewAdapter;
 
+    private ProgressBar progressBar;
+    private LinearLayout mContentLayout;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -56,6 +63,10 @@ public class Sushi extends Fragment {
         mRecyclerView.setNestedScrollingEnabled(false);
         fb.getAllItem(PRODUCT_CATEGORY_ID, allSushiItems, mRecyclerViewAdapter);
 
+        // Progress bar
+        progressBar = view.findViewById(R.id.progress_bar_two);
+        mContentLayout = view.findViewById(R.id.content_two);
+
         // Discount [RecycleView + Adapter + LayoutManager + FB]
         mSaleRecycleView = view.findViewById(R.id.list_sale_2);
         mSaleLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
@@ -63,6 +74,13 @@ public class Sushi extends Fragment {
         mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(getContext(), allDiscountSushiItems, R.layout.item_sale);
         mSaleRecycleView.setAdapter(mSalesRecycleViewAdapter);
         mSaleRecycleView.setNestedScrollingEnabled(false);
-        fb.getAllSalesItem(PRODUCT_CATEGORY_ID, allDiscountSushiItems, mSalesRecycleViewAdapter);
+        fb.getAllSalesItem(PRODUCT_CATEGORY_ID, allDiscountSushiItems, mSalesRecycleViewAdapter,progressBar, mContentLayout);
+
+        // Animation [TEST]
+        LinearLayout ll = view.findViewById(R.id.recycler_two);
+        LinearLayout ll2 = view.findViewById(R.id.recycler_two_2);
+        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.fade_up);
+        ll.startAnimation(animation);
+        ll2.startAnimation(animation);
     }
 }

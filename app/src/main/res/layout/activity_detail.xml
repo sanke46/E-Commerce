@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context="com.sanke46.android.e_commerce.ui.navigation.SalesActivity">
+    tools:context="com.sanke46.android.e_commerce.ui.navigation.DetailActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -21,11 +20,8 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/sales_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="75dp"/>
+    <include layout="@layout/content_detail" />
+
 
 
 </android.support.design.widget.CoordinatorLayout>
