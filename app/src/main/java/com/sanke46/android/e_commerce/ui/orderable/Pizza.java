@@ -71,17 +71,23 @@ public class Pizza extends Fragment {
         mSaleRecycleView = view.findViewById(R.id.list_sale);
         mSaleLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
         mSaleRecycleView.setLayoutManager(mSaleLayoutManager);
-        mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(getContext(), allDiscountPizzaItems, R.layout.item_sale);
+        mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(getContext(), allDiscountPizzaItems);
         mSaleRecycleView.setAdapter(mSalesRecycleViewAdapter);
         mSaleRecycleView.setNestedScrollingEnabled(false);
         fb.getAllSalesItem(PRODUCT_CATEGORY_ID, allDiscountPizzaItems, mSalesRecycleViewAdapter, progressBar, mContentLayout);
 
-        // Animation [TEST]
         // Animation [TEST]
         LinearLayout ll = view.findViewById(R.id.recycler);
         LinearLayout ll2 = view.findViewById(R.id.recycler2);
         Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.fade_up);
         ll.startAnimation(animation);
         ll2.startAnimation(animation);
+
+
+
+
+
     }
+
+
 }

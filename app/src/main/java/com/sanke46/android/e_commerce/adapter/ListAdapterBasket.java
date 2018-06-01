@@ -15,10 +15,6 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-/**
- * Created by ilafedoseev on 07.02.17.
- */
-
 public class ListAdapterBasket extends ArrayAdapter<Item>{
 
     BasketActivity basketActivity;
@@ -30,7 +26,6 @@ public class ListAdapterBasket extends ArrayAdapter<Item>{
         this.itemList = basketActivity.getBasketItem();
     }
 
-
     @NonNull
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
@@ -38,7 +33,6 @@ public class ListAdapterBasket extends ArrayAdapter<Item>{
         if(convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_basket,parent,false);
         }
-
 
         ImageView image = (ImageView) convertView.findViewById(R.id.image);
         TextView name = (TextView) convertView.findViewById(R.id.name);

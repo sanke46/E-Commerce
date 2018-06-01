@@ -1,56 +1,50 @@
 package com.sanke46.android.e_commerce.adapter;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
+        import android.content.Context;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.model.Item;
 import com.sanke46.android.e_commerce.ui.navigation.BasketActivity;
+import com.sanke46.android.e_commerce.ui.navigation.DetailActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
-//import com.bumptech.glide.Glide;
-
-/**
- * Created by ilafedoseev on 27/01/2018.
- */
-
 public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecyclerViewAdapter.ViewHolder> {
 
     BasketActivity basketActivity = new BasketActivity();
-    private Context context;
-    private int itemLayout;
-
-    private ArrayList<Item> arr = new ArrayList<>();
     private List<Item> itemList = basketActivity.getBasketItem();
+    private ArrayList arr;
+    private Context mContext;
 
-    public SalesRecyclerViewAdapter(Context context, ArrayList<Item> arr, int itemLayout) {
-        this.context = context;
-        this.arr = arr;
-        this.itemLayout = itemLayout;
+    public SalesRecyclerViewAdapter(Context context, ArrayList<Item> data) {
+        this.arr = data;
+        mContext = context;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(itemLayout, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_sale, parent, false);
         return new ViewHolder(v);
     }
 
-    @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
-        Item item = arr.get(position);
-        Picasso.with(context).load(item.getImageUrl()).into(holder.imageView);
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
+        final Item item = (Item) arr.get(position);
+
+        Picasso.with(mContext).load(item.getImageUrl()).into(holder.imageView);
         holder.price.setText(item.getPrice() + " $");
         holder.price.setPaintFlags(holder.price.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
         holder.fixPrice.setText(item.getDiscontPrice() + " $");
@@ -61,8 +55,17 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
         holder.addToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                itemList.add(arr.get(position));
+                itemList.add((Item) arr.get(position));
                 basketActivity.setBasketItem(itemList);
+            }
+        });
+        holder.linerSaleClick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, DetailActivity.class);
+                intent.putExtra("item", item);
+                mContext.startActivity(intent);
+                Log.v("SALES", "SALES");
             }
         });
     }
@@ -73,6 +76,7 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
+        private LinearLayout linerSaleClick;
         private ImageView imageView;
         private TextView price;
         private TextView fixPrice;
@@ -84,6 +88,7 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
 
         public ViewHolder(View itemView) {
             super(itemView);
+            linerSaleClick = itemView.findViewById(R.id.linerSaleClick);
             imageView = itemView.findViewById(R.id.imageSale);
             price = itemView.findViewById(R.id.price);
             kal = itemView.findViewById(R.id.kal);

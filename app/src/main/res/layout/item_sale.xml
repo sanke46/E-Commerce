@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="@dimen/_240sdp"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/linerSaleClick"
     android:orientation="vertical"
     android:layout_weight="1">
 
@@ -16,14 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_160sdp"
             android:scaleType="fitXY"
-            android:src="@drawable/pizza"
-            android:clickable="true"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_160sdp"
-            android:background="@drawable/gradient_img"/>
-
+            android:src="@drawable/pizza"/>
 
         <LinearLayout
             android:layout_width="wrap_content"

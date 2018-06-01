@@ -69,7 +69,7 @@ public class Drinks extends Fragment {
         mSalerecycleView = view.findViewById(R.id.list_sale_3);
         mSaleLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
         mSalerecycleView.setLayoutManager(mSaleLayoutManager);
-        mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(getContext(), allDiscountDrinksItems, R.layout.item_sale);
+        mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(getContext(), allDiscountDrinksItems);
         mSalerecycleView.setAdapter(mSalesRecycleViewAdapter);
         mSalerecycleView.setNestedScrollingEnabled(false);
         fb.getAllSalesItem(PRODUCT_CATEGORY_ID, allDiscountDrinksItems, mSalesRecycleViewAdapter, progressBar, mContentLayout);

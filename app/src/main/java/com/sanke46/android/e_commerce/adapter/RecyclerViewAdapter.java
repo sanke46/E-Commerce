@@ -3,12 +3,13 @@ package com.sanke46.android.e_commerce.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.sanke46.android.e_commerce.R;
@@ -20,15 +21,11 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by ilafedoseev on 24/07/2017.
- */
-
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
 
     BasketActivity basketActivity = new BasketActivity();
     private List<Item> itemList = basketActivity.getBasketItem();
-    private ArrayList arr = new ArrayList<Item>();
+    private ArrayList arr;
     private Context mContext;
 
     public RecyclerViewAdapter(ArrayList<Item> data, Context context) {
@@ -64,6 +61,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 Intent intent = new Intent(mContext, DetailActivity.class);
                 intent.putExtra("item", item);
                 mContext.startActivity(intent);
+                Log.v("SALES", "SALES");
             }
         });
     }
@@ -74,7 +72,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private LinearLayout linerClick;
+        private RelativeLayout linerClick;
         private ImageView image;
         private TextView name;
         private TextView comment;
@@ -84,7 +82,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         public ViewHolder(View itemView) {
             super(itemView);
-            linerClick = (LinearLayout) itemView.findViewById(R.id.linerClick);
+            linerClick = (RelativeLayout) itemView.findViewById(R.id.linerClick);
             image = (ImageView) itemView.findViewById(R.id.image);
             name = (TextView) itemView.findViewById(R.id.name);
             comment = (TextView) itemView.findViewById(R.id.commentProduct);

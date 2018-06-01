@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
 
         setSupportActionBar(toolbar);
-
         DataBaseHandler db = new DataBaseHandler(this);
 
 //        // Inserting Contacts
@@ -183,5 +182,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             super.onBackPressed();
         }
+    }
+
+    public void testP(View v) {
+        Log.v("НАХУЙ", "НАХУЙ");
     }
 }

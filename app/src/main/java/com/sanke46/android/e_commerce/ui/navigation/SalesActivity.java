@@ -59,7 +59,7 @@ public class SalesActivity extends AppCompatActivity {
         mLayoutManager = new GridLayoutManager(this,1);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerViewAdapter = new RecyclerViewAdapter(allSalesItems, this);
-        mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(this, allSalesItems, R.layout.item_sale);
+        mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(this, allSalesItems);
         mRecyclerView.setAdapter(mSalesRecycleViewAdapter);
         mRecyclerView.setNestedScrollingEnabled(false);
 //        fb.getAllItem(PRODUCT_CATEGORY_ID, allSalesItems, mRecyclerViewAdapter);
