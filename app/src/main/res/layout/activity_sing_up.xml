@@ -110,6 +110,6 @@
         android:id="@+id/sibmit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#b72027"
+        android:background="@drawable/border_red_button"
         android:text="submit" />
 </LinearLayout>
