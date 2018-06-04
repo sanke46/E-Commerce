@@ -71,7 +71,7 @@ public class Pizza extends Fragment {
         mSaleRecycleView = view.findViewById(R.id.list_sale);
         mSaleLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
         mSaleRecycleView.setLayoutManager(mSaleLayoutManager);
-        mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(getContext(), allDiscountPizzaItems);
+        mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(getContext(), allDiscountPizzaItems, R.layout.item_sale);
         mSaleRecycleView.setAdapter(mSalesRecycleViewAdapter);
         mSaleRecycleView.setNestedScrollingEnabled(false);
         fb.getAllSalesItem(PRODUCT_CATEGORY_ID, allDiscountPizzaItems, mSalesRecycleViewAdapter, progressBar, mContentLayout);

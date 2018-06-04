@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="@color/grayLight"
     tools:context="com.sanke46.android.e_commerce.ui.navigation.SalesActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -21,11 +22,20 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <ProgressBar
+        android:id="@+id/salesProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <LinearLayout
+        android:id="@+id/salesLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <android.support.v7.widget.RecyclerView
         android:id="@+id/sales_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="75dp"/>
+        android:layout_marginTop="55dp"/>
+    </LinearLayout>
 
 
 </android.support.design.widget.CoordinatorLayout>

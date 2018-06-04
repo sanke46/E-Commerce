@@ -8,6 +8,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import com.sanke46.android.e_commerce.MainActivity;
@@ -23,6 +24,8 @@ public class SalesActivity extends AppCompatActivity {
 
     private DrawerLayout drawer;
     private static final String PRODUCT_CATEGORY_ID = "pizza";
+    private static final String PRODUCT_CATEGORY_ID_2 = "sushi";
+    private static final String PRODUCT_CATEGORY_ID_3 = "drinks";
     private final ArrayList<Item> allSalesItems = new ArrayList<>();
     private SalesRecyclerViewAdapter mSalesRecycleViewAdapter;
     // First RecycleView
@@ -30,6 +33,7 @@ public class SalesActivity extends AppCompatActivity {
     private RecyclerViewAdapter mRecyclerViewAdapter;
     private RecyclerView mRecyclerView;
     private ProgressBar progressBar;
+    private LinearLayout linearLayout;
 
 
     @Override
@@ -38,7 +42,8 @@ public class SalesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sales);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
-//        progressBar = findViewById(R.id.progress_bar);
+        progressBar = findViewById(R.id.salesProgressBar);
+        linearLayout = findViewById(R.id.salesLinearLayout);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Sales");
@@ -59,11 +64,13 @@ public class SalesActivity extends AppCompatActivity {
         mLayoutManager = new GridLayoutManager(this,1);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerViewAdapter = new RecyclerViewAdapter(allSalesItems, this);
-        mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(this, allSalesItems);
+        mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(this, allSalesItems,  R.layout.item_sales_activity);
         mRecyclerView.setAdapter(mSalesRecycleViewAdapter);
         mRecyclerView.setNestedScrollingEnabled(false);
 //        fb.getAllItem(PRODUCT_CATEGORY_ID, allSalesItems, mRecyclerViewAdapter);
-//        fb.getAllSalesItem(PRODUCT_CATEGORY_ID, allSalesItems,mSalesRecycleViewAdapter,progressBar);
+        fb.getAllSalesItem(PRODUCT_CATEGORY_ID, allSalesItems,mSalesRecycleViewAdapter,progressBar,linearLayout);
+        fb.getAllSalesItem(PRODUCT_CATEGORY_ID_2, allSalesItems,mSalesRecycleViewAdapter,progressBar,linearLayout);
+        fb.getAllSalesItem(PRODUCT_CATEGORY_ID_3, allSalesItems,mSalesRecycleViewAdapter,progressBar,linearLayout);
     }
 
 

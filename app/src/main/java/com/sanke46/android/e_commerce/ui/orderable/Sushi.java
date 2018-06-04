@@ -71,7 +71,7 @@ public class Sushi extends Fragment {
         mSaleRecycleView = view.findViewById(R.id.list_sale_2);
         mSaleLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
         mSaleRecycleView.setLayoutManager(mSaleLayoutManager);
-        mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(getContext(), allDiscountSushiItems);
+        mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(getContext(), allDiscountSushiItems,  R.layout.item_sale);
         mSaleRecycleView.setAdapter(mSalesRecycleViewAdapter);
         mSaleRecycleView.setNestedScrollingEnabled(false);
         fb.getAllSalesItem(PRODUCT_CATEGORY_ID, allDiscountSushiItems, mSalesRecycleViewAdapter,progressBar, mContentLayout);

@@ -28,15 +28,17 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
     private List<Item> itemList = basketActivity.getBasketItem();
     private ArrayList arr;
     private Context mContext;
+    private int itemLayout;
 
-    public SalesRecyclerViewAdapter(Context context, ArrayList<Item> data) {
+    public SalesRecyclerViewAdapter(Context context, ArrayList<Item> data, int itemLayout) {
         this.arr = data;
         mContext = context;
+        this.itemLayout = itemLayout;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_sale, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(itemLayout, parent, false);
         return new ViewHolder(v);
     }
 
