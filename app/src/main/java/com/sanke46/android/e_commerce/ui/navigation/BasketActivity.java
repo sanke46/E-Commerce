@@ -47,6 +47,7 @@ public class BasketActivity extends AppCompatActivity {
         });
 
         buttonOrder = (Button) findViewById(R.id.priceButton);
+
         refreshTotalPrice();
 
 //        String[] dummyStrings = getResources().getStringArray(R.array.my_items);
@@ -77,6 +78,7 @@ public class BasketActivity extends AppCompatActivity {
     }
 
     public void refreshUi() {
+        listView.setAdapter(basketAdapter);
         refreshTotalPrice();
     }
 

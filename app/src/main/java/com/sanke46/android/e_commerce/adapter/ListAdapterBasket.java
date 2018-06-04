@@ -1,13 +1,17 @@
 package com.sanke46.android.e_commerce.adapter;
 
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.podcopic.animationlib.library.AnimationType;
+import com.podcopic.animationlib.library.StartSmartAnimation;
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.model.Item;
 import com.sanke46.android.e_commerce.ui.navigation.BasketActivity;
@@ -17,7 +21,7 @@ import java.util.List;
 
 public class ListAdapterBasket extends ArrayAdapter<Item>{
 
-    BasketActivity basketActivity;
+    private BasketActivity basketActivity;
     private List<Item> itemList;
 
     public ListAdapterBasket(BasketActivity context, List<Item> arrayList) {
@@ -34,7 +38,8 @@ public class ListAdapterBasket extends ArrayAdapter<Item>{
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_basket,parent,false);
         }
 
-        ImageView image = (ImageView) convertView.findViewById(R.id.image);
+        final LinearLayout mainBlock = convertView.findViewById(R.id.basketBlock);
+        final ImageView image = (ImageView) convertView.findViewById(R.id.image);
         TextView name = (TextView) convertView.findViewById(R.id.name);
         TextView gramms = (TextView) convertView.findViewById(R.id.grammBasket);
         TextView price = (TextView) convertView.findViewById(R.id.price);
@@ -53,13 +58,29 @@ public class ListAdapterBasket extends ArrayAdapter<Item>{
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                itemList.remove(position);
-                basketActivity.refreshUi();
 
-                notifyDataSetChanged();
-                notifyDataSetInvalidated();
+//                TranslateAnimation animate = new TranslateAnimation(0,0,0,-image.getWidth());
+//                animate.setDuration(1000);
+//                mainBlock.startAnimation(animate);
+//                mainBlock.setVisibility(View.INVISIBLE);
+
+                StartSmartAnimation.startAnimation(mainBlock, AnimationType.SlideOutRight, 1000,0, true);
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        itemList.remove(position);
+                        basketActivity.refreshUi();
+//
+                        notifyDataSetChanged();
+                        notifyDataSetInvalidated();
+                    }
+                }, 1000);
+
+
             }
         });
+
 
         return convertView;
     }

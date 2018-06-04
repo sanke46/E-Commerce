@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/linerSaleClick"
+    android:orientation="vertical"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_weight="1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imageSale"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_160sdp"
+            android:scaleType="fitXY"
+            android:src="@drawable/pizza"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="30dp"
+            android:paddingLeft="@dimen/padTextLR"
+            android:paddingRight="@dimen/padTextLR"
+            android:layout_alignBottom="@+id/imageSale">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/name"
+                android:layout_marginBottom="3dp"
+                android:textColor="@color/bgWhite"
+                android:textSize="@dimen/titleTextSize"
+                android:text="Pizza with mushrooms and prosciutto"/>
+
+            <TextView
+                android:id="@+id/comments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/imageSale"
+                android:textColor="@color/bgWhite"
+                android:textSize="@dimen/underTitleSize"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis omnis distinctio"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/paddingLinerSales"
+            android:background="@drawable/border_only_left"
+            android:layout_alignTop="@+id/imageSale"
+            android:layout_alignRight="@+id/imageSale"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:tint="#e97f7f"
+                android:scaleType="fitXY"
+                android:layout_width="@dimen/iconSizeOffer"
+                android:layout_height="@dimen/iconSizeOffer"
+                android:layout_marginRight="7dp"
+                android:layout_marginTop="2dp"
+                android:src="@drawable/ic_local_offer_black_24px"/>
+
+            <TextView
+                android:id="@+id/fixPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/bgWhite"
+                android:textSize="@dimen/titleTextSize"
+                android:text="200 $"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="-15dp"
+        android:background="@drawable/boreder_radius_only_bottom"
+        android:orientation="vertical"
+        android:clipToPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/paddingLinerSales"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_weight="1.3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/marginText"
+                android:text="$ 4400"
+                android:textColor="@color/BlackGrey"
+                android:textSize="@dimen/salesSizeText" />
+
+            <TextView
+                android:id="@+id/kal"
+                android:layout_weight="1.2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/heightBox"
+                android:background="@color/bgBoxInfo"
+                android:paddingBottom="@dimen/padTextTB"
+                android:paddingLeft="@dimen/padTextLR"
+                android:paddingRight="@dimen/padTextLR"
+                android:paddingTop="@dimen/padTextTB"
+                android:text="14000 kal"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/marginText"
+                android:textSize="@dimen/salesSizeText"
+                android:textColor="@color/textColorBox" />
+
+            <TextView
+                android:id="@+id/gramm"
+                android:layout_weight="1.2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/heightBox"
+                android:background="@color/bgBoxInfo"
+                android:paddingBottom="@dimen/padTextTB"
+                android:paddingLeft="@dimen/padTextLR"
+                android:paddingRight="@dimen/padTextLR"
+                android:paddingTop="@dimen/padTextTB"
+                android:text="2000 g"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/marginText"
+                android:textSize="@dimen/salesSizeText"
+                android:textColor="@color/textColorBox" />
+
+            <Button
+                android:id="@+id/buttonTwo"
+                android:layout_weight="1.4"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/heightBox"
+                android:layout_gravity="right"
+                android:textSize="@dimen/titleTextSize"
+                android:background="@drawable/border_button"
+                android:text="+"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
