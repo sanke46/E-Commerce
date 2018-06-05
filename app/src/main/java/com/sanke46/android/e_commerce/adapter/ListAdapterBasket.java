@@ -14,17 +14,18 @@ import com.podcopic.animationlib.library.AnimationType;
 import com.podcopic.animationlib.library.StartSmartAnimation;
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.model.Item;
+import com.sanke46.android.e_commerce.model.ItemBasket;
 import com.sanke46.android.e_commerce.ui.navigation.BasketActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class ListAdapterBasket extends ArrayAdapter<Item>{
+public class ListAdapterBasket extends ArrayAdapter<ItemBasket>{
 
     private BasketActivity basketActivity;
     private List<Item> itemList;
 
-    public ListAdapterBasket(BasketActivity context, List<Item> arrayList) {
+    public ListAdapterBasket(BasketActivity context, List<ItemBasket> arrayList) {
         super(context, 0 ,arrayList);
         this.basketActivity = context;
         this.itemList = basketActivity.getBasketItem();
@@ -33,7 +34,8 @@ public class ListAdapterBasket extends ArrayAdapter<Item>{
     @NonNull
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        final Item item = getItem(position);
+        final ItemBasket itembasket = getItem(position);
+        Item item = itembasket.getItem();
         if(convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_basket,parent,false);
         }
@@ -41,6 +43,7 @@ public class ListAdapterBasket extends ArrayAdapter<Item>{
         final LinearLayout mainBlock = convertView.findViewById(R.id.basketBlock);
         final ImageView image = (ImageView) convertView.findViewById(R.id.image);
         TextView name = (TextView) convertView.findViewById(R.id.name);
+        TextView countProduct = (TextView) convertView.findViewById(R.id.countProduct);
         TextView gramms = (TextView) convertView.findViewById(R.id.grammBasket);
         TextView price = (TextView) convertView.findViewById(R.id.price);
         ImageView delete = (ImageView) convertView.findViewById(R.id.delete);
@@ -53,6 +56,7 @@ public class ListAdapterBasket extends ArrayAdapter<Item>{
         } else {
             price.setText(item.getPrice() + " $");
         }
+        countProduct.setText(itembasket.getCountNumber() + "");
         gramms.setText(item.getGramms() + " g");
 
         delete.setOnClickListener(new View.OnClickListener() {

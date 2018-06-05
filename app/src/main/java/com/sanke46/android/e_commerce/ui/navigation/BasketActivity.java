@@ -1,7 +1,9 @@
 package com.sanke46.android.e_commerce.ui.navigation;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -10,23 +12,29 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.sanke46.android.e_commerce.adapter.ListAdapterBasket;
 import com.sanke46.android.e_commerce.MainActivity;
 import com.sanke46.android.e_commerce.R;
+import com.sanke46.android.e_commerce.adapter.ListAdapterBasket;
 import com.sanke46.android.e_commerce.model.Item;
+import com.sanke46.android.e_commerce.model.ItemBasket;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BasketActivity extends AppCompatActivity {
 
     public static List<Item> basketItem = new ArrayList<Item>();
+    public static List<ItemBasket> basketItemBasket = new ArrayList<ItemBasket>();
+    public static HashMap<Integer, Item> mapBasketItem = new HashMap();
     public ListAdapterBasket basketAdapter;
     private int sum;
     private ListView listView;
     private Button buttonOrder;
     private DrawerLayout drawer;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,10 +57,12 @@ public class BasketActivity extends AppCompatActivity {
         buttonOrder = (Button) findViewById(R.id.priceButton);
 
         refreshTotalPrice();
+        sortBasketList();
+        addToList();
 
 //        String[] dummyStrings = getResources().getStringArray(R.array.my_items);
         listView = (ListView) findViewById(R.id.basketView);
-        basketAdapter = new ListAdapterBasket(this, basketItem);
+        basketAdapter = new ListAdapterBasket(this, basketItemBasket);
         listView.setAdapter(basketAdapter);
 
         buttonOrder.setOnClickListener(new View.OnClickListener() {
@@ -95,10 +105,26 @@ public class BasketActivity extends AppCompatActivity {
         buttonOrder.setText("ORDER - " + sum + " $");
     }
 
-    private List<Item> sortBasketToMap(List<Item> arrayOfItem) {
-        for (Item item : arrayOfItem) {
-
+    public void sortBasketList() {
+        mapBasketItem = new HashMap<>();
+        for (Item item : basketItem) {
+            int count = 0;
+            for (Item item2 : basketItem) {
+                if(item.equals(item2)) count++;
+            }
+            mapBasketItem.put(count, item);
         }
-        return null;
+
+        System.out.println(basketItem.size());
+        System.out.println(mapBasketItem);
     }
+
+    public void addToList() {
+        basketItemBasket = new ArrayList<>();
+        for (Map.Entry<Integer, Item> entry : mapBasketItem.entrySet()) {
+            basketItemBasket.add(new ItemBasket(entry.getKey(), entry.getValue()));
+            System.out.println(basketItemBasket.size() + "basket");
+        }
+    }
+
 }

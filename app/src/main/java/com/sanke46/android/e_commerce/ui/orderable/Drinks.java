@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
@@ -63,7 +65,7 @@ public class Drinks extends Fragment {
 
         // Progress bar + LinerLayout content
         progressBar = view.findViewById(R.id.progress_bar_three);
-        mContentLayout = view.findViewById(R.id.content_tree);
+        mContentLayout = view.findViewById(R.id.content_three);
 
         // Discount [RecycleView + Adapter + LayoutManager + FB]
         mSalerecycleView = view.findViewById(R.id.list_sale_3);
@@ -73,6 +75,13 @@ public class Drinks extends Fragment {
         mSalerecycleView.setAdapter(mSalesRecycleViewAdapter);
         mSalerecycleView.setNestedScrollingEnabled(false);
         fb.getAllSalesItem(PRODUCT_CATEGORY_ID, allDiscountDrinksItems, mSalesRecycleViewAdapter, progressBar, mContentLayout);
+
+        // Animation [TEST]
+        LinearLayout ll = view.findViewById(R.id.recycler_three);
+        LinearLayout ll2 = view.findViewById(R.id.recycler_three_2);
+        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.fade_up);
+        ll.startAnimation(animation);
+        ll2.startAnimation(animation);
 
     }
 }
