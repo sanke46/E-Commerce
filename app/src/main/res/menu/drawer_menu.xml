@@ -19,27 +19,27 @@
 
     <item
         android:id="@+id/about"
-        android:icon="@drawable/ic_info_black_24px"
+        android:icon="@drawable/ic_grocery"
         android:title="About Delevery" />
 
     <item
         android:id="@+id/profile"
-        android:icon="@drawable/ic_account_circle_black_24px"
-        android:title="Profile" />
+        android:icon="@drawable/ic_user_info_interface_symbol_with_text_lines_at_right_side"
+    android:title="Profile" />
     <item
         android:id="@+id/sing_out"
-        android:icon="@drawable/ic_backspace_black_24px"
+        android:icon="@drawable/ic_login_arrow_symbol_entering_back_into_a_square"
         android:title="Sing out" />
 
     <item android:title="More">
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/ic_person_outline_black_24px"
+                android:icon="@drawable/ic_oval_empty_outlined_speech_bubble"
                 android:title="Chat" />
             <item
                 android:id="@+id/nav_send"
-                android:icon="@drawable/ic_person_outline_black_24px"
+                android:icon="@drawable/ic_gear_outlined_symbol"
                 android:title="Settings"
                 android:iconTint="@color/colorBlue"/>
         </menu>
