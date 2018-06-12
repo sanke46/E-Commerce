@@ -183,8 +183,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
     }
-
-    public void testP(View v) {
-        Log.v("НАХУЙ", "НАХУЙ");
-    }
 }

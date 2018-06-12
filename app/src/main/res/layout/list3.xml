@@ -14,7 +14,33 @@
         android:layout_marginLeft="@dimen/marginText"
         android:layout_marginRight="@dimen/marginText">
 
-    <ImageView
+        <LinearLayout
+            android:id="@+id/addCartIcon"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="vertical"
+            android:visibility="invisible
+">
+
+            <ImageView
+
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:tint="#ddd"
+                android:background="@drawable/cycle_icon"
+                android:padding="@dimen/_9sdp"
+                android:layout_marginBottom="4dp"
+                android:src="@drawable/ic_shopping_basket"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="add to cart"/>
+        </LinearLayout>
+
+
+        <ImageView
         android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_98sdp"

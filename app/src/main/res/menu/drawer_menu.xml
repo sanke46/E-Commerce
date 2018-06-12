@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:checkableBehavior="single">
     <item
         android:id="@+id/catalog"
-        android:icon="@drawable/ic_local_pizza_black_24px"
+        android:icon="@drawable/ic_shopping_bag"
         android:title="Catalog" />
 
     <item
         android:id="@+id/sales"
-        android:icon="@drawable/ic_local_offer_black_24px"
-        android:title="Sales" />
+        android:icon="@drawable/ic_discount_2"
+        android:title="Sales"
+        android:iconTint="#ddd" />
 
     <item
         android:id="@+id/order"
-        android:icon="@drawable/ic_shopping_basket_black_24px"
+        android:icon="@drawable/ic_shopping_cart"
         android:title="My order" />
 
     <item
@@ -24,13 +26,22 @@
         android:id="@+id/profile"
         android:icon="@drawable/ic_account_circle_black_24px"
         android:title="Profile" />
-
     <item
         android:id="@+id/sing_out"
         android:icon="@drawable/ic_backspace_black_24px"
         android:title="Sing out" />
-    <item
-        android:id="@+id/s"
-        android:icon="@drawable/ic_backspace_black_24px"
-        android:title="89818300064" />
+
+    <item android:title="More">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_person_outline_black_24px"
+                android:title="Chat" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_person_outline_black_24px"
+                android:title="Settings"
+                android:iconTint="@color/colorBlue"/>
+        </menu>
+    </item>
 </menu>

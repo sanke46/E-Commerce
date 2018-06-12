@@ -12,6 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.podcopic.animationlib.library.AnimationType;
+import com.podcopic.animationlib.library.StartSmartAnimation;
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.adapter.ListInformationAdapter;
 import com.sanke46.android.e_commerce.model.InfoDetail;
@@ -52,6 +54,7 @@ public class DetailActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_arrow_back_black_36px));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +77,8 @@ public class DetailActivity extends AppCompatActivity {
         plus = findViewById(R.id.plus);
         addToCart = findViewById(R.id.addToCart);
         listView = findViewById(R.id.allInformation);
+
+        listView.setFocusable(false);
 
         intentItem = getIntent();
         item = (Item) intentItem.getSerializableExtra("item");
@@ -103,6 +108,7 @@ public class DetailActivity extends AppCompatActivity {
       addToCart.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
+              StartSmartAnimation.startAnimation(addToCart, AnimationType.BounceIn, 1000, 200, false);
               if(howManyToInt() == 0) {
                   itemList.add(item);
                   basketActivity.setBasketItem(itemList);

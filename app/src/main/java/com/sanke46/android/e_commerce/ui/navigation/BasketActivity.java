@@ -1,9 +1,7 @@
 package com.sanke46.android.e_commerce.ui.navigation;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -34,16 +32,16 @@ public class BasketActivity extends AppCompatActivity {
     private Button buttonOrder;
     private DrawerLayout drawer;
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basket);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarBasket);
         drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
         setSupportActionBar(toolbar);
+//        toolbar.getNavigationIcon().setColorFilter(getResources().getColor(R.color.bgWhite), PorterDuff.Mode.SRC_ATOP);
 
-        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_arrow_back_black_36px));
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_go_back_left_arrow));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

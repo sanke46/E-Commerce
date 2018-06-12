@@ -80,11 +80,8 @@ public class ListAdapterBasket extends ArrayAdapter<ItemBasket>{
                         notifyDataSetInvalidated();
                     }
                 }, 1000);
-
-
             }
         });
-
 
         return convertView;
     }

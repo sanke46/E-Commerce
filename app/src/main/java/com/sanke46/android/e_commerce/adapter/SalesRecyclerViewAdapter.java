@@ -4,7 +4,6 @@ package com.sanke46.android.e_commerce.adapter;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.sanke46.android.e_commerce.R;
+        import com.podcopic.animationlib.library.AnimationType;
+        import com.podcopic.animationlib.library.StartSmartAnimation;
+        import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.model.Item;
 import com.sanke46.android.e_commerce.ui.navigation.BasketActivity;
 import com.sanke46.android.e_commerce.ui.navigation.DetailActivity;
@@ -59,6 +60,17 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
             public void onClick(View view) {
                 itemList.add((Item) arr.get(position));
                 basketActivity.setBasketItem(itemList);
+                holder.tt.setVisibility(View.VISIBLE);
+                StartSmartAnimation.startAnimation(holder.imageView, AnimationType.FadeOut, 600, 200, false);
+//                StartSmartAnimation.startAnimation(holder.salePrice, AnimationType.SlideOutRight, 1000, 0, false);
+                StartSmartAnimation.startAnimation(holder.name, AnimationType.FadeOut, 1000, 200, false);
+                StartSmartAnimation.startAnimation(holder.comment, AnimationType.FadeOut, 600, 200, false);
+                StartSmartAnimation.startAnimation(holder.tt, AnimationType.BounceIn, 1000, 200, false);
+
+                StartSmartAnimation.startAnimation(holder.imageView, AnimationType.FadeIn, 600, 900, false);
+//                StartSmartAnimation.startAnimation(holder.salePrice, AnimationType.SlideInRight, 2000, 450, false);
+                StartSmartAnimation.startAnimation(holder.name, AnimationType.FadeIn, 600, 900, false);
+                StartSmartAnimation.startAnimation(holder.comment, AnimationType.FadeIn, 600, 900, false);
             }
         });
         holder.linerSaleClick.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +79,6 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
                 Intent intent = new Intent(mContext, DetailActivity.class);
                 intent.putExtra("item", item);
                 mContext.startActivity(intent);
-                Log.v("SALES", "SALES");
             }
         });
     }
@@ -87,6 +98,8 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
         private TextView gramm;
         private TextView kal;
         private Button addToCart;
+        private LinearLayout tt;
+        private LinearLayout salePrice;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -99,6 +112,8 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
             comment = itemView.findViewById(R.id.comments);
             fixPrice = itemView.findViewById(R.id.fixPrice);
             addToCart = itemView.findViewById(R.id.buttonTwo);
+            tt = itemView.findViewById(R.id.add);
+            salePrice = itemView.findViewById(R.id.salesPrice);
         }
     }
 }
