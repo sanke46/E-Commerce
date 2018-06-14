@@ -74,7 +74,7 @@
                     android:padding="0dp"
                     android:text="6,99$"
                     android:textSize="20dp"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
 
                 <LinearLayout
                     android:id="@+id/sales"
@@ -87,9 +87,9 @@
                         android:id="@+id/priceMain"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginRight="13dp"
                         android:gravity="right"
                         android:padding="0dp"
-                        android:layout_marginRight="13dp"
                         android:text="6,99$"
                         android:textSize="13dp" />
 
@@ -97,14 +97,14 @@
                         android:id="@+id/salesPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
                         android:background="@drawable/border_red_button"
-                        android:paddingTop="4dp"
+                        android:gravity="right"
                         android:paddingBottom="4dp"
-                        android:paddingRight="10dp"
                         android:paddingLeft="10dp"
-                        android:textColor="#FFF"
+                        android:paddingRight="10dp"
+                        android:paddingTop="4dp"
                         android:text="6,99$"
+                        android:textColor="#FFF"
                         android:textSize="16dp" />
 
 
@@ -161,7 +161,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="7dp"
-                        android:text="0"
+                        android:text="1"
                         android:textColor="#FFF" />
 
                     <TextView
@@ -176,14 +176,31 @@
                         android:textColor="#FFF" />
                 </LinearLayout>
 
-                <Button
+                <RelativeLayout
                     android:id="@+id/addToCart"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="0dp"
                     android:layout_weight=".6"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
                     android:background="@drawable/border_only_right"
-                    android:text="Add to cart" />
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="0dp"
+                        android:background="@drawable/border_only_right"
+                        android:text="Add to cart" />
+
+                    <ImageView
+                        android:id="@+id/img"
+                        android:layout_width="match_parent"
+                        android:padding="12dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border_only_right"
+                        android:src="@drawable/ic_checkmark_for_verification"/>
+                </RelativeLayout>
+
             </LinearLayout>
 
             <LinearLayout
@@ -219,39 +236,39 @@
             </LinearLayout>
 
             <!--<LinearLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:paddingTop="13dp">-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:paddingTop="13dp">-->
 
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginRight="7dp"-->
-                    <!--android:layout_weight="1"-->
-                    <!--android:background="@color/colorBlue"-->
-                    <!--android:gravity="center"-->
-                    <!--android:padding="7dp"-->
-                    <!--android:text="Gramms"-->
-                    <!--android:textColor="#fff"-->
-                    <!--android:textSize="15sp" />-->
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginRight="7dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@color/colorBlue"-->
+            <!--android:gravity="center"-->
+            <!--android:padding="7dp"-->
+            <!--android:text="Gramms"-->
+            <!--android:textColor="#fff"-->
+            <!--android:textSize="15sp" />-->
 
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_weight=".5"-->
-                    <!--android:background="#eee"-->
-                    <!--android:gravity="center"-->
-                    <!--android:padding="7dp"-->
-                    <!--android:text="1440 kal."-->
-                    <!--android:textSize="15sp" />-->
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight=".5"-->
+            <!--android:background="#eee"-->
+            <!--android:gravity="center"-->
+            <!--android:padding="7dp"-->
+            <!--android:text="1440 kal."-->
+            <!--android:textSize="15sp" />-->
 
             <!--</LinearLayout>-->
 
             <ListView
                 android:id="@+id/allInformation"
                 android:layout_width="match_parent"
-                android:layout_marginTop="5dp"
-                android:layout_height="255dp">
+                android:layout_height="255dp"
+                android:layout_marginTop="5dp">
 
             </ListView>
 

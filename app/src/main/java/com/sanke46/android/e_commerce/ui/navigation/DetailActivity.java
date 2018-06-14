@@ -5,12 +5,16 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.podcopic.animationlib.library.AnimationType;
 import com.podcopic.animationlib.library.StartSmartAnimation;
@@ -44,7 +48,9 @@ public class DetailActivity extends AppCompatActivity {
     private TextView minus;
     private TextView howMany;
     private TextView plus;
-    private Button addToCart;
+    private RelativeLayout addToCart;
+    private Button btn;
+    private ImageView img;
     private ListView listView;
 
     @Override
@@ -76,6 +82,8 @@ public class DetailActivity extends AppCompatActivity {
         howMany = findViewById(R.id.howMany);
         plus = findViewById(R.id.plus);
         addToCart = findViewById(R.id.addToCart);
+        btn = findViewById(R.id.btn);
+        img = findViewById(R.id.img);
         listView = findViewById(R.id.allInformation);
 
         listView.setFocusable(false);
@@ -105,11 +113,15 @@ public class DetailActivity extends AppCompatActivity {
                 howMany.setText(String.valueOf(Integer.parseInt((String) howMany.getText()) + 1));
             }
         });
-      addToCart.setOnClickListener(new View.OnClickListener() {
+      btn.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-              StartSmartAnimation.startAnimation(addToCart, AnimationType.BounceIn, 1000, 200, false);
-              if(howManyToInt() == 0) {
+              StartSmartAnimation.startAnimation(btn, AnimationType.FadeOut, 600, 0, false);
+              StartSmartAnimation.startAnimation(btn, AnimationType.FadeIn, 600, 900, false);
+
+              Toast.makeText(getApplicationContext(), "add to cart", Toast.LENGTH_SHORT).show();
+
+              if(howManyToInt() == 1) {
                   itemList.add(item);
                   basketActivity.setBasketItem(itemList);
               } else {
@@ -151,4 +163,21 @@ public class DetailActivity extends AppCompatActivity {
         info.add(new InfoDetail("ComeFrom", item.getComeFrom()));
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.basket_button:
+                Intent intent = new Intent(this, BasketActivity.class);
+                startActivity(intent);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }
