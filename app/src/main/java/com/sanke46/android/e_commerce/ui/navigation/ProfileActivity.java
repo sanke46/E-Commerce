@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -54,7 +56,7 @@ public class ProfileActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Profile");
 
-        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_arrow_back_black_36px));
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_go_back_left_arrow));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,6 +76,7 @@ public class ProfileActivity extends AppCompatActivity {
         editTextPassword = (EditText) findViewById(R.id.editPassword);
         buttonToSave = (Button) findViewById(R.id.saveButton);
         seePassButton = (ImageView) findViewById(R.id.seePassButton);
+
 
         // FireBase Inctance
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -127,8 +130,9 @@ public class ProfileActivity extends AppCompatActivity {
 
                     password = (dataSnapshot.child(userId).child("password").getValue()).toString();
                     editTextPassword.setText(password);
-                    unvisiblePassword = false;
-                    visibleAndInvisiblePassword(password);
+
+//                    unvisiblePassword = false;
+//                    visibleAndInvisiblePassword(password);
                     Log.d(TAG, password);
                 }
 
@@ -158,7 +162,7 @@ public class ProfileActivity extends AppCompatActivity {
         seePassButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                visibleAndInvisiblePassword(password);
+                visibleAndInvisiblePassword();
             }
         });
     }
@@ -176,19 +180,17 @@ public class ProfileActivity extends AppCompatActivity {
         mDatabase.child("users").child(userId).child("name").setValue(name);
         mDatabase.child("users").child(userId).child("phone").setValue(phoneNumber);
         mDatabase.child("users").child(userId).child("email").setValue(email);
-        if (!unvisiblePassword || !getTextEditText(editTextPassword).contains("*") && password.length() < 8) {
-            mDatabase.child("users").child(userId).child("password").setValue(password);
-            user.updatePassword(password).addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    if (task.isSuccessful()) {
-                        Log.d(TAG, "Password updated");
-                    } else {
-                        Log.d(TAG, "Error password not updated");
-                    }
+        mDatabase.child("users").child(userId).child("password").setValue(password);
+        user.updatePassword(password).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Log.d(TAG, "Password updated");
+                } else {
+                    Log.d(TAG, "Error password not updated");
                 }
-            });
-        }
+            }
+        });
         mDatabase.child("users").child(userId).child("adress").child("city").setValue(city);
         mDatabase.child("users").child(userId).child("adress").child("street").setValue(street);
         mDatabase.child("users").child(userId).child("adress").child("house").setValue(house);
@@ -202,18 +204,14 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     /** invisible or visible password **/
-    public void visibleAndInvisiblePassword(String password) {
+    public void visibleAndInvisiblePassword() {
 
         unvisiblePassword = !unvisiblePassword ? true : false;
 
         if (unvisiblePassword) {
-            String resultUnvisible = "";
-            for (int i = 0; i < password.length(); i++) {
-                resultUnvisible += "*";
-            }
-            editTextPassword.setText(resultUnvisible);
+            editTextPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
         } else {
-            editTextPassword.setText(password);
+            editTextPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
         }
     }
 }

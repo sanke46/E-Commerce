@@ -15,13 +15,12 @@
         <LinearLayout
             android:id="@+id/add"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="190dp"
             android:gravity="center_horizontal|center_vertical"
             android:orientation="vertical"
             android:visibility="invisible">
 
             <ImageView
-
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:tint="#ddd"
@@ -39,7 +38,7 @@
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/imageSale"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_160sdp"
+            android:layout_height="@dimen/_150sdp"
             android:scaleType="fitXY"
             android:src="@drawable/pizza"
             />

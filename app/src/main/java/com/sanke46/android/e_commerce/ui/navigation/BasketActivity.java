@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.sanke46.android.e_commerce.MainActivity;
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.adapter.ListAdapterBasket;
 import com.sanke46.android.e_commerce.model.Item;
@@ -45,9 +44,10 @@ public class BasketActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getBaseContext(), MainActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getBaseContext(), MainActivity.class);
+//                startActivity(intent);
                 finish();
+                onBackPressed();
 
             }
         });
@@ -71,11 +71,15 @@ public class BasketActivity extends AppCompatActivity {
                 } else {
                     Intent intent = new Intent(BasketActivity.this, OrderActivity.class);
                     startActivity(intent);
+                    finish();
+
                 }
             }
         });
 
     }
+
+
 
     public List<Item> getBasketItem() {
         return basketItem;

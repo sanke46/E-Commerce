@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -49,7 +51,7 @@ public class SalesActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Sales");
         FirebaseHandler fb = new FirebaseHandler();
 
-        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_arrow_back_black_36px));
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_go_back_left_arrow));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,6 +73,24 @@ public class SalesActivity extends AppCompatActivity {
         fb.getAllSalesItem(PRODUCT_CATEGORY_ID, allSalesItems,mSalesRecycleViewAdapter,progressBar,linearLayout);
         fb.getAllSalesItem(PRODUCT_CATEGORY_ID_2, allSalesItems,mSalesRecycleViewAdapter,progressBar,linearLayout);
         fb.getAllSalesItem(PRODUCT_CATEGORY_ID_3, allSalesItems,mSalesRecycleViewAdapter,progressBar,linearLayout);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.basket_button:
+                Intent intent = new Intent(this, BasketActivity.class);
+                startActivity(intent);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 
