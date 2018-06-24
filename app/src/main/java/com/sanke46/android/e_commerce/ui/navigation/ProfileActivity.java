@@ -205,7 +205,6 @@ public class ProfileActivity extends AppCompatActivity {
 
     /** invisible or visible password **/
     public void visibleAndInvisiblePassword() {
-
         unvisiblePassword = !unvisiblePassword ? true : false;
 
         if (unvisiblePassword) {

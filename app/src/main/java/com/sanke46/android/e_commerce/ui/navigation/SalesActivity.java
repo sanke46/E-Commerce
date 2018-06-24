@@ -30,6 +30,7 @@ public class SalesActivity extends AppCompatActivity {
     private static final String PRODUCT_CATEGORY_ID_3 = "drinks";
     private final ArrayList<Item> allSalesItems = new ArrayList<>();
     private SalesRecyclerViewAdapter mSalesRecycleViewAdapter;
+
     // First RecycleView
     private RecyclerView.LayoutManager mLayoutManager;
     private RecyclerViewAdapter mRecyclerViewAdapter;
@@ -69,7 +70,7 @@ public class SalesActivity extends AppCompatActivity {
         mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(this, allSalesItems,  R.layout.item_sales_activity);
         mRecyclerView.setAdapter(mSalesRecycleViewAdapter);
         mRecyclerView.setNestedScrollingEnabled(false);
-//        fb.getAllItem(PRODUCT_CATEGORY_ID, allSalesItems, mRecyclerViewAdapter);
+
         fb.getAllSalesItem(PRODUCT_CATEGORY_ID, allSalesItems,mSalesRecycleViewAdapter,progressBar,linearLayout);
         fb.getAllSalesItem(PRODUCT_CATEGORY_ID_2, allSalesItems,mSalesRecycleViewAdapter,progressBar,linearLayout);
         fb.getAllSalesItem(PRODUCT_CATEGORY_ID_3, allSalesItems,mSalesRecycleViewAdapter,progressBar,linearLayout);

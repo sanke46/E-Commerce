@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -106,6 +107,7 @@ public class OrderActivity extends AppCompatActivity {
 
                 if(editName.length() != 0 && editCity.length() != 0 && editStreet.length() != 0 && editHouseNumber.length() != 0 && editFlat.length() != 0 && editPhoneNumber.length() != 0){
                     addOrderUserFireBase();
+                    Toast.makeText(getApplicationContext(), "order DONE", Toast.LENGTH_SHORT);
                 }
             }
         });

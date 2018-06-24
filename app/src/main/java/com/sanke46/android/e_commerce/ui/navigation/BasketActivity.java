@@ -58,7 +58,6 @@ public class BasketActivity extends AppCompatActivity {
         sortBasketList();
         addToList();
 
-//        String[] dummyStrings = getResources().getStringArray(R.array.my_items);
         listView = (ListView) findViewById(R.id.basketView);
         basketAdapter = new ListAdapterBasket(this, basketItemBasket);
         listView.setAdapter(basketAdapter);
@@ -115,6 +114,7 @@ public class BasketActivity extends AppCompatActivity {
                 if(item.equals(item2)) count++;
             }
             mapBasketItem.put(count, item);
+            System.out.print(item);
         }
 
         System.out.println(basketItem.size());
