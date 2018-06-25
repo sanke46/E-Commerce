@@ -1,6 +1,7 @@
 package com.sanke46.android.e_commerce.ui.navigation;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,27 +14,23 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.podcopic.animationlib.library.AnimationType;
+import com.podcopic.animationlib.library.StartSmartAnimation;
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.adapter.ListInformationAdapter;
-import com.sanke46.android.e_commerce.model.InfoDetail;
 import com.sanke46.android.e_commerce.model.Item;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class DetailActivity extends AppCompatActivity {
 
-    private DetailActivityView detailView;
+    private DetailActivityView detailViewModel;
     private ListInformationAdapter listAdapter;
-    private List<InfoDetail> info = new ArrayList<>();
-    private Item item;
-    private Intent intentItem;
 
     private ImageView image;
     private TextView name;
     private ImageView spicy;
     private ImageView vegan;
+    private TextView price;
     private TextView isNotSales;
     private LinearLayout isSales;
     private TextView priceMain;
@@ -42,9 +39,7 @@ public class DetailActivity extends AppCompatActivity {
     private TextView minus;
     private TextView howMany;
     private TextView plus;
-//    private RelativeLayout addToCart;
     private Button btn;
-//    private ImageView img;
     private ListView listView;
 
     @Override
@@ -63,14 +58,13 @@ public class DetailActivity extends AppCompatActivity {
         });
 
         // get info about this product
-        intentItem = getIntent();
-        item = (Item) intentItem.getSerializableExtra("item");
-        detailView = new DetailActivityView(item);
+        detailViewModel = new DetailActivityView((Item) getIntent().getSerializableExtra("item"));
 
         name = findViewById(R.id.name_detail);
         image = findViewById(R.id.image_id);
         spicy = findViewById(R.id.spicy);
         vegan = findViewById(R.id.vegan);
+        price = findViewById(R.id.price);
         isNotSales = findViewById(R.id.price);
         isSales = findViewById(R.id.sales);
         priceMain = findViewById(R.id.priceMain);
@@ -79,31 +73,28 @@ public class DetailActivity extends AppCompatActivity {
         minus = findViewById(R.id.minus);
         howMany = findViewById(R.id.howMany);
         plus = findViewById(R.id.plus);
-//        addToCart = findViewById(R.id.addToCart);
         btn = findViewById(R.id.btn);
-//        img = findViewById(R.id.img);
         listView = findViewById(R.id.allInformation);
 
-        // realize ListView information
-        detailView.addProductInfoToList(info);
-        listView.setFocusable(false);
-        listAdapter = new ListInformationAdapter(getApplicationContext(), info);
-        listView.setAdapter(listAdapter);
-
         // add main information about product
-        name.setText(item.getName());
-        Picasso.with(getApplicationContext()).load(item.getImageUrl()).into(image);
-        spicy.setVisibility(item.isSpice() ? View.VISIBLE : View.GONE);
-        vegan.setVisibility(item.isVegetarian() ? View.VISIBLE : View.GONE);
-        isNotSales.setText(String.valueOf(item.getPrice() + " $"));
-        detailView.displayNormalOrSalesPrice(isSales, isNotSales, priceMain, priceSales);
-        information.setText(item.getComment());
+        name.setText(detailViewModel.item.getName());
+        Picasso.with(getApplicationContext()).load(detailViewModel.item.getImageUrl()).into(image);
+        spicy.setVisibility(detailViewModel.item.isSpice() ? View.VISIBLE : View.GONE);
+        vegan.setVisibility(detailViewModel.item.isVegetarian() ? View.VISIBLE : View.GONE);
+        isNotSales.setText(String.valueOf(detailViewModel.item.getPrice() + " $"));
+        displayNormalOrSalesPrice();
+        information.setText(detailViewModel.item.getComment());
+
+        // realize ListView information
+        listView.setFocusable(false);
+        listAdapter = new ListInformationAdapter(getApplicationContext(),  detailViewModel.getListOfProductInfo());
+        listView.setAdapter(listAdapter);
 
         // BUTTON [minus]
         minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               howMany.setText(String.valueOf(Integer.parseInt((String) howMany.getText()) - 1));
+               detailViewModel.minusCountProductToBasket();
             }
         });
 
@@ -111,7 +102,7 @@ public class DetailActivity extends AppCompatActivity {
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                howMany.setText((String) howMany.getText() + 1);
+                detailViewModel.plusCountProductToBasket();
             }
         });
 
@@ -119,9 +110,26 @@ public class DetailActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
-                detailView.addProductToBasket(view, howMany);
+                  StartSmartAnimation.startAnimation(btn, AnimationType.FadeOut, 600, 0, false);
+                  StartSmartAnimation.startAnimation(btn, AnimationType.FadeIn, 600, 900, false);
+                  detailViewModel.addProductToBasket(howMany);
+                  detailViewModel.resetCountProductsToBasket();
               }
           });
+    }
+
+    private void displayNormalOrSalesPrice() {
+      if (detailViewModel.item.isSales()) {
+          isSales.setVisibility(View.VISIBLE);
+          price.setVisibility(View.GONE);
+          priceMain.setText(detailViewModel.item.getPrice() + " $");
+          priceSales.setText(detailViewModel.item.getDiscontPrice() + " $");
+          priceMain.setPaintFlags(priceMain.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+      } else {
+          isSales.setVisibility(View.GONE);
+          price.setVisibility(View.VISIBLE);
+          price.setText(detailViewModel.item.getPrice() + " $");
+      }
     }
 
     @Override
@@ -138,7 +146,6 @@ public class DetailActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }
