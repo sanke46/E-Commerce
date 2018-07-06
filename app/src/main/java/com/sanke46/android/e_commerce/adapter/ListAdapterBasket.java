@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.podcopic.animationlib.library.AnimationType;
 import com.podcopic.animationlib.library.StartSmartAnimation;
 import com.sanke46.android.e_commerce.R;
+import com.sanke46.android.e_commerce.ViewModel.BasketActivityViewModel;
 import com.sanke46.android.e_commerce.model.Item;
 import com.sanke46.android.e_commerce.model.ItemBasket;
 import com.sanke46.android.e_commerce.ui.navigation.BasketActivity;
@@ -22,13 +23,15 @@ import java.util.List;
 
 public class ListAdapterBasket extends ArrayAdapter<ItemBasket>{
 
+    private BasketActivityViewModel basketViewModel;
     private BasketActivity basketActivity;
     private List<Item> itemList;
 
     public ListAdapterBasket(BasketActivity context, List<ItemBasket> arrayList) {
         super(context, 0 ,arrayList);
         this.basketActivity = context;
-        this.itemList = basketActivity.getBasketItem();
+        this.basketViewModel = new BasketActivityViewModel();
+        this.itemList = basketViewModel.getBasketItem();
     }
 
     @NonNull

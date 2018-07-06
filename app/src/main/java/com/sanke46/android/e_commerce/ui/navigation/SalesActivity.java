@@ -15,20 +15,14 @@ import android.widget.ProgressBar;
 
 import com.sanke46.android.e_commerce.MainActivity;
 import com.sanke46.android.e_commerce.R;
+import com.sanke46.android.e_commerce.ViewModel.SalesActivityViewModel;
 import com.sanke46.android.e_commerce.adapter.RecyclerViewAdapter;
 import com.sanke46.android.e_commerce.adapter.SalesRecyclerViewAdapter;
-import com.sanke46.android.e_commerce.fireBase.FirebaseHandler;
-import com.sanke46.android.e_commerce.model.Item;
-
-import java.util.ArrayList;
 
 public class SalesActivity extends AppCompatActivity {
 
+    private SalesActivityViewModel saleViewModel = new SalesActivityViewModel();
     private DrawerLayout drawer;
-    private static final String PRODUCT_CATEGORY_ID = "pizza";
-    private static final String PRODUCT_CATEGORY_ID_2 = "sushi";
-    private static final String PRODUCT_CATEGORY_ID_3 = "drinks";
-    private final ArrayList<Item> allSalesItems = new ArrayList<>();
     private SalesRecyclerViewAdapter mSalesRecycleViewAdapter;
 
     // First RecycleView
@@ -43,15 +37,10 @@ public class SalesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sales);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
-        progressBar = findViewById(R.id.salesProgressBar);
-        linearLayout = findViewById(R.id.salesLinearLayout);
 
-        setSupportActionBar(toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         getSupportActionBar().setTitle("Sales");
-        FirebaseHandler fb = new FirebaseHandler();
-
+        setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_go_back_left_arrow));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,18 +51,20 @@ public class SalesActivity extends AppCompatActivity {
             }
         });
 
+        drawer = findViewById(R.id.drawerLayout);
+        progressBar = findViewById(R.id.salesProgressBar);
+        linearLayout = findViewById(R.id.salesLinearLayout);
+
         // All products [RecycleView + Adapter + LayoutManager + FB]
-        mRecyclerView = (RecyclerView) findViewById(R.id.sales_list);
+        mRecyclerView = findViewById(R.id.sales_list);
         mLayoutManager = new GridLayoutManager(this,1);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerViewAdapter = new RecyclerViewAdapter(allSalesItems, this);
-        mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(this, allSalesItems,  R.layout.item_sales_activity);
+        mRecyclerViewAdapter = new RecyclerViewAdapter(saleViewModel.allSalesItems, this);
+        mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(this, saleViewModel.allSalesItems,  R.layout.item_sales_activity);
         mRecyclerView.setAdapter(mSalesRecycleViewAdapter);
         mRecyclerView.setNestedScrollingEnabled(false);
 
-        fb.getAllSalesItem(PRODUCT_CATEGORY_ID, allSalesItems,mSalesRecycleViewAdapter,progressBar,linearLayout);
-        fb.getAllSalesItem(PRODUCT_CATEGORY_ID_2, allSalesItems,mSalesRecycleViewAdapter,progressBar,linearLayout);
-        fb.getAllSalesItem(PRODUCT_CATEGORY_ID_3, allSalesItems,mSalesRecycleViewAdapter,progressBar,linearLayout);
+        saleViewModel.fireBaseProductsToList(mSalesRecycleViewAdapter,progressBar,linearLayout);
     }
 
     @Override
@@ -90,9 +81,6 @@ public class SalesActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
         }
-
         return super.onOptionsItemSelected(item);
     }
-
-
 }

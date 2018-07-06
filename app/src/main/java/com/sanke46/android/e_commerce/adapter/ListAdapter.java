@@ -11,8 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sanke46.android.e_commerce.R;
+import com.sanke46.android.e_commerce.ViewModel.BasketActivityViewModel;
 import com.sanke46.android.e_commerce.model.Item;
-import com.sanke46.android.e_commerce.ui.navigation.BasketActivity;
 
 import java.util.List;
 
@@ -22,12 +22,11 @@ import java.util.List;
 
 public class ListAdapter extends ArrayAdapter<Item>{
 
-    BasketActivity basketActivity = new BasketActivity();
-    private List<Item> itemList = basketActivity.getBasketItem();
+    BasketActivityViewModel basketViewModel = new BasketActivityViewModel();
+    private List<Item> itemList = basketViewModel.getBasketItem();
     public ListAdapter(Context context, List<Item> arrayList) {
         super(context, 0 ,arrayList);
     }
-
 
     @NonNull
     @Override
@@ -54,7 +53,7 @@ public class ListAdapter extends ArrayAdapter<Item>{
             public void onClick(View v) {
                 System.out.println(getItemId(position));
                 itemList.add(getItem(position));
-                basketActivity.setBasketItem(itemList);
+                basketViewModel.setBasketItem(itemList);
             }
         });
 

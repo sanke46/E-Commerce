@@ -15,8 +15,8 @@ import android.widget.TextView;
 import com.podcopic.animationlib.library.AnimationType;
 import com.podcopic.animationlib.library.StartSmartAnimation;
 import com.sanke46.android.e_commerce.R;
+import com.sanke46.android.e_commerce.ViewModel.BasketActivityViewModel;
 import com.sanke46.android.e_commerce.model.Item;
-import com.sanke46.android.e_commerce.ui.navigation.BasketActivity;
 import com.sanke46.android.e_commerce.ui.navigation.DetailActivity;
 import com.squareup.picasso.Picasso;
 
@@ -25,8 +25,8 @@ import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
 
-    BasketActivity basketActivity = new BasketActivity();
-    private List<Item> itemList = basketActivity.getBasketItem();
+    BasketActivityViewModel basketViewModel = new BasketActivityViewModel();
+    private List<Item> itemList = basketViewModel.getBasketItem();
     private ArrayList arr;
     private Context mContext;
 
@@ -63,7 +63,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 StartSmartAnimation.startAnimation(holder.name, AnimationType.FadeIn, 600, 700, false);
                 StartSmartAnimation.startAnimation(holder.comment, AnimationType.FadeIn, 600, 700, false);
                 itemList.add((Item) arr.get(position));
-                basketActivity.setBasketItem(itemList);
+                basketViewModel.setBasketItem(itemList);
             }
         });
         holder.linerClick.setOnClickListener(new View.OnClickListener() {
@@ -93,13 +93,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         public ViewHolder(View itemView) {
             super(itemView);
-            linerClick = (RelativeLayout) itemView.findViewById(R.id.linerClick);
-            image = (ImageView) itemView.findViewById(R.id.image);
-            name = (TextView) itemView.findViewById(R.id.name);
-            comment = (TextView) itemView.findViewById(R.id.commentProduct);
-            gramms = (TextView) itemView.findViewById(R.id.gramm);
-            price = (TextView) itemView.findViewById(R.id.price);
-            btnAddCart = (Button) itemView.findViewById(R.id.buttonTwo);
+            linerClick = itemView.findViewById(R.id.linerClick);
+            image = itemView.findViewById(R.id.image);
+            name =  itemView.findViewById(R.id.name);
+            comment = itemView.findViewById(R.id.commentProduct);
+            gramms = itemView.findViewById(R.id.gramm);
+            price = itemView.findViewById(R.id.price);
+            btnAddCart = itemView.findViewById(R.id.buttonTwo);
             cartIcon = itemView.findViewById(R.id.addCartIcon);
         }
     }

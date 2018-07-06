@@ -1,4 +1,4 @@
-package com.sanke46.android.e_commerce.ui.navigation;
+package com.sanke46.android.e_commerce.ViewModel;
 
 import android.widget.TextView;
 
@@ -9,19 +9,18 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DetailActivityView implements Serializable{
+public class DetailActivityViewModel implements Serializable{
 
-    private BasketActivity basketActivity = new BasketActivity();
-    private List<Item> itemList = basketActivity.getBasketItem();
+    private BasketActivityViewModel basketViewModel = new BasketActivityViewModel();
+    private List<Item> itemList = basketViewModel.getBasketItem();
     private Integer countProductToBasket;
     public Item item;
 
 
-    public DetailActivityView(Item item) {
+    public DetailActivityViewModel(Item item) {
         this.item = item;
         this.countProductToBasket = 0;
     }
-
 
     public List getListOfProductInfo() {
         List<InfoDetail> arrayInfoProduct = new ArrayList<>();
@@ -38,11 +37,11 @@ public class DetailActivityView implements Serializable{
     public void addProductToBasket(TextView countOfProduct) {
         if(viewToInt(countOfProduct) == 1) {
             itemList.add(item);
-            basketActivity.setBasketItem(itemList);
+            basketViewModel.setBasketItem(itemList);
         } else {
             for (int i = 0; i < viewToInt(countOfProduct); i++) {
                 itemList.add(item);
-                basketActivity.setBasketItem(itemList);
+                basketViewModel.setBasketItem(itemList);
             }
         }
     }

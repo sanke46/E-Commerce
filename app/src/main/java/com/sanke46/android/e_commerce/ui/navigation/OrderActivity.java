@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sanke46.android.e_commerce.R;
+import com.sanke46.android.e_commerce.ViewModel.BasketActivityViewModel;
 import com.sanke46.android.e_commerce.model.Item;
 import com.sanke46.android.e_commerce.model.Order;
 
@@ -30,8 +31,8 @@ import java.util.List;
 public class OrderActivity extends AppCompatActivity {
 
     private static final String TAG = OrderActivity.class.getSimpleName();
-    BasketActivity basketActivity = new BasketActivity();
-    private List<Item> itemList = basketActivity.getBasketItem();
+    BasketActivityViewModel basketViewModel = new BasketActivityViewModel();
+    private List<Item> itemList = basketViewModel.getBasketItem();
     private Order order = new Order();
 
     private EditText editName;

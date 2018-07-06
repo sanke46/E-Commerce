@@ -17,20 +17,20 @@ import android.widget.TextView;
 import com.podcopic.animationlib.library.AnimationType;
 import com.podcopic.animationlib.library.StartSmartAnimation;
 import com.sanke46.android.e_commerce.R;
+import com.sanke46.android.e_commerce.ViewModel.DetailActivityViewModel;
 import com.sanke46.android.e_commerce.adapter.ListInformationAdapter;
 import com.sanke46.android.e_commerce.model.Item;
 import com.squareup.picasso.Picasso;
 
 public class DetailActivity extends AppCompatActivity {
 
-    private DetailActivityView detailViewModel;
+    private DetailActivityViewModel detailViewModel;
     private ListInformationAdapter listAdapter;
 
     private ImageView image;
     private TextView name;
     private ImageView spicy;
     private ImageView vegan;
-    private TextView price;
     private TextView isNotSales;
     private LinearLayout isSales;
     private TextView priceMain;
@@ -58,13 +58,12 @@ public class DetailActivity extends AppCompatActivity {
         });
 
         // get info about this product
-        detailViewModel = new DetailActivityView((Item) getIntent().getSerializableExtra("item"));
+        detailViewModel = new DetailActivityViewModel((Item) getIntent().getSerializableExtra("item"));
 
         name = findViewById(R.id.name_detail);
         image = findViewById(R.id.image_id);
         spicy = findViewById(R.id.spicy);
         vegan = findViewById(R.id.vegan);
-        price = findViewById(R.id.price);
         isNotSales = findViewById(R.id.price);
         isSales = findViewById(R.id.sales);
         priceMain = findViewById(R.id.priceMain);
@@ -121,14 +120,14 @@ public class DetailActivity extends AppCompatActivity {
     private void displayNormalOrSalesPrice() {
       if (detailViewModel.item.isSales()) {
           isSales.setVisibility(View.VISIBLE);
-          price.setVisibility(View.GONE);
+          isNotSales.setVisibility(View.GONE);
           priceMain.setText(detailViewModel.item.getPrice() + " $");
           priceSales.setText(detailViewModel.item.getDiscontPrice() + " $");
           priceMain.setPaintFlags(priceMain.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
       } else {
           isSales.setVisibility(View.GONE);
-          price.setVisibility(View.VISIBLE);
-          price.setText(detailViewModel.item.getPrice() + " $");
+          isNotSales.setVisibility(View.VISIBLE);
+          isNotSales.setText(detailViewModel.item.getPrice() + " $");
       }
     }
 

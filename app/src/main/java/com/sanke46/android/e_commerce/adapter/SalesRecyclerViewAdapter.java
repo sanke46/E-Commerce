@@ -1,6 +1,6 @@
 package com.sanke46.android.e_commerce.adapter;
 
-        import android.content.Context;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
@@ -12,11 +12,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-        import com.podcopic.animationlib.library.AnimationType;
-        import com.podcopic.animationlib.library.StartSmartAnimation;
-        import com.sanke46.android.e_commerce.R;
+import com.podcopic.animationlib.library.AnimationType;
+import com.podcopic.animationlib.library.StartSmartAnimation;
+import com.sanke46.android.e_commerce.R;
+import com.sanke46.android.e_commerce.ViewModel.BasketActivityViewModel;
 import com.sanke46.android.e_commerce.model.Item;
-import com.sanke46.android.e_commerce.ui.navigation.BasketActivity;
 import com.sanke46.android.e_commerce.ui.navigation.DetailActivity;
 import com.squareup.picasso.Picasso;
 
@@ -25,8 +25,8 @@ import java.util.List;
 
 public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecyclerViewAdapter.ViewHolder> {
 
-    BasketActivity basketActivity = new BasketActivity();
-    private List<Item> itemList = basketActivity.getBasketItem();
+    BasketActivityViewModel basketViewModel = new BasketActivityViewModel();
+    private List<Item> itemList = basketViewModel.getBasketItem();
     private ArrayList arr;
     private Context mContext;
     private int itemLayout;
@@ -59,7 +59,7 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
             @Override
             public void onClick(View view) {
                 itemList.add((Item) arr.get(position));
-                basketActivity.setBasketItem(itemList);
+                basketViewModel.setBasketItem(itemList);
                 holder.tt.setVisibility(View.VISIBLE);
                 StartSmartAnimation.startAnimation(holder.imageView, AnimationType.FadeOut, 600, 200, false);
 //                StartSmartAnimation.startAnimation(holder.salePrice, AnimationType.SlideOutRight, 1000, 0, false);
