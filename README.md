@@ -1,6 +1,6 @@
 
 <div style="text-align:center;">
-  <img src="title-mucup.jpg" alt="Restaurant app" />
+  <img src="http://ilyafedoseev.ru/title-mucup.jpg" alt="Restaurant app" />
 </div>
 
 # E-commerce app
