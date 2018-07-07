@@ -1,9 +1,9 @@
 
 <div style="text-align:center;">
-  <!-- <img src="http://eravodoley.ru/novayazemlya/img/header.png" alt="Calculator in Kotlin" /> -->
+  <img src="title-mucup.jpg" alt="Restaurant app" />
 </div>
 
-# Universal E-commerce app
+# E-commerce app
 This app very optimized: Text in all app very quickly changed, the colors and style change too, Impliment Espresso Android + JUnit5, ready-made Firebase tree.
 
 # Motivation
@@ -29,5 +29,5 @@ What new I have learned :
 # Example
 
 <div style="text-align:center;">
-  <img src="http://ilyafedoseev.ru/muchup-2.jpg" alt="Calculator app example" />
+  <img src="http://ilyafedoseev.ru/muchup-2.jpg" alt="Restaurant app example" />
 </div>
