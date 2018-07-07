@@ -23,9 +23,9 @@ import com.sanke46.android.e_commerce.MainActivity;
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.model.User;
 
-public class SingUpActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
 
-    private static final String TAG = "SingUpActivity";
+    private static final String TAG = "SignUpActivity";
 
     private EditText newName;
     private EditText newEmail;
@@ -111,7 +111,7 @@ public class SingUpActivity extends AppCompatActivity {
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                        Toast.makeText(SingUpActivity.this, "Authentication failed.",
+                        Toast.makeText(SignUpActivity.this, "Authentication failed.",
                                 Toast.LENGTH_SHORT).show();
                     }
                 }

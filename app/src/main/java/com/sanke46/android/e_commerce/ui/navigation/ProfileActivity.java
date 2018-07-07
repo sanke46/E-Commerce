@@ -66,17 +66,16 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        editTextName = (EditText) findViewById(R.id.name);
-        editTextNumber = (EditText) findViewById(R.id.editNumber);
-        editTextMail = (EditText) findViewById(R.id.editMail);
-        editTextCity = (EditText) findViewById(R.id.city_profile);
-        editTextStreet = (EditText) findViewById(R.id.street_profile);
-        editTextHouse = (EditText) findViewById(R.id.house_profile);
-        editTextFlat = (EditText) findViewById(R.id.flat_profile);
-        editTextPassword = (EditText) findViewById(R.id.editPassword);
-        buttonToSave = (Button) findViewById(R.id.saveButton);
-        seePassButton = (ImageView) findViewById(R.id.seePassButton);
-
+        editTextName = findViewById(R.id.name);
+        editTextNumber = findViewById(R.id.editNumber);
+        editTextMail = findViewById(R.id.editMail);
+        editTextCity = findViewById(R.id.city_profile);
+        editTextStreet = findViewById(R.id.street_profile);
+        editTextHouse = findViewById(R.id.house_profile);
+        editTextFlat = findViewById(R.id.flat_profile);
+        editTextPassword = findViewById(R.id.editPassword);
+        buttonToSave = findViewById(R.id.saveButton);
+        seePassButton = findViewById(R.id.seePassButton);
 
         // FireBase Inctance
         mDatabase = FirebaseDatabase.getInstance().getReference();

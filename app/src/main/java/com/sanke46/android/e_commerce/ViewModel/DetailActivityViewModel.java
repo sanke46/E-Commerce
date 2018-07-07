@@ -35,18 +35,18 @@ public class DetailActivityViewModel implements Serializable{
     }
 
     public void addProductToBasket(TextView countOfProduct) {
-        if(viewToInt(countOfProduct) == 1) {
+        if(textViewToInt(countOfProduct) == 1) {
             itemList.add(item);
             basketViewModel.setBasketItem(itemList);
         } else {
-            for (int i = 0; i < viewToInt(countOfProduct); i++) {
+            for (int i = 0; i < textViewToInt(countOfProduct); i++) {
                 itemList.add(item);
                 basketViewModel.setBasketItem(itemList);
             }
         }
     }
 
-    private Integer viewToInt(TextView textView) {
+    private Integer textViewToInt(TextView textView) {
         return Integer.parseInt(String.valueOf(textView.getText()));
     }
 

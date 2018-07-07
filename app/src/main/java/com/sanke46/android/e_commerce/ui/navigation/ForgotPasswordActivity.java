@@ -36,18 +36,17 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().sendPasswordResetEmail(String.valueOf(forgotEmail.getText()))
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    Log.d(TAG, "Email sent.");
-                                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-                                    Toast.makeText(getApplicationContext(), "New password send to your email", Toast.LENGTH_LONG).show();
-                                }
-                            }
-                        });
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "Email sent.");
+                            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                            Toast.makeText(getApplicationContext(), "New password send to your email", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
             }
         });
-
     }
 }

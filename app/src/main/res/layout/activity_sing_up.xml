@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@color/colorRed"
     android:padding="30dp"
-    tools:context="com.sanke46.android.e_commerce.ui.navigation.SingUpActivity">
+    tools:context="com.sanke46.android.e_commerce.ui.navigation.SignUpActivity">
 
     <ImageView
         android:id="@+id/logoLogIn"
