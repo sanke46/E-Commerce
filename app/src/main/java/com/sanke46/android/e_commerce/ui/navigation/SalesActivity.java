@@ -2,7 +2,6 @@ package com.sanke46.android.e_commerce.ui.navigation;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,7 +21,6 @@ import com.sanke46.android.e_commerce.adapter.SalesRecyclerViewAdapter;
 public class SalesActivity extends AppCompatActivity {
 
     private SalesActivityViewModel saleViewModel = new SalesActivityViewModel();
-    private DrawerLayout drawer;
     private SalesRecyclerViewAdapter mSalesRecycleViewAdapter;
 
     // First RecycleView
@@ -51,7 +49,6 @@ public class SalesActivity extends AppCompatActivity {
             }
         });
 
-        drawer = findViewById(R.id.drawerLayout);
         progressBar = findViewById(R.id.salesProgressBar);
         linearLayout = findViewById(R.id.salesLinearLayout);
 
@@ -77,8 +74,7 @@ public class SalesActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.basket_button:
-                Intent intent = new Intent(this, BasketActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(this, BasketActivity.class));
                 break;
         }
         return super.onOptionsItemSelected(item);
