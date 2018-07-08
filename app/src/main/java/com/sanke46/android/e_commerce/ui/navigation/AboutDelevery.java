@@ -72,18 +72,13 @@ public class AboutDelevery extends AppCompatActivity {
         websiteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
             }
         });
 
         mapButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
             }
         });
-
-
     }
-
 }

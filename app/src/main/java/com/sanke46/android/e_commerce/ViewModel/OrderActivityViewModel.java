@@ -23,6 +23,8 @@ import java.util.List;
 public class OrderActivityViewModel {
 
     private static final String TAG = OrderActivity.class.getSimpleName();
+    public static final String NAME_ACTIVITY = "Order";
+    public static final String DONE = "Order DONE";
 
     private OrderActivity orderActivity;
     private DatabaseReference dbRef;

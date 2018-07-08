@@ -8,7 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.sanke46.android.e_commerce.R;
@@ -24,7 +23,6 @@ public class OrderActivity extends AppCompatActivity {
     public EditText editFlat;
     public EditText editPhoneNumber;
     public Button buttonNext;
-    public LinearLayout linearLayout;
 
     private OrderActivityViewModel orderViewModel;
 
@@ -37,7 +35,7 @@ public class OrderActivity extends AppCompatActivity {
         // Toolbar init
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Order");
+        getSupportActionBar().setTitle(orderViewModel.NAME_ACTIVITY);
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_go_back_left_arrow));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +52,6 @@ public class OrderActivity extends AppCompatActivity {
         editFlat = findViewById(R.id.editDF);
         editPhoneNumber = findViewById(R.id.editDP);
         buttonNext = findViewById(R.id.buttonNext);
-        linearLayout = findViewById(R.id.orderInfo);
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,7 +76,7 @@ public class OrderActivity extends AppCompatActivity {
 
                 if(editName.length() != 0 && editCity.length() != 0 && editStreet.length() != 0 && editHouseNumber.length() != 0 && editFlat.length() != 0 && editPhoneNumber.length() != 0){
                     orderViewModel.addOrderUserFireBase(editPhoneNumber,editCity,editStreet,editHouseNumber,editFlat);
-                    Toast.makeText(getApplicationContext(), "order DONE", Toast.LENGTH_SHORT);
+                    Toast.makeText(getApplicationContext(), orderViewModel.DONE, Toast.LENGTH_SHORT);
                 }
             }
         });
