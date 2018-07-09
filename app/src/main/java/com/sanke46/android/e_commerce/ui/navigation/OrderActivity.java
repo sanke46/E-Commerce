@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.ViewModel.OrderActivityViewModel;
-import com.sanke46.android.e_commerce.model.UserOrder;
+import com.sanke46.android.e_commerce.model.UserProfile;
 
 public class OrderActivity extends AppCompatActivity {
 
@@ -84,13 +84,13 @@ public class OrderActivity extends AppCompatActivity {
         orderViewModel.InformationAboutUser();
     }
 
-    public void autoChangeEditTextAboutUser(UserOrder userOrder) {
-        editName.setText(userOrder.getName());
-        editPhoneNumber.setText(userOrder.getPhone());
-        editCity.setText(userOrder.getCity());
-        editStreet.setText(userOrder.getStreet());
-        editHouseNumber.setText(userOrder.getHouse());
-        editFlat.setText(userOrder.getFlat());
+    public void autoChangeEditTextAboutUser(UserProfile userProfile) {
+        editName.setText(userProfile.getName());
+        editPhoneNumber.setText(userProfile.getPhone());
+        editCity.setText(userProfile.getCity());
+        editStreet.setText(userProfile.getStreet());
+        editHouseNumber.setText(userProfile.getHouse());
+        editFlat.setText(userProfile.getFlat());
     }
 
 }

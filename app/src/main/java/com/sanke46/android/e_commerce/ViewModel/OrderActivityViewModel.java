@@ -12,7 +12,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sanke46.android.e_commerce.model.Item;
 import com.sanke46.android.e_commerce.model.Order;
-import com.sanke46.android.e_commerce.model.UserOrder;
+import com.sanke46.android.e_commerce.model.UserProfile;
 import com.sanke46.android.e_commerce.ui.navigation.OrderActivity;
 
 import java.text.SimpleDateFormat;
@@ -102,7 +102,7 @@ public class OrderActivityViewModel {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                UserOrder userOrder = new UserOrder();
+                UserProfile userProfile = new UserProfile();
                 String[] arrayTitlesAboutUser = {"name", "phone", "city", "street", "house", "flat"};
                 ArrayList<String> dbAboutUser = new ArrayList<>();
 
@@ -124,14 +124,14 @@ public class OrderActivityViewModel {
                     }
                 }
 
-                userOrder.setName(dbAboutUser.get(0));
-                userOrder.setPhone(dbAboutUser.get(1));
-                userOrder.setCity(dbAboutUser.get(2));
-                userOrder.setStreet(dbAboutUser.get(3));
-                userOrder.setHouse(dbAboutUser.get(4));
-                userOrder.setFlat(dbAboutUser.get(5));
+                userProfile.setName(dbAboutUser.get(0));
+                userProfile.setPhone(dbAboutUser.get(1));
+                userProfile.setCity(dbAboutUser.get(2));
+                userProfile.setStreet(dbAboutUser.get(3));
+                userProfile.setHouse(dbAboutUser.get(4));
+                userProfile.setFlat(dbAboutUser.get(5));
 
-                orderActivity.autoChangeEditTextAboutUser(userOrder);
+                orderActivity.autoChangeEditTextAboutUser(userProfile);
             }
 
             @Override
