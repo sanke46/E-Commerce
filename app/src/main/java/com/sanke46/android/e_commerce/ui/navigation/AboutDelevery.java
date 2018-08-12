@@ -15,6 +15,10 @@ import android.widget.LinearLayout;
 
 import com.sanke46.android.e_commerce.MainActivity;
 import com.sanke46.android.e_commerce.R;
+import com.sanke46.android.e_commerce.ViewModel.AboutViewModel;
+
+import butterknife.BindView;
+import butterknife.OnClick;
 
 public class AboutDelevery extends AppCompatActivity {
 
@@ -22,14 +26,22 @@ public class AboutDelevery extends AppCompatActivity {
     private LinearLayout websiteButton;
     private LinearLayout mapButton;
 
+    private AboutViewModel aboutViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_delevery);
+
+        aboutViewModel = new AboutViewModel(this);
+        callButton = findViewById(R.id.call);
+        websiteButton = findViewById(R.id.website);
+        mapButton = findViewById(R.id.location);
+        FloatingActionButton fab = findViewById(R.id.fab);
         Toolbar toolbar = findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,22 +59,11 @@ public class AboutDelevery extends AppCompatActivity {
             }
         });
 
-        callButton = findViewById(R.id.call);
-        websiteButton = findViewById(R.id.website);
-        mapButton = findViewById(R.id.location);
-
         callButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent call = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "89818300064"));
                 if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                    // TODO: Consider calling
-                    //    ActivityCompat#requestPermissions
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
                     return;
                 }
                 startActivity(call);
@@ -72,13 +73,16 @@ public class AboutDelevery extends AppCompatActivity {
         websiteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                aboutViewModel.openWebSite();
             }
         });
 
         mapButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//
             }
         });
     }
+
 }

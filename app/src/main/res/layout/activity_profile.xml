@@ -58,7 +58,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:focusableInTouchMode="true"
-                    android:hint="Name"
+                    android:hint="@string/name"
                     android:textColor="@color/editTextColor"
                     android:textSize="@dimen/editTextSize"
                     android:inputType="textEmailAddress"
@@ -70,7 +70,7 @@
                     android:paddingTop="@dimen/paddindUnderEditText"
                     android:textSize="@dimen/underEditViewTextSize"
                     android:textColor="@color/colorUnderEditText"
-                    android:text="Your name"/>
+                    android:text="@string/your_name"/>
 
             </LinearLayout>
 
@@ -78,12 +78,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 >
-
-                <!--<ImageView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="44dp"-->
-                <!--android:src="@drawable/ic_edit_black_24dp"-->
-                <!--android:layout_alignParentRight="true" />-->
 
             </RelativeLayout>
 
@@ -137,15 +131,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 >
-
-                <!--<ImageView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="44dp"-->
-                    <!--android:src="@drawable/ic_edit_black_24dp"-->
-                    <!--android:layout_alignParentRight="true" />-->
-
             </RelativeLayout>
-
         </LinearLayout>
 
 
@@ -195,14 +181,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-
-                <!--<ImageView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="44dp"-->
-                    <!--android:src="@drawable/ic_edit_black_24dp"-->
-                    <!--android:layout_alignParentRight="true" />-->
+                android:layout_height="wrap_content">
 
             </RelativeLayout>
 
@@ -268,59 +247,6 @@
             </RelativeLayout>
 
         </LinearLayout>
-
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="@dimen/marginLiner"-->
-            <!--android:layout_marginBottom="@dimen/marginLiner"-->
-            <!--android:padding="@dimen/paddingLiner"-->
-            <!--android:background="@color/bgLiner"-->
-            <!--android:orientation="horizontal"-->
-            <!--android:weightSum="1">-->
-
-
-
-            <!--<LinearLayout-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:orientation="vertical">-->
-
-                <!--<EditText-->
-                    <!--android:id="@+id/adress"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="415 E Toluca Ave, Orange, CA, 92866"-->
-                    <!--android:focusableInTouchMode="true"-->
-                    <!--android:textColor="@color/editTextColor"-->
-                    <!--android:textSize="@dimen/editTextSize"-->
-                    <!--android:inputType="textEmailAddress"-->
-                    <!--android:background="@android:color/transparent"/>-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:paddingTop="@dimen/paddindUnderEditText"-->
-                    <!--android:textSize="@dimen/underEditViewTextSize"-->
-                    <!--android:textColor="@color/colorUnderEditText"-->
-                    <!--android:text="Your full adress [street, house, flat]"/>-->
-
-            <!--</LinearLayout>-->
-
-            <!--<RelativeLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--&gt;-->
-
-                <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
-                <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
-                <!--&lt;!&ndash;android:layout_height="44dp"&ndash;&gt;-->
-                <!--&lt;!&ndash;android:src="@drawable/ic_edit_black_24dp"&ndash;&gt;-->
-                <!--&lt;!&ndash;android:layout_alignParentRight="true" />&ndash;&gt;-->
-
-            <!--</RelativeLayout>-->
-
-        <!--</LinearLayout>-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -410,23 +336,10 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-
-                <!--<ImageView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="44dp"-->
-                <!--android:src="@drawable/ic_edit_black_24dp"-->
-                <!--android:layout_alignParentRight="true" />-->
-
+                android:layout_height="wrap_content">
             </RelativeLayout>
 
         </LinearLayout>
-
-
-
-
-
 
     </LinearLayout>
 
@@ -449,5 +362,4 @@
 
         </LinearLayout>
     </RelativeLayout>
-
 </android.support.design.widget.CoordinatorLayout>

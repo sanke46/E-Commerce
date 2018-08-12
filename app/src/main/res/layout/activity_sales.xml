@@ -26,16 +26,17 @@
         android:id="@+id/salesProgressBar"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
     <LinearLayout
         android:id="@+id/salesLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/sales_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="55dp"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/sales_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="55dp"/>
+
     </LinearLayout>
-
-
 </android.support.design.widget.CoordinatorLayout>

@@ -37,7 +37,7 @@ public class SalesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sales);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        getSupportActionBar().setTitle("Sales");
+//        getSupportActionBar().setTitle("Sales");
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_go_back_left_arrow));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {

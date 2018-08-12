@@ -51,6 +51,7 @@
     <string name="flat_number">Flat number</string>
     <string name="your_phone_number">Your phone Number</string>
     <string name="next_step">Next step</string>
+    <string name="name">Name</string>
 
     <!-- About Delivery -->
     <string name="pizza">Pizza ресторан</string>
@@ -71,8 +72,8 @@
 
     <!-- Accaunt info -->
     <string name="sing_in">Sing in</string>
-    <string name="forgot_password">forgot password</string>
-    <string name="need_an_accaunt">need an accaunt?</string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="need_an_accaunt">Need an accaunt?</string>
     <string name="Phone_accaunt">+7-(000)-00-000-00</string>
     <string name="email_accaunt">Email@gmail.com</string>
     <string name="title_phone_accaunt">Your phone</string>
@@ -88,4 +89,22 @@
     <string name="under_title_of_order">about devilery</string>
     <string name="title_activity_detail">DetailActivity</string>
 
+
+    <!-- Forgot password -->
+    <string name="send_password_to_email">send password to email</string>
+
+    <!-- Detail -->
+    <string name="more_information">More information</string>
+
+    <!-- Animation -->
+    <string name="add_to_cart">add to cart</string>
+    <string name="discount">Discount</string>
+    <string name="all_products">All products</string>
+
+    <!-- Sing up -->
+    <string name="sing_up">Sing up</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="instruction">by tapping \'Sing up\' you agree to the conditions</string>
+    <string name="submit">submit</string>
 </resources>

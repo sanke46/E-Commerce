@@ -227,31 +227,6 @@
 
         </LinearLayout>
 
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="5dp"-->
-            <!--android:orientation="horizontal">-->
-
-            <!--<ImageView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:paddingLeft="20dp"-->
-                <!--android:layout_marginTop="10dp"-->
-                <!--android:tint="@color/iconColor"-->
-                <!--android:src="@drawable/ic_mail_outline_black_24px"/>-->
-
-            <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="13dp"-->
-                <!--android:textSize="14sp"-->
-                <!--android:paddingLeft="20dp"-->
-                <!--android:textColor="#333"-->
-                <!--android:text="email@gmail.com"/>-->
-
-        <!--</LinearLayout>-->
-
     </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton

@@ -28,6 +28,7 @@ public class BasketActivity extends AppCompatActivity {
         buttonOrder = findViewById(R.id.priceButton);
         Toolbar toolbar = findViewById(R.id.toolbarBasket);
         basketViewModel = new BasketActivityViewModel();
+        listView = findViewById(R.id.basketView);
 
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_go_back_left_arrow));
@@ -39,13 +40,7 @@ public class BasketActivity extends AppCompatActivity {
             }
         });
 
-        basketViewModel.refreshTotalPrice(buttonOrder);
-        basketViewModel.sortBasketList();
-        basketViewModel.addToList();
-
-        listView = findViewById(R.id.basketView);
-        basketAdapter = new ListAdapterBasket(this, basketViewModel.basketItemBasket);
-        listView.setAdapter(basketAdapter);
+        refreshUi();
 
         buttonOrder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,8 +56,12 @@ public class BasketActivity extends AppCompatActivity {
     }
 
     public void refreshUi() {
-        listView.setAdapter(basketAdapter);
+        basketViewModel.sortListToMap();
+        basketViewModel.sortMapToList();
         basketViewModel.refreshTotalPrice(buttonOrder);
+
+        basketAdapter = new ListAdapterBasket(this, basketViewModel.basketItemBasket);
+        listView.setAdapter(basketAdapter);
     }
 
 

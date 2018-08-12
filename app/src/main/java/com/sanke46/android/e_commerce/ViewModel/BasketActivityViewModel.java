@@ -14,7 +14,7 @@ public class BasketActivityViewModel {
 
     public static List<Item> basketItem = new ArrayList<Item>();
     public static List<ItemBasket> basketItemBasket = new ArrayList<ItemBasket>();
-    public static HashMap<Integer, Item> mapBasketItem = new HashMap();
+    public static HashMap<Item, Integer> mapBasketItem = new HashMap();
     public int sum;
 
     public List<Item> getBasketItem() {
@@ -23,6 +23,14 @@ public class BasketActivityViewModel {
 
     public void setBasketItem(List<Item> basketItem) {
         this.basketItem = basketItem;
+    }
+
+    public HashMap<Item, Integer> getMapBasketItem() {
+        return mapBasketItem;
+    }
+
+    public void setMapBasketItem(HashMap<Item, Integer> mapBasketItem) {
+        BasketActivityViewModel.mapBasketItem = mapBasketItem;
     }
 
     public void refreshTotalPrice(Button button) {
@@ -37,26 +45,24 @@ public class BasketActivityViewModel {
         button.setText("ORDER - " + sum + " $");
     }
 
-    public void sortBasketList() {
+    public void sortListToMap() {
         mapBasketItem = new HashMap<>();
         for (Item item : basketItem) {
             int count = 0;
             for (Item item2 : basketItem) {
                 if(item.equals(item2)) count++;
             }
-            mapBasketItem.put(count, item);
-            System.out.print(item);
+            mapBasketItem.put(item, count);
         }
 
-        System.out.println(basketItem.size());
-        System.out.println(mapBasketItem);
+        System.out.println(mapBasketItem + ": mapBasketItem");
     }
 
-    public void addToList() {
+    public void sortMapToList() {
         basketItemBasket = new ArrayList<>();
-        for (Map.Entry<Integer, Item> entry : mapBasketItem.entrySet()) {
-            basketItemBasket.add(new ItemBasket(entry.getKey(), entry.getValue()));
-            System.out.println(basketItemBasket.size() + "basket");
+        for (Map.Entry<Item, Integer> entry : mapBasketItem.entrySet()) {
+            basketItemBasket.add(new ItemBasket(entry.getValue(), entry.getKey()));
+            System.out.println(basketItemBasket.size() + ": basket items");
         }
     }
 }

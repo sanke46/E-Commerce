@@ -32,7 +32,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="add to cart"/>
+                android:text="@string/add_to_cart"/>
         </LinearLayout>
 
         <com.makeramen.roundedimageview.RoundedImageView
@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_190sdp"
             android:scaleType="fitXY"
-            android:src="@drawable/pizza"
+            android:src="@drawable/bg_items"
             />
 
         <LinearLayout
@@ -58,8 +58,7 @@
                 android:id="@+id/name"
                 android:layout_marginBottom="3dp"
                 android:textColor="@color/bgWhite"
-                android:textSize="@dimen/titleTextSize"
-                android:text="Pizza with mushrooms and prosciutto"/>
+                android:textSize="@dimen/titleTextSize" />
 
             <TextView
                 android:id="@+id/comments"
@@ -67,11 +66,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/imageSale"
                 android:textColor="@color/bgWhite"
-                android:textSize="@dimen/underTitleSize"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis omnis distinctio"/>
+                android:textSize="@dimen/underTitleSize" />
 
         </LinearLayout>
-
 
         <LinearLayout
             android:id="@+id/salesPrice"
@@ -97,8 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/bgWhite"
-                android:textSize="@dimen/titleTextSize"
-                android:text="200 $"/>
+                android:textSize="@dimen/titleTextSize" />
 
         </LinearLayout>
 
@@ -127,7 +123,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/marginText"
-                android:text="$ 4400"
                 android:textColor="@color/BlackGrey"
                 android:textSize="@dimen/salesSizeText" />
 
@@ -141,7 +136,6 @@
                 android:paddingLeft="@dimen/padTextLR"
                 android:paddingRight="@dimen/padTextLR"
                 android:paddingTop="@dimen/padTextTB"
-                android:text="14000 kal"
                 android:gravity="center"
                 android:layout_marginRight="@dimen/marginText"
                 android:textSize="@dimen/salesSizeText"
@@ -157,7 +151,6 @@
                 android:paddingLeft="@dimen/padTextLR"
                 android:paddingRight="@dimen/padTextLR"
                 android:paddingTop="@dimen/padTextTB"
-                android:text="2000 g"
                 android:gravity="center"
                 android:layout_marginRight="@dimen/marginText"
                 android:textSize="@dimen/salesSizeText"

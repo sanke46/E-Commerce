@@ -20,11 +20,9 @@
             android:layout_height="100dp"
             android:gravity="center_horizontal|center_vertical"
             android:orientation="vertical"
-            android:visibility="invisible
-">
+            android:visibility="invisible">
 
             <ImageView
-
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:tint="#ddd"
@@ -39,13 +37,12 @@
                 android:text="add to cart"/>
         </LinearLayout>
 
-
         <ImageView
         android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_98sdp"
         android:scaleType="fitXY"
-        android:src="@drawable/bg_items"/>
+        android:src="@drawable/logotwo"/>
 
         <View
             android:layout_width="match_parent"
@@ -79,7 +76,6 @@
                 android:text="Lorem ipsum dolor sit amet..."/>
 
         </LinearLayout>
-
     </RelativeLayout>
 
     <LinearLayout
@@ -137,9 +133,6 @@
                 android:text="+"
                 android:textColor="@android:color/white" />
 
-
         </LinearLayout>
-
     </LinearLayout>
-
 </LinearLayout>

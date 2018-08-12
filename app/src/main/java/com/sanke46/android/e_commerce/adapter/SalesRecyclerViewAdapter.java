@@ -1,8 +1,10 @@
 package com.sanke46.android.e_commerce.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,6 +58,7 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
         holder.gramm.setText(item.converGramms(String.valueOf(item.getGramms())));
         holder.kal.setText(item.getKalories() + " kal");
         holder.addToCart.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View view) {
                 itemList.add((Item) arr.get(position));
@@ -71,6 +74,10 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
 //                StartSmartAnimation.startAnimation(holder.salePrice, AnimationType.SlideInRight, 2000, 450, false);
                 StartSmartAnimation.startAnimation(holder.name, AnimationType.FadeIn, 600, 900, false);
                 StartSmartAnimation.startAnimation(holder.comment, AnimationType.FadeIn, 600, 900, false);
+                Snackbar snackbar = Snackbar.make(view, "Add to cart", Snackbar.LENGTH_SHORT);
+                View snackBarView = snackbar.getView();
+                snackBarView.setBackgroundColor(R.color.colorBlue);
+                snackbar.setAction("Action", null).show();
             }
         });
         holder.linerSaleClick.setOnClickListener(new View.OnClickListener() {

@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "384700202167-retgrcb3flrua3jfq4v7n352imi0ajeo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sanke46.android.e_commerce",
+            "certificate_hash": "84850171c69756c0c1caf600aaed9c8147759907"
+          }
+        },
+        {
           "client_id": "384700202167-3v2uiu2ki7m0dcbffack93eieh2o7kgs.apps.googleusercontent.com",
           "client_type": 3
         }

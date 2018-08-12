@@ -33,33 +33,6 @@
             android:divider="@null"
             android:dividerHeight="0dp"/>
 
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="vertical"-->
-            <!--android:layout_centerHorizontal="true"-->
-            <!--android:layout_centerVertical="true">-->
-
-            <!--<ImageView-->
-                <!--android:id="@+id/basket_empty_icon"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="48dp"-->
-                <!--android:src="@drawable/ic_shopping_basket_black_24px"-->
-                <!--android:layout_centerVertical="true"-->
-                <!--android:tint="@color/gray"-->
-                <!--android:layout_marginBottom="10dp"/>-->
-
-            <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:text="Basket is empty"-->
-                <!--android:gravity="center"-->
-                <!--android:textSize="18dp"-->
-                <!--android:textColor="#ddd"/>-->
-
-        <!--</LinearLayout>-->
-
-
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="50dp"
@@ -76,7 +49,5 @@
                 />
 
         </LinearLayout>
-
     </RelativeLayout>
-
 </android.support.design.widget.CoordinatorLayout>

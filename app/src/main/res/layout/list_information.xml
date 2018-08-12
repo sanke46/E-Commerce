@@ -13,7 +13,6 @@
         android:background="@color/colorBlue"
         android:gravity="center"
         android:padding="7dp"
-        android:text="Gramms"
         android:textColor="#fff"
         android:textSize="15sp" />
 
@@ -25,6 +24,5 @@
         android:background="#eee"
         android:gravity="center"
         android:padding="7dp"
-        android:text="1440 kal."
         android:textSize="15sp" />
 </LinearLayout>

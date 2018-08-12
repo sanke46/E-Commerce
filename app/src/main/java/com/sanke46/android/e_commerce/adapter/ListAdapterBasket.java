@@ -19,6 +19,8 @@ import com.sanke46.android.e_commerce.model.ItemBasket;
 import com.sanke46.android.e_commerce.ui.navigation.BasketActivity;
 import com.squareup.picasso.Picasso;
 
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 
 public class ListAdapterBasket extends ArrayAdapter<ItemBasket>{
@@ -26,12 +28,14 @@ public class ListAdapterBasket extends ArrayAdapter<ItemBasket>{
     private BasketActivityViewModel basketViewModel;
     private BasketActivity basketActivity;
     private List<Item> itemList;
+    private static HashMap<Item, Integer> mapBasketItem;
 
     public ListAdapterBasket(BasketActivity context, List<ItemBasket> arrayList) {
         super(context, 0 ,arrayList);
         this.basketActivity = context;
         this.basketViewModel = new BasketActivityViewModel();
         this.itemList = basketViewModel.getBasketItem();
+        this.mapBasketItem = basketViewModel.getMapBasketItem();
     }
 
     @NonNull
@@ -76,7 +80,12 @@ public class ListAdapterBasket extends ArrayAdapter<ItemBasket>{
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        itemList.remove(position);
+                            for (int i = 0; i < itembasket.getCountNumber() ; i++) {
+                                itemList.remove(item);
+                            }
+
+                        System.out.println(mapBasketItem);
+
                         basketActivity.refreshUi();
 //
                         notifyDataSetChanged();
