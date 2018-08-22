@@ -14,6 +14,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
+import com.google.firebase.database.FirebaseDatabase;
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.adapter.RecyclerViewAdapter;
 import com.sanke46.android.e_commerce.adapter.SalesRecyclerViewAdapter;
@@ -47,6 +48,7 @@ public class Pizza extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_listview_1, container, false);
+
     }
 
     @Override
@@ -82,10 +84,6 @@ public class Pizza extends Fragment {
         Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.fade_up);
         ll.startAnimation(animation);
         ll2.startAnimation(animation);
-
-
-
-
 
     }
 

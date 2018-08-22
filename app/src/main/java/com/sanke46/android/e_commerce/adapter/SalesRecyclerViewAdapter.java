@@ -76,7 +76,7 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
                 StartSmartAnimation.startAnimation(holder.comment, AnimationType.FadeIn, 600, 900, false);
                 Snackbar snackbar = Snackbar.make(view, "Add to cart", Snackbar.LENGTH_SHORT);
                 View snackBarView = snackbar.getView();
-                snackBarView.setBackgroundColor(R.color.colorBlue);
+                snackBarView.setBackgroundColor(R.color.colorRed);
                 snackbar.setAction("Action", null).show();
             }
         });

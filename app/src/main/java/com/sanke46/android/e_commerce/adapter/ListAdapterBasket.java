@@ -48,14 +48,15 @@ public class ListAdapterBasket extends ArrayAdapter<ItemBasket>{
         }
 
         final LinearLayout mainBlock = convertView.findViewById(R.id.basketBlock);
-        final ImageView image = (ImageView) convertView.findViewById(R.id.image);
-        TextView name = (TextView) convertView.findViewById(R.id.name);
-        TextView countProduct = (TextView) convertView.findViewById(R.id.countProduct);
-        TextView gramms = (TextView) convertView.findViewById(R.id.grammBasket);
-        TextView price = (TextView) convertView.findViewById(R.id.price);
-        ImageView delete = (ImageView) convertView.findViewById(R.id.delete);
+        final ImageView image =  convertView.findViewById(R.id.image);
+        TextView name = convertView.findViewById(R.id.name);
+        ImageView plus = convertView.findViewById(R.id.plusBasket);
+        ImageView minus = convertView.findViewById(R.id.minusBasket);
+        TextView countProduct = convertView.findViewById(R.id.countProduct);
+        TextView gramms = convertView.findViewById(R.id.grammBasket);
+        TextView price =  convertView.findViewById(R.id.price);
+        ImageView delete = convertView.findViewById(R.id.delete);
 
-//        image.setImageResource(item.getImageId());
         Picasso.with(getContext()).load(item.getImageUrl()).into(image);
         name.setText(item.getName());
         if(item.isSales()) {
@@ -66,14 +67,31 @@ public class ListAdapterBasket extends ArrayAdapter<ItemBasket>{
         countProduct.setText(itembasket.getCountNumber() + "");
         gramms.setText(item.getGramms() + " g");
 
+        minus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(itembasket.getCountNumber() != 1){
+                    itemList.remove(item);
+                    basketActivity.refreshUi();
+                    notifyDataSetChanged();
+                    notifyDataSetInvalidated();
+                }
+            }
+        });
+
+        plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                itemList.add(item);
+                basketActivity.refreshUi();
+                notifyDataSetChanged();
+                notifyDataSetInvalidated();
+            }
+        });
+
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-//                TranslateAnimation animate = new TranslateAnimation(0,0,0,-image.getWidth());
-//                animate.setDuration(1000);
-//                mainBlock.startAnimation(animate);
-//                mainBlock.setVisibility(View.INVISIBLE);
 
                 StartSmartAnimation.startAnimation(mainBlock, AnimationType.SlideOutRight, 1000,0, true);
                 final Handler handler = new Handler();
@@ -84,10 +102,7 @@ public class ListAdapterBasket extends ArrayAdapter<ItemBasket>{
                                 itemList.remove(item);
                             }
 
-                        System.out.println(mapBasketItem);
-
                         basketActivity.refreshUi();
-//
                         notifyDataSetChanged();
                         notifyDataSetInvalidated();
                     }

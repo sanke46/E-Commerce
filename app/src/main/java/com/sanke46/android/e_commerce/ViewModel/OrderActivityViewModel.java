@@ -1,5 +1,6 @@
 package com.sanke46.android.e_commerce.ViewModel;
 
+import android.content.Intent;
 import android.util.Log;
 import android.widget.EditText;
 
@@ -67,9 +68,10 @@ public class OrderActivityViewModel {
         dbRef.child(userId).child("history").child(String.valueOf(orderId)).child("items").setValue(order.getListOfBuyProducts());
 
         getOrederId();
-        int changeId = Integer.parseInt(orderId);
+//        int changeId = Integer.parseInt(orderId);
+        int changeId = 999;
         orderIdRef.child("currentOrder").setValue(changeId - 1);
-
+//        orderActivity.getApplicationContext().startActivity(new Intent(orderActivity.getApplicationContext(), Payment.class));
     }
 
     public String getTotalPrice(List<Item> itemList) {

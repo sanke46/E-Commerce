@@ -93,6 +93,31 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/chat"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:tint="@color/iconColor"
+                    android:src="@drawable/ic_oval_empty_outlined_speech_bubble"/>
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="#333"
+                    android:text="@string/chat"/>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/website"
                 android:layout_weight="1"
                 android:layout_width="match_parent"

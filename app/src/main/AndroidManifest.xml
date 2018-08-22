@@ -41,7 +41,6 @@
         <activity android:name=".ui.navigation.SignUpActivity" />
         <activity android:name=".ui.navigation.ForgotPasswordActivity" />
         <activity android:name=".ui.navigation.OrderActivity" />
-        <activity android:name=".ui.navigation.Payment" />
 
         <service
             android:name=".service.OrderService"
@@ -51,7 +50,9 @@
         <activity
             android:name=".ui.navigation.DetailActivity"
             android:label="Detail"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ui.navigation.SettingActivity" />
+        <activity android:name=".ui.navigation.ChatActivity"></activity>
     </application>
 
 </manifest>

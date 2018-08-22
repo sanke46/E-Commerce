@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.navigation.ChatActivity"
+    android:background="@color/grayLight">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:theme="@style/ToolbarColoredBackArrow">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarChat"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:layout_marginTop="55dp"
+            android:id="@+id/chatListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:layout_marginBottom="65dp"
+            android:stackFromBottom="true"
+            android:transcriptMode="alwaysScroll"/>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="65dp"
+            android:padding="7dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/bgWhite"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/sendMessage"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:background="@color/bgWhite"
+                android:textColor="@color/BlackGrey"
+                android:padding="10dp"
+                android:hint="Your text"
+                android:layout_height="match_parent" />
+            <ImageButton
+                android:id="@+id/buttonSendMessage"
+                android:layout_width="40dp"
+                android:layout_height="53dp"
+                android:background="@color/bgWhite"
+                android:src="@drawable/ic_send_black_24dp"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

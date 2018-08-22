@@ -110,7 +110,7 @@
                     android:id="@+id/editNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="@string/Phone_accaunt"
+                    android:hint="@string/phone_accaunt"
                     android:textColor="@color/editTextColor"
                     android:background="@android:color/transparent"
                     android:textSize="@dimen/editTextSize"

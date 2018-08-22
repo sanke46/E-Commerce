@@ -16,12 +16,15 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 import com.sanke46.android.e_commerce.adapter.ViewPagerAdapter;
 import com.sanke46.android.e_commerce.ui.navigation.AboutDelevery;
 import com.sanke46.android.e_commerce.ui.navigation.BasketActivity;
+import com.sanke46.android.e_commerce.ui.navigation.ChatActivity;
 import com.sanke46.android.e_commerce.ui.navigation.LoginActivity;
 import com.sanke46.android.e_commerce.ui.navigation.ProfileActivity;
 import com.sanke46.android.e_commerce.ui.navigation.SalesActivity;
+import com.sanke46.android.e_commerce.ui.navigation.SettingActivity;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -58,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        //setting Tab layout (number of Tabs = number of ViewPager pages)
+        //Tab layout (number of Tabs = number of ViewPager pages)
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         for (int i = 0; i < 3; i++) {
             tabLayout.addTab(tabLayout.newTab().setText(pageTitle[i]));
@@ -121,6 +124,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             finish();
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
+        } else if (id == R.id.setting) {
+            startActivity(new Intent(this, SettingActivity.class));
+        } else if (id == R.id.chat) {
+            startActivity(new Intent(this, ChatActivity.class));
         }
 
         drawer.closeDrawer(GravityCompat.START);

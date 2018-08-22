@@ -135,7 +135,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/border_only_left"
                     android:orientation="horizontal"
-                    android:padding="8dp">
+                    android:padding="9dp">
 
                     <TextView
                         android:id="@+id/minus"

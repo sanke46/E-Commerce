@@ -12,6 +12,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sanke46.android.e_commerce.adapter.RecyclerViewAdapter;
 import com.sanke46.android.e_commerce.adapter.SalesRecyclerViewAdapter;
+import com.sanke46.android.e_commerce.model.Chat;
 import com.sanke46.android.e_commerce.model.Item;
 
 import java.util.ArrayList;
@@ -22,7 +23,6 @@ public class FirebaseHandler {
     private Item item;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference("product");
-
 
     public ArrayList<Item> getAllSalesItem(String titleProduct,
                                            final ArrayList<Item> arrayOfItemProduct,
@@ -65,6 +65,7 @@ public class FirebaseHandler {
                     item = snapshot.getValue(Item.class);
                     if(!item.isSales()) {
                         arrayOfItemProduct.add(item);
+
                     }
                 }
                 adapter.notifyDataSetChanged();
@@ -76,6 +77,7 @@ public class FirebaseHandler {
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
+
 
         return arrayOfItemProduct;
 

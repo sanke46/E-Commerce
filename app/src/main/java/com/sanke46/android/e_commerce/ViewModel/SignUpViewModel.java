@@ -51,6 +51,9 @@ public class SignUpViewModel {
 
                     Log.d(TAG, "createUserWithEmail:success");
                     myRef.child("users").child(userId).setValue(new User(0,finalName, finalEmail, finalPassword));
+                    myRef.child("users").child(userId).child("setting").child("sms").setValue(true);
+                    myRef.child("users").child(userId).child("setting").child("notification").setValue(true);
+                    myRef.child("users").child(userId).child("setting").child("email").setValue(true);
                     signUpActivity.getToast("Authentication cool.", Toast.LENGTH_SHORT);
                     signUpActivity.startActivity();
                 } else {

@@ -38,10 +38,15 @@
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/imageSale"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_190sdp"
-            android:scaleType="fitXY"
+            android:layout_height="@dimen/_165sdp"
+            android:scaleType="centerCrop"
             android:src="@drawable/bg_items"
             />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_165sdp"
+            android:background="@drawable/gradient_img"/>
 
         <LinearLayout
             android:layout_width="wrap_content"

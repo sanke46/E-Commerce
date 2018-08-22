@@ -39,7 +39,6 @@ public class ProfileViewModel {
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
         userId = user.getUid();
-
     }
 
     /**  Button click - change all info about user in Firebase **/
