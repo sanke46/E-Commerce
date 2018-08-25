@@ -20,10 +20,37 @@
             android:background="?attr/colorPrimary"/>
 
     </android.support.design.widget.AppBarLayout>
-
     <RelativeLayout
+        android:id="@+id/emptyBasket"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal|center_vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/ic_shopping_list"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/gray"
+                android:text="Your basket is empty"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/mainLayoutBasket"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
 
         <ListView
             android:layout_marginTop="55dp"
@@ -31,7 +58,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@null"
-            android:dividerHeight="0dp"/>
+            android:dividerHeight="0dp"
+            android:visibility="gone"/>
 
         <LinearLayout
             android:layout_width="fill_parent"

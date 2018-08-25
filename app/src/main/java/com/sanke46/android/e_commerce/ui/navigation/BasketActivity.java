@@ -7,16 +7,21 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.sanke46.android.e_commerce.R;
+import com.sanke46.android.e_commerce.Utility.Helper;
 import com.sanke46.android.e_commerce.ViewModel.BasketActivityViewModel;
 import com.sanke46.android.e_commerce.adapter.ListAdapterBasket;
 
 public class BasketActivity extends AppCompatActivity {
 
     private static BasketActivityViewModel basketViewModel;
+    private Helper helper;
     public ListAdapterBasket basketAdapter;
+    private RelativeLayout mainLayout;
+    private RelativeLayout emptyLayout;
     private ListView listView;
     private Button buttonOrder;
 
@@ -25,6 +30,9 @@ public class BasketActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basket);
 
+        helper = new Helper(this);
+        mainLayout = findViewById(R.id.mainLayoutBasket);
+        emptyLayout = findViewById(R.id.emptyBasket);
         buttonOrder = findViewById(R.id.priceButton);
         Toolbar toolbar = findViewById(R.id.toolbarBasket);
         basketViewModel = new BasketActivityViewModel();
@@ -62,9 +70,16 @@ public class BasketActivity extends AppCompatActivity {
 
         basketAdapter = new ListAdapterBasket(this, basketViewModel.basketItemBasket);
         listView.setAdapter(basketAdapter);
+        isBasketEmpty();
     }
 
-
+    public void isBasketEmpty() {
+        if(basketViewModel.getBasketItem().size() != 0) {
+            helper.doneLoadingActivity(listView, emptyLayout);
+        } else {
+            helper.doneLoadingActivity(emptyLayout, listView);
+        }
+    }
 
 
 
