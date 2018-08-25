@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.podcopic.animationlib.library.AnimationType;
 import com.podcopic.animationlib.library.StartSmartAnimation;
 import com.sanke46.android.e_commerce.R;
+import com.sanke46.android.e_commerce.Utility.Helper;
 import com.sanke46.android.e_commerce.ViewModel.DetailActivityViewModel;
 import com.sanke46.android.e_commerce.adapter.ListInformationAdapter;
 import com.sanke46.android.e_commerce.model.Item;
@@ -26,6 +27,7 @@ public class DetailActivity extends AppCompatActivity {
 
     private DetailActivityViewModel detailViewModel;
     private ListInformationAdapter listAdapter;
+    private Helper helper = new Helper(this);
 
     private ImageView image;
     private TextView name;
@@ -93,7 +95,9 @@ public class DetailActivity extends AppCompatActivity {
         minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               detailViewModel.minusCountProductToBasket();
+                if(!howMany.getText().equals("1")) {
+                    howMany.setText(detailViewModel.minusCountProductToBasket());
+                }
             }
         });
 
@@ -101,7 +105,7 @@ public class DetailActivity extends AppCompatActivity {
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                detailViewModel.plusCountProductToBasket();
+                howMany.setText(detailViewModel.plusCountProductToBasket());
             }
         });
 
@@ -112,7 +116,9 @@ public class DetailActivity extends AppCompatActivity {
                   StartSmartAnimation.startAnimation(btn, AnimationType.FadeOut, 600, 0, false);
                   StartSmartAnimation.startAnimation(btn, AnimationType.FadeIn, 600, 900, false);
                   detailViewModel.addProductToBasket(howMany);
+                  helper.actionSnackBar(view, "add to basket: " + howMany.getText());
                   detailViewModel.resetCountProductsToBasket();
+                  howMany.setText("1");
               }
           });
     }
