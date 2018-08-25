@@ -10,11 +10,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.sanke46.android.e_commerce.Utility.Helper;
 import com.sanke46.android.e_commerce.ui.navigation.SettingActivity;
 
 public class SettingViewModel {
 
     private SettingActivity settingActivity;
+    private Helper helper;
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     private DatabaseReference unicDataBase;
@@ -23,6 +25,7 @@ public class SettingViewModel {
 
     public SettingViewModel(SettingActivity settingActivity) {
         this.settingActivity = settingActivity;
+        helper = new Helper(settingActivity.getApplicationContext());
         mDatabase = FirebaseDatabase.getInstance().getReference();
         unicDataBase = mDatabase.child("users");
         mAuth = FirebaseAuth.getInstance();
@@ -37,6 +40,7 @@ public class SettingViewModel {
                 sms.setChecked((Boolean) dataSnapshot.child("sms").getValue());
                 notification.setChecked((Boolean) dataSnapshot.child("notification").getValue());
                 email.setChecked((Boolean) dataSnapshot.child("email").getValue());
+                helper.doneLoadingActivity(settingActivity.mainLayout, settingActivity.prgressBar);
             }
 
             @Override
@@ -44,6 +48,7 @@ public class SettingViewModel {
 
             }
         });
+
     }
 
     public void saveSwitches(Switch sms, Switch notification, Switch email) {

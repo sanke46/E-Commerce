@@ -24,7 +24,7 @@ public class SignUpViewModel {
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference myRef;
 
-    public SignUpViewModel(SignUpActivity signUpActivity, String user) {
+    public SignUpViewModel(SignUpActivity signUpActivity) {
         this.signUpActivity = signUpActivity;
         this.mAuth = FirebaseAuth.getInstance();
         this.mFirebaseDatabase = FirebaseDatabase.getInstance();

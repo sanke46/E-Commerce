@@ -13,6 +13,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.sanke46.android.e_commerce.Utility.Helper;
 import com.sanke46.android.e_commerce.model.UserProfile;
 import com.sanke46.android.e_commerce.ui.navigation.ProfileActivity;
 
@@ -25,6 +26,7 @@ public class ProfileViewModel {
     public boolean unvisiblePassword = false;
 
     private ProfileActivity profileActivity;
+    private Helper helper;
     private UserProfile userProfile;
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
@@ -34,6 +36,7 @@ public class ProfileViewModel {
 
     public ProfileViewModel(ProfileActivity profileActivity) {
         this.profileActivity = profileActivity;
+        helper = new Helper(profileActivity.getApplicationContext());
         mDatabase = FirebaseDatabase.getInstance().getReference();
         unicDataBase = mDatabase.child("users");
         mAuth = FirebaseAuth.getInstance();
@@ -69,6 +72,8 @@ public class ProfileViewModel {
                     }
                 }
 
+                helper.doneLoadingActivity(profileActivity.contentLayout, profileActivity.progressBar);
+
                 userProfile.setName(dbAboutUser.get(0));
                 userProfile.setPhone(dbAboutUser.get(1));
                 userProfile.setEmail(dbAboutUser.get(2));
@@ -80,6 +85,7 @@ public class ProfileViewModel {
 
                 profileActivity.autoChangeEditTextAboutUser(userProfile);
 
+
             }
 
             @Override
@@ -87,6 +93,7 @@ public class ProfileViewModel {
 
             }
         });
+
     }
 
     /**  Save new Inctance to FireBase **/

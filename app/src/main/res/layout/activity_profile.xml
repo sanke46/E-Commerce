@@ -20,9 +20,13 @@
 
     </android.support.design.widget.AppBarLayout>
 
+
+
     <RelativeLayout
+        android:id="@+id/allProfileActivity"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -361,5 +365,15 @@
                 />
 
         </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/progressBarProfile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|center_horizontal">
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
     </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>

@@ -21,8 +21,10 @@
     </android.support.design.widget.AppBarLayout>
 
     <RelativeLayout
+        android:id="@+id/mainChatLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
         <ListView
             android:layout_marginTop="55dp"
@@ -41,6 +43,8 @@
             android:padding="7dp"
             android:layout_alignParentBottom="true"
             android:background="@color/bgWhite"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
             android:orientation="horizontal">
 
             <EditText
@@ -51,6 +55,7 @@
                 android:textColor="@color/BlackGrey"
                 android:padding="10dp"
                 android:hint="Your text"
+
                 android:layout_height="match_parent" />
             <ImageButton
                 android:id="@+id/buttonSendMessage"
@@ -60,6 +65,17 @@
                 android:src="@drawable/ic_send_black_24dp"/>
 
         </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/progressChat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|center_horizontal">
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

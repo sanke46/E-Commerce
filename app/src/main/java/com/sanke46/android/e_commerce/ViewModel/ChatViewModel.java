@@ -15,6 +15,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sanke46.android.e_commerce.R;
+import com.sanke46.android.e_commerce.Utility.Helper;
 import com.sanke46.android.e_commerce.adapter.ChatListAdapter;
 import com.sanke46.android.e_commerce.model.Chat;
 import com.sanke46.android.e_commerce.ui.navigation.ChatActivity;
@@ -29,6 +30,7 @@ public class ChatViewModel {
     private Chat chatItem;
 
     private ChatActivity chatActivity;
+    private Helper helper;
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     private DatabaseReference unicDataBase;
@@ -37,6 +39,7 @@ public class ChatViewModel {
 
     public ChatViewModel(ChatActivity chatActivity) {
         this.chatActivity = chatActivity;
+        helper = new Helper(chatActivity.getApplicationContext());
         mDatabase = FirebaseDatabase.getInstance().getReference();
         unicDataBase = mDatabase.child("users");
         mAuth = FirebaseAuth.getInstance();
@@ -57,6 +60,7 @@ public class ChatViewModel {
                 }
                 chatAdapter.notifyDataSetChanged();
                 if(listChat.size() == 0) addFirstMessage();
+                helper.doneLoadingActivity(chatActivity.mainLayout, chatActivity.progressBar);
             }
 
             @Override

@@ -1,5 +1,6 @@
 package com.sanke46.android.e_commerce.ui.navigation;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.sanke46.android.e_commerce.MainActivity;
@@ -21,6 +24,8 @@ import com.sanke46.android.e_commerce.model.UserProfile;
 public class ProfileActivity extends AppCompatActivity {
 
     private ProfileViewModel profileViewModel;
+    public RelativeLayout progressBar;
+    public RelativeLayout contentLayout;
     public EditText editTextName;
     public EditText editTextPhone;
     public EditText editTextMail;
@@ -32,7 +37,6 @@ public class ProfileActivity extends AppCompatActivity {
     public ImageView seePassButton;
     public Button buttonToSave;
 
-    @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
@@ -51,6 +55,8 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
         profileViewModel = new ProfileViewModel(this);
+        contentLayout = findViewById(R.id.allProfileActivity);
+        progressBar = findViewById(R.id.progressBarProfile);
         editTextName = findViewById(R.id.name);
         editTextPhone = findViewById(R.id.editNumber);
         editTextMail = findViewById(R.id.editMail);

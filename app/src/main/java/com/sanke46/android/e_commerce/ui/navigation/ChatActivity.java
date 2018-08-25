@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.ViewModel.ChatViewModel;
@@ -20,10 +21,12 @@ import java.util.ArrayList;
 
 public class ChatActivity extends AppCompatActivity {
 
-    private ChatViewModel chatViewModel = new ChatViewModel(this);
+    private ChatViewModel chatViewModel;
     private ListView mChatListView;
     private ChatListAdapter mChatListViewAdapter;
 
+    public RelativeLayout mainLayout;
+    public RelativeLayout progressBar;
     public EditText messageEditText;
     private ImageButton sendMessage;
 
@@ -32,6 +35,11 @@ public class ChatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+
+        chatViewModel = new ChatViewModel(this);
+
+        mainLayout = findViewById(R.id.mainChatLayout);
+        progressBar = findViewById(R.id.progressChat);
         messageEditText = findViewById(R.id.sendMessage);
         sendMessage = findViewById(R.id.buttonSendMessage);
 

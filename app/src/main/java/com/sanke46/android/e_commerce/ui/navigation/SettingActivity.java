@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Switch;
 
 import com.sanke46.android.e_commerce.R;
@@ -13,6 +15,8 @@ import com.sanke46.android.e_commerce.ViewModel.SettingViewModel;
 public class SettingActivity extends AppCompatActivity {
 
     private SettingViewModel settingViewModel;
+    public RelativeLayout prgressBar;
+    public LinearLayout mainLayout;
     private Switch smsPush;
     private Switch notificationPush;
     private Switch emailPush;
@@ -33,6 +37,8 @@ public class SettingActivity extends AppCompatActivity {
         });
 
         settingViewModel = new SettingViewModel(this);
+        prgressBar = findViewById(R.id.progressSetting);
+        mainLayout = findViewById(R.id.mainSettingContent);
         smsPush = findViewById(R.id.smsPush);
         notificationPush = findViewById(R.id.notificationPush);
         emailPush = findViewById(R.id.emailPush);
