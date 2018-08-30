@@ -1,11 +1,15 @@
 package com.sanke46.android.e_commerce.ViewModel;
 
 import android.Manifest;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.NotificationCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -27,6 +31,7 @@ import java.util.Date;
 public class ChatViewModel {
 
     public ArrayList<Chat> listChat = new ArrayList<>();
+    private static final int NOTIFY_ID = 101;
     private Chat chatItem;
 
     private ChatActivity chatActivity;
@@ -61,6 +66,7 @@ public class ChatViewModel {
                 chatAdapter.notifyDataSetChanged();
                 if(listChat.size() == 0) addFirstMessage();
                 helper.doneLoadingActivity(chatActivity.mainLayout, chatActivity.progressBar);
+                sendSound();
             }
 
             @Override
@@ -82,6 +88,7 @@ public class ChatViewModel {
         unicDataBase.child(userId).child("chat").child(resultdate.toString()).child("time").setValue(convertTime);
         unicDataBase.child(userId).child("chat").child(resultdate.toString()).child("user").setValue(userId);
         chatActivity.messageEditText.setText("");
+
         chatActivity.refreshUi();
     }
 
@@ -104,5 +111,8 @@ public class ChatViewModel {
         chatActivity.startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + chatActivity.getResources().getString(R.string.phone))));
     }
 
-
+    public void sendSound() {
+        MediaPlayer mp = MediaPlayer.create(chatActivity.getApplicationContext(), R.raw.chat_sound);
+        mp.start();
+    }
 }

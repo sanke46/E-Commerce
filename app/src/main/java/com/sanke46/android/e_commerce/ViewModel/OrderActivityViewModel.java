@@ -14,6 +14,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.sanke46.android.e_commerce.model.Item;
 import com.sanke46.android.e_commerce.model.Order;
 import com.sanke46.android.e_commerce.model.UserProfile;
+import com.sanke46.android.e_commerce.ui.navigation.BasketActivity;
 import com.sanke46.android.e_commerce.ui.navigation.OrderActivity;
 
 import java.text.SimpleDateFormat;
@@ -71,6 +72,7 @@ public class OrderActivityViewModel {
 //        int changeId = Integer.parseInt(orderId);
         int changeId = 999;
         orderIdRef.child("currentOrder").setValue(changeId - 1);
+        basketViewModel.cleanBasket();
 //        orderActivity.getApplicationContext().startActivity(new Intent(orderActivity.getApplicationContext(), Payment.class));
     }
 

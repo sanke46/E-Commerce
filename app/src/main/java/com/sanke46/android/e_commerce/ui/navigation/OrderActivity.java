@@ -1,8 +1,10 @@
 package com.sanke46.android.e_commerce.ui.navigation;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.sanke46.android.e_commerce.MainActivity;
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.ViewModel.OrderActivityViewModel;
 import com.sanke46.android.e_commerce.model.UserProfile;
@@ -76,6 +79,21 @@ public class OrderActivity extends AppCompatActivity {
 
                 if(editName.length() != 0 && editCity.length() != 0 && editStreet.length() != 0 && editHouseNumber.length() != 0 && editFlat.length() != 0 && editPhoneNumber.length() != 0){
                     orderViewModel.addOrderUserFireBase(editPhoneNumber,editCity,editStreet,editHouseNumber,editFlat);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(OrderActivity.this,R.style.AlertDialogCustom_Destructive);
+                    builder.setTitle("Заказ оформлен")
+                            .setMessage("В скором времени с вами свяжутся для подтверждения заказа")
+                            .setIcon(R.drawable.ic_shopping_bag_two)
+                            .setCancelable(false)
+                            .setNegativeButton("Хорошо",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            dialog.cancel();
+                                            startActivity(new Intent(getBaseContext(), MainActivity.class));
+
+                                        }
+                                    });
+                    AlertDialog alert = builder.create();
+                    alert.show();
                     Toast.makeText(getApplicationContext(), orderViewModel.DONE, Toast.LENGTH_SHORT);
                 }
             }

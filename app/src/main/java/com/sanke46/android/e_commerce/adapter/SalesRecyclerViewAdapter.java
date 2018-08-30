@@ -20,6 +20,7 @@ import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.ViewModel.BasketActivityViewModel;
 import com.sanke46.android.e_commerce.model.Item;
 import com.sanke46.android.e_commerce.ui.navigation.DetailActivity;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -49,6 +50,8 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         final Item item = (Item) arr.get(position);
 
+//        Picasso.Builder builder = new Picasso.Builder(mContext);
+//        builder.
         Picasso.with(mContext).load(item.getImageUrl()).into(holder.imageView);
         holder.price.setText(item.getPrice() + " $");
         holder.price.setPaintFlags(holder.price.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);

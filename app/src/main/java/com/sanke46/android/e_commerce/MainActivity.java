@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         viewPager = (ViewPager)findViewById(R.id.view_pager);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
-
+        
         setSupportActionBar(toolbar);
 
         // Test of login user or not

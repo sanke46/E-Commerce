@@ -65,4 +65,8 @@ public class BasketActivityViewModel {
             System.out.println(basketItemBasket.size() + ": basket items");
         }
     }
+
+    public void cleanBasket() {
+        basketItem.clear();
+    }
 }

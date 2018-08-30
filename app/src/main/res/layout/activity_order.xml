@@ -277,7 +277,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="1dp"
-            android:background="@color/coloBlackRed"
+            android:background="@color/colorBlue"
             android:text="@string/next_step" />
     </LinearLayout>
 
