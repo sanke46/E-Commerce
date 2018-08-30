@@ -10,14 +10,25 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.sanke46.android.e_commerce.MainActivity;
 import com.sanke46.android.e_commerce.R;
+import com.sanke46.android.e_commerce.Utility.Helper;
 import com.sanke46.android.e_commerce.ViewModel.OrderActivityViewModel;
 import com.sanke46.android.e_commerce.model.UserProfile;
 
 public class OrderActivity extends AppCompatActivity {
+
+    private ImageView userIcon;
+    private ImageView placeIcon;
+    private ImageView phoneIcon;
+
+    private ProgressBar userProgressBar;
+    private ProgressBar placeProgressBar;
+    private ProgressBar phoneProgressBar;
 
     public EditText editName;
     public EditText editCity;
@@ -28,12 +39,14 @@ public class OrderActivity extends AppCompatActivity {
     public Button buttonNext;
 
     private OrderActivityViewModel orderViewModel;
+    private Helper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
         orderViewModel = new OrderActivityViewModel(this);
+        helper = new Helper(this);
 
         // Toolbar init
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -47,6 +60,14 @@ public class OrderActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        userIcon = findViewById(R.id.iconUser);
+        placeIcon = findViewById(R.id.iconPlace);
+        phoneIcon = findViewById(R.id.iconPhone);
+
+        userProgressBar = findViewById(R.id.userProgressBarOrder);
+        placeProgressBar = findViewById(R.id.placeProgressBar);
+        phoneProgressBar = findViewById(R.id.phoneProgressBar);
 
         editName = findViewById(R.id.editDN);
         editCity = findViewById(R.id.editDC);
@@ -103,12 +124,17 @@ public class OrderActivity extends AppCompatActivity {
     }
 
     public void autoChangeEditTextAboutUser(UserProfile userProfile) {
+
+
         editName.setText(userProfile.getName());
         editPhoneNumber.setText(userProfile.getPhone());
         editCity.setText(userProfile.getCity());
         editStreet.setText(userProfile.getStreet());
         editHouseNumber.setText(userProfile.getHouse());
         editFlat.setText(userProfile.getFlat());
+        helper.doneLoadingActivity(userIcon, userProgressBar);
+        helper.doneLoadingActivity(placeIcon, placeProgressBar);
+        helper.doneLoadingActivity(phoneIcon, phoneProgressBar);
     }
 
 }
