@@ -39,8 +39,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/SemiBoldTextStyle"
                 android:gravity="center"
-                android:textSize="20sp"
+                android:textSize="27sp"
                 android:textColor="@color/gray"
                 android:text="Your basket is empty"/>
         </LinearLayout>
@@ -71,6 +72,7 @@
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                style="@style/MediumTextStyle"
                 android:background="@color/colorBlue"
                 android:text="@string/basket_order_price"
                 android:textColor="@android:color/white"

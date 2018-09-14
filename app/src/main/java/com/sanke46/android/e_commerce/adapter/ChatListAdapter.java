@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,11 +42,8 @@ public class ChatListAdapter extends ArrayAdapter<Chat> {
         ImageView blueArrow = convertView.findViewById(R.id.blueArrow);
         ImageView greyArrow = convertView.findViewById(R.id.greyArrow);
         TextView text = convertView.findViewById(R.id.textChat);
-//        TextView timeText = convertView.findViewById(R.id.dateTextChat);
-
         text.setText(chat.getText());
-//        timeText.setText(chat.getTime());
-        System.out.println(chat.getUser());
+
         try {
             if(!chat.getUser().equalsIgnoreCase("admin")){
                 mainlayout.setGravity(Gravity.RIGHT);

@@ -29,141 +29,147 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_marginTop="-70dp"
-            android:scaleType="fitXY"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/place"/>
+            android:layout_marginTop="-70dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/place" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="-0dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="15dp"
             android:background="@color/colorBlue"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="15dp"
+            android:paddingTop="10dp">
 
             <TextView
+                style="@style/BoldTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
                 android:paddingLeft="20dp"
-                android:textSize="20sp"
-                android:text="@string/pizza"/>
+                android:text="@string/pizza"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
             <TextView
+                style="@style/MediumTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
                 android:paddingLeft="20dp"
-                android:text="@string/time_work"/>
+                android:text="@string/time_work"
+                android:textColor="@android:color/white" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:paddingBottom="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingBottom="15dp">
 
             <LinearLayout
                 android:id="@+id/call"
-                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="15dp"
-                android:orientation="vertical">
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingTop="15dp">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="5dp"
-                    android:tint="@color/iconColor"
-                    android:src="@drawable/ic_call_black_24px"/>
+                    android:src="@drawable/ic_call_black_24px"
+                    android:tint="@color/iconColor" />
 
                 <TextView
-                    android:gravity="center"
+                    style="@style/RegularTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:text="@string/call"
                     android:textColor="#333"
-                    android:text="@string/call"/>
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/chat"
-                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="15dp"
-                android:orientation="vertical">
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingTop="15dp">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="5dp"
-                    android:tint="@color/iconColor"
-                    android:src="@drawable/ic_oval_empty_outlined_speech_bubble"/>
+                    android:src="@drawable/ic_oval_empty_outlined_speech_bubble"
+                    android:tint="@color/iconColor" />
 
                 <TextView
-                    android:gravity="center"
+                    style="@style/RegularTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:text="@string/chat"
                     android:textColor="#333"
-                    android:text="@string/chat"/>
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/website"
-                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="15dp"
-                android:orientation="vertical">
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingTop="15dp">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="5dp"
-                    android:tint="@color/iconColor"
-                    android:src="@drawable/ic_language_black_24px"/>
+                    android:src="@drawable/ic_language_black_24px"
+                    android:tint="@color/iconColor" />
 
                 <TextView
-                    android:gravity="center"
+                    style="@style/RegularTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:text="@string/website"
                     android:textColor="#333"
-                    android:text="@string/website"/>
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/location"
-                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="15dp"
-                android:orientation="vertical">
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingTop="15dp">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="5dp"
-                    android:tint="@color/iconColor"
-                    android:src="@drawable/ic_place_black_24px"/>
+                    android:src="@drawable/ic_place_black_24px"
+                    android:tint="@color/iconColor" />
 
                 <TextView
-                    android:gravity="center"
+                    style="@style/RegularTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:text="@string/map"
                     android:textColor="#333"
-                    android:text="@string/map"/>
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
@@ -172,10 +178,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#d3d3d3"
             android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"/>
+            android:background="#d3d3d3" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -186,44 +192,20 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:tint="@color/iconColor"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/ic_place_black_24px"/>
+                android:paddingLeft="20dp"
+                android:src="@drawable/ic_place_black_24px"
+                android:tint="@color/iconColor" />
 
             <TextView
+                style="@style/RegularTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="13dp"
                 android:paddingLeft="20dp"
-                android:textSize="14sp"
+                android:text="@string/Place"
                 android:textColor="#333"
-                android:text="@string/Place"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-        android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:tint="@color/iconColor"
-                android:src="@drawable/ic_language_black_24px"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="13dp"
-                android:textSize="14sp"
-                android:paddingLeft="20dp"
-                android:textColor="#333"
-                android:text="@string/website_link"/>
+                android:textSize="14sp" />
 
         </LinearLayout>
 
@@ -236,19 +218,46 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
                 android:layout_marginTop="10dp"
-                android:tint="@color/iconColor"
-                android:src="@drawable/ic_call_black_24px"/>
+                android:paddingLeft="20dp"
+                android:src="@drawable/ic_language_black_24px"
+                android:tint="@color/iconColor" />
 
             <TextView
+                style="@style/RegularTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="13dp"
-                android:textSize="14sp"
                 android:paddingLeft="20dp"
+                android:text="@string/website_link"
                 android:textColor="#333"
-                android:text="@string/phone"/>
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="20dp"
+                android:src="@drawable/ic_call_black_24px"
+                android:tint="@color/iconColor" />
+
+            <TextView
+                style="@style/RegularTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:paddingLeft="20dp"
+                android:text="@string/phone"
+                android:textColor="#333"
+                android:textSize="14sp" />
 
         </LinearLayout>
 

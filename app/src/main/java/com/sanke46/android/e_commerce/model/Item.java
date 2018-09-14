@@ -269,9 +269,9 @@ public class Item implements Serializable {
         if (converGrammsToInt > 1000) {
             converGrammsToInt /= 1000;
             DecimalFormat df2 = new DecimalFormat("##.#");
-            return String.valueOf(df2.format(converGrammsToInt) + " kg");
+            return String.valueOf(df2.format(converGrammsToInt) + " kg.");
         } else {
-            return gramms + " g";
+            return gramms + " g.";
         }
     }
 }

@@ -62,7 +62,7 @@ public class ChatActivity extends AppCompatActivity {
         mChatListView = findViewById(R.id.chatListView);
         mChatListViewAdapter = new ChatListAdapter(this, chatViewModel.listChat);
         mChatListView.setAdapter(mChatListViewAdapter);
-        chatViewModel.getAllPreviosChat(chatViewModel.listChat, mChatListViewAdapter);
+        chatViewModel.getAllPreviosChat(mChatListViewAdapter);
 
         sendMessage.setOnClickListener(view -> chatViewModel.addTextToChat(mChatListViewAdapter));
     }

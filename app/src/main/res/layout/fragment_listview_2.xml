@@ -41,6 +41,7 @@
                         android:tint="@color/iconColorFragOne" />
 
                     <TextView
+                        style="@style/MediumTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/discount"
@@ -80,6 +81,7 @@
                         android:tint="@color/iconColorFragOne" />
 
                     <TextView
+                        style="@style/MediumTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="0dp"

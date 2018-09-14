@@ -18,7 +18,6 @@ public class SalesActivityViewModel {
     public final ArrayList<Item> allSalesItems = new ArrayList<>();
     FirebaseHandler firebaseHandler = new FirebaseHandler();
 
-
     public void fireBaseProductsToList(SalesRecyclerViewAdapter adapter, ProgressBar bar, LinearLayout linearLayout) {
         firebaseHandler.getAllSalesItem(PRODUCT_CATEGORY_ID, allSalesItems, adapter, bar, linearLayout);
         firebaseHandler.getAllSalesItem(PRODUCT_CATEGORY_ID_2, allSalesItems, adapter, bar, linearLayout);

@@ -52,15 +52,15 @@ public class ChatViewModel {
         userId = user.getUid();
     }
 
-    public ArrayList<Chat> getAllPreviosChat(final ArrayList<Chat> fireBaseChatList, final ChatListAdapter chatAdapter) {
+    public void getAllPreviosChat(final ChatListAdapter chatAdapter) {
 
         unicDataBase.child(userId).child("chat").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                fireBaseChatList.clear();
+                listChat.clear();
                 for (final DataSnapshot snapshot : dataSnapshot.getChildren()){
                     chatItem = snapshot.getValue(Chat.class);
-                    fireBaseChatList.add(chatItem);
+                    listChat.add(chatItem);
 
                 }
                 chatAdapter.notifyDataSetChanged();
@@ -74,8 +74,6 @@ public class ChatViewModel {
 
             }
         });
-
-        return fireBaseChatList;
     }
 
     public void addTextToChat(final ChatListAdapter chatAdapter){

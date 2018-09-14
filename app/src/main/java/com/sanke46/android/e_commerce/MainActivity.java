@@ -16,8 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
-import com.sanke46.android.e_commerce.adapter.ViewPagerAdapter;
+import com.sanke46.android.e_commerce.adapter.MainViewPageAdapter;
 import com.sanke46.android.e_commerce.ui.navigation.AboutDelevery;
 import com.sanke46.android.e_commerce.ui.navigation.BasketActivity;
 import com.sanke46.android.e_commerce.ui.navigation.ChatActivity;
@@ -76,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         View hView =  navigationView.getHeaderView(0);
 
         //set viewpager adapter
-        ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        MainViewPageAdapter pagerAdapter = new MainViewPageAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
 
         //change Tab selection when swipe ViewPager

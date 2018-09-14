@@ -1,9 +1,12 @@
 package com.sanke46.android.e_commerce.adapter;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.sanke46.android.e_commerce.ui.navigation.ProfilePages.ProfileHistoryActivity;
+import com.sanke46.android.e_commerce.ui.navigation.ProfilePages.ProfileInfoActivity;
 import com.sanke46.android.e_commerce.ui.orderable.Drinks;
 import com.sanke46.android.e_commerce.ui.orderable.Pizza;
 import com.sanke46.android.e_commerce.ui.orderable.Sushi;
@@ -12,25 +15,24 @@ import com.sanke46.android.e_commerce.ui.orderable.Sushi;
  * Created by ilafedoseev on 05.02.17.
  */
 
-public class ViewPagerAdapter extends FragmentPagerAdapter {
+public class ProfileViewPageAdapter extends FragmentPagerAdapter {
 
-    public ViewPagerAdapter(FragmentManager fm) {
+
+    public ProfileViewPageAdapter(Context context, FragmentManager fm) {
         super(fm);
     }
 
     @Override
     public Fragment getItem(int position) {
         if(position == 0 ){
-            return new Pizza();
-        } else if(position == 1) {
-            return new Sushi();
+            return new ProfileInfoActivity();
         } else {
-            return  new Drinks();
+            return  new ProfileHistoryActivity();
         }
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return 2;
     }
 }

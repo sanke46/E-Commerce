@@ -41,6 +41,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        style="@style/MediumTextStyle"
                         android:text="@string/discount"
                         android:textSize="@dimen/titlesSize" />
 
@@ -79,6 +80,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        style="@style/MediumTextStyle"
                         android:layout_marginLeft="0dp"
                         android:layout_marginTop="@dimen/seconTitleMarginTop"
                         android:text="@string/all_products"

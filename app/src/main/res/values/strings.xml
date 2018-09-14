@@ -81,6 +81,7 @@
     <string name="title_mail_accaunt">Your mail</string>
     <string name="password_accaunt">**************</string>
     <string name="title_password_accaunt">Your password</string>
+    <string name="save">Save</string>
     <!-- Profile info -->
 
     <!-- Order -->
@@ -108,5 +109,6 @@
     <string name="password">Password</string>
     <string name="instruction">by tapping \'Sing up\' you agree to the conditions</string>
     <string name="submit">submit</string>
+
 
 </resources>

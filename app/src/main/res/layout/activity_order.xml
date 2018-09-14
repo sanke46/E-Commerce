@@ -39,7 +39,7 @@
             android:layout_marginTop="@dimen/addDP"
             android:layout_weight="5"
             android:src="@drawable/ic_cashbox"
-            android:tint="#767676"/>
+            android:tint="#767676" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,13 +52,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="left"
                 android:fontFamily="@font/manrope_bold"
+                android:gravity="left"
                 android:text="@string/information_about_devilery"
+                android:textAllCaps="true"
                 android:textColor="@color/BlackGrey"
                 android:textSize="@dimen/TitleSize_order" />
 
             <TextView
+                style="@style/MediumTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="left"
@@ -90,7 +92,7 @@
                 android:paddingRight="@dimen/mainPadding"
                 android:src="@drawable/ic_person_black_24dp"
                 android:tint="@color/iconColor"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <ProgressBar
                 android:id="@+id/userProgressBarOrder"
@@ -99,6 +101,7 @@
 
             <EditText
                 android:id="@+id/editDN"
+                style="@style/RegularTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/grayLight"
@@ -135,7 +138,7 @@
                         android:paddingRight="@dimen/mainPadding"
                         android:src="@drawable/ic_place_black_24dp"
                         android:tint="@color/iconColor"
-                        android:visibility="gone"/>
+                        android:visibility="gone" />
 
                     <ProgressBar
                         android:id="@+id/placeProgressBar"
@@ -150,6 +153,7 @@
 
                         <EditText
                             android:id="@+id/editDC"
+                            style="@style/RegularTextStyle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/grayLight"
@@ -169,6 +173,7 @@
 
                         <EditText
                             android:id="@+id/editDS"
+                            style="@style/RegularTextStyle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/grayLight"
@@ -189,6 +194,7 @@
 
                 <EditText
                     android:id="@+id/editDH"
+                    style="@style/RegularTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -201,6 +207,7 @@
 
                 <EditText
                     android:id="@+id/editDF"
+                    style="@style/RegularTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -229,7 +236,7 @@
                 android:paddingRight="@dimen/mainPadding"
                 android:src="@drawable/ic_smartphone_black_24dp"
                 android:tint="@color/iconColor"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <ProgressBar
                 android:id="@+id/phoneProgressBar"
@@ -238,6 +245,7 @@
 
             <EditText
                 android:id="@+id/editDP"
+                style="@style/RegularTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/grayLight"
@@ -258,6 +266,7 @@
             android:paddingLeft="@dimen/extraDP">
 
             <TextView
+                style="@style/RegularTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -271,6 +280,7 @@
 
                 <RadioButton
                     android:id="@+id/radio_pirates"
+                    style="@style/RegularTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/mainPadding"
@@ -279,6 +289,7 @@
 
                 <RadioButton
                     android:id="@+id/radio_ninjas"
+                    style="@style/RegularTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/payment_method"
@@ -299,6 +310,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="1dp"
             android:background="@color/colorBlue"
+            android:fontFamily="@font/manrope_semibold"
             android:text="@string/next_step" />
     </LinearLayout>
 

@@ -1,5 +1,6 @@
 package com.sanke46.android.e_commerce.ViewModel;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.EditText;
@@ -16,16 +17,17 @@ import com.google.firebase.database.ValueEventListener;
 import com.sanke46.android.e_commerce.Utility.Helper;
 import com.sanke46.android.e_commerce.model.UserProfile;
 import com.sanke46.android.e_commerce.ui.navigation.ProfileActivity;
+import com.sanke46.android.e_commerce.ui.navigation.ProfilePages.ProfileInfoActivity;
 
 import java.util.ArrayList;
 
-public class ProfileViewModel {
+public class ProfileInfoViewModel {
 
     public static final String TAG = ProfileActivity.class.getSimpleName();
     public  static final String NAME = "Profile";
     public boolean unvisiblePassword = false;
 
-    private ProfileActivity profileActivity;
+    private ProfileInfoActivity profileInfoActivity;
     private Helper helper;
     private UserProfile userProfile;
     private DatabaseReference mDatabase;
@@ -34,9 +36,9 @@ public class ProfileViewModel {
     private FirebaseUser user;
     private String userId;
 
-    public ProfileViewModel(ProfileActivity profileActivity) {
-        this.profileActivity = profileActivity;
-        helper = new Helper(profileActivity.getApplicationContext());
+    public ProfileInfoViewModel(ProfileInfoActivity profileInfoActivity) {
+        this.profileInfoActivity = profileInfoActivity;
+        helper = new Helper(profileInfoActivity.getContext());
         mDatabase = FirebaseDatabase.getInstance().getReference();
         unicDataBase = mDatabase.child("users");
         mAuth = FirebaseAuth.getInstance();
@@ -72,7 +74,7 @@ public class ProfileViewModel {
                     }
                 }
 
-                helper.doneLoadingActivity(profileActivity.contentLayout, profileActivity.progressBar);
+                helper.doneLoadingActivity(profileInfoActivity.contentLayout, profileInfoActivity.progressBar);
 
                 userProfile.setName(dbAboutUser.get(0));
                 userProfile.setPhone(dbAboutUser.get(1));
@@ -83,15 +85,11 @@ public class ProfileViewModel {
                 userProfile.setHouse(dbAboutUser.get(6));
                 userProfile.setFlat(dbAboutUser.get(7));
 
-                profileActivity.autoChangeEditTextAboutUser(userProfile);
-
-
+                profileInfoActivity.autoChangeEditTextAboutUser(userProfile);
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
+            public void onCancelled(DatabaseError databaseError) { }
         });
 
     }

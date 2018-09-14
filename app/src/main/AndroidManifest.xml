@@ -33,7 +33,8 @@
             android:name=".ui.navigation.AboutDelevery"
             android:label="@string/title_activity_about_delevery"
             android:theme="@style/AppTheme" />
-        <activity android:name=".ui.navigation.ProfileActivity" />
+        <activity android:name=".ui.navigation.ProfileActivity"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".ui.navigation.SalesActivity" />
         <activity
             android:name=".ui.navigation.LoginActivity"

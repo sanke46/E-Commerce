@@ -41,6 +41,7 @@
         android:textSize="23dp"
         android:textStyle="bold"
         android:gravity="center"
+        style="@style/BoldTextStyle"
         android:layout_marginBottom="15dp"
         android:layout_marginTop="@dimen/_30sdp"
         />
@@ -76,6 +77,7 @@
                     android:paddingLeft="20dp"
                     android:layout_marginBottom="14dp"
                     android:textSize="16sp"
+                    style="@style/RegularTextStyle"
                     android:background="@drawable/edit_text"/>
 
 
@@ -95,6 +97,7 @@
                     android:paddingLeft="20dp"
                     android:layout_marginBottom="14dp"
                     android:textSize="16sp"
+                    style="@style/RegularTextStyle"
                     android:background="@drawable/edit_text"
                     android:inputType="textPassword"/>
 
@@ -103,7 +106,7 @@
 
             <Button
                 android:id="@+id/sign_in_button"
-                style="?android:textAppearanceSmall"
+                style="@style/MediumTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -122,6 +125,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    style="@style/RegularTextStyle"
                     android:textColor="#fff"
                     android:gravity="center"
                     android:text="@string/forgot_password"/>
@@ -130,6 +134,7 @@
                     android:id="@+id/needAccaunt"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    style="@style/RegularTextStyle"
                     android:layout_weight="1"
                     android:textColor="#fff"
                     android:gravity="center"

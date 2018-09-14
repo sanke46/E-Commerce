@@ -61,17 +61,13 @@ public class OrderActivityViewModel {
         order.setTotalPrice(getTotalPrice(itemList));
         order.setAdress(city.getText().toString() + " " + street.getText().toString() + " " + house.getText().toString() + " " + flat.getText().toString());
 
-        dbRef.child(userId).child("history").child(String.valueOf(orderId)).child("payment").setValue(order.getPayment());
-        dbRef.child(userId).child("history").child(String.valueOf(orderId)).child("totalPrice").setValue(order.getTotalPrice());
-        dbRef.child(userId).child("history").child(String.valueOf(orderId)).child("adress").setValue(order.getAdress());
-        dbRef.child(userId).child("history").child(String.valueOf(orderId)).child("phone").setValue(order.getPhone());
-        dbRef.child(userId).child("history").child(String.valueOf(orderId)).child("time").setValue(order.getTime());
-        dbRef.child(userId).child("history").child(String.valueOf(orderId)).child("items").setValue(order.getListOfBuyProducts());
+        dbRef.child(userId).child("history").child(String.valueOf(currentTime.format(resultdate))).child("payment").setValue(order.getPayment());
+        dbRef.child(userId).child("history").child(String.valueOf(currentTime.format(resultdate))).child("totalPrice").setValue(order.getTotalPrice());
+        dbRef.child(userId).child("history").child(String.valueOf(currentTime.format(resultdate))).child("adress").setValue(order.getAdress());
+        dbRef.child(userId).child("history").child(String.valueOf(currentTime.format(resultdate))).child("phone").setValue(order.getPhone());
+        dbRef.child(userId).child("history").child(String.valueOf(currentTime.format(resultdate))).child("time").setValue(order.getTime());
+        dbRef.child(userId).child("history").child(String.valueOf(currentTime.format(resultdate))).child("items").setValue(order.getListOfBuyProducts());
 
-        getOrederId();
-//        int changeId = Integer.parseInt(orderId);
-        int changeId = 999;
-        orderIdRef.child("currentOrder").setValue(changeId - 1);
         basketViewModel.cleanBasket();
 //        orderActivity.getApplicationContext().startActivity(new Intent(orderActivity.getApplicationContext(), Payment.class));
     }
@@ -86,19 +82,6 @@ public class OrderActivityViewModel {
         return String.valueOf(resultPrice);
     }
 
-    public void getOrederId() {
-        orderIdRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                orderId = dataSnapshot.getValue().toString();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-    }
 
     // method to find information about user
     public void InformationAboutUser() {

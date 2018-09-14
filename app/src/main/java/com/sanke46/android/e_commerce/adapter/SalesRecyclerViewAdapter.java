@@ -59,7 +59,7 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
         holder.name.setText(item.getName());
         holder.comment.setText(item.getComment());
         holder.gramm.setText(item.converGramms(String.valueOf(item.getGramms())));
-        holder.kal.setText(item.getKalories() + " kal");
+        holder.kal.setText(item.getKalories() + " kal.");
         holder.addToCart.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
             @Override
@@ -68,13 +68,11 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
                 basketViewModel.setBasketItem(itemList);
                 holder.tt.setVisibility(View.VISIBLE);
                 StartSmartAnimation.startAnimation(holder.imageView, AnimationType.FadeOut, 600, 200, false);
-//                StartSmartAnimation.startAnimation(holder.salePrice, AnimationType.SlideOutRight, 1000, 0, false);
-                StartSmartAnimation.startAnimation(holder.name, AnimationType.FadeOut, 1000, 200, false);
+                StartSmartAnimation.startAnimation(holder.name, AnimationType.FadeOut, 600, 200, false);
                 StartSmartAnimation.startAnimation(holder.comment, AnimationType.FadeOut, 600, 200, false);
                 StartSmartAnimation.startAnimation(holder.tt, AnimationType.BounceIn, 1000, 200, false);
 
                 StartSmartAnimation.startAnimation(holder.imageView, AnimationType.FadeIn, 600, 900, false);
-//                StartSmartAnimation.startAnimation(holder.salePrice, AnimationType.SlideInRight, 2000, 450, false);
                 StartSmartAnimation.startAnimation(holder.name, AnimationType.FadeIn, 600, 900, false);
                 StartSmartAnimation.startAnimation(holder.comment, AnimationType.FadeIn, 600, 900, false);
                 Snackbar snackbar = Snackbar.make(view, "Add to cart", Snackbar.LENGTH_SHORT);

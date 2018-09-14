@@ -64,6 +64,7 @@
                 android:id="@+id/name"
                 android:layout_marginBottom="3dp"
                 android:textColor="@color/bgWhite"
+                style="@style/SemiBoldTextStyle"
                 android:textSize="@dimen/titleTextSize" />
 
             <TextView
@@ -72,6 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/imageSale"
                 android:textColor="@color/bgWhite"
+                style="@style/RegularTextStyle"
                 android:textSize="@dimen/underTitleSize"/>
 
         </LinearLayout>
@@ -101,6 +103,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/bgWhite"
+                style="@style/RegularTextStyle"
                 android:textSize="@dimen/titleTextSize"
                 />
 
@@ -131,6 +134,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/marginText"
             android:textColor="@color/BlackGrey"
+            style="@style/RegularTextStyle"
             android:textSize="@dimen/salesSizeText" />
 
         <TextView
@@ -145,6 +149,7 @@
             android:paddingTop="@dimen/padTextTB"
             android:gravity="center"
             android:layout_marginRight="@dimen/marginText"
+            style="@style/RegularTextStyle"
             android:textSize="@dimen/salesSizeText"
             android:textColor="@color/textColorBox" />
 
@@ -160,6 +165,7 @@
             android:paddingTop="@dimen/padTextTB"
             android:gravity="center"
             android:layout_marginRight="@dimen/marginText"
+            style="@style/RegularTextStyle"
             android:textSize="@dimen/salesSizeText"
             android:textColor="@color/textColorBox" />
 
@@ -172,6 +178,7 @@
             android:textSize="@dimen/titleTextSize"
             android:background="@drawable/border_button"
             android:text="+"
+            style="@style/RegularTextStyle"
             android:textColor="@android:color/white" />
 
     </LinearLayout>

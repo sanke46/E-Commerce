@@ -34,7 +34,11 @@
             android:divider="@null"
             android:dividerHeight="0dp"
             android:layout_marginBottom="65dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:stackFromBottom="true"
+            android:clipToPadding="false"
+            android:scrollbarStyle="outsideOverlay"
             android:transcriptMode="alwaysScroll"/>
 
         <LinearLayout
@@ -54,6 +58,7 @@
                 android:background="@color/bgWhite"
                 android:textColor="@color/BlackGrey"
                 android:padding="10dp"
+                style="@style/RegularTextStyle"
                 android:hint="Your text"
 
                 android:layout_height="match_parent" />

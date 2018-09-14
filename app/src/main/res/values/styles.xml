@@ -33,4 +33,30 @@
         <item name="android:textColor">@color/colorBlue</item>
     </style>
 
+    <style name="BoldTextStyle">
+        <item name="android:fontFamily">@font/manrope_bold</item>
+    </style>
+
+    <style name="SemiBoldTextStyle">
+        <item name="android:fontFamily">@font/manrope_semibold</item>
+    </style>
+
+    <style name="MediumTextStyle">
+        <item name="android:fontFamily">@font/manrope_medium</item>
+    </style>
+
+    <style name="RegularTextStyle">
+        <item name="android:fontFamily">@font/manrope_regular</item>
+    </style>
+
+    <style name="LightTextStyle">
+        <item name="android:fontFamily">@font/manrope_light</item>
+    </style>
+
+    <style name="ThinTextStyle">
+        <item name="android:fontFamily">@font/manrope_thin</item>
+    </style>
+
+
+
 </resources>
