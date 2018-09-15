@@ -32,7 +32,6 @@ public class ChatActivity extends AppCompatActivity {
     private ChatViewModel chatViewModel;
     private ListView mChatListView;
     private ChatListAdapter mChatListViewAdapter;
-    private static final int NOTIFY_ID = 101;
 
     public RelativeLayout mainLayout;
     public RelativeLayout progressBar;
@@ -64,7 +63,7 @@ public class ChatActivity extends AppCompatActivity {
         mChatListView.setAdapter(mChatListViewAdapter);
         chatViewModel.getAllPreviosChat(mChatListViewAdapter);
 
-        sendMessage.setOnClickListener(view -> chatViewModel.addTextToChat(mChatListViewAdapter));
+        sendMessage.setOnClickListener(view -> chatViewModel.addTextToChat());
     }
 
     @Override

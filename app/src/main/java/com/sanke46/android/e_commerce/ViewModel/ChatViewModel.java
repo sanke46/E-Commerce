@@ -21,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.Utility.Helper;
 import com.sanke46.android.e_commerce.adapter.ChatListAdapter;
+import com.sanke46.android.e_commerce.fireBase.FirebaseHandler;
 import com.sanke46.android.e_commerce.model.Chat;
 import com.sanke46.android.e_commerce.ui.navigation.ChatActivity;
 
@@ -31,74 +32,27 @@ import java.util.Date;
 public class ChatViewModel {
 
     public ArrayList<Chat> listChat = new ArrayList<>();
-    private static final int NOTIFY_ID = 101;
-    private Chat chatItem;
 
     private ChatActivity chatActivity;
-    private Helper helper;
-    private DatabaseReference mDatabase;
-    private FirebaseAuth mAuth;
-    private DatabaseReference unicDataBase;
-    private FirebaseUser user;
-    private String userId;
+    private FirebaseHandler firebaseHandler;
 
     public ChatViewModel(ChatActivity chatActivity) {
         this.chatActivity = chatActivity;
-        helper = new Helper(chatActivity.getApplicationContext());
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        unicDataBase = mDatabase.child("users");
-        mAuth = FirebaseAuth.getInstance();
-        user = mAuth.getCurrentUser();
-        userId = user.getUid();
+        firebaseHandler = new FirebaseHandler();
     }
 
     public void getAllPreviosChat(final ChatListAdapter chatAdapter) {
-
-        unicDataBase.child(userId).child("chat").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                listChat.clear();
-                for (final DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    chatItem = snapshot.getValue(Chat.class);
-                    listChat.add(chatItem);
-
-                }
-                chatAdapter.notifyDataSetChanged();
-                if(listChat.size() == 0) addFirstMessage();
-                helper.doneLoadingActivity(chatActivity.mainLayout, chatActivity.progressBar);
-                sendSound();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+        firebaseHandler.getAllChat(chatActivity, this, listChat, chatAdapter);
     }
 
-    public void addTextToChat(final ChatListAdapter chatAdapter){
-        long yourmilliseconds = System.currentTimeMillis();
-        SimpleDateFormat currentTime = new SimpleDateFormat("MM/dd/yy HH:mm");
-        Date resultdate = new Date(yourmilliseconds);
-        String convertTime = currentTime.format(yourmilliseconds);
-
-        unicDataBase.child(userId).child("chat").child(resultdate.toString()).child("text").setValue(chatActivity.messageEditText.getText().toString());
-        unicDataBase.child(userId).child("chat").child(resultdate.toString()).child("time").setValue(convertTime);
-        unicDataBase.child(userId).child("chat").child(resultdate.toString()).child("user").setValue(userId);
+    public void addTextToChat() {
+        firebaseHandler.addInformationToChat(this, chatActivity.messageEditText.getText().toString(), getCurrentTime());
         chatActivity.messageEditText.setText("");
-
         chatActivity.refreshUi();
     }
 
     public void addFirstMessage() {
-        long yourmilliseconds = System.currentTimeMillis();
-        SimpleDateFormat currentTime = new SimpleDateFormat("MM/dd/yy HH:mm");
-        Date resultdate = new Date(yourmilliseconds);
-        String convertTime = currentTime.format(yourmilliseconds);
-
-        unicDataBase.child(userId).child("chat").child(resultdate.toString()).child("user").setValue("admin");
-        unicDataBase.child(userId).child("chat").child(resultdate.toString()).child("text").setValue("hello, here you can write all what you want to know, or same problem what you have at this moment");
-        unicDataBase.child(userId).child("chat").child(resultdate.toString()).child("time").setValue(convertTime);
+        firebaseHandler.addFirstAdminInformation(this,"hello, here you can write all what you want to know, or same problem what you have at this moment", getCurrentTime());
         chatActivity.refreshUi();
     }
 
@@ -112,5 +66,19 @@ public class ChatViewModel {
     public void sendSound() {
         MediaPlayer mp = MediaPlayer.create(chatActivity.getApplicationContext(), R.raw.chat_sound);
         mp.start();
+    }
+
+    public String getCurrentTime() {
+        long yourmilliseconds = System.currentTimeMillis();
+        SimpleDateFormat currentTime = new SimpleDateFormat("MM/dd/yy HH:mm");
+        String convertTime = currentTime.format(yourmilliseconds);
+
+        return convertTime;
+    }
+
+    public String getDateForFireBase() {
+        long yourmilliseconds = System.currentTimeMillis();
+        Date resultdate = new Date(yourmilliseconds);
+        return resultdate.toString();
     }
 }

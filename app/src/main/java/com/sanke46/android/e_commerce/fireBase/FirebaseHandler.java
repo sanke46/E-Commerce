@@ -1,5 +1,7 @@
 package com.sanke46.android.e_commerce.fireBase;
 
+import android.content.Context;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -12,12 +14,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.sanke46.android.e_commerce.Utility.Helper;
+import com.sanke46.android.e_commerce.ViewModel.ChatViewModel;
+import com.sanke46.android.e_commerce.adapter.ChatListAdapter;
 import com.sanke46.android.e_commerce.adapter.HistoryListAdapter;
 import com.sanke46.android.e_commerce.adapter.RecyclerViewAdapter;
 import com.sanke46.android.e_commerce.adapter.SalesRecyclerViewAdapter;
 import com.sanke46.android.e_commerce.model.Chat;
 import com.sanke46.android.e_commerce.model.Item;
 import com.sanke46.android.e_commerce.model.Order;
+import com.sanke46.android.e_commerce.ui.navigation.ChatActivity;
 import com.sanke46.android.e_commerce.ui.navigation.OrderActivity;
 
 import java.util.ArrayList;
@@ -25,6 +31,7 @@ import java.util.ArrayList;
 public class FirebaseHandler {
 
     private static final String TAG = FirebaseHandler.class.getSimpleName();
+    private Helper helper;
     private Item item;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference("product");
@@ -118,5 +125,43 @@ public class FirebaseHandler {
             }
         });
         return arrayHistory;
+    }
+
+    /** Chat Activity **/
+
+    public void getAllChat(ChatActivity chatActivity, ChatViewModel chatViewModel, ArrayList listChat, ChatListAdapter adapter) {
+        helper = new Helper(chatActivity.getApplicationContext());
+        dbRef.child("users").child(userId).child("chat").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                listChat.clear();
+                for (final DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    Chat chatItem = snapshot.getValue(Chat.class);
+                    listChat.add(chatItem);
+
+                }
+                adapter.notifyDataSetChanged();
+                if(listChat.size() == 0) chatViewModel.addFirstMessage();
+                helper.doneLoadingActivity(chatActivity.mainLayout, chatActivity.progressBar);
+                chatViewModel.sendSound();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    public void addInformationToChat(ChatViewModel chatViewModel, String text, String time) {
+        dbRef.child("users").child(userId).child("chat").child(chatViewModel.getDateForFireBase()).child("user").setValue(userId);
+        dbRef.child("users").child(userId).child("chat").child(chatViewModel.getDateForFireBase()).child("text").setValue(text);
+        dbRef.child("users").child(userId).child("chat").child(chatViewModel.getDateForFireBase()).child("time").setValue(time);
+    }
+
+    public void addFirstAdminInformation(ChatViewModel chatViewModel, String text, String time) {
+        dbRef.child("users").child(userId).child("chat").child(chatViewModel.getDateForFireBase()).child("user").setValue("admin");
+        dbRef.child("users").child(userId).child("chat").child(chatViewModel.getDateForFireBase()).child("text").setValue(text);
+        dbRef.child("users").child(userId).child("chat").child(chatViewModel.getDateForFireBase()).child("time").setValue(time);
     }
 }
