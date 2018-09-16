@@ -1,80 +1,71 @@
 package com.sanke46.android.e_commerce.model;
 
+import java.util.List;
+
 public class Order {
-    private int id;
-    private String etnS,etcS,etsS,ethnS,etfS,etpnS;
+    private String payment;
+    private String time;
+    private String adress;
+    private String phone;
+    private List<Item> listOfBuyProducts;
+    private String totalPrice;
 
-    public Order(int id,String etnS,String etcS,String etsS,String ethnS, String etfS, String etpnS){
-        this.id = id;
-        this.etnS = etnS;
-        this.etcS = etcS;
-        this.etsS = etsS;
-        this.ethnS = ethnS;
-        this.etfS = etfS;
-        this.etpnS = etpnS;
+    public Order(String payment, String time, String adress, String phone, List<Item> listOfBuyProducts, String totalPrice) {
+        this.payment = payment;
+        this.time = time;
+        this.adress = adress;
+        this.phone = phone;
+        this.listOfBuyProducts = listOfBuyProducts;
+        this.totalPrice = totalPrice;
     }
 
-    public Order() {
+    public Order() {}
 
+    public String getPayment() {
+        return payment;
     }
 
-    //getters
-    public String getEtcS() {
-        return etcS;
+    public void setPayment(String payment) {
+        this.payment = payment;
     }
 
-    public String getEtfS() {
-        return etfS;
+    public String getTime() {
+        return time;
     }
 
-    public String getEthnS() {
-        return ethnS;
+    public void setTime(String time) {
+        this.time = time;
     }
 
-    public String getEtnS() {
-        return etnS;
+    public List<Item> getListOfBuyProducts() {
+        return listOfBuyProducts;
     }
 
-    public String getEtpnS() {
-        return etpnS;
+    public void setListOfBuyProducts(List<Item> listOfBuyProducts) {
+        this.listOfBuyProducts = listOfBuyProducts;
     }
 
-    public String getEtsS() {
-        return etsS;
+    public String getTotalPrice() {
+        return totalPrice;
     }
 
-    public int getId() {
-        return id;
+    public void setTotalPrice(String totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
-
-    //setters
-
-    public void setEtcS(String etcS) {
-        this.etcS = etcS;
+    public String getAdress() {
+        return adress;
     }
 
-    public void setEtfS(String etfS) {
-        this.etfS = etfS;
+    public void setAdress(String adress) {
+        this.adress = adress;
     }
 
-    public void setEthnS(String ethnS) {
-        this.ethnS = ethnS;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setEtnS(String etnS) {
-        this.etnS = etnS;
-    }
-
-    public void setEtpnS(String etpnS) {
-        this.etpnS = etpnS;
-    }
-
-    public void setEtsS(String etsS) {
-        this.etsS = etsS;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

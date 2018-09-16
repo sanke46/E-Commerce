@@ -1,32 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:checkableBehavior="single">
     <item
         android:id="@+id/catalog"
-        android:icon="@drawable/ic_local_pizza_black_24px"
+        android:icon="@drawable/ic_shopping_bag"
         android:title="Catalog" />
 
     <item
         android:id="@+id/sales"
-        android:icon="@drawable/ic_local_offer_black_24px"
-        android:title="Sales" />
+        android:icon="@drawable/ic_discount_2"
+        android:title="Sales"
+        android:iconTint="#ddd" />
 
     <item
         android:id="@+id/order"
-        android:icon="@drawable/ic_shopping_basket_black_24px"
+        android:icon="@drawable/ic_shopping_cart"
         android:title="My order" />
 
     <item
         android:id="@+id/about"
-        android:icon="@drawable/ic_info_black_24px"
+        android:icon="@drawable/ic_grocery"
         android:title="About Delevery" />
 
     <item
         android:id="@+id/profile"
-        android:icon="@drawable/ic_account_circle_black_24px"
-        android:title="Profile" />
-
+        android:icon="@drawable/ic_user_info_interface_symbol_with_text_lines_at_right_side"
+    android:title="Profile" />
     <item
         android:id="@+id/sing_out"
-        android:icon="@drawable/ic_backspace_black_24px"
+        android:icon="@drawable/ic_login_arrow_symbol_entering_back_into_a_square"
         android:title="Sing out" />
+
+    <item android:title="More">
+        <menu>
+            <item
+                android:id="@+id/chat"
+                android:icon="@drawable/ic_oval_empty_outlined_speech_bubble"
+                android:title="Chat" />
+            <item
+                android:id="@+id/setting"
+                android:icon="@drawable/ic_gear_outlined_symbol"
+                android:title="Settings"
+                android:iconTint="@color/colorBlue"/>
+        </menu>
+    </item>
 </menu>

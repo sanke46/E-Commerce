@@ -1,20 +1,24 @@
 package com.sanke46.android.e_commerce.fireBase;
 
-import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
+import com.sanke46.android.e_commerce.adapter.HistoryListAdapter;
+import com.sanke46.android.e_commerce.adapter.RecyclerViewAdapter;
 import com.sanke46.android.e_commerce.adapter.SalesRecyclerViewAdapter;
+import com.sanke46.android.e_commerce.model.Chat;
 import com.sanke46.android.e_commerce.model.Item;
+import com.sanke46.android.e_commerce.model.Order;
+import com.sanke46.android.e_commerce.ui.navigation.OrderActivity;
 
 import java.util.ArrayList;
 
@@ -22,47 +26,60 @@ public class FirebaseHandler {
 
     private static final String TAG = FirebaseHandler.class.getSimpleName();
     private Item item;
-    FirebaseStorage storage = FirebaseStorage.getInstance("gs://e-commerce-ddd1c.appspot.com");
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference("product");
-    private StorageReference mStorageRef = FirebaseStorage.getInstance().getReference();
 
-    public ArrayList<Item> getAllSalesItem(final ArrayList<Item> arrayOfItemProduct, final SalesRecyclerViewAdapter adapter){
-        myRef.addValueEventListener(new ValueEventListener() {
+    private DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
+//    private DatabaseReference orderIdRef = FirebaseDatabase.getInstance().getReference();
+    private FirebaseAuth userAuth = FirebaseAuth.getInstance();
+    private FirebaseUser user = userAuth.getCurrentUser();
+    private String userId = user.getUid();
+
+
+    /** MainActivity : menu **/
+    public ArrayList<Item> getAllSalesItem(String titleProduct,
+                                           final ArrayList<Item> arrayOfItemProduct,
+                                           final SalesRecyclerViewAdapter adapter,
+                                           final ProgressBar progressBar,
+                                           final LinearLayout mContentLayout){
+        arrayOfItemProduct.clear();
+        myRef.child(titleProduct).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (progressBar != null) {
+                    mContentLayout.setVisibility(LinearLayout.VISIBLE);
+                    progressBar.setVisibility(View.GONE);
+                }
+
+                for (final DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    item = snapshot.getValue(Item.class);
+                    if(item.isSales()) {
+                        arrayOfItemProduct.add(item);
+                    }
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+        return arrayOfItemProduct;
+    }
+
+    public ArrayList<Item> getAllItem(String titleProduct, final ArrayList<Item> arrayOfItemProduct, final RecyclerViewAdapter adapter){
+        arrayOfItemProduct.clear();
+        myRef.child(titleProduct).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (final DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    System.out.println("!!!!!!!!" + snapshot);
-                    // This method is called once with the initial value and again
-                    // whenever data at this location is updated.
                     item = snapshot.getValue(Item.class);
-                    item.setImageUrl("http://takioki.ru/wp-content/uploads/2016/06/1-skolko-zharit-polufabrikaty.jpg");
-                    System.out.println("Url : " + item.getImageUrl());
+                    if(!item.isSales()) {
+                        arrayOfItemProduct.add(item);
 
-//                    System.out.println(item.getKalories() + " !!!!");
-//                    System.out.println(item.getDiscontPrice() + " !!!!");
-//                  ArrayList<Item> items = new ArrayList<>();
-//                    mStorageRef.child("image/pizza.jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-//                        @Override
-//                        public void onSuccess(Uri uri) {
-//                            item.setImageUrl(uri.toString());
-//                        }
-//                    });
-
-//                    Helper.showDialog(this);
-                    mStorageRef.child("image").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-//                            Helper.dismissDialog();
-                            Log.d("FireBaseHandler", uri.toString());
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception exception) {
-                        }
-                    });
-
-                    arrayOfItemProduct.add(item);
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -74,7 +91,32 @@ public class FirebaseHandler {
             }
         });
 
+
         return arrayOfItemProduct;
 
+    }
+
+    /** Profile History Activity **/
+
+    public ArrayList<Order> getHistoryOrder(final ArrayList<Order> arrayHistory, final HistoryListAdapter adapter){
+        arrayHistory.clear();
+        dbRef.child("users").child(userId).child("history").addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (final DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Order order = snapshot.getValue(Order.class);
+                    arrayHistory.add(order);
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+        return arrayHistory;
     }
 }

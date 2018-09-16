@@ -4,20 +4,45 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_weight="1"
     android:layout_marginBottom="10dp">
 
     <RelativeLayout
+        android:id="@+id/linerClick"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/marginText"
         android:layout_marginRight="@dimen/marginText">
 
-    <ImageView
+        <LinearLayout
+            android:id="@+id/addCartIcon"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:tint="#ddd"
+                android:background="@drawable/cycle_icon"
+                android:padding="@dimen/_9sdp"
+                android:layout_marginBottom="4dp"
+                android:src="@drawable/ic_shopping_basket"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="add to cart"/>
+        </LinearLayout>
+
+        <ImageView
         android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_98sdp"
         android:scaleType="fitXY"
-        android:src="@drawable/pizza"/>
+        android:src="@drawable/logotwo"/>
 
         <View
             android:layout_width="match_parent"
@@ -30,6 +55,7 @@
             android:orientation="vertical"
             android:layout_marginBottom="25dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_alignBottom="@+id/image">
 
             <TextView
@@ -38,18 +64,21 @@
                 android:id="@+id/name"
                 android:textColor="@color/bgWhite"
                 android:textSize="@dimen/titleTextSize"
+                style="@style/SemiBoldTextStyle"
                 android:text="Pizza with mushrooms and prosciutto"/>
 
             <TextView
+                android:id="@+id/commentProduct"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/imageSale"
                 android:textColor="@color/bgWhite"
                 android:textSize="@dimen/textSizeunderTitlelittleBox"
+                android:singleLine="true"
+                style="@style/RegularTextStyle"
                 android:text="Lorem ipsum dolor sit amet..."/>
 
         </LinearLayout>
-
     </RelativeLayout>
 
     <LinearLayout
@@ -77,11 +106,12 @@
                 android:layout_marginTop="1dp"
                 android:layout_marginLeft="3dp"
                 android:text="12 $"
+                android:fontFamily="@font/manrope_medium"
                 android:textColor="@color/BlackGrey"
                 android:textSize="@dimen/salesSizeText" />
 
             <TextView
-                android:id="@+id/kal"
+                android:id="@+id/gramm"
                 android:layout_weight="1.2"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/heightBox"
@@ -94,6 +124,7 @@
                 android:gravity="center"
                 android:layout_marginRight="@dimen/marginText"
                 android:textSize="@dimen/salesSizeText"
+                style="@style/RegularTextStyle"
                 android:textColor="@color/textColorBox" />
 
             <Button
@@ -105,11 +136,9 @@
                 android:textSize="@dimen/titleTextSize"
                 android:background="@drawable/border_button"
                 android:text="+"
+                style="@style/RegularTextStyle"
                 android:textColor="@android:color/white" />
 
-
         </LinearLayout>
-
     </LinearLayout>
-
 </LinearLayout>

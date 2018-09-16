@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="@dimen/_240sdp"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/linerSaleClick"
     android:orientation="vertical"
     android:layout_weight="1">
 
@@ -11,17 +12,40 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp">
 
+        <LinearLayout
+            android:id="@+id/add"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:tint="#ddd"
+                android:background="@drawable/cycle_icon"
+                android:padding="@dimen/_13sdp"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/ic_shopping_basket"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_to_cart"/>
+        </LinearLayout>
+
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/imageSale"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_160sdp"
-            android:scaleType="fitXY"
-            android:src="@drawable/pizza"
-            android:clickable="true"/>
+            android:layout_height="@dimen/_150sdp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_items"
+            />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_160sdp"
+            android:layout_height="@dimen/_150sdp"
             android:background="@drawable/gradient_img"/>
 
 
@@ -40,8 +64,8 @@
                 android:id="@+id/name"
                 android:layout_marginBottom="3dp"
                 android:textColor="@color/bgWhite"
-                android:textSize="@dimen/titleTextSize"
-                android:text="Pizza with mushrooms and prosciutto"/>
+                style="@style/SemiBoldTextStyle"
+                android:textSize="@dimen/titleTextSize" />
 
             <TextView
                 android:id="@+id/comments"
@@ -49,12 +73,14 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/imageSale"
                 android:textColor="@color/bgWhite"
-                android:textSize="@dimen/underTitleSize"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis omnis distinctio"/>
+                style="@style/RegularTextStyle"
+                android:textSize="@dimen/underTitleSize"/>
 
         </LinearLayout>
 
+
         <LinearLayout
+            android:id="@+id/salesPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/paddingLinerSales"
@@ -77,8 +103,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/bgWhite"
+                style="@style/RegularTextStyle"
                 android:textSize="@dimen/titleTextSize"
-                android:text="200 $"/>
+                />
 
         </LinearLayout>
 
@@ -106,8 +133,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/marginText"
-            android:text="$ 4400"
             android:textColor="@color/BlackGrey"
+            style="@style/RegularTextStyle"
             android:textSize="@dimen/salesSizeText" />
 
         <TextView
@@ -120,9 +147,9 @@
             android:paddingLeft="@dimen/padTextLR"
             android:paddingRight="@dimen/padTextLR"
             android:paddingTop="@dimen/padTextTB"
-            android:text="14000 kal"
             android:gravity="center"
             android:layout_marginRight="@dimen/marginText"
+            style="@style/RegularTextStyle"
             android:textSize="@dimen/salesSizeText"
             android:textColor="@color/textColorBox" />
 
@@ -136,9 +163,9 @@
             android:paddingLeft="@dimen/padTextLR"
             android:paddingRight="@dimen/padTextLR"
             android:paddingTop="@dimen/padTextTB"
-            android:text="2000 g"
             android:gravity="center"
             android:layout_marginRight="@dimen/marginText"
+            style="@style/RegularTextStyle"
             android:textSize="@dimen/salesSizeText"
             android:textColor="@color/textColorBox" />
 
@@ -151,6 +178,7 @@
             android:textSize="@dimen/titleTextSize"
             android:background="@drawable/border_button"
             android:text="+"
+            style="@style/RegularTextStyle"
             android:textColor="@android:color/white" />
 
     </LinearLayout>

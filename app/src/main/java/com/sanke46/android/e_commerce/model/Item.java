@@ -1,10 +1,9 @@
 package com.sanke46.android.e_commerce.model;
 
-/**
- * Created by ilafedoseev on 07.02.17.
- */
+import java.io.Serializable;
+import java.text.DecimalFormat;
 
-public class Item {
+public class Item implements Serializable {
 
     private int id;
     private int imageId;
@@ -262,5 +261,17 @@ public class Item {
         return "Item{" +
                 "price=" + price +
                 '}';
+    }
+
+    public String converGramms(String gramms) {
+        double converGrammsToInt = Double.parseDouble(gramms);
+
+        if (converGrammsToInt > 1000) {
+            converGrammsToInt /= 1000;
+            DecimalFormat df2 = new DecimalFormat("##.#");
+            return String.valueOf(df2.format(converGrammsToInt) + " kg.");
+        } else {
+            return gramms + " g.";
+        }
     }
 }

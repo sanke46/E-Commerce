@@ -16,16 +16,14 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.sanke46.android.e_commerce.adapter.ViewPagerAdapter;
-import com.sanke46.android.e_commerce.database.DataBaseHandler;
-import com.sanke46.android.e_commerce.model.Item;
+import com.sanke46.android.e_commerce.adapter.MainViewPageAdapter;
 import com.sanke46.android.e_commerce.ui.navigation.AboutDelevery;
 import com.sanke46.android.e_commerce.ui.navigation.BasketActivity;
+import com.sanke46.android.e_commerce.ui.navigation.ChatActivity;
 import com.sanke46.android.e_commerce.ui.navigation.LoginActivity;
 import com.sanke46.android.e_commerce.ui.navigation.ProfileActivity;
 import com.sanke46.android.e_commerce.ui.navigation.SalesActivity;
-
-import java.util.List;
+import com.sanke46.android.e_commerce.ui.navigation.SettingActivity;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -43,36 +41,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         viewPager = (ViewPager)findViewById(R.id.view_pager);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
-
+        
         setSupportActionBar(toolbar);
-
-        DataBaseHandler db = new DataBaseHandler(this);
-
-//        // Inserting Contacts
-
-        db.addItem("Su",new Item(R.drawable.sushi,"Sushi1","rice, cucumber, fish, soy",11,"Button1","+"));
-        db.addItem("Su",new Item(R.drawable.sushi2,"Sushi2","rice, cucumber, fish, soy",12,"Button1","+"));
-        db.addItem("Su",new Item(R.drawable.sushi3,"Sushi3","rice, cucumber, fish, soy",13,"Button1","+"));
-        db.addItem("Pi", new Item(R.drawable.pizza,"Pizza1","tomatoes, onions, olives, cheese, chicken",19,"Button1","+"));
-        db.addItem("Pi", new Item(R.drawable.pizza2,"Pizza2","tomatoes, onions, olives, cheese, chicken",20,"Button1","+"));
-        db.addItem("Pi", new Item(R.drawable.pizza3,"Pizza3","tomatoes, onions, olives, cheese, chicken",21,"Button1","+"));
-        db.addItem("Dr", new Item(R.drawable.drinks,"Coca-cola","tomatoes, onions, olives, cheese, chicken",22,"Button1","+"));
-        db.addItem("Dr", new Item(R.drawable.drinks2,"Pepsi","Pepsi is a carbonated soft drink produced and manufactured by PepsiCo",23,"Button1","+"));
-        db.addItem("Dr", new Item(R.drawable.drinks3,"Sprite","tomatoes, onions, olives, cheese, chicken",24,"Button1","+"));
-        List<Item> list = db.getAllItem("Su");
-        List<Item> list2 = db.getAllItem("Pi");
-        List<Item> list3 = db.getAllItem("Dr");
-
-//        for (int i = 0; i < 3; i++) {
-//            System.out.println(list.get(i));
-//            System.out.println(list2.get(i));
-//            System.out.println(list3.get(i));
-//        }
-
-//        db.deleteAll("Su");
-//        db.deleteAll("Pi");
-//        db.deleteAll("Dr");
-//        System.out.println("DONE");
 
         // Test of login user or not
         mAuth = FirebaseAuth.getInstance();
@@ -84,27 +54,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Log.v("MainActivity", "User already login ");
         }
 
-//        mAuthListener = new FirebaseAuth.AuthStateListener() {
-//            @Override
-//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-//                FirebaseUser user = firebaseAuth.getCurrentUser();
-//                if (user != null) {
-//                    // User is signed in
-//                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-//                } else {
-//                    // User is signed out
-//                    Log.d(TAG, "onAuthStateChanged:signed_out");
-//                }
-//            }
-//        };
-
         //create default navigation drawer toggle
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        //setting Tab layout (number of Tabs = number of ViewPager pages)
+        //Tab layout (number of Tabs = number of ViewPager pages)
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         for (int i = 0; i < 3; i++) {
             tabLayout.addTab(tabLayout.newTab().setText(pageTitle[i]));
@@ -114,16 +70,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         //handling navigation view item event
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-//        assert navigationView != null;
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
         View hView =  navigationView.getHeaderView(0);
-//        TextView nav_user = (TextView)hView.findViewById(R.id.nav_name);
-//        nav_user.setText(user);
 
         //set viewpager adapter
-        ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        MainViewPageAdapter pagerAdapter = new MainViewPageAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
 
         //change Tab selection when swipe ViewPager
@@ -171,6 +123,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             finish();
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
+        } else if (id == R.id.setting) {
+            startActivity(new Intent(this, SettingActivity.class));
+        } else if (id == R.id.chat) {
+            startActivity(new Intent(this, ChatActivity.class));
         }
 
         drawer.closeDrawer(GravityCompat.START);

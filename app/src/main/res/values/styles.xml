@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -9,12 +9,53 @@
         <item name="android:textColorPrimary">@android:color/white</item>
         <item name="android:textColorSecondary">@color/BlackGrey</item>
         <item name="actionMenuTextColor">@color/BlackGrey</item>
-
+        <item name="android:alertDialogTheme">@style/AlertDialogCustom</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="ToolbarColoredBackArrow" parent="AppTheme">
+        <item name="android:textColorSecondary">#FFF</item>
+    </style>
+
+    <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/colorBlue</item>
+    </style>
+
+    <style name="AlertDialogCustom.Destructive">
+        <item name="android:buttonBarPositiveButtonStyle" tools:targetApi="lollipop">@style/DestructiveButton</item>
+    </style>
+
+    <style name="DestructiveButton"
+        parent="android:Widget.DeviceDefault.Button.Borderless">
+        <item name="android:textColor">@color/colorBlue</item>
+    </style>
+
+    <style name="BoldTextStyle">
+        <item name="android:fontFamily">@font/manrope_bold</item>
+    </style>
+
+    <style name="SemiBoldTextStyle">
+        <item name="android:fontFamily">@font/manrope_semibold</item>
+    </style>
+
+    <style name="MediumTextStyle">
+        <item name="android:fontFamily">@font/manrope_medium</item>
+    </style>
+
+    <style name="RegularTextStyle">
+        <item name="android:fontFamily">@font/manrope_regular</item>
+    </style>
+
+    <style name="LightTextStyle">
+        <item name="android:fontFamily">@font/manrope_light</item>
+    </style>
+
+    <style name="ThinTextStyle">
+        <item name="android:fontFamily">@font/manrope_thin</item>
+    </style>
 
 
 

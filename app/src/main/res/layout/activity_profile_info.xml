@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/allProfileActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#eee"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/marginLiner"
+                android:background="@color/bgLiner"
+                android:orientation="horizontal"
+                android:padding="@dimen/paddingLiner"
+                android:weightSum="1">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/iconMLeft"
+                    android:layout_marginRight="@dimen/iconMRight"
+                    android:src="@drawable/ic_person_black_24dp"
+                    android:tint="@color/iconColor" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/name"
+                        style="@style/RegularTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:focusableInTouchMode="true"
+                        android:hint="@string/name"
+                        android:imeOptions="actionDone"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/editTextColor"
+                        android:textSize="@dimen/editTextSize" />
+
+                    <TextView
+                        style="@style/MediumTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/paddindUnderEditText"
+                        android:text="@string/your_name"
+                        android:textColor="@color/colorUnderEditText"
+                        android:textSize="@dimen/underEditViewTextSize" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/marginLiner"
+                android:layout_marginTop="@dimen/marginLiner"
+                android:background="@color/bgLiner"
+                android:orientation="horizontal"
+                android:padding="@dimen/paddingLiner"
+                android:weightSum="1">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/iconMLeft"
+                    android:layout_marginRight="@dimen/iconMRight"
+                    android:src="@drawable/ic_smartphone_black_24dp"
+                    android:tint="@color/iconColor" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/editNumber"
+                        style="@style/RegularTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:focusableInTouchMode="true"
+                        android:hint="@string/phone_accaunt"
+                        android:imeOptions="actionDone"
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/editTextColor"
+                        android:textSize="@dimen/editTextSize" />
+
+                    <TextView
+                        style="@style/MediumTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/paddindUnderEditText"
+                        android:text="@string/title_phone_accaunt"
+                        android:textColor="@color/colorUnderEditText"
+                        android:textSize="@dimen/underEditViewTextSize" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></RelativeLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/marginLiner"
+                android:layout_marginTop="@dimen/marginLiner"
+                android:background="@color/bgLiner"
+                android:orientation="horizontal"
+                android:padding="@dimen/paddingLiner"
+                android:weightSum="1">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/iconMLeft"
+                    android:layout_marginRight="@dimen/iconMRight"
+                    android:src="@drawable/ic_email_black_24dp"
+                    android:tint="@color/iconColor" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/editMail"
+                        style="@style/RegularTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:focusableInTouchMode="true"
+                        android:hint="@string/email_accaunt"
+                        android:imeOptions="actionDone"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/editTextColor"
+                        android:textSize="@dimen/editTextSize" />
+
+                    <TextView
+                        style="@style/MediumTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/paddindUnderEditText"
+                        android:text="@string/title_mail_accaunt"
+                        android:textColor="@color/colorUnderEditText"
+                        android:textSize="@dimen/underEditViewTextSize" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="1dp"
+                android:background="#fff"
+                android:orientation="horizontal"
+                android:padding="@dimen/paddingLiner"
+                android:weightSum="1">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginRight="14dp"
+                    android:src="@drawable/ic_lock_outline_black_24dp"
+                    android:tint="#d7d7d7" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/editPassword"
+                        style="@style/RegularTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="Password"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:paddingLeft="15dp"
+                        android:textColor="#333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        style="@style/RegularTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="15dp"
+                        android:paddingTop="3dp"
+                        android:text="@string/title_password_accaunt"
+                        android:textColor="@color/colorUnderEditText"
+                        android:textSize="@dimen/underEditViewTextSize" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/seePassButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="44dp"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_remove_red_eye_black_24dp"
+                        android:tint="#8ea8e7" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/marginLiner"
+                android:layout_marginTop="@dimen/marginLiner"
+                android:background="@color/bgLiner"
+                android:orientation="vertical"
+                android:padding="@dimen/paddingLiner"
+                android:weightSum="1">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/iconMLeft"
+                        android:layout_marginRight="@dimen/iconMRight"
+                        android:src="@drawable/ic_place_black_24dp"
+                        android:tint="@color/iconColor" />
+
+                    <EditText
+                        android:id="@+id/city_profile"
+                        style="@style/RegularTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/grayLight"
+                        android:focusableInTouchMode="true"
+                        android:hint="@string/city"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/editTextColor"
+                        android:textSize="@dimen/editTextSize" />
+
+                    <EditText
+                        android:id="@+id/street_profile"
+                        style="@style/RegularTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/grayLight"
+                        android:focusableInTouchMode="true"
+                        android:hint="@string/street"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/editTextColor"
+                        android:textSize="@dimen/editTextSize" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:orientation="horizontal">
+
+
+                    <EditText
+                        android:id="@+id/house_profile"
+                        style="@style/RegularTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/grayLight"
+                        android:focusableInTouchMode="true"
+                        android:hint="@string/house_number"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/editTextColor"
+                        android:textSize="@dimen/editTextSize" />
+
+                    <EditText
+                        android:id="@+id/flat_profile"
+                        style="@style/RegularTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/grayLight"
+                        android:focusableInTouchMode="true"
+                        android:hint="@string/flat_number"
+                        android:imeOptions="actionDone"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/editTextColor"
+                        android:textSize="@dimen/editTextSize" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:id="@+id/saveButton"
+                style="@style/MediumTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorBlue"
+                android:gravity="center"
+                android:text="@string/save"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/progressBarProfile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|center_horizontal">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

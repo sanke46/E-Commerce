@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/grayLight"
     android:fitsSystemWindows="true"
     tools:context="com.sanke46.android.e_commerce.ui.navigation.SalesActivity">
 
@@ -21,5 +22,42 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--<ProgressBar-->
+            <!--android:id="@+id/salesProgressBar"-->
+            <!--android:layout_width="40dp"-->
+            <!--android:layout_height="40dp"/>-->
+
+        <LinearLayout
+            android:id="@+id/salesLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/sales_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="55dp" />
+
+        </LinearLayout>
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:itemTextColor="@color/BlackGrey"
+            app:menu="@menu/drawer_menu" >
+
+        </android.support.design.widget.NavigationView>
+
+
+    </android.support.v4.widget.DrawerLayout>
 
 </android.support.design.widget.CoordinatorLayout>

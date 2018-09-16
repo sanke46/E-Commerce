@@ -44,18 +44,20 @@
 
     <!-- Order activity -->
     <string name="your_name">Your name</string>
-    <string name="information_about_devilery">Information about devilery</string>
+    <string name="information_about_devilery">Information</string>
     <string name="city">City</string>
     <string name="street">Street</string>
     <string name="house_number">House number</string>
     <string name="flat_number">Flat number</string>
     <string name="your_phone_number">Your phone Number</string>
     <string name="next_step">Next step</string>
+    <string name="name">Name</string>
 
     <!-- About Delivery -->
     <string name="pizza">Pizza ресторан</string>
     <string name="time_work">10:00 - 22:00 пн-вс</string>
     <string name="call">Call</string>
+    <string name="chat">Chat</string>
     <string name="website">Website</string>
     <string name="map">Map</string>
     <string name="Place">112 Plaza Dr, West Covina, CA 91790</string>
@@ -71,15 +73,42 @@
 
     <!-- Accaunt info -->
     <string name="sing_in">Sing in</string>
-    <string name="forgot_password">forgot password</string>
-    <string name="need_an_accaunt">need an accaunt?</string>
-    <string name="Phone_accaunt">+7-(000)-00-000-00</string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="need_an_accaunt">Need an accaunt?</string>
+    <string name="phone_accaunt">+7-(000)-00-000-00</string>
     <string name="email_accaunt">Email@gmail.com</string>
     <string name="title_phone_accaunt">Your phone</string>
     <string name="title_mail_accaunt">Your mail</string>
     <string name="password_accaunt">**************</string>
     <string name="title_password_accaunt">Your password</string>
-
+    <string name="save">Save</string>
     <!-- Profile info -->
+
+    <!-- Order -->
+    <string name="payment_method">Visa / MasterCard</string>
+    <string name="cash_method">Cash</string>
+    <string name="title_of_pay">Payment :</string>
+    <string name="under_title_of_order">about devilery</string>
+    <string name="title_activity_detail">DetailActivity</string>
+
+
+    <!-- Forgot password -->
+    <string name="send_password_to_email">send password to email</string>
+
+    <!-- Detail -->
+    <string name="more_information">More information</string>
+
+    <!-- Animation -->
+    <string name="add_to_cart">add to cart</string>
+    <string name="discount">Discount</string>
+    <string name="all_products">All products</string>
+
+    <!-- Sing up -->
+    <string name="sing_up">Sing up</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="instruction">by tapping \'Sing up\' you agree to the conditions</string>
+    <string name="submit">submit</string>
+
 
 </resources>
