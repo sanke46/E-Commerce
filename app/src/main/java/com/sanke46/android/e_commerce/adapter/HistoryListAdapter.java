@@ -47,7 +47,7 @@ public class HistoryListAdapter extends ArrayAdapter<Order> {
         TextView price = convertView.findViewById(R.id.price_history);
         ListView listView = convertView.findViewById(R.id.all_item);
 
-
+        try {
         ArrayList<Item> arrayOfItem = (ArrayList<Item>) order.getListOfBuyProducts();
         HistoryListItemsAdapter historyListItemsAdapter = new HistoryListItemsAdapter(getContext(), arrayOfItem);
         name.setText("#" + (position + 1));
@@ -56,8 +56,12 @@ public class HistoryListAdapter extends ArrayAdapter<Order> {
         ViewGroup.LayoutParams params = listView.getLayoutParams();
         params.height = arrayOfItem.size() * 115;
         listView.setLayoutParams(params);
-        listView.setAdapter(historyListItemsAdapter);
+            listView.setAdapter(historyListItemsAdapter);
+
         price.setText(order.getTotalPrice() + " $");
+        } catch (NullPointerException e) {
+            System.out.println(e.toString());
+        }
 
         return convertView;
     }
