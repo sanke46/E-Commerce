@@ -12,16 +12,16 @@ import java.util.Map;
 
 public class BasketActivityViewModel {
 
-    public static List<Item> basketItem = new ArrayList<Item>();
+    public static ArrayList<Item> basketItem = new ArrayList<Item>();
     public static List<ItemBasket> basketItemBasket = new ArrayList<ItemBasket>();
     public static HashMap<Item, Integer> mapBasketItem = new HashMap();
     public int sum;
 
-    public List<Item> getBasketItem() {
+    public ArrayList<Item> getBasketItem() {
         return basketItem;
     }
 
-    public void setBasketItem(List<Item> basketItem) {
+    public void setBasketItem(ArrayList<Item> basketItem) {
         this.basketItem = basketItem;
     }
 
@@ -47,6 +47,7 @@ public class BasketActivityViewModel {
 
     public void sortListToMap() {
         mapBasketItem = new HashMap<>();
+        System.out.println("NAME3: " + basketItem);
         for (Item item : basketItem) {
             int count = 0;
             for (Item item2 : basketItem) {
@@ -61,6 +62,7 @@ public class BasketActivityViewModel {
     public void sortMapToList() {
         basketItemBasket = new ArrayList<>();
         for (Map.Entry<Item, Integer> entry : mapBasketItem.entrySet()) {
+            entry.getKey().getId();
             basketItemBasket.add(new ItemBasket(entry.getValue(), entry.getKey()));
             System.out.println(basketItemBasket.size() + ": basket items");
         }

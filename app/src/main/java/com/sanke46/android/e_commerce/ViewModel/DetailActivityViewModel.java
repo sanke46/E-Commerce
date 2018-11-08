@@ -12,7 +12,7 @@ import java.util.List;
 public class DetailActivityViewModel implements Serializable{
 
     private BasketActivityViewModel basketViewModel = new BasketActivityViewModel();
-    private List<Item> itemList = basketViewModel.getBasketItem();
+    private ArrayList<Item> itemList = basketViewModel.getBasketItem();
     private Integer countProductToBasket;
     public Item item;
 

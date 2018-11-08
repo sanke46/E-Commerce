@@ -32,8 +32,8 @@
             android:gravity="center_vertical|center_horizontal"
             android:orientation="vertical">
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
                 android:layout_marginBottom="20dp"
                 android:src="@drawable/ic_shopping_list"/>
             <TextView
@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 style="@style/SemiBoldTextStyle"
                 android:gravity="center"
-                android:textSize="27sp"
+                android:textSize="25sp"
                 android:textColor="@color/gray"
                 android:text="Your basket is empty"/>
         </LinearLayout>

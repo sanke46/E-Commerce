@@ -13,6 +13,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 import com.sanke46.android.e_commerce.Utility.Helper;
 import com.sanke46.android.e_commerce.ViewModel.ChatViewModel;
@@ -23,10 +24,13 @@ import com.sanke46.android.e_commerce.adapter.SalesRecyclerViewAdapter;
 import com.sanke46.android.e_commerce.model.Chat;
 import com.sanke46.android.e_commerce.model.Item;
 import com.sanke46.android.e_commerce.model.Order;
+import com.sanke46.android.e_commerce.model.OrderSecond;
 import com.sanke46.android.e_commerce.ui.navigation.ChatActivity;
 import com.sanke46.android.e_commerce.ui.navigation.OrderActivity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class FirebaseHandler {
 
@@ -104,16 +108,24 @@ public class FirebaseHandler {
     }
 
     /** Profile History Activity **/
-
-    public ArrayList<Order> getHistoryOrder(final ArrayList<Order> arrayHistory, final HistoryListAdapter adapter){
+    public void getHistoryOrder(final ArrayList<Order> arrayHistory, final HistoryListAdapter adapter){
         arrayHistory.clear();
         dbRef.child("users").child(userId).child("history").addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (final DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    GenericTypeIndicator<ArrayList<Item>> t = new GenericTypeIndicator<ArrayList<Item>>() {};
                     Order order = snapshot.getValue(Order.class);
+                    order.setListOfBuyProducts(snapshot.child("items").getValue(t));
                     arrayHistory.add(order);
+
+                    System.out.println("ORDER: " + arrayHistory.get(0).getPhone());
+                    System.out.println("ORDER: " + arrayHistory.get(0).getAdress());
+                    System.out.println("ORDER: " + arrayHistory.get(0).getPayment());
+                    System.out.println("ORDER: " + arrayHistory.get(0).getTime());
+                    System.out.println("ORDER: " + arrayHistory.get(0).getTotalPrice());
+                    System.out.println("ORDER: " + arrayHistory.get(0).getListOfBuyProducts());
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -124,7 +136,38 @@ public class FirebaseHandler {
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
-        return arrayHistory;
+    }
+
+    public ArrayList<Item> getHistoryOrderListItem(final ArrayList<Item> array) {
+        dbRef.child("users").child(userId).child("history").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (final DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    dbRef.child("users").child(userId).child("history").child(snapshot.getKey().toString()).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot2) {
+                            for (final DataSnapshot snapshot2 : dataSnapshot2.getChildren()) {
+                                Item item = snapshot2.getValue(Item.class);
+                                array.add(item);
+                                System.out.println(item);
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+                }
+//                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        return array;
     }
 
     /** Chat Activity **/

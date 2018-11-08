@@ -2,8 +2,9 @@ package com.sanke46.android.e_commerce.model;
 
 import java.io.Serializable;
 import java.text.DecimalFormat;
+import java.util.HashMap;
 
-public class Item implements Serializable {
+public class Item extends HashMap<String, Object> implements Serializable {
 
     private int id;
     private int imageId;

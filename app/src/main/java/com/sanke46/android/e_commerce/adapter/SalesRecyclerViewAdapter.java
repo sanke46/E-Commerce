@@ -64,8 +64,8 @@ public class SalesRecyclerViewAdapter extends RecyclerView.Adapter<SalesRecycler
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View view) {
-                itemList.add((Item) arr.get(position));
-                basketViewModel.setBasketItem(itemList);
+//                itemList.add((Item) arr.get(position));
+                basketViewModel.basketItem.add((Item) arr.get(position));
                 holder.tt.setVisibility(View.VISIBLE);
                 StartSmartAnimation.startAnimation(holder.imageView, AnimationType.FadeOut, 600, 200, false);
                 StartSmartAnimation.startAnimation(holder.name, AnimationType.FadeOut, 600, 200, false);

@@ -36,7 +36,7 @@ public class OrderActivityViewModel {
     private String userId;
 
     public BasketActivityViewModel basketViewModel = new BasketActivityViewModel();
-    public List<Item> itemList = basketViewModel.getBasketItem();
+    public ArrayList<Item> itemList = basketViewModel.getBasketItem();
     public Order order = new Order();
 
     public OrderActivityViewModel(OrderActivity orderActivity) {

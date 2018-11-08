@@ -71,7 +71,7 @@ public class SalesActivity extends AppCompatActivity implements NavigationView.O
 
         // All products [RecycleView + Adapter + LayoutManager + FB]
         mRecyclerView = findViewById(R.id.sales_list);
-        mLayoutManager = new GridLayoutManager(this,1);
+        mLayoutManager = new GridLayoutManager(this,2);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerViewAdapter = new RecyclerViewAdapter(saleViewModel.allSalesItems, this);
         mSalesRecycleViewAdapter = new SalesRecyclerViewAdapter(this, saleViewModel.allSalesItems,  R.layout.item_sales_activity);

@@ -63,8 +63,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 StartSmartAnimation.startAnimation(holder.image, AnimationType.FadeIn, 600, 700, false);
                 StartSmartAnimation.startAnimation(holder.name, AnimationType.FadeIn, 600, 700, false);
                 StartSmartAnimation.startAnimation(holder.comment, AnimationType.FadeIn, 600, 700, false);
-                itemList.add((Item) arr.get(position));
-                basketViewModel.setBasketItem(itemList);
+//                itemList.add((Item) arr.get(position));
+                basketViewModel.basketItem.add((Item) arr.get(position));
                 Snackbar.make(view, "Add to cart", Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
             }

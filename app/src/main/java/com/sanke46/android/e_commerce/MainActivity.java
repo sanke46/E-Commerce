@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.sanke46.android.e_commerce.adapter.MainViewPageAdapter;
 import com.sanke46.android.e_commerce.ui.navigation.AboutDelevery;
 import com.sanke46.android.e_commerce.ui.navigation.BasketActivity;
@@ -38,6 +39,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        System.out.println("NOTIF: " + FirebaseInstanceId.getInstance().getToken());
+
         viewPager = (ViewPager)findViewById(R.id.view_pager);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawer = (DrawerLayout) findViewById(R.id.drawerLayout);

@@ -121,11 +121,13 @@ public class OrderActivity extends AppCompatActivity {
         });
 
         orderViewModel.InformationAboutUser();
+        changeEditTextcolorBack(editCity);
+        changeEditTextcolorBack(editFlat);
+        changeEditTextcolorBack(editHouseNumber);
+        changeEditTextcolorBack(editStreet);
     }
 
     public void autoChangeEditTextAboutUser(UserProfile userProfile) {
-
-
         editName.setText(userProfile.getName());
         editPhoneNumber.setText(userProfile.getPhone());
         editCity.setText(userProfile.getCity());
@@ -135,6 +137,15 @@ public class OrderActivity extends AppCompatActivity {
         helper.doneLoadingActivity(userIcon, userProgressBar);
         helper.doneLoadingActivity(placeIcon, placeProgressBar);
         helper.doneLoadingActivity(phoneIcon, phoneProgressBar);
+    }
+
+    public void changeEditTextcolorBack(EditText editText) {
+        editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                    editText.setHintTextColor(Color.GRAY);
+            }
+        });
     }
 
 }

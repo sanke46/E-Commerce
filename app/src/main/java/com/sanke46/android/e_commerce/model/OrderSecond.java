@@ -1,18 +1,16 @@
 package com.sanke46.android.e_commerce.model;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-public class Order {
+public class OrderSecond {
     private String payment;
     private String time;
     private String adress;
     private String phone;
-    private ArrayList<Item> listOfBuyProducts;
+    private HashMap<Integer, Item> listOfBuyProducts;
     private String totalPrice;
 
-    public Order(String payment, String time, String adress, String phone, ArrayList<Item> listOfBuyProducts, String totalPrice) {
+    public OrderSecond(String payment, String time, String adress, String phone, HashMap<Integer, Item> listOfBuyProducts, String totalPrice) {
         this.payment = payment;
         this.time = time;
         this.adress = adress;
@@ -21,7 +19,7 @@ public class Order {
         this.totalPrice = totalPrice;
     }
 
-    public Order() {}
+    public OrderSecond() {}
 
     public String getPayment() {
         return payment;
@@ -39,11 +37,11 @@ public class Order {
         this.time = time;
     }
 
-    public ArrayList<Item> getListOfBuyProducts() {
+    public HashMap<Integer, Item> getListOfBuyProducts() {
         return listOfBuyProducts;
     }
 
-    public void setListOfBuyProducts(ArrayList<Item> listOfBuyProducts) {
+    public void setListOfBuyProducts(HashMap<Integer, Item> listOfBuyProducts) {
         this.listOfBuyProducts = listOfBuyProducts;
     }
 

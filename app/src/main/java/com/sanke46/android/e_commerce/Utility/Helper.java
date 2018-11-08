@@ -5,6 +5,8 @@ import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import java.util.ArrayList;
+
 public class Helper {
     private Context context;
 
@@ -20,5 +22,13 @@ public class Helper {
     public void doneLoadingActivity(View toShow, View toHide) {
         toShow.setVisibility(View.VISIBLE);
         toHide.setVisibility(View.GONE);
+    }
+
+    public void isEmpty(Integer listOfItem, View visible, View hide) {
+        if(listOfItem != 0) {
+            doneLoadingActivity(visible, hide);
+        } else {
+            doneLoadingActivity(hide, visible);
+        }
     }
 }

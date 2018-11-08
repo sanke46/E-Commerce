@@ -12,12 +12,15 @@ import com.sanke46.android.e_commerce.R;
 import com.sanke46.android.e_commerce.ViewModel.ProfileHistoryModelView;
 import com.sanke46.android.e_commerce.adapter.ChatListAdapter;
 import com.sanke46.android.e_commerce.adapter.HistoryListAdapter;
+import com.sanke46.android.e_commerce.adapter.HistoryListItemsAdapter;
+import com.sanke46.android.e_commerce.fireBase.FirebaseHandler;
 
 public class ProfileHistoryActivity extends Fragment {
 
     private ProfileHistoryModelView profileHistoryModelView;
     private ListView historyListView;
     private HistoryListAdapter historyListAdapter;
+
 
     @Nullable
     @Override
@@ -30,6 +33,7 @@ public class ProfileHistoryActivity extends Fragment {
         profileHistoryModelView = new ProfileHistoryModelView();
 
         historyListView = view.findViewById(R.id.history_listview);
+
         historyListAdapter = new HistoryListAdapter(getContext(), profileHistoryModelView.historyList);
         historyListView.setAdapter(historyListAdapter);
         profileHistoryModelView.getAllUserHistory(historyListAdapter);

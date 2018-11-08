@@ -70,17 +70,6 @@ public class BasketActivity extends AppCompatActivity {
 
         basketAdapter = new ListAdapterBasket(this, basketViewModel.basketItemBasket);
         listView.setAdapter(basketAdapter);
-        isBasketEmpty();
+        helper.isEmpty(basketViewModel.getBasketItem().size(), listView, emptyLayout);
     }
-
-    public void isBasketEmpty() {
-        if(basketViewModel.getBasketItem().size() != 0) {
-            helper.doneLoadingActivity(listView, emptyLayout);
-        } else {
-            helper.doneLoadingActivity(emptyLayout, listView);
-        }
-    }
-
-
-
 }
