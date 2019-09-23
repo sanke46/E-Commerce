@@ -8,4 +8,13 @@
     <color name="coloBlackRed">#ea4034</color>
     <color name="BlackGrey">#333</color>
     <color name="gray">#ddd</color>
+    <color name="grayLight">#eee</color>
+    <color name="bgLiner">#fff</color>
+    <color name="bgWhite">#fff</color>
+    <color name="iconColor">#d7d7d7</color>
+    <color name="editTextColor">#333</color>
+    <color name="colorUnderEditText">#bebdbd</color>
+    <color name="iconColorFragOne">#8b8a8a</color>
+    <color name="bgBoxInfo">#ececec</color>
+    <color name="textColorBox">#9e9d9d</color>
 </resources>

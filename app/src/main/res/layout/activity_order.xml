@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.sanke46.android.e_commerce.ui.navigation.ProfileActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="55dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/information_about_devilery"
+            android:background="@color/colorRed"
+            android:textColor="#fff"
+            android:textSize="18dp"
+            android:paddingTop="15dp"
+            android:paddingLeft="15dp"
+            android:paddingBottom="15dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/orderInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_marginTop="105dp">
+
+        <EditText
+            android:id="@+id/editDN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#333"
+            android:hint="@string/your_name"
+            android:inputType="textCapSentences|textAutoCorrect"/>
+
+        <EditText
+            android:id="@+id/editDC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#333"
+            android:hint="@string/city"
+            android:inputType="textCapSentences|textAutoCorrect"
+             />
+
+        <EditText
+            android:id="@+id/editDS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#333"
+            android:hint="@string/street"
+            android:inputType="textCapSentences|textAutoCorrect"
+             />
+
+        <EditText
+            android:id="@+id/editDH"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#333"
+            android:hint="@string/house_number"
+            android:inputType="textCapSentences|textAutoCorrect"
+             />
+
+        <EditText
+            android:id="@+id/editDF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#333"
+            android:hint="@string/flat_number"
+            android:inputType="textCapSentences|textAutoCorrect"
+             />
+
+        <EditText
+            android:id="@+id/editDP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#333"
+            android:hint="@string/your_phone_number"
+            android:inputType="textCapSentences|textAutoCorrect"
+             />
+
+        <Button
+            android:id="@+id/buttonNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/next_step"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:background="@color/coloBlackRed"/>
+
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

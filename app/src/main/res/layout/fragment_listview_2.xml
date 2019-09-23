@@ -1,14 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+
+<android.support.v4.widget.NestedScrollView
+    android:id="@+id/n"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:scrollbars="vertical"
     android:layout_height="match_parent">
 
+<LinearLayout
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee">
 
-    <ListView
-        android:id="@+id/list_2"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginTitle"
+        android:layout_marginTop="@dimen/marginTitle">
 
-    </ListView>
+        <ImageView
+            android:layout_width="@dimen/sizeIcon"
+            android:layout_height="@dimen/sizeIcon"
+            android:tint="@color/iconColorFragOne"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="@dimen/marginIconRight"
+            android:src="@drawable/ic_percentage"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/titlesSize"
+            android:text="Discount" />
+
+    </LinearLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_sale_2"
+        android:layout_marginTop="@dimen/marginTitle"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginTitle"
+        android:layout_marginTop="@dimen/marginTitle">
+
+        <ImageView
+            android:layout_width="@dimen/sizeIcon"
+            android:layout_height="@dimen/sizeIcon"
+            android:tint="@color/iconColorFragOne"
+            android:layout_marginTop="22dp"
+            android:layout_marginRight="@dimen/marginIconRight"
+            android:src="@drawable/ic_restaurant_menu_black_24dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/titlesSize"
+            android:text="All products"
+            android:layout_marginTop="@dimen/seconTitleMarginTop"
+            android:layout_marginLeft="0dp"/>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_2"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

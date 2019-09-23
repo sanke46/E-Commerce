@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.sanke46.android.e_commerce.BasketActivity">
+    android:background="#eee"
+    tools:context="com.sanke46.android.e_commerce.ui.navigation.BasketActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -25,32 +26,39 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <LinearLayout
+        <ListView
+            android:layout_marginTop="55dp"
+            android:id="@+id/basketView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true">
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:dividerHeight="0dp"/>
 
-            <ImageView
-                android:id="@+id/basket_empty_icon"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:src="@drawable/ic_shopping_basket_black_24px"
-                android:layout_centerVertical="true"
-                android:tint="@color/gray"
-                android:layout_marginBottom="10dp"/>
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_centerVertical="true">-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Basket is empty"
-                android:gravity="center"
-                android:textSize="18dp"
-                android:textColor="#ddd"/>
+            <!--<ImageView-->
+                <!--android:id="@+id/basket_empty_icon"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="48dp"-->
+                <!--android:src="@drawable/ic_shopping_basket_black_24px"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:tint="@color/gray"-->
+                <!--android:layout_marginBottom="10dp"/>-->
 
-        </LinearLayout>
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:text="Basket is empty"-->
+                <!--android:gravity="center"-->
+                <!--android:textSize="18dp"-->
+                <!--android:textColor="#ddd"/>-->
+
+        <!--</LinearLayout>-->
 
 
         <LinearLayout
@@ -59,11 +67,12 @@
             android:layout_alignParentBottom="true">
 
             <Button
+                android:id="@+id/priceButton"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/colorBlue"
-                android:text="ORDER : 0 $"
+                android:text="@string/basket_order_price"
                 android:textColor="@android:color/white"
                 />
 

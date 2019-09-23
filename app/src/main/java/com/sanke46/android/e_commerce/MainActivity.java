@@ -1,18 +1,31 @@
 package com.sanke46.android.e_commerce;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.sanke46.android.e_commerce.adapter.ViewPagerAdapter;
+import com.sanke46.android.e_commerce.database.DataBaseHandler;
+import com.sanke46.android.e_commerce.model.Item;
+import com.sanke46.android.e_commerce.ui.navigation.AboutDelevery;
+import com.sanke46.android.e_commerce.ui.navigation.BasketActivity;
+import com.sanke46.android.e_commerce.ui.navigation.LoginActivity;
+import com.sanke46.android.e_commerce.ui.navigation.ProfileActivity;
+import com.sanke46.android.e_commerce.ui.navigation.SalesActivity;
+
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -21,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawer;
     private TabLayout tabLayout;
     private String[] pageTitle = {"Pizza", "Sushi", "Drinks"};
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +46,57 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         setSupportActionBar(toolbar);
 
+        DataBaseHandler db = new DataBaseHandler(this);
+
+//        // Inserting Contacts
+
+        db.addItem("Su",new Item(R.drawable.sushi,"Sushi1","rice, cucumber, fish, soy",11,"Button1","+"));
+        db.addItem("Su",new Item(R.drawable.sushi2,"Sushi2","rice, cucumber, fish, soy",12,"Button1","+"));
+        db.addItem("Su",new Item(R.drawable.sushi3,"Sushi3","rice, cucumber, fish, soy",13,"Button1","+"));
+        db.addItem("Pi", new Item(R.drawable.pizza,"Pizza1","tomatoes, onions, olives, cheese, chicken",19,"Button1","+"));
+        db.addItem("Pi", new Item(R.drawable.pizza2,"Pizza2","tomatoes, onions, olives, cheese, chicken",20,"Button1","+"));
+        db.addItem("Pi", new Item(R.drawable.pizza3,"Pizza3","tomatoes, onions, olives, cheese, chicken",21,"Button1","+"));
+        db.addItem("Dr", new Item(R.drawable.drinks,"Coca-cola","tomatoes, onions, olives, cheese, chicken",22,"Button1","+"));
+        db.addItem("Dr", new Item(R.drawable.drinks2,"Pepsi","Pepsi is a carbonated soft drink produced and manufactured by PepsiCo",23,"Button1","+"));
+        db.addItem("Dr", new Item(R.drawable.drinks3,"Sprite","tomatoes, onions, olives, cheese, chicken",24,"Button1","+"));
+        List<Item> list = db.getAllItem("Su");
+        List<Item> list2 = db.getAllItem("Pi");
+        List<Item> list3 = db.getAllItem("Dr");
+
+//        for (int i = 0; i < 3; i++) {
+//            System.out.println(list.get(i));
+//            System.out.println(list2.get(i));
+//            System.out.println(list3.get(i));
+//        }
+
+//        db.deleteAll("Su");
+//        db.deleteAll("Pi");
+//        db.deleteAll("Dr");
+//        System.out.println("DONE");
+
+        // Test of login user or not
+        mAuth = FirebaseAuth.getInstance();
+        if (mAuth.getCurrentUser() == null) {
+            Log.v("MainActivity", "USER not already login");
+            finish();
+            startActivity(new Intent(this, LoginActivity.class));
+        } else {
+            Log.v("MainActivity", "User already login ");
+        }
+
+//        mAuthListener = new FirebaseAuth.AuthStateListener() {
+//            @Override
+//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+//                FirebaseUser user = firebaseAuth.getCurrentUser();
+//                if (user != null) {
+//                    // User is signed in
+//                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+//                } else {
+//                    // User is signed out
+//                    Log.d(TAG, "onAuthStateChanged:signed_out");
+//                }
+//            }
+//        };
 
         //create default navigation drawer toggle
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
@@ -102,7 +167,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent intent = new Intent(this, ProfileActivity.class);
             startActivity(intent);
         }else if (id == R.id.sing_out) {
+            FirebaseAuth.getInstance().signOut();
             finish();
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
         }
 
         drawer.closeDrawer(GravityCompat.START);
